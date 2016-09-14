@@ -1,0 +1,45 @@
+     1                                  ; print an apppropriate promt
+     2                                  ; ask user to enter a char
+     3                                  ; display that char on the next line
+     4                                      org 100h
+     5                                  
+     6                                  section .data
+     7 00000000 506C656173652C206B-     prompt  db      "Please, kindly enter a character: ",'$'
+     8 00000009 696E646C7920656E74-
+     9 00000012 657220612063686172-
+    10 0000001B 61637465723A2024   
+    11 00000023 0D0A24                  crlf    db      13,10,'$'                                   ;carriage return and line feed?
+    12                                  
+    13                                  ; code section
+    14                                  section .text
+    15                                  ; Print a prompt for user input
+    16                                      ; "function 9" prints to string
+    17                                          ;input ah=9
+    18                                          ;dx = address of string
+    19                                      ; function number should be in the ah register and dx is the address of the string
+    20 00000000 B409                        mov ah,9        ; display string function
+    21 00000002 BA[0000]                    mov dx,prompt   ; dx has the address of string
+    22 00000005 CD21                        int 21h         ; displays the prompt
+    23                                      ; "interrupt 21h, function 1" reads a character from the keyboard
+    24                                          ;input ah = 1
+    25                                          ;output al = char
+    26                                  ; get the character from the user
+    27 00000007 B401                        mov ah,1        ; read char fcn
+    28 00000009 CD21                        int 21h         ; reads it (invoking 21 hex reads the text.)
+    29                                  ; go to the next line
+    30 0000000B B409                        mov ah,9        ; display string function
+    31 0000000D BA[2300]                    mov dx,crlf     ; display carriage return
+    32                                  ;echo the char entered
+    33                                      ; "interrupt 21h, function 2" reads the character and displays it.
+    34                                          ;input ah = 2
+    35                                          ;dl = char to display
+    36 00000010 88C2                        mov dl,al       ; move char into dl
+    37 00000012 B402                        mov ah,2        ; displays char function
+    38 00000014 CD21                        int 21h         ; Display!
+    39                                  ; exit to DOS
+    40                                      ;"interrupt 21 function 4 c hex" returns to DOS
+    41                                          ;input: ah = 4c
+    42                                          ;al = exit code, (o = normal)
+    43 00000016 B44C                        mov ah, 4Ch     ; DOS exit function
+    44 00000018 B000                        mov al,0        ; normal termination
+    45 0000001A CD21                        int 21h         ; we're done here
