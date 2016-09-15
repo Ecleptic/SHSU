@@ -7,7 +7,7 @@ public class SearchInt
 {
   public static final String TO_STOP = "-1";
   public static final int NOT_FOUND = -1;
-  public static final int MAX_SIZE = 1000;
+  public static final int MAX_SIZE = 13000;
 
   public static int count1;
   public static int count2;
