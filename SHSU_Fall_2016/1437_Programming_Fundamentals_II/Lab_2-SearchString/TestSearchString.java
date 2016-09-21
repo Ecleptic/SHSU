@@ -3,8 +3,12 @@ import java.util.*;
 
 public class TestSearchString extends SearchString
 {
-
+  // Literally all you need to do is make main on SearchString public and extend SearchString
 }
+
+
+
+
 
 /*
 ArrayList<String> wordsToTest = new ArrayList<String>(

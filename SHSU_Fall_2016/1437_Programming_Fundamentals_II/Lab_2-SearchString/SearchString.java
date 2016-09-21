@@ -106,7 +106,7 @@ public static int iterativeBinarySearch(String wordSearch) {
                         return mid;
                 }
         }
-        System.out.println("iterativeBinarySearch()     "+'"'+wordSearch+'"'+" not found (comparison = "+count2+")");
+        System.out.println("iterativeBinarySearch()     "+'"'+wordSearch+'"'+" not found (comparison = "+(count2-1)+")");
         return -(first + 1);
 }
 
@@ -115,7 +115,7 @@ public static int recursiveBinarySearch(String wordSearch,int low, int high){
         count3++;
         int mid;
         if (high < low) {
-                System.out.println("recursiveBinarySearch()     "+'"'+wordSearch+'"'+ " not found (comparison = "+count2+")");
+                System.out.println("recursiveBinarySearch()     "+'"'+wordSearch+'"'+ " not found (comparison = "+(count2-1)+")");
                 return -1;
         }
         mid = (low + high) / 2;
