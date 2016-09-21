@@ -180,35 +180,6 @@ public static void main(String[] args) throws IOException, InterruptedException 
 
         }
 
-/*
-
-                        int int2Search = Integer.parseInt(word2Search);
-                        count1 = count2 = count3 = 0;
-                        int index;
-
-                        index = si.sequentialSearch(array, int2Search);
-                        if (index == NOT_FOUND)
-                                System.out.println("sequentialSearch()      : " + int2Search + " is not found (comparison=" + count1 + ").");
-                        else
-                                System.out.println("sequentialSearch()      : " + int2Search + " is found in [" + index + "] (comparison=" + count1 + ").");
-
-                        index = si.binarySearch(array, int2Search);
-                        if (index == NOT_FOUND)
-                                System.out.println("iterative binarySearch(): " + int2Search + " is not found (comparison=" + count2 + ").");
-                        else
-                                System.out.println("iterative binarySearch(): " + int2Search + " is found in [" + index + "] (comparison=" + count2 + ").");
-
-                        index = si.binarySearch(array, 0, array.length-1, int2Search);
-                        if (index == NOT_FOUND)
-                                System.out.println("recursive binarySearch(): " + int2Search + " is not found (comparison=" + count3 + ").");
-                        else
-                                System.out.println("recursive binarySearch(): " + int2Search + " is found in [" + index + "] (comparison=" + count3 + ").");
-                }
-        } while (wantToContinue);
- */
-
-
-        // System.out.println("pray for me");
 }    // end of main()
 
 }
