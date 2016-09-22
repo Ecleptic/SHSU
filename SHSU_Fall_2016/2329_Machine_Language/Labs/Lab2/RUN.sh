@@ -1,4 +1,6 @@
 #!/bin/bash
-if [[ "nasm simSum.asm -o simSum.com" ]]; then
-  open -a DOSBox;
+if command
+nasm simSum.asm -o simSum.com;
+then
+open -a DOSBox;
 fi

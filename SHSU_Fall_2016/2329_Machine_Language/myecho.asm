@@ -26,6 +26,7 @@ section .text
 ; go to the next line
     mov ah,9        ; display string function
     mov dx,crlf     ; display carriage return
+    int 21h
 ;echo the char entered
     ; "interrupt 21h, function 2" reads the character and displays it.
         ;input ah = 2
