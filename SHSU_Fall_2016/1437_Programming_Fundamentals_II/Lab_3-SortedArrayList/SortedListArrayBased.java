@@ -22,7 +22,7 @@ public void add(Object item) throws ListException
 // Inserts item into its proper position in a sorted list
 // Throws an exception if the item connot be placed on the list
 {
-								try
+			try
 								{
 																// TO BE IMPLEMENTED BY YOU
 								}
@@ -31,7 +31,7 @@ public void add(Object item) throws ListException
 																throw new ListException("Add to List failed:  " + e.toString());
 								}
 
-}
+							}
 
 public void remove(Object item) throws ListException
 // Removes the item from a sorted list.
