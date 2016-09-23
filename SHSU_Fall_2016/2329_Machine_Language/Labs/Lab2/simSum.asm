@@ -7,7 +7,7 @@ NUM1:       DB      0,"$"
 NUM1Ascii:  DB      0,"$"
 NUM2:       DB      0,"$"
 NUM2Ascii:  DB      0,"$"
-prompt1:    DB      "The Sum of ","$"
+prompt1:    DB      "The sum of ","$"
 prompt2:    DB      " and ","$"
 prompt3:    DB      " is ","$"
 

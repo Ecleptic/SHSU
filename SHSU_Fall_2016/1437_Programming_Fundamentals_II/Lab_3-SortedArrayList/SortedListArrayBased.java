@@ -1,3 +1,5 @@
+import  java.util.*;
+
 // ********************************************************
 // Array-based implementation of the ADT Sorted List.
 // *********************************************************
@@ -15,15 +17,19 @@ public class SortedListArrayBased extends ListArrayBased
 public SortedListArrayBased()
 // creates an empty list
 {
+
+							ListArrayBased.size();
 								// TO BE IMPLEMENTED BY YOU
-}   // end default constructor
+}          // end default constructor
 
 public void add(Object item) throws ListException
 // Inserts item into its proper position in a sorted list
 // Throws an exception if the item connot be placed on the list
 {
-			try
+								try
 								{
+
+																// ListArrayBased.add(size(),item);
 																// TO BE IMPLEMENTED BY YOU
 								}
 								catch(Exception e)
@@ -31,7 +37,7 @@ public void add(Object item) throws ListException
 																throw new ListException("Add to List failed:  " + e.toString());
 								}
 
-							}
+}
 
 public void remove(Object item) throws ListException
 // Removes the item from a sorted list.
@@ -61,6 +67,7 @@ public int locateIndexToRemove(Object item)
 								return 0; //TODO: added so it would compile. May need to delete.
 }
 public static void main(String[] args){
+								// java.util.Collections.sort(args);
 
 }
 }  // end SortedListArrayBased

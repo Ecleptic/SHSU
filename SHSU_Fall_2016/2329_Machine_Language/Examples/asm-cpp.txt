@@ -1,0 +1,33 @@
+Here's another example (this is simple, but it is complete,
+so you can immediately check it out.)
+
+Here is the .cpp file:
+-------
+
+#include <iostream.h>
+
+extern "C" { short Test_Asm( short, short); }
+int main() {
+    short sum;
+    sum = Test_Asm(1, 2);
+	cout << sum << endl;
+	return 0;
+}
+
+-------
+Here is the .asm file:
+-------
+     .386
+     .MODEL    small
+     .CODE
+     PUBLIC    _Test_Asm
+_Test_Asm PROC 
+     push ebp     ;save old BP value
+     mov  ebp,esp     ;set BP to index local data
+     mov  ax,[ebp+8] ;load AX with parameter 1
+     add  ax,[ebp+12] ;add parameter 2 to AX
+;exit procedure
+     pop  ebp     ;restore old BP value
+     ret      ;exit to C program with AX = P1 + P2
+_Test_Asm ENDP
+     END
