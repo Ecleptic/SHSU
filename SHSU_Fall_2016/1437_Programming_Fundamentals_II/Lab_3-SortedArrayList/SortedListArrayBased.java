@@ -1,5 +1,3 @@
-import  java.util.*;
-
 // ********************************************************
 // Array-based implementation of the ADT Sorted List.
 // *********************************************************
@@ -15,12 +13,9 @@ public class SortedListArrayBased extends ListArrayBased
 {
 
 public SortedListArrayBased()
-// creates an empty list
 {
-
-							ListArrayBased.size();
-								// TO BE IMPLEMENTED BY YOU
-}          // end default constructor
+								super();
+}
 
 public void add(Object item) throws ListException
 // Inserts item into its proper position in a sorted list
@@ -28,9 +23,8 @@ public void add(Object item) throws ListException
 {
 								try
 								{
+																this.add(locateIndexToAdd(item), item);
 
-																// ListArrayBased.add(size(),item);
-																// TO BE IMPLEMENTED BY YOU
 								}
 								catch(Exception e)
 								{
@@ -45,8 +39,12 @@ public void remove(Object item) throws ListException
 {
 								try
 								{
-																// TO BE IMPLEMENTED BY YOU
+																if(locateIndexToRemove(item) != -1)
+																{
+																								this.remove(locateIndexToRemove(item));
+																}
 								}
+
 								catch(Exception e)
 								{
 																throw new ListException("Remove " + item.toString() + " from List failed:  " + e.toString());
@@ -55,19 +53,30 @@ public void remove(Object item) throws ListException
 
 public int locateIndexToAdd(Object item)
 {
-								// TO BE IMPLEMENTED BY YOU
-								return 0; //TODO: added so it would compile. May need to delete.
+								for(int i = 0; i < size(); i++)
+								{
+																if(this.get(i).toString().compareTo(item.toString()) >= 0)
+
+																								return i;
+								}
+
+								return size();
 }
+
 
 public int locateIndexToRemove(Object item)
-// Returns the position where the item belongs or exists in a sorted list;
-// Otherwise, it returns -1.
 {
-								// TO BE IMPLEMENTED BY YOU
-								return 0; //TODO: added so it would compile. May need to delete.
-}
-public static void main(String[] args){
-								// java.util.Collections.sort(args);
 
+								for(int i = 0; i < this.size(); i++)
+								{
+																if(this.get(i).equals(item))
+																{
+																								return i;
+																}
+
+								}
+
+								return -1;
 }
+
 }  // end SortedListArrayBased
