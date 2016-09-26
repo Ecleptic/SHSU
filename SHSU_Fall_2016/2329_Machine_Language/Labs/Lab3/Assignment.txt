@@ -1,0 +1,11 @@
+Write a NASM assembly language program which will:
+
+Print a prompt, asking the user to input an alphabetic character from the keyboard.
+Check to make sure the character entered is indeed an uppercase or lowercase letter of the alphabet
+If it is, print, with appropriate messages, the character (a) as it's 8-bit binary value, (b) as an uppercase letter,  and (c) as a lowercase letter.
+If it is not an alphabetic letter, display an appropriate error message.
+Ask the user whether he or she wishes to repeat the process, and accept a char as input.
+If the character is "Y" or "y" repeat from step 1; otherwise, exit to DOS
+Your program should be completely documented.  (As stated in class and in the notes, this requires that almost every line be commented.)  In addition, there should be a comment at the top with your name, the date, and a brief description of the program.
+
+Turn in your program source via blackboard. Your filename should be nnn-lab3.asm, where nnn represents your initials.    For example, if your name is Sammy Bear Kat, and your sam username is sbk001, your filename should be sbk-lab3.asm.
