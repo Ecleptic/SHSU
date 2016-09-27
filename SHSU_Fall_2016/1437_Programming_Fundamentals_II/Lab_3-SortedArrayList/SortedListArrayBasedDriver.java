@@ -29,7 +29,7 @@ public static void main(String [] args)
 								myGroceryList.add("sausage");
 								myGroceryList.add("flour");
 
-								
+
 
 								printList(myGroceryList); //print out original List
 								System.out.print("numItems is now: " + myGroceryList.size() + "\n\n");
