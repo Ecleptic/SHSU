@@ -1,0 +1,5 @@
+Driver.java ListInterface.java
+LList.java
+SeparateIterator.java
+
+(The driver uses LList, but with simple changes, it could use AList or any other list definition that implements ListInterface.)
