@@ -47,6 +47,16 @@ throws ListIndexOutOfBoundsException {
         } // end if
 }   // end get
 
+/*
+   public void add (T newEntry){
+        Node newNode = new Node(newEntry);
+        if (isEmpty()) {
+                firstNode = newNode;
+        }else
+   }
+ */
+
+
 public void add(int index, Object item)
 throws ListIndexOutOfBoundsException {
         if (index >= 0 && index <= numItems) {
@@ -60,6 +70,7 @@ throws ListIndexOutOfBoundsException {
                         Node prev = find(index-1);
                         // insert the new node containing item after
                         // the node that prev references
+                        // Error
                         Node newNode = new Node(item, prev.getNext());
                         prev.setNext(newNode);
                 } // end if
@@ -105,6 +116,7 @@ public void removeAll() {
 // TO IMPLEMENT TODO
 public String toString()
 {
+        // As far as I can see. Nowhere in the code is toString ever actually called. Should I really be worried about it?
         return "";
 }
 
