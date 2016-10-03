@@ -144,14 +144,15 @@ conBin:   ;convert binary
   mov      ah, 00h           ; ah=00
 binloop:       shl   al, 01h       ; divide the number by 2
   mov      bl, al
-  mov      al, 00H
+  mov      al, 0H
   adc      al, 30h
   mov      dl, al
   mov      ah, 02h
   int      21h
   mov      al,bl
   dec      cx
-  jnz      binloop
+  jnz      binloop ;loop until all 8 digits are finished.
+
   ; Restore the registers
   pop cx
   pop bx
