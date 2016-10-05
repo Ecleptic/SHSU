@@ -1,29 +1,46 @@
-// ****************************************************
-// Reference-based implementation of ADT list.
-// ****************************************************
-public class ListReferenceBased implements ListInterface {
-// reference to linked list of items
+// ********************************************************
+// Reference-based implementation of the ADT Sorted List.
+// *********************************************************
+/**
+ * class SortedListReferenceBased
+ *
+ *    A class that implements the SortedListInterface using a linked list
+ *
+ */
+
+public class ListReferenceBased implements ListInterface
+{
 private Node head;
-private int numItems;   // number of items in list
+private int numItems;      // number of items in list
 
-public ListReferenceBased() {
-        numItems = 0;
+
+public ListReferenceBased()
+// creates an empty list
+{
         head = null;
-}    // end default constructor
+        numItems = 0;
 
-public boolean isEmpty() {
-        return numItems == 0;
-}    // end isEmpty
+}      // end default constructor
 
-public int size() {
+public boolean isEmpty()
+// Determines whether a list is empty
+{
+        return (numItems == 0);
+
+}     // end isEmpty
+
+public int size()
+// Returns the number of items that are in a list
+{
         return numItems;
-}    // end size
+}      // end size
 
-private Node find(int index) {
+private Node find(int index)
+{
         // --------------------------------------------------
         // Locates a specified node in a linked list.
-        // Precondition: index is the array index of the desired node.
-        // Assumes that 0 <= index < numItems
+        // Precondition: index is the number of the desired node.
+        // Assumes that 1 <= index <= numItems+1
         // Postcondition: Returns a reference to the desired node.
         // --------------------------------------------------
         Node curr = head;
@@ -32,6 +49,7 @@ private Node find(int index) {
         } // end for
         return curr;
 }   // end find
+
 
 public Object get(int index)
 throws ListIndexOutOfBoundsException {
@@ -47,16 +65,6 @@ throws ListIndexOutOfBoundsException {
         } // end if
 }   // end get
 
-/*
-   public void add (T newEntry){
-        Node newNode = new Node(newEntry);
-        if (isEmpty()) {
-                firstNode = newNode;
-        }else
-   }
- */
-
-
 public void add(int index, Object item)
 throws ListIndexOutOfBoundsException {
         if (index >= 0 && index <= numItems) {
@@ -70,7 +78,6 @@ throws ListIndexOutOfBoundsException {
                         Node prev = find(index-1);
                         // insert the new node containing item after
                         // the node that prev references
-                        // Error
                         Node newNode = new Node(item, prev.getNext());
                         prev.setNext(newNode);
                 } // end if
@@ -91,8 +98,6 @@ throws ListIndexOutOfBoundsException {
                 }
                 else {
                         Node prev = find(index-1);
-                        // delete the node after the node that prev
-                        // references, save reference to node
                         Node curr = prev.getNext();
                         prev.setNext(curr.getNext());
                 } // end if
@@ -113,69 +118,16 @@ public void removeAll() {
 }   // end removeAll
 
 
-// TO IMPLEMENT TODO
 public String toString()
 {
-        // As far as I can see. Nowhere in the code is toString ever actually called. Should I really be worried about it?
-        return "";
-}
-
-
-// TO IMPLEMENT TODO
-public void reverse()
-{
-}
-
-
-// TO IMPLEMENT TODO
-// This is a helper method, so try to define your own method
-// that this helper will call.
-public void reverseRecursive()
-{
-}
-
-
-// TO IMPLEMENT TODO
-public int getSize()
-// --------------------------------------------------
-// Returns the number of items in a linked list.
-// Precondition: head points to the first element
-// in a list of type node.
-// Postcondition: The number of items in the list
-// is returned.
-// --------------------------------------------------
-{
-        return 0;
-}
-
-
-// TO IMPLEMENT TODO
-public int getSize(Node cur)
-// --------------------------------------------------
-// Returns the number of items in a linked list.
-// The initial call should have the beginning of the list
-// as it's input argument, i.e. listCount(head);
-// Precondition: cur points to a list of type node
-// Postcondition: The number of items in the list
-// is returned.
-// --------------------------------------------------
-{
-        return 0;
-}
-
-
-// TO IMPLEMENT TODO
-public int getSizeRecursive()
-{
-        return 0;
-}
-
-
-// TO IMPLEMENT TODO
-public Node findMToLast(int m)
-{
+        String str = new String();
+        for (int i = 0; i < size(); i++)
+        {
+                str += (get(i) + " ");
+                return str;
+        }
         return null;
 }
 
 
-} // end ListReferenceBased
+}  // end SortedListReferenceBased
