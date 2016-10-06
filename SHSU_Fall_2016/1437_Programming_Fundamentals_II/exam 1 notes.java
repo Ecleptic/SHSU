@@ -55,7 +55,7 @@ public Node reverse(Node prev, Node current) {
                 return -1;
         Node next = current.getNext();
         reverse(current,prev);
-        return ___________________________________________________;
+        return reverse(  Node curr, Node next);;
 }
 public void reverseRecursive() {
         _________________ = ______________________________________;
