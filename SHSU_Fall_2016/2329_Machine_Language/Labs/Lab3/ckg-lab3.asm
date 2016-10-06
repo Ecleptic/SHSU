@@ -137,21 +137,22 @@ conBin:   ;convert binary
   int 21h
 
   mov	dx,prompt3
-  mov	ah,09h 		; Binary is:
+  mov	ah,09h 		   ; Binary is:
   int 21h
-  mov      al, [RAW]   ; Load number in al
-  mov      cx , 08H
-  mov      ah, 00h           ; ah=00
-binloop:       shl   al, 01h       ; divide the number by 2
-  mov      bl, al
-  mov      al, 0H
-  adc      al, 30h
-  mov      dl, al
-  mov      ah, 02h
-  int      21h
-  mov      al,bl
-  dec      cx
-  jnz      binloop ;loop until all 8 digits are finished.
+  mov al, [RAW]    ; Load number in al
+  mov cx , 08H     ; cx is going to be 8 (8 times)
+  mov ah, 00h      ; ah=00
+binloop:
+  shl al, 01h      ; divide the number by 2
+  mov bl, al       ; setup display
+  mov al, 0H
+  adc al, 30h
+  mov dl, al
+  mov ah, 02h
+  int 21h           ; display the number
+  mov al,bl
+  dec cx            ; subtract by 1
+  jnz binloop       ;loop until all 8 digits are finished.
 
   ; Restore the registers
   pop cx

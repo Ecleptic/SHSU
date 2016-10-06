@@ -1,0 +1,13 @@
+SLIDE 3-6
+at the transport layer there's TCP or UDP (can be one or the other). The message goes to the transport layer via tcp/udp depending on what it is.
+TCP adds headers and info to the message [this piece is called a segment](source's port #, and Destination's port #) then it's sent to the network layer.
+the network layer will add to the 'segment' it'll add (Source's IP, and Destination's IP) The whole 'packet' is called a 'datagram'
+
+the whole packet/datagram (IDK what they're called) is sent to the network layer of the new server then gets sent all the way back up (it just reverses that message.)
+
+KNOW MULTIPLEXING AND DEMULTIPLEXING
+[Transport layer]
+Multiplexing is on the sender's side.
+
+demultiplexing is using the header to deliver the fragments and sockets.
+ (it's harder because it can use 2 different protocols)

@@ -19,7 +19,7 @@ int	21h		; read char into al
 ; now, output it in binary
 
 	mov      ds, ax
-	; mov      al, a             ; Load number1 in al
+	mov      al, a             ; Load number1 in al
 	mov      cl , 08H
 	mov      ah, 00h           ; ah=00
 	up :     shl      al, 01h       ; divide the number by 2 and SHL gives the same result
