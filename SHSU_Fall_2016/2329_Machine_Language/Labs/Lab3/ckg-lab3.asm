@@ -35,7 +35,7 @@ again?:
   mov	ah,09h 		; repeat?
   int 21h
 
-  mov 	bx,0		; bx holds input value
+  mov bx,0		; bx holds input value
   mov	ah,1		; input char function
   int	21h		  ; read char into al
   and al,0DFh ; Force uppercase letter (if letter)
@@ -140,17 +140,17 @@ conBin:   ;convert binary
   mov	ah,09h 		   ; Binary is:
   int 21h
   mov al, [RAW]    ; Load number in al
-  mov cx , 08H     ; cx is going to be 8 (8 times)
+  mov cx, 08H     ; cx is going to be 8 (8 times)
   mov ah, 00h      ; ah=00
 binloop:
   shl al, 01h      ; divide the number by 2
   mov bl, al       ; setup display
-  mov al, 0H
+  mov al, 0H       ; take the lowest bit
   adc al, 30h
   mov dl, al
   mov ah, 02h
   int 21h           ; display the number
-  mov al,bl
+  mov al, bl
   dec cx            ; subtract by 1
   jnz binloop       ;loop until all 8 digits are finished.
 
