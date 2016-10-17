@@ -331,23 +331,21 @@ public static void writeBackward5(String s, int size)//renamed from writebackwar
 	//----------------------------------------------------
 
 
-	public static static int c(int n, int k)
-	{
-		if ((k == 0) || (k == n)
+	public static static int c(int n, int k){
+		if ((k == 0) || (k == n){
 			// 1 line (?)
-
-		else if (k > n)
+}
+		else if (k > n){
 			// 1 line (?)
-
-		else
+}
+		else{
 			// 1 line (?)
-	}
+	}}
 
 
 
 
-	public static void main(String [] args)
-	{
+	public static void main(String [] args){
 		String str = new String("Your name");
 		int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 		int m = 3;
