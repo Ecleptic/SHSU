@@ -12,7 +12,7 @@
 //(1) Implement all the required methods in a java class,
 //    called "RecursionAnswer.java".
 //    ==> Let's add "public" access modifier to every method.
-//    ==> Implement every to be a class method.
+//    ==> Implement every method to be a class method.
 //    ==> Correct any possible errors (Hint: change method's signature).
 //
 //(2) Implement main() for all the methods.
@@ -76,26 +76,27 @@ public class Recursion {
 	// -----------------------------------------------------
 
 
-	public static int fact(int n)
+	public static int fact1(int n) //named from fact to fact1
 	{
-		if (n == 0)
+		if (n == 0){
 			// 1 line (?)
-
-		else
+}
+		else {
 			// 1 line (?)
-
+}
 	}
 
 
-	public static int fact(int n)
+	public static int fact2(int n)
 	{
 		int result = 1;
-		if (n == 0)
-			// do nothing (i.e. result = 1)
-		else
-			for (int i = 2; i <= n; i++)
-				result *= i;
-		return result;
+		if (n == 0){
+					return result; // do nothing (i.e. result = 1)
+}		else{
+			for (int i = 2; i <= n; i++){
+								result *= i;
+}		return result;
+}
 	}
 
 
@@ -111,7 +112,7 @@ public class Recursion {
 	// --------------------------------------------------------
 
 
-	public static void writeBackward(String s, int size)
+	public static void writeBackward1(String s, int size) //renamed from writebackward to writeBackward1
 	{  // base case
 		if(size == 1)
 			System.out.print(s.charAt(0));
@@ -125,7 +126,7 @@ public class Recursion {
 	} // end writeBackward
 
 
-	public static void writeBackward(String s, int size)
+	public static void writeBackward2(String s, int size)//renamed from writebackward to writeBackward2
 	{
 		if (size > 0){
 			System.out.println(s.substring(size-1, size));
@@ -134,7 +135,7 @@ public class Recursion {
 	}
 
 
-	public static void writeBackward(String s, int size)
+	public static void writeBackward3(String s, int size)//renamed from writebackward to writeBackward3
 	{
 		while (size > 0){
 			System.out.println(s.substring(size-1, size));
@@ -143,7 +144,7 @@ public class Recursion {
 	}
 
 
-	public static void writeBackward(String s)
+	public static void writeBackward4(String s)//renamed from writebackward to writeBackward4
 	{
 		for (int i = s.length()-1; i>= 0; i--)
 			System.out.print(s.charAt(i));
@@ -152,7 +153,7 @@ public class Recursion {
 
 
 
-public static void writeBackward(String s, int size)
+public static void writeBackward5(String s, int size)//renamed from writebackward to writeBackward5
 	{
 		for (int i = size-1; i>= 0; i--)
 			System.out.print(s.charAt(i));
@@ -170,13 +171,13 @@ public static void writeBackward(String s, int size)
 	//------------------------------------------------------
 
 
-	public static int sum(int n)
+	public static int sum1(int n)//renamed from sum to sum1
 	{
-		if (n == 1)
+		if (n == 1){
 			// 1 line (?)
-
-		else
-			// 1 lin3 (?)
+}
+		else{
+			// 1 lin3 (?)}
 	}
 
 
@@ -198,7 +199,7 @@ public static void writeBackward(String s, int size)
 	//---------------------------------------------------
 
 
-	public static int rangeSum(int [] array, int start, int end)
+	public static int rangeSum1(int [] array, int start, int end)//renamed from rangesum to rangesum1
 	{
 		if (start > end)
 			return 0;
@@ -226,7 +227,7 @@ public static void writeBackward(String s, int size)
 	//---------------------------------------------------
 
 
-	public static int fib(int n)
+	public static int fib1(int n) //renamed from fib to fib1
 	{
 		if (n == 0)
 			// 1 line (?)
@@ -240,7 +241,7 @@ public static void writeBackward(String s, int size)
 	}
 
 
-	public static int fib(int n)
+	public static int fib2(int n) //renamed from fib to fib2
 	{
 		int previous = 1;
 		int current = 1;
@@ -258,7 +259,7 @@ public static void writeBackward(String s, int size)
 	}
 
 
-	public static int fib(int n)
+	public static int fib3(int n) //renamed from fib to fib3
 	{
 		int[] array = new int[n+1];
 		array[0] = 1;
@@ -358,6 +359,43 @@ public static void writeBackward(String s, int size)
 		System.out.println("\tfact1(" + n + ") = " + fact1(n));
 		System.out.println("\tfact2(" + n + ") = " + fact2(n));
 
+		System.out.println("Test WriteBackward(String str, int size):");
+		System.out.println("writeBackword1("+ str +", 9) = ");
+		System.out.println("writeBackword2("+ str +", 9) = ");
+		System.out.println("writeBackword3("+ str +", 9) = ");
+		System.out.println("writeBackword4("+ str +", 9) = ");
+
+		System.out.println("Test sum(int n):");
+		System.out.println("sum1("+ n +") = ");
+		System.out.println("sum2("+ n +") = ");
+
+		System.out.println("Test Test rangeSum(int array, int m, int e): ");
+		System.out.println("rangeSum1(array, m, e) = ");
+		System.out.println("rangeSum2(array, m, e) = ");
+
+		System.out.println("Test fib(int n):");
+		System.out.println("fib1(1) = ");
+		System.out.println("fib2(1) = ");
+		System.out.println("fib3(1) = ");
+		System.out.println("fib1(2) = ");
+		System.out.println("fib2(2) = ");
+		System.out.println("fib3(2) = ");
+		System.out.println("fib1(10) = ");
+		System.out.println("fib2(10) = ");
+		System.out.println("fib3(10) = ");
+
+		System.out.println("Test acker(int m, int n):");
+		System.out.println("acker(0, "+ n +") = ");
+		System.out.println("acker(3,  "+ n +") = ");
+		System.out.println("acker(3, "+ n +") = ");
+
+		System.out.println("Test gcd (m,n):");
+		System.out.println("gcd (3,"+ n +") = ");
+
+		System.out.println("Test c(n, m):");
+		System.out.println("c("+ n +", 3) = ");
+
+		// System.out.println("");
 		// Add your codes for the remaining methods
 
 
