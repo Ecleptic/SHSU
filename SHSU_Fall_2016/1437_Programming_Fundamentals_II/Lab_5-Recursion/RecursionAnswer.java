@@ -80,8 +80,10 @@ public class Recursion {
 	{
 		if (n == 0){
 			// 1 line (?)
+			return 1;
 }
 		else {
+			return (n * fact1(n - 1));
 			// 1 line (?)
 }
 	}
@@ -177,8 +179,9 @@ public static void writeBackward5(String s, int size)//renamed from writebackwar
 			// 1 line (?)
 }
 		else{
-			// 1 lin3 (?)}
-	}
+			// 1 lin3 (?)
+		}
+	};
 
 
 	public static int sum(int n)
@@ -345,7 +348,8 @@ public static void writeBackward5(String s, int size)//renamed from writebackwar
 
 
 
-	public static void main(String [] args){
+	public static void main(String [] args)
+{
 		String str = new String("Your name");
 		int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 		int m = 3;
