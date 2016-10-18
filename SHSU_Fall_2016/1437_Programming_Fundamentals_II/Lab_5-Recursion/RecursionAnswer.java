@@ -112,23 +112,20 @@ public static int fact2(int n)
 // --------------------------------------------------------
 
 
-// TODO: CHeck if these are supposed to be recursive. They just worked out of the box.
 
-public static void writeBackward1(String s, int size)  //renamed from writebackward to writeBackward1
+public static void writeBackward1(String s, int size)
 {   // base case
         if(size == 1)
                 System.out.print(s.charAt(0));
-        // else, write rest of string
         else if (size > 1)
         {
                 System.out.print(s.charAt(size-1));
                 writeBackward1(s, size - 1);
         }
-        // else size <= 0, do nothing;
 }  // end writeBackward
 
 
-public static void writeBackward2(String s, int size) //renamed from writebackward to writeBackward2
+public static void writeBackward2(String s, int size)
 {
         if (size > 0) {
                 System.out.print(s.substring(size-1, size));
@@ -137,7 +134,7 @@ public static void writeBackward2(String s, int size) //renamed from writebackwa
 }
 
 
-public static void writeBackward3(String s, int size) //renamed from writebackward to writeBackward3
+public static void writeBackward3(String s, int size)
 {
         while (size > 0) {
                 System.out.print(s.substring(size-1, size));
@@ -146,7 +143,7 @@ public static void writeBackward3(String s, int size) //renamed from writebackwa
 }
 
 
-public static void writeBackward4(String s) //renamed from writebackward to writeBackward4
+public static void writeBackward4(String s)
 {
         for (int i = s.length()-1; i>= 0; i--) {
                 System.out.print(s.charAt(i));
@@ -157,7 +154,7 @@ public static void writeBackward4(String s) //renamed from writebackward to writ
 
 
 
-public static void writeBackward5(String s, int size)//renamed from writebackward to writeBackward5
+public static void writeBackward5(String s, int size)
 {
         for (int i = size-1; i>= 0; i--)
                 System.out.print(s.charAt(i));
@@ -204,7 +201,7 @@ public static int sum2(int n)
 //---------------------------------------------------
 
 
-public static int rangeSum1(int [] array, int start, int end) //renamed from rangesum to rangesum1
+public static int rangeSum1(int [] array, int start, int end)
 {
         if (start > end) {
                 return 0;
@@ -234,7 +231,7 @@ public static int rangeSum2(int [] array, int start, int end)
 //---------------------------------------------------
 
 
-public static int fib1(int n)  //renamed from fib to fib1
+public static int fib1(int n)
 {
         if (n == 0) {
                 return n;
@@ -249,37 +246,33 @@ public static int fib1(int n)  //renamed from fib to fib1
 };
 
 
-public static int fib2(int n)  //renamed from fib to fib2
+public static int fib2(int n)
 {
         int previous = 1;
         int current = 1;
         int next = 2;
-        if (n == 1 || n == 2)
+        if (n == 1 || n == 2) {
                 next = 1;
-
-        for (int i = 3; i <= n; i++) {
-                // 3 lines (?)
-
-
-
         }
-        return next;
+        for (int i = 2; i <= n; i++) {
+                previous = current;
+                current = next;
+                next = current + previous;
+        }
+        return previous;
 };
 
 
-public static int fib3(int n)  //renamed from fib to fib3
+public static int fib3(int n)
 {
         int[] array = new int[n+1];
         array[0] = 1;
         array[1] = 1;
         for (int i = 2; i <= n; i++) {
-                // 1 line(?)
-                // TODO: actually put something in the return (i'm just putting this here to compile)
-                return -1;
+                array[i]=array[i-1]+array[i-2];
+
         };
-        // TODO: actually put something in the return (i'm just putting this here to compile)
-        return -1;
-        // 1 line(?) return(???)
+        return array[array.length - 2];
 };
 
 
@@ -294,20 +287,14 @@ public static int fib3(int n)  //renamed from fib to fib3
 public static int acker(int m, int n)
 {
         if (m == 0) {
-                // 1 line (?)
+                return n+1;
         }
         else if (n == 0) {
-                // 1 line (?)
-                // TODO: actually put something in the return (i'm just putting this here to compile)
-                return -1;
+                return acker(m-1,1);
         }
         else{
-                // 1 line (?)
-                // TODO: actually put something in the return (i'm just putting this here to compile)
-                return -1;
+                return acker(m-1,acker(m,n-1));
         }
-        // TODO: actually put something in the return (i'm just putting this here to compile)
-        return -1;
 }
 
 
@@ -323,20 +310,12 @@ public static int acker(int m, int n)
 public static int gcd(int a, int b)
 {
         if (a % b == 0) {
-                // 1 line (?)
-                // TODO: actually put something in the return (i'm just putting this here to compile)
-                return -1;
+                return b;
         }
         else{
-                // 1 line (?)
-                // TODO: actually put something in the return (i'm just putting this here to compile)
-                return -1;
+                return gcd(b,a%b);
         }
 }
-
-
-
-
 
 //----------------------------------------------------
 // Computes the number of groups of k out of n things.
@@ -354,19 +333,13 @@ public static int gcd(int a, int b)
 
 public static int c(int n, int k){
         if ((k == 0) || (k == n)) {
-                // 1 line (?)
-                // TODO: actually put something in the return (i'm just putting this here to compile)
-                return -1;
+                return 1;
         }
         else if (k > n) {
-                // TODO: actually put something in the return (i'm just putting this here to compile)
-                return -1;
-                // 1 line (?)
+                return 0;
         }
         else{
-                // TODO: actually put something in the return (i'm just putting this here to compile)
-                return -1;
-                // 1 line (?)
+                return c(n - 1, k - 1) + c(n - 1, k);
         }
 
 }
