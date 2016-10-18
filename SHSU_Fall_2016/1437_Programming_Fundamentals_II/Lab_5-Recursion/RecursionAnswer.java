@@ -112,6 +112,8 @@ public static int fact2(int n)
 // --------------------------------------------------------
 
 
+// TODO: CHeck if these are supposed to be recursive. They just worked out of the box.
+
 public static void writeBackward1(String s, int size)  //renamed from writebackward to writeBackward1
 {   // base case
         if(size == 1)
@@ -196,8 +198,6 @@ public static int sum2(int n)
 
 
 
-
-
 //---------------------------------------------------
 // Evaluate the sum of the integers in a given range
 //	(i.e., from start to end)
@@ -206,14 +206,16 @@ public static int sum2(int n)
 
 public static int rangeSum1(int [] array, int start, int end) //renamed from rangesum to rangesum1
 {
-        if (start > end)
+        if (start > end) {
                 return 0;
-        else
-                return array[start] + rangeSum(array, start + 1, end);
+        }
+        else{
+                return array[start] + rangeSum1(array, start + 1, end);
+        }
 }
 
 
-public static int rangeSum(int [] array, int start, int end)
+public static int rangeSum2(int [] array, int start, int end)
 {
         int sum = 0;
         for (int i = start; i <= end; i++)
@@ -235,18 +237,15 @@ public static int rangeSum(int [] array, int start, int end)
 public static int fib1(int n)  //renamed from fib to fib1
 {
         if (n == 0) {
-                // 1 line (?)
+                return n;
         }
         else if (n == 1) {
-                // 1 line (?)
+                return n;
         }
         else{
-                // 1 line (?)
-                // TODO: actually put something in the return (i'm just putting this here to compile)
-                return -1;
+                return (fib1(n-1) + fib1(n-2));
         }
-        // TODO: actually put something in the return (i'm just putting this here to compile)
-        return -1;
+
 };
 
 
@@ -292,7 +291,7 @@ public static int fib3(int n)  //renamed from fib to fib3
 //-------------------------------------------------------
 
 
-public int acker(int m, int n)
+public static int acker(int m, int n)
 {
         if (m == 0) {
                 // 1 line (?)
@@ -382,51 +381,51 @@ public static void main(String [] args){
         int e = array.length - 1;
 
         System.out.println("Test fact(int n):");
-        System.out.println("\tfact1(" + n + ") = " + fact1(n)); //check
-        System.out.println("\tfact2(" + n + ") = " + fact2(n)); //check
+        System.out.println("\t fact1(" + n + ") = " + fact1(n)); //check
+        System.out.println("\t fact2(" + n + ") = " + fact2(n)); //check
 
         System.out.println("Test WriteBackward(String str, int size):");
-        System.out.print("\twriteBackward1("+ str +", 9) = ");
+        System.out.print("\t writeBackward1("+ str +", 9) = ");
         writeBackward1(str,9);
         System.out.println("");
-        System.out.print("\twriteBackward2("+ str +", 9) = ");
+        System.out.print("\t writeBackward2("+ str +", 9) = ");
         writeBackward2(str,9);
         System.out.println("");
-        System.out.print("\twriteBackward3("+ str +", 9) = ");
+        System.out.print("\t writeBackward3("+ str +", 9) = ");
         writeBackward3(str,9);
         System.out.println("");
-        System.out.print("\twriteBackward4("+ str +", 9) = ");
+        System.out.print("\t writeBackward4("+ str +", 9) = ");
         writeBackward4(str);
 
         System.out.println("Test sum(int n):");
-        System.out.println("\tsum1("+ n +") = " + sum1(n));
-        System.out.println("\tsum2("+ n +") = " + sum2(n));
+        System.out.println("\t sum1("+ n +") = " + sum1(n));
+        System.out.println("\t sum2("+ n +") = " + sum2(n));
 
         System.out.println("Test Test rangeSum(int array, int m, int e): ");
-        System.out.println("\trangeSum1(array, m, e) = ");
-        System.out.println("\trangeSum2(array, m, e) = ");
+        System.out.println("\t rangeSum1(array, m, e) = " + rangeSum1(array, m, e));
+        System.out.println("\t rangeSum2(array, m, e) = " + rangeSum2(array, m, e));
 
         System.out.println("Test fib(int n):");
-        System.out.println("\tfib1(1) = ");
-        System.out.println("\tfib2(1) = ");
-        System.out.println("\tfib3(1) = ");
-        System.out.println("\tfib1(2) = ");
-        System.out.println("\tfib2(2) = ");
-        System.out.println("\tfib3(2) = ");
-        System.out.println("\tfib1(10) = ");
-        System.out.println("\tfib2(10) = ");
-        System.out.println("\tfib3(10) = ");
+        System.out.println("\t fib1(1) = " + fib1(1));
+        System.out.println("\t fib2(1) = " + fib2(1));
+        System.out.println("\t fib3(1) = " + fib3(1));
+        System.out.println("\t fib1(2) = " + fib1(2));
+        System.out.println("\t fib2(2) = " + fib2(2));
+        System.out.println("\t fib3(2) = " + fib3(2));
+        System.out.println("\t fib1(10) = " + fib1(10));
+        System.out.println("\t fib2(10) = " + fib2(10));
+        System.out.println("\t fib3(10) = " + fib3(10));
 
         System.out.println("Test acker(int m, int n):");
-        System.out.println("\tacker(0, "+ n +") = ");
-        System.out.println("\tacker(3,  "+ n +") = ");
-        System.out.println("\tacker(3, "+ n +") = ");
+        System.out.println("\t acker(0, "+ n +") = " + acker(0,10));
+        System.out.println("\t acker(3, 0) = " + acker(3,0));
+        System.out.println("\t acker(3, "+ n +") = " + acker(3,10));
 
         System.out.println("Test gcd (m,n):");
-        System.out.println("\tgcd (3,"+ n +") = ");
+        System.out.println("\t gcd (3,"+ n +") = " + gcd(3,n));
 
         System.out.println("Test c (n, m):");
-        System.out.println("\tc ("+ n +", 3) = ");
+        System.out.println("\t c ("+ n +", 3) = " + c(n,3));
 
         // System.out.println("");
         // Add your codes for the remaining methods
