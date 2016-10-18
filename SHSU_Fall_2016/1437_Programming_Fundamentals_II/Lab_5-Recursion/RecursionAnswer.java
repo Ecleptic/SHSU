@@ -57,351 +57,379 @@
 
 
 
-import java.util.Scanner;
+import java.util.*;
 
 
-public class Recursion {
+public class RecursionAnswer {
 
 
 
-	// -----------------------------------------------------
-	// Computes the factorial of a nonnegative integer.
-	// Precondition:
-	//		n must be greater than or equal to 0.
-	// Postcondition:
-	//		Returns the factorial of n.
-	//
-	// n! = 1			if n == 0
-	// n! = n * (n-1)!	if n > 0
-	// -----------------------------------------------------
+// -----------------------------------------------------
+// Computes the factorial of a nonnegative integer.
+// Precondition:
+//		n must be greater than or equal to 0.
+// Postcondition:
+//		Returns the factorial of n.
+//
+// n! = 1			if n == 0
+// n! = n * (n-1)!	if n > 0
+// -----------------------------------------------------
 
 
-	public static int fact1(int n) //named from fact to fact1
-	{
-		if (n == 0){
-			// 1 line (?)
-			return 1;
+public static int fact1(int n)  //named from fact to fact1
+{
+        if (n == 0) {
+                return result;
+        }
+        else {
+                return (n * fact1(n - 1));
+        }
 }
-		else {
-			return (n * fact1(n - 1));
-			// 1 line (?)
+
+
+public static int fact2(int n)
+{
+        int result = 1;
+        if (n == 0) {
+                return result;                                                 // do nothing (i.e. result = 1)
+        }  else{
+                for (int i = 2; i <= n; i++) {
+                        result *= i;
+                }  return result;
+        }
 }
-	}
 
 
-	public static int fact2(int n)
-	{
-		int result = 1;
-		if (n == 0){
-					return result; // do nothing (i.e. result = 1)
-}		else{
-			for (int i = 2; i <= n; i++){
-								result *= i;
-}		return result;
+
+
+
+// --------------------------------------------------------
+// Writes a character string backward.
+// Precondition:
+//		The string s contains size characters, where size >= 1.
+// Postcondition:
+//		s is written backward, but remains unchanged.
+// --------------------------------------------------------
+
+
+public static void writeBackward1(String s, int size)  //renamed from writebackward to writeBackward1
+{   // base case
+        if(size == 1)
+                System.out.print(s.charAt(0));
+        // else, write rest of string
+        else if (size > 1)
+        {
+                System.out.print(s.charAt(size-1));
+                writeBackward1(s, size - 1);
+        }
+        // else size <= 0, do nothing;
+}  // end writeBackward
+
+
+public static void writeBackward2(String s, int size) //renamed from writebackward to writeBackward2
+{
+        if (size > 0) {
+                System.out.println(s.substring(size-1, size));
+                writeBackward2(s, size - 1);
+        }
 }
-	}
 
 
+public static void writeBackward3(String s, int size) //renamed from writebackward to writeBackward3
+{
+        while (size > 0) {
+                System.out.println(s.substring(size-1, size));
+                --size;
+        }
+}
 
 
+public static void writeBackward4(String s) //renamed from writebackward to writeBackward4
+{
+        for (int i = s.length()-1; i>= 0; i--) {
+                System.out.print(s.charAt(i));
+        }
+        System.out.println();
 
-	// --------------------------------------------------------
-	// Writes a character string backward.
-	// Precondition:
-	//		The string s contains size characters, where size >= 1.
-	// Postcondition:
-	//		s is written backward, but remains unchanged.
-	// --------------------------------------------------------
-
-
-	public static void writeBackward1(String s, int size) //renamed from writebackward to writeBackward1
-	{  // base case
-		if(size == 1)
-			System.out.print(s.charAt(0));
-		// else, write rest of string
-		else if (size > 1)
-		{
-			System.out.print(s.charAt(size-1));
-			writeBackward(s, size - 1);
-		}
-	   // else size <= 0, do nothing;
-	} // end writeBackward
-
-
-	public static void writeBackward2(String s, int size)//renamed from writebackward to writeBackward2
-	{
-		if (size > 0){
-			System.out.println(s.substring(size-1, size));
-			writeBackward(s, size - 1);
-		}
-	}
-
-
-	public static void writeBackward3(String s, int size)//renamed from writebackward to writeBackward3
-	{
-		while (size > 0){
-			System.out.println(s.substring(size-1, size));
-			--size;
-		}
-	}
-
-
-	public static void writeBackward4(String s)//renamed from writebackward to writeBackward4
-	{
-		for (int i = s.length()-1; i>= 0; i--)
-			System.out.print(s.charAt(i));
-		System.out.println();
-	}
+}
 
 
 
 public static void writeBackward5(String s, int size)//renamed from writebackward to writeBackward5
-	{
-		for (int i = size-1; i>= 0; i--)
-			System.out.print(s.charAt(i));
-		System.out.println();
-	}
-
-
-
-
-	//------------------------------------------------------
-	// Evaluate the sum of the first n integers
-	//
-	// sum = 1				if n == 1
-	// sum = n + sum(n-1)	if n > 1;
-	//------------------------------------------------------
-
-
-	public static int sum1(int n)//renamed from sum to sum1
-	{
-		if (n == 1){
-			// 1 line (?)
-}
-		else{
-			// 1 lin3 (?)
-		}
-	};
-
-
-	public static int sum(int n)
-	{
-		int result = 0;
-		for (i = 1; i <= n; i++)
-			result += i;
-		return result;
-	}
-
-
-
-
-
-	//---------------------------------------------------
-	// Evaluate the sum of the integers in a given range
-	//	(i.e., from start to end)
-	//---------------------------------------------------
-
-
-	public static int rangeSum1(int [] array, int start, int end)//renamed from rangesum to rangesum1
-	{
-		if (start > end)
-			return 0;
-		else
-			return array[start] + rangeSum(array, start + 1, end);
-	}
-
-
-	public static int rangeSum(int [] array, int start, int end)
-	{
-		int sum = 0;
-		for (int i = start; i <= end; i++)
-			sum += array[i];
-		return sum;
-	}
-
-
-
-
-
-	//---------------------------------------------------
-	// fib(n) = 0						if n == 0
-	// fib(n) = 1						if n == 1
-	// fib(n) = fib(n-1) + fib(n-2)		if >= 2
-	//---------------------------------------------------
-
-
-	public static int fib1(int n) //renamed from fib to fib1
-	{
-		if (n == 0)
-			// 1 line (?)
-
-		else if (n == 1)
-			// 1 line (?)
-
-		else
-			// 1 line (?)
-
-	}
-
-
-	public static int fib2(int n) //renamed from fib to fib2
-	{
-		int previous = 1;
-		int current = 1;
-		int next = 2;
-		if (n == 1 || n == 2)
-			next = 1;
-
-		for (int i = 3; i <= n; i++){
-			// 3 lines (?)
-
-
-
-		}
-		return next;
-	}
-
-
-	public static int fib3(int n) //renamed from fib to fib3
-	{
-		int[] array = new int[n+1];
-		array[0] = 1;
-		array[1] = 1;
-		for (int i = 2; i <= n; i++)
-			// 1 line(?)
-
-
-		// 1 line(?) return(???)
-	}
-
-
-
-	//-------------------------------------------------------
-	// acker(m, n) = n + 1						if m == 0
-	// acker(m, n) = acker(m - 1, 1)				if n == 0
-	// acker(m, n) = acker(m - 1, acker(m, n - 1))	otherwise
-	//-------------------------------------------------------
-
-
-	public int acker(int m, int n)
-	{
-		if (m == 0)
-			// 1 line (?)
-
-		else if (n == 0)
-			// 1 line (?)
-
-		else
-			// 1 line (?)
-
-	}
-
-
-
-
-
-	//---------------------------------------------------
-	// gcd(a, b) = b				if (a mod b) == 0
-	// gcd(a, b) = gcd(b, a mod b)	otherwise
-	//---------------------------------------------------
-
-
-	public static int gcd(int a, int b)
-	{
-		if (a % b == 0)
-			// 1 line (?)
-
-		else
-			// 1 line (?)
-
-	}
-
-
-
-
-
-	//----------------------------------------------------
-	// Computes the number of groups of k out of n things.
-	// Precondition:
-	//		n and k are nonnegative integers.
-	// Postcondition:
-	//		Returns c(n, k)
-	//
-	// c(n, k) = 1	if k == 0
-	// c(n, k) = 1	if k == n
-	// c(n, k) = 0	if k > n
-	// c(n, k) = c(n - 1, k - 1) + c(n - 1, k)	if 0 < k < n
-	//----------------------------------------------------
-
-
-	public static static int c(int n, int k){
-		if ((k == 0) || (k == n){
-			// 1 line (?)
-}
-		else if (k > n){
-			// 1 line (?)
-}
-		else{
-			// 1 line (?)
-	}}
-
-
-
-
-	public static void main(String [] args)
 {
-		String str = new String("Your name");
-		int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-		int m = 3;
-		int n = array.length;
-		int e = array.length - 1;
+        for (int i = size-1; i>= 0; i--)
+                System.out.print(s.charAt(i));
+        System.out.println();
+}
 
 
-		System.out.println("Test fact(int n):");
-		System.out.println("\tfact1(" + n + ") = " + fact1(n));
-		System.out.println("\tfact2(" + n + ") = " + fact2(n));
-
-		System.out.println("Test WriteBackward(String str, int size):");
-		System.out.println("writeBackword1("+ str +", 9) = ");
-		System.out.println("writeBackword2("+ str +", 9) = ");
-		System.out.println("writeBackword3("+ str +", 9) = ");
-		System.out.println("writeBackword4("+ str +", 9) = ");
-
-		System.out.println("Test sum(int n):");
-		System.out.println("sum1("+ n +") = ");
-		System.out.println("sum2("+ n +") = ");
-
-		System.out.println("Test Test rangeSum(int array, int m, int e): ");
-		System.out.println("rangeSum1(array, m, e) = ");
-		System.out.println("rangeSum2(array, m, e) = ");
-
-		System.out.println("Test fib(int n):");
-		System.out.println("fib1(1) = ");
-		System.out.println("fib2(1) = ");
-		System.out.println("fib3(1) = ");
-		System.out.println("fib1(2) = ");
-		System.out.println("fib2(2) = ");
-		System.out.println("fib3(2) = ");
-		System.out.println("fib1(10) = ");
-		System.out.println("fib2(10) = ");
-		System.out.println("fib3(10) = ");
-
-		System.out.println("Test acker(int m, int n):");
-		System.out.println("acker(0, "+ n +") = ");
-		System.out.println("acker(3,  "+ n +") = ");
-		System.out.println("acker(3, "+ n +") = ");
-
-		System.out.println("Test gcd (m,n):");
-		System.out.println("gcd (3,"+ n +") = ");
-
-		System.out.println("Test c(n, m):");
-		System.out.println("c("+ n +", 3) = ");
-
-		// System.out.println("");
-		// Add your codes for the remaining methods
 
 
-	} // end of main()
+//------------------------------------------------------
+// Evaluate the sum of the first n integers
+//
+// sum = 1				if n == 1
+// sum = n + sum(n-1)	if n > 1;
+//------------------------------------------------------
+
+
+public static int sum1(int n) //renamed from sum to sum1
+{
+        if (n == 1) {
+                // TODO: actually put something in the return (i'm just putting this here to compile)
+                return -1;
+                // 1 line (?)
+        }
+        else{
+                // 1 lin3 (?)
+        }
+        // TODO: actually put something in the return (i'm just putting this here to compile)
+        return -1;
+};
+
+
+public static int sum(int n)
+{
+        int result = 0;
+        for (int i = 1; i <= n; i++) {
+                result += i;
+        }
+        return result;
+}
+
+
+
+
+
+//---------------------------------------------------
+// Evaluate the sum of the integers in a given range
+//	(i.e., from start to end)
+//---------------------------------------------------
+
+
+public static int rangeSum1(int [] array, int start, int end) //renamed from rangesum to rangesum1
+{
+        if (start > end)
+                return 0;
+        else
+                return array[start] + rangeSum(array, start + 1, end);
+}
+
+
+public static int rangeSum(int [] array, int start, int end)
+{
+        int sum = 0;
+        for (int i = start; i <= end; i++)
+                sum += array[i];
+        return sum;
+}
+
+
+
+
+
+//---------------------------------------------------
+// fib(n) = 0						if n == 0
+// fib(n) = 1						if n == 1
+// fib(n) = fib(n-1) + fib(n-2)		if >= 2
+//---------------------------------------------------
+
+
+public static int fib1(int n)  //renamed from fib to fib1
+{
+        if (n == 0) {
+                // 1 line (?)
+        }
+        else if (n == 1) {
+                // 1 line (?)
+        }
+        else{
+                // 1 line (?)
+                // TODO: actually put something in the return (i'm just putting this here to compile)
+                return -1;
+        }
+        // TODO: actually put something in the return (i'm just putting this here to compile)
+        return -1;
+};
+
+
+public static int fib2(int n)  //renamed from fib to fib2
+{
+        int previous = 1;
+        int current = 1;
+        int next = 2;
+        if (n == 1 || n == 2)
+                next = 1;
+
+        for (int i = 3; i <= n; i++) {
+                // 3 lines (?)
+
+
+
+        }
+        return next;
+};
+
+
+public static int fib3(int n)  //renamed from fib to fib3
+{
+        int[] array = new int[n+1];
+        array[0] = 1;
+        array[1] = 1;
+        for (int i = 2; i <= n; i++) {
+                // 1 line(?)
+                // TODO: actually put something in the return (i'm just putting this here to compile)
+                return -1;
+        };
+        // TODO: actually put something in the return (i'm just putting this here to compile)
+        return -1;
+        // 1 line(?) return(???)
+};
+
+
+
+//-------------------------------------------------------
+// acker(m, n) = n + 1						if m == 0
+// acker(m, n) = acker(m - 1, 1)				if n == 0
+// acker(m, n) = acker(m - 1, acker(m, n - 1))	otherwise
+//-------------------------------------------------------
+
+
+public int acker(int m, int n)
+{
+        if (m == 0) {
+                // 1 line (?)
+        }
+        else if (n == 0) {
+                // 1 line (?)
+                // TODO: actually put something in the return (i'm just putting this here to compile)
+                return -1;
+        }
+        else{
+                // 1 line (?)
+                // TODO: actually put something in the return (i'm just putting this here to compile)
+                return -1;
+        }
+        // TODO: actually put something in the return (i'm just putting this here to compile)
+        return -1;
+}
+
+
+
+
+
+//---------------------------------------------------
+// gcd(a, b) = b				if (a mod b) == 0
+// gcd(a, b) = gcd(b, a mod b)	otherwise
+//---------------------------------------------------
+
+
+public static int gcd(int a, int b)
+{
+        if (a % b == 0) {
+                // 1 line (?)
+                // TODO: actually put something in the return (i'm just putting this here to compile)
+                return -1;
+        }
+        else{
+                // 1 line (?)
+                // TODO: actually put something in the return (i'm just putting this here to compile)
+                return -1;
+        }
+}
+
+
+
+
+
+//----------------------------------------------------
+// Computes the number of groups of k out of n things.
+// Precondition:
+//		n and k are nonnegative integers.
+// Postcondition:
+//		Returns c(n, k)
+//
+// c(n, k) = 1	if k == 0
+// c(n, k) = 1	if k == n
+// c(n, k) = 0	if k > n
+// c(n, k) = c(n - 1, k - 1) + c(n - 1, k)	if 0 < k < n
+//----------------------------------------------------
+
+
+public static int c(int n, int k){
+        if ((k == 0) || (k == n)) {
+                // 1 line (?)
+                // TODO: actually put something in the return (i'm just putting this here to compile)
+                return -1;
+        }
+        else if (k > n) {
+                // TODO: actually put something in the return (i'm just putting this here to compile)
+                return -1;
+                // 1 line (?)
+        }
+        else{
+                // TODO: actually put something in the return (i'm just putting this here to compile)
+                return -1;
+                // 1 line (?)
+        }
+
+}
+
+
+
+public static void main(String [] args){
+        String str = new String("Your name");
+        int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        int m = 3;
+        int n = array.length;
+        int e = array.length - 1;
+
+
+        System.out.println("Test fact(int n):");
+        System.out.println("\tfact1(" + n + ") = " + fact1(n)); //check
+        System.out.println("\tfact2(" + n + ") = " + fact2(n)); //check
+
+        System.out.println("Test WriteBackward(String str, int size):");
+        System.out.println("writeBackword1("+ str +", 9) = ");
+        System.out.println("writeBackword2("+ str +", 9) = ");
+        System.out.println("writeBackword3("+ str +", 9) = ");
+        System.out.println("writeBackword4("+ str +", 9) = ");
+
+        System.out.println("Test sum(int n):");
+        System.out.println("sum1("+ n +") = ");
+        System.out.println("sum2("+ n +") = ");
+
+        System.out.println("Test Test rangeSum(int array, int m, int e): ");
+        System.out.println("rangeSum1(array, m, e) = ");
+        System.out.println("rangeSum2(array, m, e) = ");
+
+        System.out.println("Test fib(int n):");
+        System.out.println("fib1(1) = ");
+        System.out.println("fib2(1) = ");
+        System.out.println("fib3(1) = ");
+        System.out.println("fib1(2) = ");
+        System.out.println("fib2(2) = ");
+        System.out.println("fib3(2) = ");
+        System.out.println("fib1(10) = ");
+        System.out.println("fib2(10) = ");
+        System.out.println("fib3(10) = ");
+
+        System.out.println("Test acker(int m, int n):");
+        System.out.println("acker(0, "+ n +") = ");
+        System.out.println("acker(3,  "+ n +") = ");
+        System.out.println("acker(3, "+ n +") = ");
+
+        System.out.println("Test gcd (m,n):");
+        System.out.println("gcd (3,"+ n +") = ");
+
+        System.out.println("Test c (n, m):");
+        System.out.println("c ("+ n +", 3) = ");
+
+        // System.out.println("");
+        // Add your codes for the remaining methods
+
+
+}        // end of main()
 
 
 } // end of Recusion

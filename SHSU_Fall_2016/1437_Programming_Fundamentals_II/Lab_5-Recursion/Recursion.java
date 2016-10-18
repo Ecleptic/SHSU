@@ -330,7 +330,7 @@ public static void writeBackward(String s, int size)
 	//----------------------------------------------------
 
 
-	public static static int c(int n, int k)
+	public static  int c (int n, int k)
 	{
 		if ((k == 0) || (k == n)
 			// 1 line (?)
