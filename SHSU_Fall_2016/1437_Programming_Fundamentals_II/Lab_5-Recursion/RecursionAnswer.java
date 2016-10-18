@@ -79,7 +79,7 @@ public class RecursionAnswer {
 public static int fact1(int n)  //named from fact to fact1
 {
         if (n == 0) {
-                return result;
+                return 1;
         }
         else {
                 return (n * fact1(n - 1));
@@ -129,7 +129,7 @@ public static void writeBackward1(String s, int size)  //renamed from writebackw
 public static void writeBackward2(String s, int size) //renamed from writebackward to writeBackward2
 {
         if (size > 0) {
-                System.out.println(s.substring(size-1, size));
+                System.out.print(s.substring(size-1, size));
                 writeBackward2(s, size - 1);
         }
 }
@@ -138,7 +138,7 @@ public static void writeBackward2(String s, int size) //renamed from writebackwa
 public static void writeBackward3(String s, int size) //renamed from writebackward to writeBackward3
 {
         while (size > 0) {
-                System.out.println(s.substring(size-1, size));
+                System.out.print(s.substring(size-1, size));
                 --size;
         }
 }
@@ -175,20 +175,17 @@ public static void writeBackward5(String s, int size)//renamed from writebackwar
 
 public static int sum1(int n) //renamed from sum to sum1
 {
+        int sum = 1;
         if (n == 1) {
-                // TODO: actually put something in the return (i'm just putting this here to compile)
-                return -1;
-                // 1 line (?)
+                return 1;
         }
         else{
-                // 1 lin3 (?)
+                return (n + sum1(n-1));
         }
-        // TODO: actually put something in the return (i'm just putting this here to compile)
-        return -1;
 };
 
 
-public static int sum(int n)
+public static int sum2(int n)
 {
         int result = 0;
         for (int i = 1; i <= n; i++) {
@@ -384,46 +381,52 @@ public static void main(String [] args){
         int n = array.length;
         int e = array.length - 1;
 
-
         System.out.println("Test fact(int n):");
         System.out.println("\tfact1(" + n + ") = " + fact1(n)); //check
         System.out.println("\tfact2(" + n + ") = " + fact2(n)); //check
 
         System.out.println("Test WriteBackward(String str, int size):");
-        System.out.println("writeBackword1("+ str +", 9) = ");
-        System.out.println("writeBackword2("+ str +", 9) = ");
-        System.out.println("writeBackword3("+ str +", 9) = ");
-        System.out.println("writeBackword4("+ str +", 9) = ");
+        System.out.print("\twriteBackward1("+ str +", 9) = ");
+        writeBackward1(str,9);
+        System.out.println("");
+        System.out.print("\twriteBackward2("+ str +", 9) = ");
+        writeBackward2(str,9);
+        System.out.println("");
+        System.out.print("\twriteBackward3("+ str +", 9) = ");
+        writeBackward3(str,9);
+        System.out.println("");
+        System.out.print("\twriteBackward4("+ str +", 9) = ");
+        writeBackward4(str);
 
         System.out.println("Test sum(int n):");
-        System.out.println("sum1("+ n +") = ");
-        System.out.println("sum2("+ n +") = ");
+        System.out.println("\tsum1("+ n +") = " + sum1(n));
+        System.out.println("\tsum2("+ n +") = " + sum2(n));
 
         System.out.println("Test Test rangeSum(int array, int m, int e): ");
-        System.out.println("rangeSum1(array, m, e) = ");
-        System.out.println("rangeSum2(array, m, e) = ");
+        System.out.println("\trangeSum1(array, m, e) = ");
+        System.out.println("\trangeSum2(array, m, e) = ");
 
         System.out.println("Test fib(int n):");
-        System.out.println("fib1(1) = ");
-        System.out.println("fib2(1) = ");
-        System.out.println("fib3(1) = ");
-        System.out.println("fib1(2) = ");
-        System.out.println("fib2(2) = ");
-        System.out.println("fib3(2) = ");
-        System.out.println("fib1(10) = ");
-        System.out.println("fib2(10) = ");
-        System.out.println("fib3(10) = ");
+        System.out.println("\tfib1(1) = ");
+        System.out.println("\tfib2(1) = ");
+        System.out.println("\tfib3(1) = ");
+        System.out.println("\tfib1(2) = ");
+        System.out.println("\tfib2(2) = ");
+        System.out.println("\tfib3(2) = ");
+        System.out.println("\tfib1(10) = ");
+        System.out.println("\tfib2(10) = ");
+        System.out.println("\tfib3(10) = ");
 
         System.out.println("Test acker(int m, int n):");
-        System.out.println("acker(0, "+ n +") = ");
-        System.out.println("acker(3,  "+ n +") = ");
-        System.out.println("acker(3, "+ n +") = ");
+        System.out.println("\tacker(0, "+ n +") = ");
+        System.out.println("\tacker(3,  "+ n +") = ");
+        System.out.println("\tacker(3, "+ n +") = ");
 
         System.out.println("Test gcd (m,n):");
-        System.out.println("gcd (3,"+ n +") = ");
+        System.out.println("\tgcd (3,"+ n +") = ");
 
         System.out.println("Test c (n, m):");
-        System.out.println("c ("+ n +", 3) = ");
+        System.out.println("\tc ("+ n +", 3) = ");
 
         // System.out.println("");
         // Add your codes for the remaining methods
