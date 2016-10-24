@@ -1,3 +1,5 @@
+// Cameron Green
+
 //=========
 //RECURSION
 //=========
@@ -343,8 +345,6 @@ public static int c(int n, int k){
         }
 
 }
-
-
 
 public static void main(String [] args){
         String str = new String("Your name");

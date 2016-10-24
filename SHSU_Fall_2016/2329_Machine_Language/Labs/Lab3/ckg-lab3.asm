@@ -159,3 +159,23 @@ binloop:
   pop bx
   pop ax
 ret
+
+
+; The following method can be used to generate random numbers in the range 1 to 32767:
+;
+; Start with any number in this range.
+; Shift left by one bit
+; Replace bit 0 by the XOR of bits 14 and 15
+; Clear bit 15
+;
+; You are to write a program with the following subprograms:
+;
+; A procedure READ that lets the user enter a base 10 integer from the keyboard and returns it value in AX.
+; A procedure WRITE that receives a number in AX and displays that number as a base 10 integer.
+; A procedure RANDOM that receives a number in AX and returns the next random number in the AX register.
+; Write a program using these procedures that displays a prompt, calls READ to read a base 10 value, and calls RANDOM and WRITE to compute and display 20 random numbers, one number per line. All of your procedures should save and restore any registers they use (other than AX when it is used as a return value, of course.)
+;
+; Your program should be completely documented.  (As stated in class and in the notes, this requires that almost every line be commented.)  In addition, there should be a comment at the top with your name, the date, and a brief description of the program.
+;
+; Turn in your program source via blackboard. Your filename should be nnn-lab4.asm, where nnn represents your initials.
+; For example, if your name is Sammy Bear Kat, and your sam username is sbk001, your filename should be sbk-lab4.asm.
