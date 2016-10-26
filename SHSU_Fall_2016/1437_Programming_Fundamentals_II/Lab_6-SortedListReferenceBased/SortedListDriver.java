@@ -41,7 +41,7 @@ public static void main(String [] args)
 
 //  public static void adding(SortedListArrayBased myList, String str)
 //  public static void adding(SortedListReferenceBased myList, String str)
-public static void adding(ListReferenceBased myList, String str)
+public static void adding(SortedListReferenceBased myList, String str)
 {
 								System.out.println("Adding " + str + " ...");
 								myList.add(str); //add juice
@@ -51,7 +51,7 @@ public static void adding(ListReferenceBased myList, String str)
 
 //  public static void removing(SortedListArrayBased myList, String str)
 //  public static void removing(SortedListReferenceBased myList, String str)
-public static void removing(ListReferenceBased myList, String str)
+public static void removing(SortedListReferenceBased myList, String str)
 {
 								System.out.println("Removing " + str + " ...");
 								myList.remove(str);
@@ -61,7 +61,7 @@ public static void removing(ListReferenceBased myList, String str)
 
 //  public static void printList(SortedListArrayBased myList)
 //  public static void printList(SortedListReferenceBased myList)
-public static void printList(ListReferenceBased myList)
+public static void printList(SortedListReferenceBased myList)
 {
 								//method prints a list, numbering the values,  e.g, "0.  milk" .... "4.  juice".... etc.
 								for (int index = 0; index < myList.size(); index++)
