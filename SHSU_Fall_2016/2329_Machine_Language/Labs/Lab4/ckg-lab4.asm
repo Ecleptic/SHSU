@@ -13,24 +13,24 @@ section .text
 Start:
 	call READ
 	push ax
-	mov	ah,09h 		; randoms are: prompt
+	mov	ah,09h 						; randoms are: prompt
 	mov	dx,prompt3
 	int 21h
-	pop	ax				;restore ax
+	pop	ax								;restore ax
 
 	mov cx,20 						; randomize 20 numbers, count = 20;
-	
+
 Loopx20:
 	push cx 				; to make sure count doesn't get screwed up push
-	call RANDOM
+	call RANDOM			;  randomize the number
 	push ax
 	mov	ah,09h
-	mov	dx,CR 		;carriage return
+	mov	dx,CR 		;print carriage return
 	int 21h
 	pop ax
-	call WRITE
+	call WRITE			; write them out
 	pop cx					;now pop it and loop
-	loop Loopx20
+	loop Loopx20		; loop 20 times
 
 
 Exit:
@@ -70,17 +70,15 @@ ret
 
 WRITE:
 ;  receives a number in AX and displays that number as a base 10 integer.
-	push ax                        ; push to stack
+	push ax                        ; push to stack to clear up item
 	push bx
 	push cx
 	push dx
 
 
 	skip:
-		xor cx, cx
-		; mov cx,0
-		; mov ax,bx           ; setup to divide by 10
-		mov bx, 10
+		xor cx, cx				; clear cx
+		mov bx, 10				;put 10 into bx?
 
 	rept1:
 		mov dx,0            ; dx:ax is the dividend
@@ -101,7 +99,7 @@ WRITE:
 		pop dx
 		pop cx
 		pop bx
-		pop ax	                     	; restore value
+		pop ax	                     	; restore values
 
 ret
 
