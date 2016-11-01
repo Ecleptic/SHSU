@@ -1,0 +1,7 @@
+after installing Logisim, solve the following problem:
+
+Didgey Talogic enjoys his picnic on sunny days that have no ants.  He also enjoys his picnic any day he sees a hummingbird, as well as on days where there are ants and butterflies.  Write a boolean equation for his enjoyment (E) in terms of sun (S), ants (A), butterflies (B), and hummingbirds (H).   Using Logisim, construct a circuit implementing your function.  Clearly label your input pins appropriately with S, A, B, and H.  
+
+Name your .circ file nnn-lab5.circ, where nnn represents your initials.    
+For example, if your name is Sammy Bear Kat, and your sam username is sbk001, your filename should be sbk-lab5.circ.
+Upload your file via Blackboard
