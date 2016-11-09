@@ -65,13 +65,19 @@ private static void swap(int[] array, int i, int j) {
         array[j] = x;
 }
 
-// Mergesort.
+/*
 
-public static int[] mergeSort(int[] array) {
+   TRIED TO GET MERGE SORT TO WORK AND I GAVE UP
+
+ */
+
+// Mergesort.
+/*
+   public static int[] mergeSort(int[] array) {
         return mergeSort(array, 0, array.length - 1);
-}
-// Mergesort part of an array
-private static int[] mergeSort(int[] array, int begin, int end) {
+   }
+   // Mergesort part of an array
+   private static int[] mergeSort(int[] array, int begin, int end) {
         // Base case: array of length 0 or 1.
         if (begin > end) return new int[0];
         if (begin == end) {
@@ -85,11 +91,11 @@ private static int[] mergeSort(int[] array, int begin, int end) {
         // Recursively sort both halves of the array,
         // then merge the results.
         throw new UnsupportedOperationException();
-}
+   }
 
-// Merge two sorted arrays into one
-private static int[] Merge(int[] left, int[] right)
-{
+   // Merge two sorted arrays into one
+   private static int[] Merge(int[] left, int[] right)
+   {
         int[] result = new int[left.length + right.length];
 
         int l = 0, r = 0;   // keep track of the current idicies. if we would use a list we would just remove the elements.. but we are using arrays
@@ -119,6 +125,64 @@ private static int[] Merge(int[] left, int[] right)
         {
                 result[l + r] = right[i];
                 r++;
+        }
+
+        return result;
+   }*/
+
+
+private static int[] mergeSort(int[] a, int p, int q)
+{
+        if (a.length <= 1) return a;
+
+        int mid = (int)Math.floor((q-p)/2);
+        int[] left = new int[(mid - p) + 1];
+        int[] right = new int[q - mid];
+        int index = 0;
+
+        for (int i = 0; i < left.length; i++)
+        {
+                left[i] = a[index++];
+        }
+        for (int i = 0; i < right.length; i++)
+        {
+                right[i] = a[index++];
+        }
+
+        left = mergeSort(left, 0, left.length-1);
+        right = mergeSort(right, 0, right.length-1);
+        return Merge(left, right);
+}
+
+private static int[] Merge(int[] a, int[] b)
+{
+        int i = 0;
+        int j = 0;
+        int k = 0;
+
+        int[] result = new int[a.length+b.length];
+
+        while (i < a.length || j < b.length)
+        {
+                if (i != a.length && j != b.length)
+                {
+                        if (a[i] <= b[j])
+                        {
+                                result[k++] = a[i++];
+                        }
+                        else
+                        {
+                                result[k++] = b[j++];
+                        }
+                }
+                else if (i < a.length)
+                {
+                        result[k++] = a[i++];
+                }
+                else if (j < b.length)
+                {
+                        result[k++] = b[j++];
+                }
         }
 
         return result;
