@@ -16,14 +16,14 @@ mov	dx,prompt1
 int 	21h
 
 mov	di,input
-cld                     ;process from left
-xor     bx,bx           ;BX holds no. of chars read
-mov     ah,1            ;input char function
-int     21h             ;read a char into AL
+cld                       ;process from left
+xor     bx,bx             ;BX holds no. of chars read
+mov     ah,1              ;input char function
+int     21h               ;read a char into AL
 
 WHILE1:
   cmp     al,0Dh          ;<CR>?
-  je      ENDWHLE1	       ;yes, exit
+  je      ENDWHLE1	      ;yes, exit
 ;if char is backspace
   cmp     al,08h          ;is char a backspace?
   jne     ELSE1           ;no, store in string
@@ -37,9 +37,9 @@ READ:
   int     21h             ;read a char into AL
   jmp     WHILE1          ;and continue loop
 ENDWHLE1:
-mov	ah,9									; print prompt
-mov	dx,prompt3
-int 	21h
+  mov	ah,9								; print prompt
+  mov	dx,prompt3
+  int 	21h
 
   mov byte [di], '$'
   mov ah,9
