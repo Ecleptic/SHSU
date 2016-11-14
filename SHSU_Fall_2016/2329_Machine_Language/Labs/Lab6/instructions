@@ -1,0 +1,31 @@
+Write an 8086 nasm program which does the following:
+
+1) Sets aside two buffers of 100 bytes each to hold input strings.
+
+2) Write a function INSTRING which accepts the address of a string buffer on the stack, and uses int 21h, function 1 and an appropriate string instruction to read a string from the keyboard and store it in the buffer.  The string is to be terminated with an ASCII NULL character (character code 0) as the end-of-string marker
+
+3) Write a function LENGTH which accepts the address of a string buffer on the stack and returns the number of characters (not including the end-of-string character) in ax.  You may use either based mode, indexed mode, or string instructions to accomplish this task.
+
+4) Write a function WCOUNT which accepts the address of a string buffer on the stack and returns the number of words in the string in the ax register.  A "word" will be considered to be a sequence of characters not including an ASCII space character (ASCII code 20h.)
+
+5) Write a function PRINTLN which will accept to address of a string buffer containing a  zero-terminated string on the stack and prints all the characters in the string, followed by a carriage return and a linefeed.
+
+6) Write a function NUMOUT which will accept a number on the stack and prints it as a base 10 integer.
+
+All your functions should save and restore all the register used except for those used in returning values.  You main program will call these functions, prompting for the input of each string.  Use INSTRING to input two separate strings into your two buffers. It will then use LENGTH, WCOUNT, NUMOUT, and PRINTLN to produce input similar to the following sample output:
+
+
+Sample output:
+
+Please enter the first string:  Able was I ere I saw Elba
+Please enter the second string:  The amount owed is $100
+
+The first string has a length of 25
+The second string has a length of 23
+The first string has a word count of 7
+The second string has a word count of 5
+
+The first string is:  Able was I ere I saw Elba
+The second string is:  The amount owed is $100
+
+Use the instruction ret n with the appropriate value of n to have your functions clean up the stack.  Your program should be completely documented.  (As stated in class and in the notes, this requires that almost every line be commented.)  In addition, there should be a comment at the top with your name, the date, and a brief description of the program, and similar comments at the top of each function you write.
