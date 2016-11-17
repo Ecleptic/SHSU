@@ -56,11 +56,11 @@ mov dx, newline
 int 21h
 
 
-call LENGTH2          ; calls the LENGTH2 preocedure
-
-call WCOUNT1         ; calls the WCOUNT1 preocedure
-
-call WCOUNT2          ; calls the WCOUNT2 preocedure
+; call LENGTH2          ; calls the LENGTH2 preocedure
+;
+; call WCOUNT1         ; calls the WCOUNT1 preocedure
+;
+; call WCOUNT2          ; calls the WCOUNT2 preocedure
 
 mov ah, 9             ;creats a new line
 mov dx, newline
@@ -185,31 +185,31 @@ push	cx		                    ; save loop count
 push dx		                    ;  save register
 
 
-mov di,input2
-cld                     ;process from left
-xor     bx,bx           ;BX holds no. of chars read
-mov     ah,1            ;input char function
-int     21h             ;read a char into AL
-
-WHILE12:
-  cmp     al,0Dh          ;<CR>?
-  je      ENDWHLE12        ;yes, exit
-;if char is backspace
-  cmp     al,08h          ;is char a backspace?
-  jne     ELSE12           ;no, store in string
-  dec     di              ;yes, move string ptr back
-  dec     bx              ;decrement char counter
-  jmp     READ2            ;and go to read another char
-ELSE12:
-  stosb                   ;store char in string
-  inc     bx              ;increment char count
-READ2:
+  mov di,input2
+  cld                     ;process from left
+  xor     bx,bx           ;BX holds no. of chars read
+  mov     ah,1            ;input char function
   int     21h             ;read a char into AL
-  jmp     WHILE12          ;and continue loop
-ENDWHLE12:
-mov ah,9 ; print prompt
-mov dx,str8
-int 21h
+
+  while12:
+    cmp     al,0Dh          ;<CR>?
+    je      endwhile12      ;yes, exit
+  ;if char is backspace
+    cmp     al,08h          ;is char a backspace?
+    jne     else12          ;no, store in string
+    dec     di              ;yes, move string ptr back
+    dec     bx              ;decrement char counter
+    jmp     read2           ;and go to read another char
+  else12:
+    stosb                   ;store char in string
+    inc     bx              ;increment char count
+  read2:
+    int     21h             ;read a char into AL
+    jmp     while12         ;and continue loop
+  endwhile12:
+    mov ah,9                ; print prompt
+    mov dx,str8
+    int 21h
 
   mov byte [di], '$'
   mov ah,9
@@ -236,7 +236,8 @@ push  dx		                    ;  save register
 
 mov si, char
 
-inp:    mov ah,01
+inp:
+        mov ah,01
         int 21h
 
         mov [si],al
@@ -266,7 +267,8 @@ push  dx		                    ;  save register
 
 mov si, char
 
-inp1:    mov ah,01
+inp1:
+        mov ah,01
         int 21h
 
         mov [si],al
@@ -285,4 +287,4 @@ pop 	dx		                    ;  restore register
 pop		cx	                     	; restore loop count
 pop		bx		                    ;  restore register
 pop		ax	                     	; restore value
-ret                 	; restore value
+ret                         	; restore value
