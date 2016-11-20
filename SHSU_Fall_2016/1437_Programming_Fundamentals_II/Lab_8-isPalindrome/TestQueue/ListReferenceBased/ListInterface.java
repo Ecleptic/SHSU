@@ -16,4 +16,3 @@ public interface ListInterface
                   throws ListIndexOutOfBoundsException;
   public void removeAll();
 }  // end ListInterface
-

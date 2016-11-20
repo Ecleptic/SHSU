@@ -26,6 +26,8 @@ public class TestQueue
 		for (int i = 0; i < 5; i++) {
 			rQueue.dequeue();
 		}
+
+
 /*
  		while (!rQueue.isEmpty()) {
       		System.out.print(rQueue.dequeue()+ " ");

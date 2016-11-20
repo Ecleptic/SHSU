@@ -1,34 +1,34 @@
 public class QueueArrayBased implements QueueInterface
 {
-  private final int MAX_QUEUE = 50; // maximum size of queue
-  private Object[] items;
-  private int front, back, count;
+  final int MAX_QUEUE = 50; // maximum size of queue
+  private Object items[];
+  private int front, back, numItems;
 
   public QueueArrayBased()
   {
-    items = null;
-    front = 0;
-    back = 0;
-    count = 0;
+	items = new Object[MAX_QUEUE];
+	front = 0;
+	back = MAX_QUEUE -1;
+	numItems = 0;
   }  // end default constructor
 
   // queue operations:
   public boolean isEmpty()
   {
-    return true;
+    return numItems == 0;
   }  // end isEmpty
 
   public boolean isFull()
   {
-    return true;
+    return numItems == MAX_QUEUE;
   }  // end isFull
 
   public void enqueue(Object newItem) throws QueueException
   {
     if (!isFull()) {
-      back = back+1;
+      back = (back+1)%MAX_QUEUE;
       items[back] = newItem;
-      ++count;
+      ++numItems;
     } else {
       throw new QueueException("QueueException on enqueue: Queue full");
     }  // end if
@@ -39,8 +39,8 @@ public class QueueArrayBased implements QueueInterface
     if (!isEmpty()) {
       // queue is not empty; remove front
       Object queueFront = items[front];
-      front = front+1;
-      --count;
+      front = (front+1)%MAX_QUEUE;
+      --numItems;
       return queueFront;
     } else {
       throw new QueueException("QueueException on dequeue: Queue empty");
@@ -49,26 +49,30 @@ public class QueueArrayBased implements QueueInterface
 
   public void dequeueAll()
   {
-    items = null;
+    items = new Object[MAX_QUEUE];
     front = 0;
-    back = 0;
-    count = 0;
+    back = MAX_QUEUE -1;
+    numItems = 0;
   }  // end dequeueAll
 
   public Object peek() throws QueueException
   {
     if (!isEmpty()) {
       // queue is not empty; retrieve front
-      return items[0];
+      return items[front];
     } else {
       throw new QueueException("Queue exception on peek: Queue empty");
     }  // end if
   }  // end peek
 
-
   public String toString()
   {
-	  return null;
+
+	 StringBuilder s = new StringBuilder();
+	 for(int i = 0; i < numItems; i++){
+		 s.append(items[front+i]+" ");
+	 }
+	 return s.toString();
   } // end of toString
 
 

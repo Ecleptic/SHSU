@@ -1,46 +1,57 @@
-import ListReferenceBased.Node;
-//import ListReferenceBased.*;
+import ListReferenceBased.*;
 
-public class StackReferenceBased implements StackInterface
-{
-  private Node top;
+public class StackReferenceBased implements StackInterface{
 
-  public StackReferenceBased()
-  {
-    top = null;
-  }  // end default constructor
+	private Node top;
+	private int numItems = 0;
 
-  public boolean isEmpty()
-  {
-    return top =  null;
-  }  // end isEmpty
+	public StackReferenceBased(){
+		top = null;
+		numItems = 0;
+	}
 
-  public void push(Object newItem)
-  {
-    top = new Node(newItem, top);
-  }  // end push
+	public boolean isEmpty(){
+		return (top == null);
+	}
 
-  public Object pop() throws StackException
-  {
-    if (!isEmpty()) {
-      return top.getItem();
-    } else {
-      throw new StackException("StackException on " + "pop: stack empty");
-    }  // end if
-  }  // end pop
+	public void push(Object newItem){
+		top = new Node(newItem, top);
+		numItems++;
+	}
 
-  public void popAll()
-  {
-    top = null;
-  }  // end popAll
+	public Object pop() throws QueueException{
+		if(!isEmpty()){
+			Node temp = top;
+			top = top.getNext();
+			numItems--;
+			return temp.getItem();
+		} else {
+			throw new QueueException("StackException on pop: Stack empty");
+	}
+}
 
-  public Object peek() throws StackException
-  {
-    if (!isEmpty()) {
-      return top.getItem();
-    } else {
-      throw new StackException("StackException on " + "peek: stack empty");
-    }  // end if
-  }  // end peek
+	public void popAll(){
+		top = null;
+		numItems = 0;
+	}
 
-}  // end StackReferenceBased
+	public Object peek() throws QueueException{
+		if(!isEmpty()) return top.getItem();
+		else{
+			throw new QueueException("StackException on peek: Stack empty");
+		}
+	}
+
+   public String toString()
+   {
+	  StringBuilder s = new StringBuilder();
+	  for(int i = 0; i < numItems; i++){
+	  	s.append(top.getItem()+" ");
+	  	this.pop();
+	  	numItems++;
+	  }
+
+	   return s.toString();
+   } // end of toString
+
+}

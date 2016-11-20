@@ -1,56 +1,63 @@
-public class StackArrayBased implements StackInterface
-{
-  final int MAX_STACK = 50;  // maximum size of stack
-  private Object[] items;
-  private int top;
+import ListReferenceBased.*;
 
-  public StackArrayBased()
-  {
-    items = new Object[MAX_STACK];
-    top = 0;
-  }  // end default constructor
+public class StackArrayBased implements StackInterface {
 
-  public boolean isEmpty()
-  {
-    return top >= 0;
-  }  // end isEmpty
+	final int MAX_STACK = 50;
+	private Object items[];
+	private int top, numItems; //index for stack top
 
-  public boolean isFull()
-  {
-    return top = MAX_STACK;
-  }  // end isFull
+	public StackArrayBased(){
+		items = new Object[MAX_STACK];
+		top = -1;
+		numItems = 0;
+	}
 
-  public void push(Object newItem) throws StackException
-  {
-    if (!isFull()) {
-      items[top++] = newItem;
-    } else {
-      throw new StackException("StackException on " + "push: stack full");
-    }  // end if
-  }  // end push
+	public boolean isEmpty(){
+		return (top <0);
+	}
 
-  public void popAll()
-  {
-    items = new Object[MAX_STACK];
-    top = 0;
-  }  // end popAll
+	public boolean isFull(){
+		return (top == MAX_STACK-1);
+	}
 
-  public Object pop() throws StackException
-  {
-    if (!isEmpty()) {
-      return items[--top];
-    } else {
-      throw new StackException("StackException on " + "pop: stack empty");
-    }  // end if
-  }  // end pop
+	public void push(Object newItem) throws QueueException{
+		if(!isFull()){ items[++top] = newItem; numItems++;}
+		else{
+			throw new QueueException("StackException on push: Stack full");
+		}
+	}
 
-  public Object peek() throws StackException
-  {
-    if (!isEmpty()) {
-      return items[top--];
-    } else {
-      throw new StackException("Stack exception on " + "peek - stack empty");
-    }  // end if
-  }  // end peek
+	public Object pop() throws QueueException{
+		if(!isEmpty()){
+			numItems--;
+			return items[top--];
+		}
+		else {
+			throw new QueueException("StackException on pop: Stack empty");
+		}
+	}
 
-}  // end StackArrayBased
+	public void popAll(){
+		items = new Object[MAX_STACK];
+		top = -1;
+		numItems--;
+	}
+
+	public Object peek() throws QueueException{
+		if(!isEmpty()) return items[top];
+		else{
+			throw new QueueException("StackException on peek: Stack Empty");
+		}
+	}
+
+	public String toString()
+	{
+
+	 StringBuilder s = new StringBuilder();
+	 for(int i = 0; i < numItems; i++){
+		 s.append(items[top+i]+" ");
+	 }
+	 return s.toString();
+    } // end of toString
+
+}

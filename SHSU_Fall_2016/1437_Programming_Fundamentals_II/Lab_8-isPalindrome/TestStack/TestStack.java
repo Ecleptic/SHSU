@@ -1,60 +1,35 @@
-public class TestStack {
-
-	public static final int MAX_ITEMS = 10;
-
-
-	// TEST FOR ARRAYED-BASED STACK IMPLEMENTATION...
-  	public static void testArrayBasedStack()
-  	{
-		StackArrayBased sab = new StackArrayBased();
-		Integer items[] = new Integer[MAX_ITEMS];
-		for (int i=0; i<MAX_ITEMS; i++) {
-			items[i] = new Integer(i);
-			if (!sab.isFull())
-				sab.push(items[i]);
-		} // end for
-		while (!sab.isEmpty()) {
-        // cast result of pop to Integer
-        	System.out.print((Integer)(sab.pop()) + " ");
-        }// end while
-        System.out.println();
-	}
-
-
-	// TEST FOR REFERENCE-BASED STACK IMPLEMENTATION...
-  	public static void testReferenceBasedStack()
-  	{
-    	StackReferenceBased srb = new StackReferenceBased();
-    	for (int i = 0; i < MAX_ITEMS; i++)
-			srb.push(new Integer(i*10));
-		while (!srb.isEmpty())
-			System.out.print((Integer)(srb.pop()) + " ");
-		System.out.println();
-
-	}
-
-
-	// TEST FOR LIST-BASED STACK IMPLEMENTATION...
-  	public static void testListBasedStack()
-  	{
-		StackListBased slb = new StackListBased();
-		for (int i = 0; i < MAX_ITEMS; i++)
-			slb.push(new Integer(i*100));
-		while (!slb.isEmpty())
-			System.out.print((Integer)(slb.pop()) + " ");
-		System.out.println();
-	}
-
-
+public class TestStack
+{
 	public static void main(String[] args)
 	{
-		testArrayBasedStack();
+		StackArrayBased aStack = new StackArrayBased();
+	   	for (int i = 0; i < 10; i++) {
+			aStack.push(new Integer(i));
+		}  // end for
+		for (int i = 0; i < 5; i++) {
+			aStack.pop();
+		}
+		System.out.println(aStack.toString());
 
-		testReferenceBasedStack();
 
-		testListBasedStack();
+		StackReferenceBased rStack = new StackReferenceBased();
+	   	for (int i = 0; i < 10; i++) {
+			rStack.push(new String("a"+i));
+		}  // end for
+		for (int i = 0; i < 5; i++) {
+			rStack.pop();
+		}
+		System.out.println(rStack.toString());
 
-	} // end of main()
+		StackListBased lStack = new StackListBased();
+	   	for (int i = 0; i < 10; i++) {
+			lStack.push(new Double(i));
+		}  // end for
+		for (int i = 0; i < 5; i++) {
+			lStack.pop();
+		}
+		System.out.println(lStack.toString());
 
+	}  // end main
 
-} // end StackTest
+}  // end StackTest

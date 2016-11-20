@@ -1,45 +1,50 @@
-public class StackListBased implements StackInterface
-{
-  private ListInterface list;
-  //private ListReferenceBased list;
+import ListReferenceBased.*;
 
-  public StackListBased()
-  {
-    list = new ListReferenceBased();
-//    list = new ListArrayBased();
-  }  // end default constructor
+public class StackListBased implements StackInterface{
+	private ListInterface list;
 
-  public boolean isEmpty()
-  {
-    return list.isEmpty();
-  }  // end isEmpty
+	public StackListBased(){
+		list = new ListReferenceBased();
+	}
 
-  public void push(Object newItem)
-  {
-    list.add(1, newItem);
-  }  // end push
+	public boolean isEmpty(){
+		return list.isEmpty();
+	}
 
-  public Object pop() throws StackException
-  {
-    if (!isEmpty()) {
-      return list.remove(0)
-    } else {
-      throw new StackException("StackException on " + "pop: stack empty");
-    }  // end if
-  }  // end pop
+	public void push(Object newItem){
+		list.add(0, newItem);
+	}
 
-  public void popAll()
-  {
-    list.remove(0);
-  }  // end popAll
+	public Object pop() throws QueueException{
+		if(!list.isEmpty()){
+			Object temp = list.get(0);
+			list.remove(0);
+			return temp;
+		} else {
+			throw new QueueException("StackException on pop: Stack Empty");
+		}
+	}
 
-  public Object peek() throws StackException
-  {
-    if (!isEmpty()) {
-      return list.get(0);
-    } else {
-      throw new StackException("StackException on " + "peek: stack empty");
-    }  // end if
-  }  // end peek
+	public void popAll(){
+		list.removeAll();
+	}
 
-}  // end StackListBased
+	public Object peek() throws QueueException{
+		if(!isEmpty()) return list.get(0);
+		else {
+			throw new QueueException("StackException on peek: Stack empty");
+		}
+	}
+
+   @Override
+   public String toString()
+   {
+ 	StringBuilder s = new StringBuilder();
+ 	for(int i = 0; i < list.size(); i++){
+		s.append(list.get(i)+" ");
+	}
+	return s.toString();
+
+   } // end of toString
+
+}
