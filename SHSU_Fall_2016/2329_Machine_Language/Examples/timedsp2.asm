@@ -9,7 +9,7 @@ CURSOR_POS      DW      0               ; cursor position (row:col)
 NEW_VEC         DW      0,0             ; new interrupt vector
 OLD_VEC         DW      0,0             ; old interrupt vector
 ;
- 
+
 
 	section .text
 Start:
@@ -27,7 +27,7 @@ Start:
 	mov     al,1Ch          ; timer interrupt
 	call    SETUP_INT       ; set up new interrupt vector
 ; read keyboard
-	mov     ah,0            
+	mov     ah,0
 	int     16h
 ; restore old interrupt vector
 	lea     si,[OLD_VEC]    ; di points to vector buffer
@@ -39,7 +39,7 @@ Start:
 	mov     ah,4Ch          ; return
 	int     21h             ;  to DOS
 
- 
+
 TIME_INT:
 ; interrupt procedure
 ; activated by the timer
@@ -54,7 +54,7 @@ TIME_INT:
 	mov     bh,0            ; page 0
 	mov     dx,[CURSOR_POS] ; cursor position, dh = row, dl = col
 	int     10h             ; perform function
-	iret
+	iret										; iret is used because this wasn't called. it was implicit.
 				; end of interrupt routine
 
 SETUP_INT:
@@ -76,7 +76,7 @@ SETUP_INT:
         pop     ds              ; restore ds
         ret
 
-; procedure GET_TIME 
+; procedure GET_TIME
 ;get time of day and store ASCII digits in time buffer
 ;input:  BX = address of time buffer
 GET_TIME:
@@ -106,4 +106,4 @@ CONVERT:
 	mov     DL,10           ;divide AX by 10
 	div     DL              ;AH has remainder, AL has quotient
 	or      AX,3030h        ;convert to ASCII, AH has low digit
-	ret  
+	ret
