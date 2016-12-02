@@ -1,0 +1,12 @@
+Client.javaGuessingGame.java
+The package TreePackage containing the following files:
+
+BinaryTree.java
+BinaryTreeInterface.java
+DecisionTree.javaDecisionTreeInterface.javaTreeInterface.javaTreeIteratorInterface.java
+
+The package StackAndQueuePackage containing the following files:
+
+LinkedQueue.javaLinkedStack.javaQueueInterface.javaStackInterface.java
+
+
