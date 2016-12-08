@@ -17,3 +17,5 @@ start:
 	
 section .data
 msg:	db  "Hello, world!", 0Dh, 0Ah, '$'
+
+; Hello there! 
