@@ -9,7 +9,7 @@ msg2: .asciiz "Goodbye, cruel world ...\n"
 	la $a0, msg	#argument: string
 	syscall		#print String
 	
-	li $v0, 4	#Syscall 4 = print string
+	#li $v0, 4	#Syscall 4 = print string
 	la $a0, msg2	#argument: string
 	syscall		#print String
 	
