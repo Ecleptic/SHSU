@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>HCI 1</title>
+</head>
+
+<body>
+    <div id="decorator1">
+
+        <div class="projector middle">
+            <h1>Projector</h1>
+            <br>
+            <br>
+            <div class="minibox" style="width: 10em;">Relinquish Control</div>
+        </div>
+
+
+        <div class="one box">
+            <br>
+            <div class="name">Comp01</div>
+            <br>
+            <div class="minibox">Send to Projector</div>
+            <br>
+            <div class="minibox">Send to All</div>
+            <br>
+            <div class="minibox">Take Control</div>
+        </div>
+
+        <div class="two box">
+            <br>
+            <div class="name">Comp02</div>
+            <br>
+            <div class="minibox">Send to Projector</div>
+            <br>
+            <div class="minibox">Send to All</div>
+            <br>
+            <div class="minibox">Take Control</div>
+        </div>
+
+        <div class="three box">
+            <br>
+            <div class="name">Comp03</div>
+            <br>
+            <div class="minibox">Send to Projector</div>
+            <br>
+            <div class="minibox">Send to All</div>
+            <br>
+            <div class="minibox">Take Control</div>
+        </div>
+
+        <div class="four box">
+            <br>
+            <div class="name">Comp04</div>
+            <br>
+            <div class="minibox">Send to Projector</div>
+            <br>
+            <div class="minibox">Send to All</div>
+            <br>
+            <div class="minibox">Take Control</div>
+        </div>
+
+        <div class="five box">
+            <br>
+            <div class="name">Comp05</div>
+            <br>
+            <div class="minibox">Send to Projector</div>
+            <br>
+            <div class="minibox">Send to All</div>
+            <br>
+            <div class="minibox">Take Control</div>
+        </div>
+
+        <div class="six box">
+            <br>
+            <div class="name">Comp06</div>
+            <br>
+            <div class="minibox">Send to Projector</div>
+            <br>
+            <div class="minibox">Send to All</div>
+            <br>
+            <div class="minibox">Take Control</div>
+        </div>
+
+        <div class="seven box">
+            <br>
+            <div class="name">Comp07</div>
+            <br>
+            <div class="minibox">Send to Projector</div>
+            <br>
+            <div class="minibox">Send to All</div>
+            <br>
+            <div class="minibox">Take Control</div>
+        </div>
+
+        <div class="eight box">
+            <br>
+            <div class="name">Comp08</div>
+            <br>
+            <div class="minibox">Send to Projector</div>
+            <br>
+            <div class="minibox">Send to All</div>
+            <br>
+            <div class="minibox">Take Control</div>
+        </div>
+    </div>
+    <!-- close decorator -->
+    <div id="decorator2">
+
+        <div class="empty">
+
+        </div>
+
+        <div class="nine box">
+            <br>
+            <div class="name">Comp09</div>
+            <br>
+            <div class="minibox">Send to Projector</div>
+            <br>
+            <div class="minibox">Send to All</div>
+            <br>
+            <div class="minibox">Take Control</div>
+        </div>
+
+        <div class="ten box">
+            <br>
+            <div class="name">Comp10</div>
+            <br>
+            <div class="minibox">Send to Projector</div>
+            <br>
+            <div class="minibox">Send to All</div>
+            <br>
+            <div class="minibox">Take Control</div>
+        </div>
+
+
+        <div class="switches middle">
+            <!--   add a span and have it update on the .onchange event (combine it with the mouseover) -->
+            Front & Back Lights
+            <input id="master" type="range" min="0" max="9" step="1" value="0" />
+            <br><br> Front Lights
+            <input id="front" type="range" min="0" max="9" step="1" value="0" />
+            <br><br> Back Lights
+            <input id="back" type="range" min="0" max="9" step="1" value="0" />
+        </div>
+    </div>
+
+    <script>
+        let dec1 = document.getElementById("decorator1");
+        let dec2 = document.getElementById('decorator2');
+        let master = document.querySelector("#master");
+        let front = document.querySelector("#front");
+        let back = document.querySelector("#back");
+
+        master.onmousemove = function() {
+            dec1.style.backgroundColor = "rgba(0, 0, 0," + (master.value / 10) + ")";
+            dec2.style.backgroundColor = "rgba(0, 0, 0," + (master.value / 10) + ")";
+        };
+        front.onmousemove = function() {
+            dec1.style.backgroundColor = "rgba(0, 0, 0," + (front.value / 10) + ")";
+        };
+        back.onmousemove = function() {
+            dec2.style.backgroundColor = "rgba(0, 0, 0," + (back.value / 10) + ")";
+        };
+    </script>
+    <style id="primary">
+
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            user-select: none;
+        }
+
+        .projector {
+            height: 20em;
+            width: 74%;
+            box-shadow: 10px 10px 5px 0 rgba(0, 0, 0, 0.75);
+            margin: 0 auto;
+            background-image: url(http://bsnscb.com/data/out/193/39563135-teacher-wallpapers.jpeg);
+            color: transparent;
+        }
+
+        .projector h1 {
+            color: black;
+        }
+
+        .box {
+            height: 12.7%;
+            width: 12.7%;
+            display: inline-block;
+            margin-left: 5%;
+            margin-top: 2%;
+            box-shadow: 10px 10px 5px 0 rgba(0, 0, 0, 0.75);
+            text-align: center;
+            vertical-align: middle;
+            color: transparent;
+            padding: 1em;
+        }
+
+        .box .name {
+            color: white;
+        }
+
+        .minibox {
+            height: 1.4em;
+            width: 95%;
+            background-color: transparent;
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        .one {
+            background-color: #0B132B;
+        }
+
+        .two {
+            background-color: #142943;
+        }
+
+        .three {
+            background-color: #253C56;
+        }
+
+        .four {
+            background-color: #3A506B;
+        }
+
+        .five {
+            background-color: #546881;
+        }
+
+        .six {
+            background-color: #768699;
+        }
+
+        .seven {
+            background-color: #801515;
+        }
+
+        .eight {
+            background-color: #AA3939;
+        }
+
+        .nine {
+            background-color: #D46A6A;
+        }
+
+        .ten {
+            background-color: #FCA5A5;
+        }
+
+        .box:hover,
+        .projector:hover {
+            background-color: gray;
+            transition: background-color 0.5s;
+            color: black;
+        }
+
+        .box:hover .minibox,
+        .projector:hover .minibox {
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #ffffff;
+        }
+
+        .box:hover .minibox:active,
+        .projector:hover .minibox:active {
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .name {
+            font-size: 1.3em;
+        }
+
+        .middle {
+            height: 10em;
+            width: 74%;
+            display: inline-block;
+            margin-left: 5%;
+            margin-top: 2%;
+            box-shadow: 10px 10px 5px 0 rgba(0, 0, 0, 0.75);
+            text-align: center;
+            vertical-align: middle;
+            padding: 1em;
+        }
+
+        input {
+            width: 95%;
+        }
+
+        .switches {
+            background-color: #50A162;
+        }
+
+        .empty {
+            height: 12.7%;
+            width: 12.7%;
+            display: inline-block;
+            margin-left: 5%;
+            margin-top: 2%;
+            box-shadow: 10px 10px 5px 0 0;
+            text-align: center;
+            vertical-align: middle;
+            color: transparent;
+            padding: 1em;
+        }
+
+        .decorator1 {
+            height: 50%;
+            padding: 0;
+            margin: 0;
+            top: 0;
+            left: 0;
+        }
+
+        .decorator2 {
+            height: 50%;
+            padding: 0;
+            margin: 0;
+            top: 0;
+            left: 0;
+        }
+    </style>
+
+    <style id="slider">
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            margin: 5.5px 0;
+        }
+
+        input[type=range]:focus {
+            outline: none;
+        }
+
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 10px;
+            cursor: pointer;
+            box-shadow: 1px 1px 1.7px #a1a1a1, 0px 0px 1px #aeaeae;
+            background: #171717;
+            border-radius: 10px;
+            border: 1.5px solid #899587;
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+            box-shadow: 3.7px 3.7px 3.7px #a1a1a1, 0px 0px 3.7px #aeaeae;
+            border: 2.5px solid #a1a1a1;
+            height: 21px;
+            width: 21px;
+            border-radius: 50px;
+            background: #434343;
+            cursor: pointer;
+            -webkit-appearance: none;
+            margin-top: -7px;
+        }
+
+        input[type=range]:focus::-webkit-slider-runnable-track {
+            background: #313131;
+        }
+
+        input[type=range]::-moz-range-track {
+            width: 100%;
+            height: 10px;
+            cursor: pointer;
+            box-shadow: 1px 1px 1.7px #a1a1a1, 0px 0px 1px #aeaeae;
+            background: #171717;
+            border-radius: 10px;
+            border: 1.5px solid #899587;
+        }
+
+        input[type=range]::-moz-range-thumb {
+            box-shadow: 3.7px 3.7px 3.7px #a1a1a1, 0px 0px 3.7px #aeaeae;
+            border: 2.5px solid #a1a1a1;
+            height: 21px;
+            width: 21px;
+            border-radius: 50px;
+            background: #434343;
+            cursor: pointer;
+        }
+
+        input[type=range]::-ms-track {
+            width: 100%;
+            height: 10px;
+            cursor: pointer;
+            background: transparent;
+            border-color: transparent;
+            color: transparent;
+        }
+
+        input[type=range]::-ms-fill-lower {
+            background: #000000;
+            border: 1.5px solid #899587;
+            border-radius: 20px;
+            box-shadow: 1px 1px 1.7px #a1a1a1, 0px 0px 1px #aeaeae;
+        }
+
+        input[type=range]::-ms-fill-upper {
+            background: #171717;
+            border: 1.5px solid #899587;
+            border-radius: 20px;
+            box-shadow: 1px 1px 1.7px #a1a1a1, 0px 0px 1px #aeaeae;
+        }
+
+        input[type=range]::-ms-thumb {
+            box-shadow: 3.7px 3.7px 3.7px #a1a1a1, 0px 0px 3.7px #aeaeae;
+            border: 2.5px solid #a1a1a1;
+            height: 21px;
+            width: 21px;
+            border-radius: 50px;
+            background: #434343;
+            cursor: pointer;
+            height: 10px;
+        }
+
+        input[type=range]:focus::-ms-fill-lower {
+            background: #171717;
+        }
+
+        input[type=range]:focus::-ms-fill-upper {
+            background: #313131;
+        }
+    </style>
+
+</body>
+
+</html>
