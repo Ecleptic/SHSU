@@ -12,15 +12,15 @@ public static void main(String[] args) throws IOException {
         int power;
 
 
-        // Scanner keyboard = new Scanner(System.in);
-        // System.out.print("Type Filename Here: \n");
-        // String file = keyboard.next();
-        String file = "numbers.bin";
+        Scanner keyboard = new Scanner(System.in);
+        System.out.print("Type Filename Here: \n");
+        String file = keyboard.next();
+        // String file = "numbers.bin";
         FileInputStream fstream = new FileInputStream(file);
         DataInputStream inputFile = new DataInputStream(fstream);
 
         // System.out.println();
-        System.out.println("Reading numbers from the file:");
+        System.out.println("  Reading numbers from the file:");
         System.out.println(" \t 32-bit Binary\t\t       8-digit hex \t  6-bit unsigned      16-bit ");
         while (!endOfFile) {
                 try {
