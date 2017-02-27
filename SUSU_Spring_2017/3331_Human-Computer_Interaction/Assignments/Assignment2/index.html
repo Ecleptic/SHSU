@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>HCI Homework 2</title>
+
+
+
+    <link rel="stylesheet" href="css/style.css">
+
+
+</head>
+
+<body>
+    <p>Question 5: Design a touch screen music jukebox, which allows the user to select from a menu of the five most popular songs of the week. Design an interface for each of the following menu types: Binary Menu, Multiple-Item menu, Check boxes, Pull-down
+        Menus. Argue which design serves the user best (20 points).
+    </p>
+    <hr />
+    <h1>Binary Menu</h1>
+    <ol>
+        <form action="radio">
+            <li class="input"><input type="radio" name="binSong"> Shape of You - Ed Sheeran
+            </li>
+            <li class="input"><input type="radio" name="binSong"> Rent Money - Future</li>
+            <li class="input"><input type="radio" name="binSong"> Draco - Future</li>
+            <li class="input"><input type="radio" name="binSong"> Good Dope - Future</li>
+            <li class="input"><input type="radio" name="binSong"> Starboy (feat. Daft Punk) - The Weekend</li>
+            <br />
+            <input type="submit" class="btn-primary">
+        </form>
+    </ol>
+    <hr />
+    <h1>Multiple-Item Menu</h1>
+    <form action="multi-item">
+
+        <select multiple size="5">
+  <option>Shape of You - Ed Sheeran</option>
+  <option>Rent Money - Future</option>
+  <option>Draco - Future</option>
+  <option>Good Dope - Future</option>
+  <option>Starboy (feat. Daft Punk) - The Weekend</option>
+</select>
+        <br />
+        <br />
+        <input type="submit" class="btn-primary">
+    </form>
+    <hr />
+
+    <h1>Check Boxes</h1>
+    <ol>
+        <form action="checkbox">
+            <li class="input"><input type="checkbox" name="checkBox"> Shape of You - Ed Sheeran
+            </li>
+            <li class="input"><input type="checkbox" name="checkBox"> Rent Money - Future</li>
+            <li class="input"><input type="checkbox" name="checkBox"> Draco - Future</li>
+            <li class="input"><input type="checkbox" name="checkBox"> Good Dope - Future</li>
+            <li class="input"><input type="checkbox" name="checkBox"> Starboy (feat. Daft Punk) - The Weekend</li>
+            <br />
+            <input type="submit" class="btn-primary">
+        </form>
+    </ol>
+    <hr />
+
+
+    <h1>Pull-down Menu</h1>
+    <form action="pull-down">
+        <select>
+  <option> Shape of You - Ed Sheeran</option>
+  <option>Rent Money - Future</option>
+  <option>Draco - Future</option>
+  <option>Good Dope - Future</option>
+  <option>Starboy (feat. Daft Punk) - The Weekend</option>
+</select>
+        <br />
+        <br />
+        <input type="submit" class="btn-primary">
+    </form>
+
+
+</body>
+<style>
+    .input {
+        list-style: none;
+    }
+
+    .btn-primary {
+        background: #3EB4FA;
+        color: white;
+        border-color: #3EB4FA;
+        transition: 0.3s ease;
+        margin-left: 40px;
+    }
+
+    .btn-primary:hover {
+        background: #0273B2;
+        color: white;
+        border-color: #0273B2;
+        transition: 0.3s ease;
+    }
+
+    ol {
+        padding: 0;
+        margin: 0;
+    }
+
+    input {
+        /*   padding: 0; */
+        margin: 0;
+    }
+</style>
+
+</html>
