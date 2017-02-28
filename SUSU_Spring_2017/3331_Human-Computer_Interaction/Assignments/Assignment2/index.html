@@ -5,81 +5,193 @@
     <meta charset="UTF-8">
     <title>HCI Homework 2</title>
 
-
-
-    <link rel="stylesheet" href="css/style.css">
-
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-2.1.0.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 
 </head>
 
 <body>
-    <p>Question 5: Design a touch screen music jukebox, which allows the user to select from a menu of the five most popular songs of the week. Design an interface for each of the following menu types: Binary Menu, Multiple-Item menu, Check boxes, Pull-down
+    <p>
+        Question 5: Design a touch screen music jukebox, which allows the user to select from a menu of the five most popular songs of the week. Design an interface for each of the following menu types: Binary Menu, Multiple-Item menu, Check boxes, Pull-down
         Menus. Argue which design serves the user best (20 points).
     </p>
     <hr />
-    <h1>Binary Menu</h1>
-    <ol>
-        <form action="radio">
-            <li class="input"><input type="radio" name="binSong"> Shape of You - Ed Sheeran
-            </li>
-            <li class="input"><input type="radio" name="binSong"> Rent Money - Future</li>
-            <li class="input"><input type="radio" name="binSong"> Draco - Future</li>
-            <li class="input"><input type="radio" name="binSong"> Good Dope - Future</li>
-            <li class="input"><input type="radio" name="binSong"> Starboy (feat. Daft Punk) - The Weekend</li>
-            <br />
-            <input type="submit" class="btn-primary">
-        </form>
-    </ol>
+    <div class="row">
+        <div class="col-xs-12">
+            <h2>Vertical radio:</h2>
+            <div class="btn-group btn-group-vertical" data-toggle="buttons">
+                <label class="btn active">
+            <input type="radio" name="gender1"><i class="fa fa-circle-o fa-2x"></i>
+            <i class="fa fa-dot-circle-o fa-2x"></i> <span>  Shape of You - Ed Sheeran</span>
+          </label>
+                <label class="btn">
+            <input type="radio" name="gender2"><i class="fa fa-circle-o fa-2x"></i>
+            <i class="fa fa-dot-circle-o fa-2x"></i><span> Rent Money - Future</span>
+          </label><label class="btn">
+            <input type="radio" name="gender3"><i class="fa fa-circle-o fa-2x"></i>
+            <i class="fa fa-dot-circle-o fa-2x"></i><span> Draco - Future</span>
+          </label><label class="btn">
+            <input type="radio" name="gender4"><i class="fa fa-circle-o fa-2x"></i>
+            <i class="fa fa-dot-circle-o fa-2x"></i><span> Good Dope - Future</span>
+          </label><label class="btn">
+            <input type="radio" name="gender5"><i class="fa fa-circle-o fa-2x"></i>
+            <i class="fa fa-dot-circle-o fa-2x"></i><span> Starboy (feat. Daft Punk) - The Weekend</span>
+          </label>
+            </div>
+        </div>
+    </div>
     <hr />
     <h1>Multiple-Item Menu</h1>
     <form action="multi-item">
 
         <select multiple size="5">
-  <option>Shape of You - Ed Sheeran</option>
-  <option>Rent Money - Future</option>
-  <option>Draco - Future</option>
-  <option>Good Dope - Future</option>
-  <option>Starboy (feat. Daft Punk) - The Weekend</option>
-</select>
+    <option>Shape of You - Ed Sheeran</option>
+    <option>Rent Money - Future</option>
+    <option>Draco - Future</option>
+    <option>Good Dope - Future</option>
+    <option>Starboy (feat. Daft Punk) - The Weekend</option>
+  </select>
         <br />
         <br />
         <input type="submit" class="btn-primary">
     </form>
     <hr />
 
-    <h1>Check Boxes</h1>
-    <ol>
-        <form action="checkbox">
-            <li class="input"><input type="checkbox" name="checkBox"> Shape of You - Ed Sheeran
-            </li>
-            <li class="input"><input type="checkbox" name="checkBox"> Rent Money - Future</li>
-            <li class="input"><input type="checkbox" name="checkBox"> Draco - Future</li>
-            <li class="input"><input type="checkbox" name="checkBox"> Good Dope - Future</li>
-            <li class="input"><input type="checkbox" name="checkBox"> Starboy (feat. Daft Punk) - The Weekend</li>
-            <br />
-            <input type="submit" class="btn-primary">
-        </form>
-    </ol>
+    <div class="row">
+        <div class="col-xs-12">
+            <hr>
+            <h2>Vertical checkbox:</h2>
+            <br>
+            <div class="btn-group btn-group-vertical" data-toggle="buttons">
+                <label class="btn active">
+            <input type="checkbox" name="email1" checked><i class="fa fa-square-o fa-2x"></i>
+            <i class="fa fa-check-square-o fa-2x"></i> <span> Shape of You - Ed Sheeran</span>
+          </label>
+                <label class="btn">
+            <input type="checkbox" name="email2"><i class="fa fa-square-o fa-2x"></i>
+            <i class="fa fa-check-square-o fa-2x"></i><span> Rent Money - Future</span>
+          </label>
+                <label class="btn">
+            <input type="checkbox" name="email3"><i class="fa fa-square-o fa-2x"></i>
+            <i class="fa fa-check-square-o fa-2x"></i><span> Draco - Future</span>
+          </label><label class="btn">
+            <input type="checkbox" name="email3"><i class="fa fa-square-o fa-2x"></i>
+            <i class="fa fa-check-square-o fa-2x"></i><span> Good Dope - Future</span>
+          </label><label class="btn">
+            <input type="checkbox" name="email3"><i class="fa fa-square-o fa-2x"></i>
+            <i class="fa fa-check-square-o fa-2x"></i><span> Starboy (feat. Daft Punk) - The Weekend</span>
+          </label>
+                <br />
+                <input type="submit" class="btn-primary">
+            </div>
+        </div>
+    </div>
+
     <hr />
 
 
     <h1>Pull-down Menu</h1>
     <form action="pull-down">
         <select>
-  <option> Shape of You - Ed Sheeran</option>
-  <option>Rent Money - Future</option>
-  <option>Draco - Future</option>
-  <option>Good Dope - Future</option>
-  <option>Starboy (feat. Daft Punk) - The Weekend</option>
-</select>
+    <option> Shape of You - Ed Sheeran</option>
+    <option>Rent Money - Future</option>
+    <option>Draco - Future</option>
+    <option>Good Dope - Future</option>
+    <option>Starboy (feat. Daft Punk) - The Weekend</option>
+  </select>
         <br />
         <br />
         <input type="submit" class="btn-primary">
     </form>
-
-
 </body>
 <style>
+    label.btn span {
+        font-size: 1.5em;
+    }
+
+    label input[type="radio"]~i.fa.fa-circle-o {
+        color: #c8c8c8;
+        display: inline;
+    }
+
+    label input[type="radio"]~i.fa.fa-dot-circle-o {
+        display: none;
+    }
+
+    label input[type="radio"]:checked~i.fa.fa-circle-o {
+        display: none;
+    }
+
+    label input[type="radio"]:checked~i.fa.fa-dot-circle-o {
+        color: #7AA3CC;
+        display: inline;
+    }
+
+    label:hover input[type="radio"]~i.fa {
+        color: #7AA3CC;
+    }
+
+    label input[type="checkbox"]~i.fa.fa-square-o {
+        color: #c8c8c8;
+        display: inline;
+    }
+
+    label input[type="checkbox"]~i.fa.fa-check-square-o {
+        display: none;
+    }
+
+    label input[type="checkbox"]:checked~i.fa.fa-square-o {
+        display: none;
+    }
+
+    label input[type="checkbox"]:checked~i.fa.fa-check-square-o {
+        color: #3f72a6;
+        display: inline;
+    }
+
+    label:hover input[type="checkbox"]~i.fa {
+        color: #3f72a6;
+    }
+
+    div[data-toggle="buttons"] label.active {
+        color: #3f72a6;
+    }
+
+    div[data-toggle="buttons"] label {
+        display: inline-block;
+        padding: 6px 12px;
+        margin-bottom: 0;
+        font-size: 14px;
+        font-weight: normal;
+        line-height: 2em;
+        text-align: left;
+        white-space: nowrap;
+        vertical-align: top;
+        cursor: pointer;
+        background-color: none;
+        border: 0px solid #c8c8c8;
+        border-radius: 3px;
+        color: #c8c8c8;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -o-user-select: none;
+        user-select: none;
+    }
+
+    div[data-toggle="buttons"] label:hover {
+        color: #7AA3CC;
+        background: darkblue;
+    }
+
+    div[data-toggle="buttons"] label:active,
+    div[data-toggle="buttons"] label.active {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+
     .input {
         list-style: none;
     }
@@ -107,6 +219,12 @@
     input {
         /*   padding: 0; */
         margin: 0;
+    }
+
+    label {
+        /*   background:#0000FF; */
+        /*     border-style: solid; */
+        /*     border-width: 5px; */
     }
 </style>
 
