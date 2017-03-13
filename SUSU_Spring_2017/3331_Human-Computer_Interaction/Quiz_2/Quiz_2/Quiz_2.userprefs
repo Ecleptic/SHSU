@@ -1,0 +1,15 @@
+﻿<Properties StartupConfiguration="{B43996B9-2E59-4D3E-BDAF-20CBB1F9E909}|Default">
+  <MonoDevelop.Ide.ItemProperties.Quiz__2 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Quiz_2/MainWindow.cs">
+    <Files>
+      <File FileName="Quiz_2/Program.cs" Line="1" Column="1" />
+      <File FileName="Quiz_2/MainWindow.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>

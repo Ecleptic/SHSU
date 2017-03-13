@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<stetic-interface>
+  <configuration>
+    <images-root-path>..</images-root-path>
+  </configuration>
+  <import>
+    <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <widget-library name="../bin/Debug/Quiz_2.exe" internal="true" />
+  </import>
+  <widget class="Gtk.Window" id="MainWindow" design-size="724 553">
+    <property name="MemberName" />
+    <property name="Title" translatable="yes">MainWindow</property>
+    <property name="WindowPosition">CenterOnParent</property>
+    <signal name="DeleteEvent" handler="OnDeleteEvent" />
+    <child>
+      <widget class="Gtk.Fixed" id="fixed1">
+        <property name="MemberName" />
+        <property name="HasWindow">False</property>
+        <child>
+          <widget class="Gtk.Entry" id="entry1">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="IsEditable">True</property>
+            <property name="InvisibleChar">●</property>
+          </widget>
+          <packing>
+            <property name="X">104</property>
+            <property name="Y">38</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="Name">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Full Name</property>
+          </widget>
+          <packing>
+            <property name="X">32</property>
+            <property name="Y">41</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="Doctor">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Doctor Name</property>
+          </widget>
+          <packing>
+            <property name="X">39</property>
+            <property name="Y">84</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.ComboBox" id="combobox1">
+            <property name="MemberName" />
+            <property name="IsTextCombo">True</property>
+            <property name="Items" translatable="yes" context="yes">Doctor 1|Doctor 1
+Doctor 2</property>
+            <property name="Active">0</property>
+          </widget>
+          <packing>
+            <property name="X">119</property>
+            <property name="Y">82</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Calendar" id="calendar1">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="DisplayOptions">35</property>
+          </widget>
+          <packing>
+            <property name="X">381</property>
+            <property name="Y">31</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="label3">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Date of Birth</property>
+          </widget>
+          <packing>
+            <property name="X">293</property>
+            <property name="Y">34</property>
+          </packing>
+        </child>
+      </widget>
+    </child>
+  </widget>
+</stetic-interface>

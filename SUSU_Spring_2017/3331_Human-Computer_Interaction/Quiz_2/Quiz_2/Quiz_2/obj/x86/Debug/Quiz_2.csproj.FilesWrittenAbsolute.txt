@@ -1,0 +1,12 @@
+/Users/cgreen/Documents/SHSU/SUSU_Spring_2017/3331_Human-Computer_Interaction/Quiz1/Quiz_2/Quiz_2/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/Users/cgreen/Documents/SHSU/SUSU_Spring_2017/3331_Human-Computer_Interaction/Quiz1/Quiz_2/Quiz_2/obj/x86/Debug/Quiz_2.gtk-gui.gui.stetic
+/Users/cgreen/Documents/SHSU/SUSU_Spring_2017/3331_Human-Computer_Interaction/Quiz1/Quiz_2/Quiz_2/bin/Debug/Quiz_2.exe.mdb
+/Users/cgreen/Documents/SHSU/SUSU_Spring_2017/3331_Human-Computer_Interaction/Quiz1/Quiz_2/Quiz_2/bin/Debug/Quiz_2.exe
+/Users/cgreen/Documents/SHSU/SUSU_Spring_2017/3331_Human-Computer_Interaction/Quiz1/Quiz_2/Quiz_2/obj/x86/Debug/Quiz_2.exe
+/Users/cgreen/Documents/SHSU/SUSU_Spring_2017/3331_Human-Computer_Interaction/Quiz1/Quiz_2/Quiz_2/obj/x86/Debug/Quiz_2.exe.mdb
+/Users/cgreen/Documents/SHSU/SUSU_Spring_2017/3331_Human-Computer_Interaction/Quiz_2/Quiz_2/Quiz_2/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/Users/cgreen/Documents/SHSU/SUSU_Spring_2017/3331_Human-Computer_Interaction/Quiz_2/Quiz_2/Quiz_2/obj/x86/Debug/Quiz_2.gtk-gui.gui.stetic
+/Users/cgreen/Documents/SHSU/SUSU_Spring_2017/3331_Human-Computer_Interaction/Quiz_2/Quiz_2/Quiz_2/bin/Debug/Quiz_2.exe.mdb
+/Users/cgreen/Documents/SHSU/SUSU_Spring_2017/3331_Human-Computer_Interaction/Quiz_2/Quiz_2/Quiz_2/bin/Debug/Quiz_2.exe
+/Users/cgreen/Documents/SHSU/SUSU_Spring_2017/3331_Human-Computer_Interaction/Quiz_2/Quiz_2/Quiz_2/obj/x86/Debug/Quiz_2.exe
+/Users/cgreen/Documents/SHSU/SUSU_Spring_2017/3331_Human-Computer_Interaction/Quiz_2/Quiz_2/Quiz_2/obj/x86/Debug/Quiz_2.exe.mdb
