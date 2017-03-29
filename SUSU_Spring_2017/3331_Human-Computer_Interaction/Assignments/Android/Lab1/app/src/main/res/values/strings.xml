@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Lab1</string>
+    <string name="Hello_Android">Hello Android</string>
+    <string name="name_prompt">Enter your Name</string>
+    <string name="next">Next</string>
+    <string name="poopEmoji">💩</string>
+</resources>
