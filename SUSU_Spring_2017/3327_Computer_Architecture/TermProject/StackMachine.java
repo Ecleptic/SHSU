@@ -352,6 +352,10 @@ public class StackMachine
 				
 			case SHL:
 				// pop the top value off the stack, logical shift the bits left by 1 bit, and push the result
+				int lvalue33 = stack.pop();
+				int rvalue33 << lvalue33;
+				stack.push(rvalue33);
+
 				break;
 				
 			case SHR:
