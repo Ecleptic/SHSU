@@ -56,6 +56,8 @@ public class StackMachine {
     boolean run;
     Stack<Integer> stack;            // data stack
     Stack<Integer> callStack;        // call stack
+    int opValueL;
+    int opValueR;
 
     public StackMachine() {
 
@@ -68,7 +70,7 @@ public class StackMachine {
 
     }
 
-    public void loadInstructions() throws IOException {
+    public void readBin() throws IOException {
         FileInputStream fstream = new FileInputStream(fileName);
         DataInputStream inputFile = new DataInputStream(fstream);
         boolean endOfFile = false;
@@ -122,9 +124,9 @@ public class StackMachine {
 
             case POP:
                 // store the value on top of the stack in the address directly below it on the stack
-                int rvalue4 = stack.pop();
-                int lvalue4 = stack.pop();
-                data[lvalue4] = rvalue4;
+                int opValueR = stack.pop();
+                int opValueL = stack.pop();
+                data[opValueL = opValueR;
                 break;
 
             case STO:
@@ -132,153 +134,153 @@ public class StackMachine {
                 break;
 
             case COPY:
-                int rvalue6 = stack.pop();
-                int lvalue6 = stack.pop();
-                data[lvalue6] = rvalue6;
-                stack.push(rvalue6);
+                int opValueR = stack.pop();
+                int opValueL = stack.pop();
+                data[opValueL = opValueR;
+                stack.push(opValueR);
                 break;
 
             case ADD:
-                int rvalue7 = stack.pop();
-                int lvalue7 = stack.pop();
-                int add7 = (rvalue7 + lvalue7);
+                int opValueR = stack.pop();
+                int opValueL = stack.pop();
+                int add7 = (opValueR + lvalue7);
                 stack.push(add7);
                 break;
 
             case SUB:
-                int rvalue8 = stack.pop();
-                int lvalue8 = stack.pop();
-                int sub8 = (rvalue8 - lvalue8);
+                int opValueR = stack.pop();
+                int opValueL = stack.pop();
+                int sub8 = (opValueR - lvalue8);
                 stack.push(sub8);
                 break;
 
             case MPY:
-                int rvalue9 = stack.pop();
-                int lvalue9 = stack.pop();
-                int mpy9 = (rvalue9 * lvalue9);
+                int opValueR = stack.pop();
+                int opValueL = stack.pop();
+                int mpy9 = (opValueR * lvalue9);
                 stack.push(mpy9);
                 break;
 
             case DIV:
-                int rvalue10 = stack.pop();
-                int lvalue10 = stack.pop();
-                if (lvalue10 == 0) {
+                int opValueR = stack.pop();
+                int opValueL = stack.pop();
+                if (opValueL == 0) {
                     System.out.println("Can not divide by zero");
                     break;
                 }
-                int div10 = (rvalue10 / lvalue10);
+                int div10 = (opValueR / lvalue10);
                 stack.push(div10);
 
                 break;
 
             case MOD:
-                int rvalue11 = stack.pop();
-                int lvalue11 = stack.pop();
-                int mod11 = (rvalue11 % lvalue11);
+                int opValueR = stack.pop();
+                int opValueL = stack.pop();
+                int mod11 = (opValueR % lvalue11);
                 stack.push(mod11);
                 break;
 
             case NEG:
-                int rvalue12 = stack.pop();
-                int neg12 = (rvalue12 * -1);
+                int opValueR = stack.pop();
+                int neg12 = (opValueR * -1);
                 stack.push(neg12);
                 break;
 
 
             case NOT:
-                String rvalue13 = Integer.toBinaryString(stack.pop());
-                String not13 = rvalue13;
-                not13 = rvalue13.replaceAll("0", "x");
-                not13 = rvalue13.replaceAll("1", "0");
-                not13 = rvalue13.replaceAll("x", "1");
+                String opValueR = Integer.toBinaryString(stack.pop());
+                String not13 = opValueR;
+                not13 = opValueR.replaceAll("0", "x");
+                not13 = opValueR.replaceAll("1", "0");
+                not13 = opValueR.replaceAll("x", "1");
                 stack.push(Integer.parseInt(not13));
                 break;
 
             case OR:
                 // pop the top two values off the stack, compute the logical OR, and push the result
-                int rvalue14 = stack.pop();
-                int lvalue14 = stack.pop();
-                if (lvalue14 != 0 || rvalue14 != 0) {
+                int opValueR = stack.pop();
+                int opValueL = stack.pop();
+                if (opValueL != 0 || opValueR != 0) {
                     stack.push(1);
                 } else {
                     stack.push(0);
-                    stack.push(rvalue14 & lvalue14);
+                    stack.push(opValueR & lvalue14);
                 }
                 break;
             case AND:
-                int rvalue15 = stack.pop();
-                int lvalue15 = stack.pop();
-                if (lvalue15 != 0 && rvalue15 != 0) {
+                int opValueR = stack.pop();
+                int opValueL = stack.pop();
+                if (opValueL != 0 && opValueR != 0) {
                     stack.push(1);
                 } else {
                     stack.push(0);
-                    stack.push(rvalue15 & lvalue15);
+                    stack.push(opValueR & lvalue15);
                 }
                 // pop the top two values off the stack, compute the logical AND, and push the result
                 break;
             case EQ:
-                int rvalue16 = stack.pop();
-                int lvalue16 = stack.pop();
-                if (rvalue16 == lvalue16) {
-                    stack.push(1);
-                } else {
-                    stack.push(0);
-                }
-                break;
+                int opValueR = stack.pop();
+                int opValueL = stack.pop();
+                if (opValueR == opValueL {
+                stack.push(1);
+            } else{
+                stack.push(0);
+            }
+            break;
 
 
             // pop the top two values off the stack, compare them,
 //				                                  and push a 1 if they are equal, and a 0 if they are not
 
             case NE:
-                int rvalue17 = stack.pop();
-                int lvalue17 = stack.pop();
-                if (rvalue17 != lvalue17) {
-                    stack.push(1);
-                } else {
-                    stack.push(0);
-                }
-                break;
+                int opValueR = stack.pop();
+                int opValueL = stack.pop();
+                if (opValueR != opValueL {
+                stack.push(1);
+            } else{
+                stack.push(0);
+            }
+            break;
 //				break;
             case GT:
-                int rvalue18 = stack.pop();
-                int lvalue18 = stack.pop();
-                if (rvalue18 > lvalue18) {
-                    stack.push(1);
-                } else {
-                    stack.push(0);
-                }
-                break;
+                int opValueR = stack.pop();
+                int opValueL = stack.pop();
+                if (opValueR > opValueL {
+                stack.push(1);
+            } else{
+                stack.push(0);
+            }
+            break;
 
             case GE:
-                int rvalue19 = stack.pop();
-                int lvalue19 = stack.pop();
-                if (rvalue19 >= lvalue19) {
-                    stack.push(1);
-                } else {
-                    stack.push(0);
-                }
-                break;
+                int opValueR = stack.pop();
+                int opValueL = stack.pop();
+                if (opValueR >= opValueL {
+                stack.push(1);
+            } else{
+                stack.push(0);
+            }
+            break;
 
             case LT:
-                int rvalue20 = stack.pop();
-                int lvalue20 = stack.pop();
-                if (rvalue20 < lvalue20) {
-                    stack.push(1);
-                } else {
-                    stack.push(0);
-                }
-                break;
+                int opValueR = stack.pop();
+                int opValueL = stack.pop();
+                if (opValueR < opValueL {
+                stack.push(1);
+            } else{
+                stack.push(0);
+            }
+            break;
 
             case LE:
-                int rvalue21 = stack.pop();
-                int lvalue21 = stack.pop();
-                if (rvalue21 <= lvalue21) {
-                    stack.push(1);
-                } else {
-                    stack.push(0);
-                }
-                break;
+                int opValueR = stack.pop();
+                int opValueL = stack.pop();
+                if (opValueR <= opValueL {
+                stack.push(1);
+            } else{
+                stack.push(0);
+            }
+            break;
             case LABEL:
                 //  serves as the target of jumps to n; has no other effect
                 break;
@@ -287,30 +289,30 @@ public class StackMachine {
                 break;
             case GOFALSE:
                 // pop the top value; jump if it is zero
-                int rvalue24 = stack.pop();
-                if (rvalue24 == 0) {
+                int opValueR = stack.pop();
+                if (opValueR == 0) {
                     break;
                 }
 //				break;
             case GOTRUE:
                 // pop the top value; jump  if it is nonzero
-                int rvalue25 = stack.pop();
-                if (rvalue25 != 0) {
+                int opValueR = stack.pop();
+                if (opValueR != 0) {
                     break;
                 }
 //				break;
             case PRINT:
                 // pop the top value off the stack and display it as a base 10 integer
-                int rvalue26 = stack.pop();
-                System.out.println(rvalue26);
+                int opValueR = stack.pop();
+                System.out.println(opValueR6);
                 break;
 
             case READ:
                 // read a base 10 integer from the keyboard and push its value on the stack
                 Scanner keyboard = new Scanner(System.in);
                 System.out.println("enter a base 10 integer");
-                int rvalue27 = keyboard.nextInt();
-                stack.push(rvalue27);
+                int opValueR = keyboard.nextInt();
+                stack.push(opValueR);
                 break;
 
             case GOSUB:
@@ -325,53 +327,53 @@ public class StackMachine {
 
             case ORB:
                 // pop the top two values off the stack, compute the bitwise OR, and push the result
-                int lvalue30 = stack.pop();
-                int rvalue30 = stack.pop();
-                int andb30 = (lvalue30 | rvalue30);
+                int opValueL = stack.pop();
+                int opValueR = stack.pop();
+                int andb30 = (opValueL | opValueR);
                 stack.push(andb30);
                 break;
 
             case ANDB:
                 // pop the top two values off the stack, compute the bitwise AND, and push the result
-                int lvalue31 = stack.pop();
-                int rvalue31 = stack.pop();
-                int andb31 = (lvalue31 & rvalue31);
+                int opValueL = stack.pop();
+                int opValueR = stack.pop();
+                int andb31 = (opValueL & opValueR);
                 stack.push(andb31);
 
                 break;
 
             case XORB:
                 //pop the top two values off the stack, compute the bitwise XOR, and push the result
-                int lvalue32 = stack.pop();
-                int rvalue32 = stack.pop();
-                int andb32 = (lvalue32 ^ rvalue32);
+                int opValueL = stack.pop();
+                int opValueR = stack.pop();
+                int andb32 = (opValueL ^ opValueR);
                 stack.push(andb32);
                 break;
 
             case SHL:
                 // pop the top value off the stack, logical shift the bits left by 1 bit, and push the result
-                int lvalue33 = stack.pop();
-                int rvalue33 = lvalue33 << 1;
-                stack.push(rvalue33);
+                int opValueL = stack.pop();
+                int opValueR = opValueL << 1;
+                stack.push(opValueR);
                 break;
 
             case SHR:
-                int lvalue34 = stack.pop();
-                int rvalue34 = lvalue34 >> 1;
-                stack.push(rvalue34);
+                int opValueL = stack.pop();
+                int opValueR = opValueL >> 1;
+                stack.push(opValueR);
                 break;
 
             case SAR:
-                int lvalue35 = stack.pop();
-                int rvalue35 = lvalue35 >>> 1;
-                stack.push(rvalue35);
+                int opValueL = stack.pop();
+                int opValueR = opValueL >>> 1;
+                stack.push(opValueR);
                 break;
 
             case ASGN:
                 // store the value on top of the stack in the address directly below it on the stack
-                int rvalue36 = stack.pop();
-                int lvalue36 = stack.pop();
-                data[lvalue36] = rvalue36;
+                int opValueR = stack.pop();
+                int opValueL = stack.pop();
+                data[opValueL] = opValueR;
                 final int POP = 4;
                 break;
 
@@ -393,7 +395,7 @@ public class StackMachine {
         fileName = args[0];
 
         try {
-            vm.loadInstructions(); //cameron's naming it readbin
+            vm.readBin();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
