@@ -198,16 +198,24 @@ public class StackMachine
 
 			case  OR:
 				// pop the top two values off the stack, compute the logical OR, and push the result
-				break;
-			case AND:
-			     int rvalue15 = stack.pop();
-			     int lvalue15 = stack.pop();
-			     if ( lvalue15 != 0 && rvalue15 != 0 )
-			     { 
+				int rvalue14 = stack.pop();
+			     int lvalue14 = stack.pop();
+			     if ( lvalue14 != 0 || rvalue14 != 0 ){ 
 			         stack.push( 1 );
 			     }
 			     else
 			     {
+			         stack.push(0);
+			         stack.push( rvalue14 & lvalue14 );
+			     }
+				break;
+			case AND:
+			     int rvalue15 = stack.pop();
+			     int lvalue15 = stack.pop();
+			     if ( lvalue15 != 0 && rvalue15 != 0 ){ 
+			         stack.push( 1 );
+			     }
+			     else{
 			         stack.push(0);
 			         stack.push( rvalue15 & lvalue15 );
 			     }
@@ -352,10 +360,7 @@ public class StackMachine
 				
 			case SHL:
 				// pop the top value off the stack, logical shift the bits left by 1 bit, and push the result
-				int lvalue33 = stack.pop();
-				int rvalue33 << lvalue33;
-				stack.push(rvalue33);
-
+		 		
 				break;
 				
 			case SHR:
