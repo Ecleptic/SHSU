@@ -126,7 +126,7 @@ public class StackMachine {
                 // store the value on top of the stack in the address directly below it on the stack
                 int opValueR = stack.pop();
                 int opValueL = stack.pop();
-                data[opValueL = opValueR;
+                data[opValueL] = opValueR;
                 break;
 
             case STO:
@@ -136,7 +136,7 @@ public class StackMachine {
             case COPY:
                 int opValueR = stack.pop();
                 int opValueL = stack.pop();
-                data[opValueL = opValueR;
+                data[opValueL] = opValueR;
                 stack.push(opValueR);
                 break;
 
