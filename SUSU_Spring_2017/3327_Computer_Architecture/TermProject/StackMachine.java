@@ -211,7 +211,7 @@ public class StackMachine {
                     stack.push(1);
                 } else {
                     stack.push(0);
-                    stack.push(opValueR & opValueL);
+                    stack.push(opValueR | opValueL);
                 }
                 break;
             case AND:
