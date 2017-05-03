@@ -222,7 +222,6 @@ public class StackMachine {
                     stack.push(1);
                 } else {
                     stack.push(0);
-                    stack.push(opValueR & opValueL);
                 }
                 break;
             case EQ:
@@ -287,10 +286,7 @@ public class StackMachine {
                 break;
             case LABEL:
                 //  serves as the target of jumps to n; has no other effect
-                /**
-                 * TODO: 
-                 * Finish here.
-                 */
+                    // System.out.println("Label");
                 break;
             case GOTO:
                 // the next instruction is taken from statement with label n
