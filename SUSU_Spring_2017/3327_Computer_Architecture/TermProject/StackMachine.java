@@ -4,6 +4,14 @@ import java.util.Scanner;
 
 
 // here's a start of a program in case you don't know where to begin;
+/*
+* TO RUN:
+* $ javac StackMachine.java;
+*
+* $ java StackMachine numbers.bin;
+*
+*
+* */
 
 public class StackMachine {
     final int MAX_CODE = 65536;    // size of code memory
@@ -87,6 +95,7 @@ public class StackMachine {
         }
     }
 
+
     public void execute() {
         while (run)                            // the old fetch-execute cycle
         {
@@ -112,15 +121,15 @@ public class StackMachine {
                 // push a literal value
                 stack.push(operand);
                 break;
+
             case RVALUE:
-                // push the contents of a memory address
-                stack.push(data[operand]);
-                break;
-            case LVALUE:
                 // push the address (which, come to think of it, is exactly the same as pushing a literal)
                 stack.push(operand);
                 break;
-
+            case LVALUE:
+                // push the contents of a memory address
+                stack.push(data[operand]);
+                break;
             case POP:
                 // store the value on top of the stack in the address directly below it on the stack
                 opValueR = stack.pop();
@@ -164,7 +173,7 @@ public class StackMachine {
                 opValueR = stack.pop();
                 opValueL = stack.pop();
                 if (opValueL == 0) {
-                    System.out.println("Can not divide by zero");
+                    System.out.println("Error: Can not divide by zero! :(");
                     break;
                 }
                 int div = (opValueR / opValueL);
@@ -278,7 +287,7 @@ public class StackMachine {
                 break;
             case LABEL:
                 //  serves as the target of jumps to n; has no other effect
-                /** 
+                /**
                  * TODO: 
                  * Finish here.
                  */

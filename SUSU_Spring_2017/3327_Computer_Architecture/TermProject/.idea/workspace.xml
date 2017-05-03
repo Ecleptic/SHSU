@@ -15,12 +15,12 @@
       <file leaf-file-name="StackMachine.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/StackMachine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="399" column="35" lean-forward="false" selection-start-line="399" selection-start-column="35" selection-end-line="399" selection-end-column="35" />
+            <state relative-caret-position="206">
+              <caret line="298" column="25" lean-forward="false" selection-start-line="298" selection-start-column="25" selection-end-line="298" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2614#2615#0" expanded="true" />
-                <element signature="e#2694#2695#0" expanded="true" />
+                <element signature="e#2703#2704#0" expanded="true" />
+                <element signature="e#2783#2784#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -43,6 +43,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>rvalue.+?</find>
+      <find>cannot</find>
     </findStrings>
     <replaceStrings>
       <replace>opValueR</replace>
@@ -178,12 +179,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1493751807264</updated>
-      <workItem from="1493751808633" duration="1255000" />
+      <workItem from="1493751808633" duration="2288000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1255000" />
+    <option name="totallyTimeSpent" value="2288000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
@@ -235,12 +236,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/StackMachine.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="399" column="35" lean-forward="false" selection-start-line="399" selection-start-column="35" selection-end-line="399" selection-end-column="35" />
+        <state relative-caret-position="206">
+          <caret line="298" column="25" lean-forward="false" selection-start-line="298" selection-start-column="25" selection-end-line="298" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2614#2615#0" expanded="true" />
-            <element signature="e#2694#2695#0" expanded="true" />
+            <element signature="e#2703#2704#0" expanded="true" />
+            <element signature="e#2783#2784#0" expanded="true" />
           </folding>
         </state>
       </provider>
