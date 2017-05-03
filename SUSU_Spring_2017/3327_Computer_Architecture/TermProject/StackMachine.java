@@ -48,7 +48,6 @@ public class StackMachine {
     final int ASGN = 36;
 
     static String fileName;
-
     int[] code;                    // reference for the memory modules
     int[] data;
     int PC;                            // we need a couple of registers
@@ -143,22 +142,22 @@ public class StackMachine {
             case ADD:
                 opValueR = stack.pop();
                 opValueL = stack.pop();
-                int add7 = (opValueR + opValueL);
-                stack.push(add7);
+                int add = (opValueR + opValueL);
+                stack.push(add);
                 break;
 
             case SUB:
                 opValueR = stack.pop();
                 opValueL = stack.pop();
-                int sub8 = (opValueR - opValueL);
-                stack.push(sub8);
+                int sub = (opValueR - opValueL);
+                stack.push(sub);
                 break;
 
             case MPY:
-                 opValueR = stack.pop();
+                opValueR = stack.pop();
                 opValueL = stack.pop();
-                int mpy9 = (opValueR * opValueL);
-                stack.push(mpy9);
+                int mpy = (opValueR * opValueL);
+                stack.push(mpy);
                 break;
 
             case DIV:
@@ -168,36 +167,35 @@ public class StackMachine {
                     System.out.println("Can not divide by zero");
                     break;
                 }
-                int div10 = (opValueR / opValueL0);
-                stack.push(div10);
-
+                int div = (opValueR / opValueL);
+                stack.push(div);
                 break;
 
             case MOD:
                 opValueR = stack.pop();
                 opValueL = stack.pop();
-                int mod11 = (opValueR % opValueL1);
-                stack.push(mod11);
+                int mod = (opValueR % opValueL);
+                stack.push(mod);
                 break;
 
             case NEG:
                 opValueR = stack.pop();
-                int neg12 = (opValueR * -1);
-                stack.push(neg12);
+                int neg = (opValueR * -1);
+                stack.push(neg);
                 break;
 
 
             case NOT:
-                String opValueR = Integer.toBinaryString(stack.pop());
-                String not13 = opValueR;
-                not13 = opValueR.replaceAll("0", "x");
-                not13 = opValueR.replaceAll("1", "0");
-                not13 = opValueR.replaceAll("x", "1");
-                stack.push(Integer.parseInt(not13));
+                String opValueRString = Integer.toBinaryString(stack.pop());
+                String not = opValueRString;
+                not = opValueRString.replaceAll("0", "x");
+                not = opValueRString.replaceAll("1", "0");
+                not = opValueRString.replaceAll("x", "1");
+                stack.push(Integer.parseInt(not));
                 break;
 
             case OR:
-                // pop the top two values off the stack, compute the logical OR, and push the result
+// pop the top two values off the stack, compute the logical OR, and push the result
                 opValueR = stack.pop();
                 opValueL = stack.pop();
                 if (opValueL != 0 || opValueR != 0) {
@@ -208,6 +206,7 @@ public class StackMachine {
                 }
                 break;
             case AND:
+// pop the top two values off the stack, compute the logical AND, and push the result            
                 opValueR = stack.pop();
                 opValueL = stack.pop();
                 if (opValueL != 0 && opValueR != 0) {
@@ -216,76 +215,77 @@ public class StackMachine {
                     stack.push(0);
                     stack.push(opValueR & opValueL);
                 }
-                // pop the top two values off the stack, compute the logical AND, and push the result
                 break;
             case EQ:
+// pop the top two values off the stack, compare them, and push a 1 if they are equal, and a 0 if they are not
                 opValueR = stack.pop();
                 opValueL = stack.pop();
                 if (opValueR == opValueL) {
-                stack.push(1);
-            } else{
-                stack.push(0);
-            }
-            break;
+                    stack.push(1);
+                } else {
+                    stack.push(0);
+                }
+                break;
 
-
-            // pop the top two values off the stack, compare them,
-//				                                  and push a 1 if they are equal, and a 0 if they are not
 
             case NE:
                 opValueR = stack.pop();
                 opValueL = stack.pop();
                 if (opValueR != opValueL) {
-                stack.push(1);
-            } else{
-                stack.push(0);
-            }
-            break;
-//				break;
+                    stack.push(1);
+                } else {
+                    stack.push(0);
+                }
+                break;
             case GT:
                 opValueR = stack.pop();
                 opValueL = stack.pop();
-                if (opValueR > opValueL ){
-                stack.push(1);
-            } else{
-                stack.push(0);
-            }
-            break;
+                if (opValueR > opValueL) {
+                    stack.push(1);
+                } else {
+                    stack.push(0);
+                }
+                break;
 
             case GE:
                 opValueR = stack.pop();
                 opValueL = stack.pop();
-                if (opValueR >= opValueL ){
-                stack.push(1);
-            } else{
-                stack.push(0);
-            }
-            break;
+                if (opValueR >= opValueL) {
+                    stack.push(1);
+                } else {
+                    stack.push(0);
+                }
+                break;
 
             case LT:
                 opValueR = stack.pop();
                 opValueL = stack.pop();
                 if (opValueR < opValueL) {
-                stack.push(1);
-            } else{
-                stack.push(0);
-            }
-            break;
+                    stack.push(1);
+                } else {
+                    stack.push(0);
+                }
+                break;
 
             case LE:
                 opValueR = stack.pop();
                 opValueL = stack.pop();
                 if (opValueR <= opValueL) {
-                stack.push(1);
-            } else{
-                stack.push(0);
-            }
-            break;
+                    stack.push(1);
+                } else {
+                    stack.push(0);
+                }
+                break;
             case LABEL:
                 //  serves as the target of jumps to n; has no other effect
+                /** 
+                 * TODO: 
+                 * Finish here.
+                 */
                 break;
             case GOTO:
                 // the next instruction is taken from statement with label n
+                PC = operand;
                 break;
             case GOFALSE:
                 // pop the top value; jump if it is zero
@@ -304,7 +304,7 @@ public class StackMachine {
             case PRINT:
                 // pop the top value off the stack and display it as a base 10 integer
                 opValueR = stack.pop();
-                System.out.println(opValueR6);
+                System.out.println("top of stack: " + opValueR);
                 break;
 
             case READ:
@@ -318,7 +318,7 @@ public class StackMachine {
             case GOSUB:
                 // push the current value of the program counter on the call stack and transfer control to the      statement with label 'l'
                 callStack.push(PC);
-                pc = operand;
+                PC = operand;
                 break;
             case RET:
                 // pop the top value off the call stack and store it in the program counter
@@ -329,16 +329,16 @@ public class StackMachine {
                 // pop the top two values off the stack, compute the bitwise OR, and push the result
                 opValueL = stack.pop();
                 opValueR = stack.pop();
-                int andb30 = (opValueL | opValueR);
-                stack.push(andb30);
+                int orb = (opValueL | opValueR);
+                stack.push(orb);
                 break;
 
             case ANDB:
                 // pop the top two values off the stack, compute the bitwise AND, and push the result
                 opValueL = stack.pop();
                 opValueR = stack.pop();
-                int andb31 = (opValueL & opValueR);
-                stack.push(andb31);
+                int andb = (opValueL & opValueR);
+                stack.push(andb);
 
                 break;
 
@@ -346,8 +346,8 @@ public class StackMachine {
                 //pop the top two values off the stack, compute the bitwise XOR, and push the result
                 opValueL = stack.pop();
                 opValueR = stack.pop();
-                int andb32 = (opValueL ^ opValueR);
-                stack.push(andb32);
+                int xorb = (opValueL ^ opValueR);
+                stack.push(xorb);
                 break;
 
             case SHL:
