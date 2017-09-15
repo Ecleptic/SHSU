@@ -7,7 +7,7 @@
 {\info
 {\title 1}
 {\doccomm Document was created by \{applicationname\}, version: \{version\}}
-{\author Tony Gaddis}}\margl720\margr720\margb720\margt720\vieww12600\viewh14580\viewkind1\viewscale150
+{\author Tony Gaddis}}\margl720\margr720\margb720\margt720\vieww12300\viewh14580\viewkind1\viewscale150
 \deftab792
 \pard\pardeftab792\ri0\sl-260\sb11\partightenfactor0
 
@@ -31,14 +31,14 @@
 \cf0 2.	B\
 3.	B\
 4.	B\
-5.	\
-6.	\
-7.	\
-8.	\
-9.	\
-10.	\
-11.	\
-12.	\
+5.	C\
+6.	B\
+7.	C\
+8.	B\
+9.	A\
+10.	B\
+11.	C\
+12.	A\
 \pard\pardeftab792\ri0\sl-260\sb18\partightenfactor0
 \cf0 \
 \pard\pardeftab792\ri0\partightenfactor0
@@ -47,12 +47,12 @@
  \kerning1\expnd0\expndtw0 or False
 \b0 \
 \pard\tx840\pardeftab792\li120\ri0\sl-274\partightenfactor0
-\cf0 1.	\
+\cf0 1.	F\
 \pard\tx840\pardeftab792\li120\ri0\partightenfactor0
-\cf0 2.	\
+\cf0 2.	F\
 3.	CANCELLED\
-4.	\
-5.	\
+4.	T\
+5.	T\
 \pard\pardeftab792\ri0\sl-260\sb18\partightenfactor0
 \cf0 \
 \pard\pardeftab792\ri0\partightenfactor0
@@ -85,33 +85,58 @@
 \dn1  \kerning1\expnd0\expndtw0 \dn1 Workbench
 \b0 \up0 \
 \pard\pardeftab792\li120\ri0\sb29\partightenfactor0
-\cf0 1.	\
+\cf0 1.	inputy = 20\
+	if x = 100:\
+		z = 40\
 \pard\pardeftab792\li120\ri0\sb29\partightenfactor0
 
 \f0 \cf0 \
 \pard\pardeftab792\li100\ri0\sb29\partightenfactor0
 
-\f1 \cf0 2.	\
+\f1 \cf0 2.	b = 0\
+	if a < 10:\
+		c = 1\
 \pard\pardeftab792\li100\ri0\sb29\partightenfactor0
 
 \f0 \cf0 \
 \pard\pardeftab792\li100\ri0\sb29\partightenfactor0
 
-\f1 \cf0 3.	\
+\f1 \cf0 3.	if a < 10:\
+		b = 0\
+	else:\
+		b = 99\
 \
 \pard\pardeftab792\ri0\partightenfactor0
-\cf0   4.
+\cf0   4.  	if score >= A_score:\
+		print(\'91Your grade is A.\'92)\
+	else:\
+		if score >= B_score:\
+			print(\'91Your grade is B.\'92)\
+		else:\
+			if score >= C_score:\
+				print(\'91Your grade is C.\'92)\
+			else:\
+				if score >= D_score:\
+					print(\'91Your grade is D.\'92)\
+				else: \
+					print(\'91Your grade is F.\'92)
 \f0 \
 	\
 
 \f1   5
-\f0 .	\
-\pard\pardeftab792\li720\fi720\ri0\partightenfactor0
-\cf0 \
-\pard\pardeftab792\ri0\partightenfactor0
-
-\f1 \cf0   6
-\f0 .	\
+\f0 .	
+\f1 if amount1 > 10 and amount2 < 100:\
+		if amount1 > amount2:\
+			print (amount1)\
+		else:\
+			print(amount2)	=\
+  6
+\f0 .	
+\f1 if speed <= 24 and speed <= 56:\
+		print(\'93Speed is normal\'94)\
+	else:\
+		print(\'93speed is abnormal\'94)
+\f0 \
 \pard\pardeftab792\li720\fi720\ri0\partightenfactor0
 \cf0 \
 \pard\pardeftab792\ri0\partightenfactor0
@@ -123,7 +148,7 @@
 \pard\pardeftab792\ri0\sl-260\sb11\partightenfactor0
 
 \f1 \cf0 \
-  8.	\
+  8.	if\
 \
   9.	
 \f0 \
