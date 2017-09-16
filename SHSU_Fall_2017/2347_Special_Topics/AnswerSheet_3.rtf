@@ -1,9 +1,8 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
-{\fonttbl\f0\fmodern\fcharset0 CourierNewPSMT;\f1\froman\fcharset0 TimesNewRomanPSMT;}
+{\fonttbl\f0\fmodern\fcharset0 CourierNewPSMT;\f1\froman\fcharset0 TimesNewRomanPSMT;\f2\fnil\fcharset0 AppleColorEmoji;
+}
 {\colortbl;\red255\green255\blue255;}
 {\*\expandedcolortbl;;}
-{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid1\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
-{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
 {\info
 {\title 1}
 {\doccomm Document was created by \{applicationname\}, version: \{version\}}
@@ -61,22 +60,26 @@
  \kerning1\expnd0\expndtw0 Answer
 \b0 \
 \pard\tx840\pardeftab792\li840\fi-720\ri172\sl-276\sb1\partightenfactor0
-\cf0 1.	\
+\cf0 1.	it means that statements will only execute once certain criteria have been met.\
 \
 \pard\tx840\pardeftab792\li120\ri0\sl-273\partightenfactor0
-\cf0 2.	\
+\cf0 2.	use an if-else structure. There are only two branches and it\'92s performant.\
 \
 \pard\tx840\pardeftab792\li840\fi-720\ri220\sl236\slmult1\sb11\partightenfactor0
-\cf0 3.	\
+\cf0 3.	the 
+\i and
+\i0  operator means that both statements need to be true for the whole statement to be true/ the boolean allowed.\
 \
 \pard\tx840\pardeftab792\li792\fi-672\ri0\sb9\partightenfactor0
-\cf0 4.	\
+\cf0 4.	the 
+\i or
+\i0  operator means that only one of the statements mentioned needs to be true for the operator to be true.\
 \
 \pard\tx840\pardeftab792\li120\ri0\sb8\partightenfactor0
 \cf0 5.       CANCELLED\
 \
 \pard\tx840\pardeftab792\li792\fi-672\ri0\sl-268\partightenfactor0
-\cf0 6.	\
+\cf0 6.	flags are boolean operators that indicate whether the specific condition exists or not (is true)\
 \pard\pardeftab792\ri0\sl-260\sb10\partightenfactor0
 \cf0 \
 \pard\pardeftab792\ri0\sl-271\partightenfactor0
@@ -148,13 +151,16 @@
 \pard\pardeftab792\ri0\sl-260\sb11\partightenfactor0
 
 \f1 \cf0 \
-  8.	if\
+  8.	if turtle.heading() >= 0 and turtle.heading() <= 45\
+		turtle.penup()\
 \
-  9.	
+  9.	if turtle.pencolor() == \'91red\'92 or turtle.pencolor() == \'91blue:\
+		turtle.pensize(5)
 \f0 \
 
 \f1 \
-  10.	\
+  10.	if turtle.xcor() >= 100 and turtle.xcor() <= 200 and turtle.ycor() >= 100 and turtle.ycor() <= 200:\
+		turtle.hideturtle()\
 \pard\pardeftab792\ri0\sl-271\partightenfactor0
 
 \b \cf0 \dn1 \
@@ -162,17 +168,70 @@ Programming Exercises\
 \pard\pardeftab792\ri0\sl-260\sb11\partightenfactor0
 
 \b0 \cf0 \up0 \
-\pard\pardeftab792\li720\fi-360\ri0\sl-260\sb11\partightenfactor0
-\ls1\ilvl0
-\f0 \cf0 1.	\
-2.	\
-3.	\
-4.	CANCELLED\
-5.	\
-6.	\
-\pard\pardeftab792\li720\ri0\sl-260\sb11\partightenfactor0
-\cf0 \
-\pard\pardeftab792\ri0\sl-260\sb11\partightenfactor0
+\pard\tx720\pardeftab792\ri0\sl-260\sb11\partightenfactor0
 
-\f1 \cf0 \
+\f0 \cf0 1.
+\f1 	day = int(input(\'91Enter a number between 1 and 7:\'92))\
+	if day >= 1 and day <= 7:\
+			if day == 1: \
+    				print(\'91Monday\'92)\
+			elif day == 2:\
+                        		print(\'91Tuesday\'92)		\
+			elif day == 3:\
+                        		print(\'91Wednesday\'92)		\
+			elif day == 4:\
+                        		print(\'91Thursday\'92)		\
+			elif day == 5:\
+                        		print(\'91Friday\'92)\
+			elif day == 6:\
+                        		print(\'91Saturday\'92)\
+			elif day == 7:\
+                        		print(\'91Sunday\'92)		\
+		else:\
+			print(\'91Invalid Number\'92)\
+\
+2.	Length1 = float(input(\'91Rectangle 1 Length:\'92))\
+	Width1  = float(input(\'91Rectangle 1 Width:\'92))\
+	Length2 = float(input(\'91Rectangle 2 Length:\'92))\
+	Width2  = float(input(\'91Rectangle 2 Width:\'92))\
+	Rect1Area = Length1 * Width1\
+	Rect2Area = Length2 * Width2\
+	if  Rect1Area > Rect2Area:\
+			print(\'91Rectangle 1 has the greater area\'92)\
+	elif: Rect1Area < Rect2Area:\
+			print(\'91Rectangle 2 has the greater area\'92)\
+	else:\
+			print(\'91they have the same area\'92)\
+\
+3.	age = float(input(\'91Input your age\'92))\
+	if age <= 1.0:\
+	    	print(\'91Infant\'92)\
+	elif age > 1 and age <13:\
+			print(\'91Child\'92)\
+	elif age >= 13 and age < 20:\
+			print(\'91Teenager\'92)\
+	elif age >= 20:\
+			print(\'91Adult\'92)\
+	else:\
+			print(\'91Please enter a positive number\'92)\
+\
+4.	CANCELLED\
+5.	# weight = mass * 9.8\
+	mass = input(\'91Please enter object\'92s mass\'92)\
+	weight = mass * 9.8\
+	if weight > 500:\
+			print(\'91Too heavy\'92)\
+	elif weight < 100:\
+			print(\'91Too light\'92)\
+	## no final print in specs\
+6.	month = input(\'91Please enter a month (in numeric form)\'92)\
+	day = input (\'91Please enter a day\'92)\
+	year = input(\'91please enter a year\'92)\
+	if (month * day) == year:\
+			print(\'91Ohhh that\'92s a magic date!\'92)\
+	else:\
+			print(\'91awww that\'92s not a magic date 
+\f2 \uc0\u55357 \u56862 
+\f1 \'92)\
+	\
 }
