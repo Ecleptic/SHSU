@@ -9,29 +9,21 @@
 \deftab792
 \pard\pardeftab792\ri0\sl276\slmult1\sa200\qc\partightenfactor0
 
-\f0\i\b\fs36 \cf0 Starting Out with Python, 4\super th\nosupersub  Edition\
+\f0\fs24 \cf0 Starting Out with Python, 4\super th\nosupersub  Edition\
 \pard\pardeftab792\li2108\ri2108\sl-406\qc\partightenfactor0
-
-\i0 \cf0 \dn1 Answers to Review Questions
-\b0 \up0 \
+\cf0 \dn1 Answers to Review Questions\up0 \
 \pard\pardeftab792\ri0\sl-260\sb1\partightenfactor0
-
-\fs24 \cf0 \
+\cf0 \
 \pard\pardeftab792\ri0\sl-260\sb11\partightenfactor0
 \cf0 \
 \pard\pardeftab792\ri0\sb23\partightenfactor0
-
-\b\fs28 \cf0 Chapter\kerning1\expnd-4\expndtw-19
- \kerning1\expnd0\expndtw0 4
-\b0 \
+\cf0 Chapter\kerning1\expnd-4\expndtw-19
+ \kerning1\expnd0\expndtw0 4\
 \pard\pardeftab792\ri0\sl-260\sb15\partightenfactor0
-
-\fs24 \cf0 \
+\cf0 \
 \pard\pardeftab792\ri0\partightenfactor0
-
-\b \cf0 Multiple\kerning1\expnd-2\expndtw-10
- \kerning1\expnd0\expndtw0 Choice
-\b0 \
+\cf0 Multiple\kerning1\expnd-2\expndtw-10
+ \kerning1\expnd0\expndtw0 Choice\
 \pard\tx840\pardeftab792\li120\ri0\sl-274\partightenfactor0
 \cf0 1.	B\
 \pard\tx840\pardeftab792\li120\ri0\partightenfactor0
@@ -49,10 +41,8 @@
 \pard\pardeftab792\ri0\sl-260\sb18\partightenfactor0
 \cf0 \
 \pard\pardeftab792\ri0\partightenfactor0
-
-\b \cf0 True\kerning1\expnd-2\expndtw-10
- \kerning1\expnd0\expndtw0 or False
-\b0 \
+\cf0 True\kerning1\expnd-2\expndtw-10
+ \kerning1\expnd0\expndtw0 or False\
 \pard\tx840\pardeftab792\li120\ri0\sl-274\partightenfactor0
 \cf0 1.	F\
 \pard\tx840\pardeftab792\li120\ri0\partightenfactor0
@@ -67,10 +57,8 @@
 \pard\pardeftab792\ri0\sl-260\sb18\partightenfactor0
 \cf0 \
 \pard\pardeftab792\ri0\partightenfactor0
-
-\b \cf0 Short\kerning1\expnd-2\expndtw-10
- \kerning1\expnd0\expndtw0 Answer
-\b0 \
+\cf0 Short\kerning1\expnd-2\expndtw-10
+ \kerning1\expnd0\expndtw0 Answer\
 \pard\tx840\pardeftab792\li840\fi-720\ri347\sl-276\sb1\partightenfactor0
 \cf0 1.	A loop that uses a True/False condition to control how many times it repeats.\
 \
@@ -98,34 +86,70 @@
 \cf0 7.	If you put garbage in (i.e. write garbage/bad code) then you will get garbage out(i.e. the result will be bad)\
 \
 \pard\tx840\pardeftab792\li840\fi-720\ri143\qj\partightenfactor0
-\cf0 8.	\
+\cf0 8.	Input validation is when you check to make sure that the value that the user typed in is what you want. That could mean just making sure it\'92s only a number and if not a number, ask them again. It could be something as simple as looping if the input isn\'92t actually a string.\
+\pard\pardeftab560\li718\fi-2\slleading20\qj\partightenfactor0
+\cf2 \
+\pard\tx840\pardeftab792\li840\fi-720\ri143\qj\partightenfactor0
+\cf0 \
 \pard\pardeftab792\li840\ri113\partightenfactor0
 \cf0 \
 \pard\pardeftab792\ri0\partightenfactor0
-
-\b \cf0 Algorithm\kerning1\expnd-3\expndtw-11
- \kerning1\expnd0\expndtw0 Workbench
-\b0 \
+\cf0 Algorithm\kerning1\expnd-3\expndtw-11
+ \kerning1\expnd0\expndtw0 Workbench\
 \pard\pardeftab792\li720\ri0\partightenfactor0
 \cf0  \
 \pard\tx820\pardeftab792\li120\ri0\sb6\partightenfactor0
+\cf0 1.	\cf2 \
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf2 product = 0\
+while product <= 100:\
+    num = float(input("Put a number to be multiplied by 10: \\n"))\
+    product = num * 10\
+    
+\f1\i # do not add product to anything else. rewrite product every time
+\f0\i0 \
+\
+print(product)\cf0 \
+\pard\tx820\pardeftab792\li120\ri0\sb6\partightenfactor0
 \cf0 \
 \pard\pardeftab792\li720\fi-720\ri0\partightenfactor0
-\cf0   2.	\
-\pard\pardeftab792\fi720\ri-230\partightenfactor0
-\cf0  \
-\pard\tx840\pardeftab792\li115\fi-252\ri0\partightenfactor0
-\cf0 \
+\cf0   2.	 \
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf2 loop = True\
+while loop:\
+    print("Please enter two numbers\\n")\
+    num1 = float(input("First Number: "))\
+    num2 = float(input("Second Number: "))\
+    product = num1 * num2\
+    print("The product is %.2f" % product)\
+    again = input("Go again? (Y/N)\\n")\
+    again = again.lower()\
+    if again.lower()[:1] != "y":\
+        loop = False\cf0 \
 \pard\pardeftab792\ri0\sl-200\partightenfactor0
 \cf0 \
 \pard\pardeftab792\li120\ri0\sb29\partightenfactor0
 \cf0 3.	\
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf2 num = 0\
+while num <= 1000:\
+    print(num)\
+    num += 10\cf0 \
 \pard\pardeftab792\ri0\sl-240\sb7\partightenfactor0
 \cf0 \
 \pard\pardeftab792\li120\ri0\sb29\partightenfactor0
 \cf0 4.	\
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf2 list = []\
+for i in range(10):\
+    temp = int(input("[%.0f] Input a number: " % i+1))\
+    list.append(temp)\
+\
+print("The list of numbers you typed are: ", list)\cf0 \
 \pard\pardeftab792\ri0\sl-120\sb2\partightenfactor0
 \cf0 \
+\
+\
 \pard\pardeftab792\ri0\sl-200\partightenfactor0
 \cf0 \
 \pard\pardeftab792\li120\ri0\sb29\partightenfactor0
@@ -135,9 +159,7 @@
 	total = 0\
 	for l in range(30):\
     		total = total + i/j\
-    		
-\f1\i # print (j)
-\f0\i0 \
+    		# print (j)\
     		i = i + 1\
     		j = j - 1\
 	print (total)\
@@ -160,11 +182,11 @@
 \pard\intbl\itap1\pardeftab792\li232\ri245\sb69\qc\partightenfactor0
 \cf0 a.\cell 
 \pard\intbl\itap1\pardeftab792\li270\ri0\sb93\partightenfactor0
-\cf0 \cell 
+\cf0 x\cell 
 \pard\intbl\itap1\pardeftab792\li72\ri0\sb93\partightenfactor0
-\cf0 \cell 
+\cf0 +=\cell 
 \pard\intbl\itap1\pardeftab792\li72\ri0\sb93\partightenfactor0
-\cf0 \cell \row
+\cf0 1\cell \row
 
 \itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
 \clvertalt \clshdrawnil \clwWidth490\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl100 \clpadr100 \gaph\cellx1728
@@ -177,11 +199,11 @@
 \pard\intbl\itap1\pardeftab792\li232\ri232\sl-264\qc\partightenfactor0
 \cf0 b.\cell 
 \pard\intbl\itap1\pardeftab792\li270\ri0\sb12\partightenfactor0
-\cf0 \cell 
+\cf0 x\cell 
 \pard\intbl\itap1\pardeftab792\li72\ri0\sb12\partightenfactor0
-\cf0 \cell 
+\cf0 *=\cell 
 \pard\intbl\itap1\pardeftab792\li72\ri0\sb12\partightenfactor0
-\cf0 \cell \row
+\cf0 2\cell \row
 
 \itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
 \clvertalt \clshdrawnil \clwWidth490\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl100 \clpadr100 \gaph\cellx1728
@@ -194,11 +216,11 @@
 \pard\intbl\itap1\pardeftab792\li232\ri245\sl-265\qc\partightenfactor0
 \cf0 c.\cell 
 \pard\intbl\itap1\pardeftab792\li270\ri0\sb13\partightenfactor0
-\cf0 \cell 
+\cf0 x\cell 
 \pard\intbl\itap1\pardeftab792\li72\ri0\sb13\partightenfactor0
-\cf0 \cell 
+\cf0 /= \cell 
 \pard\intbl\itap1\pardeftab792\li72\ri0\sb13\partightenfactor0
-\cf0 \cell \row
+\cf0 10\cell \row
 
 \itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
 \clvertalt \clshdrawnil \clwWidth490\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl100 \clpadr100 \gaph\cellx1728
@@ -211,30 +233,41 @@
 \pard\intbl\itap1\pardeftab792\li232\ri232\sl-265\qc\partightenfactor0
 \cf0 d.\cell 
 \pard\intbl\itap1\pardeftab792\li270\ri0\sb13\partightenfactor0
-\cf0 \cell 
+\cf0 x\cell 
 \pard\intbl\itap1\pardeftab792\li72\ri0\sb13\partightenfactor0
-\cf0 \cell 
+\cf0 -=\cell 
 \pard\intbl\itap1\pardeftab792\li72\ri0\sb13\partightenfactor0
-\cf0 \cell \lastrow\row
+\cf0 100\cell \lastrow\row
 \pard\pardeftab792\ri0\sl-200\partightenfactor0
 \cf0 \
 \pard\pardeftab792\li1292\fi-1112\ri0\partightenfactor0
 \cf0 7.   \
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf2 	for i in range(10):\
+    		for j in range(15):\
+        			print("#",end="")\
+    		print(" ")\
 \pard\pardeftab792\ri0\sl-240\sb7\partightenfactor0
 \cf0 \
 \pard\pardeftab792\li140\ri0\sb29\partightenfactor0
 \cf0 8.\
-\pard\pardeftab792\ri0\sl-240\sb7\partightenfactor0
-\cf0 \
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf2 loop = True\
+while(loop == True):\
+    try:\
+        isZero = (input("Input a positive non-zero number: "))\
+        if(float(isZero) > 0):\
+            print('\\n')\
+            loop = False\
+    except ValueError:\
+        print ("Please input a number\\n")\
 \pard\pardeftab792\li140\ri0\sb29\partightenfactor0
-\cf0 9.\
+\cf0 \
+9. CANCELLED\
 \pard\pardeftab792\ri0\partightenfactor0
 \cf0 \
-\
-
-\b Programming Exercises \
-
-\b0 4.\
+Programming Exercises \
+4.\
 \cf2 speed = int(input("What is the speed of the vehicle in MPH? "))\
 \pard\pardeftab560\slleading20\partightenfactor0
 \cf2 hours = int(input("How many hours have you been driving? "))\
