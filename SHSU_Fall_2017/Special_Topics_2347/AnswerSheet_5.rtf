@@ -1,0 +1,127 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 1)\
+    def getInput():\
+        kilo = float(input('How many kilometers?!\\n'))\
+        return kilo\
+    def doMath(kilo):\
+        miles = kilo * .6214\
+        return miles\
+\
+    def main():\
+        kilo = getInput()\
+        miles = doMath(kilo)\
+        print("You've gone %f miles" % miles)\
+\
+    main()\
+\
+2)\
+    stateTax = 0.05\
+    countyTax = 0.025\
+\
+    def getPurchase():\
+        purchaseAmount = float(input("Input amount of the purchase.\\n"))\
+        doMath(purchaseAmount)\
+\
+    def doMath(purchase):\
+        county = purchase * countyTax\
+        state = purchase * stateTax\
+        totalTax = state + county\
+        total = purchase + state + county\
+        print("Purchase Amount: $%.2f" % purchase)\
+        print("County Tax: $%.2f " % countyTax)\
+        print("State Tax: $%.2f" % stateTax)\
+        print("Total Tax: $%.2f"% totalTax)\
+        print("Total Sale: $%.2f"% total)\
+\
+    getPurchase()\
+\
+3)\
+    percent = 0.8\
+\
+    def getCost():\
+        cost = float(input("What is the replacement cost for the structure?\\n"))\
+        doMath(cost)\
+\
+\
+    def doMath(cost):\
+        minAmnt = cost * percent\
+        printAll(minAmnt)\
+\
+    def printAll(min):\
+        print("The min amount should be: $%.4f" % min)\
+\
+    getCost()\
+\
+\
+4)\
+    def getInputs():\
+        loanCost = int(input("what is the monthly cost for loan payments? \\n"))\
+        insuranceCost = int(input("what is the monthly cost for insurance? \\n"))\
+        gasCost = int(input("what is the monthly cost for gas \\n"))\
+        oilCost = int(input("what is the monthly cost for oil \\n"))\
+        tireCost = int(input("what is the monthly cost for tires \\n"))\
+        maintenanceCost = int(input("what is the monthly cost for maintainence \\n"))\
+        return loanCost , insuranceCost ,  gasCost , oilCost , tireCost , maintenanceCost\
+\
+    def doMath(loanCost , insuranceCost ,  gasCost , oilCost , tireCost , maintenanceCost):\
+        monthlyTotal = loanCost + insuranceCost +  gasCost + oilCost + tireCost + maintenanceCost\
+        annualTotal = monthlyTotal * 12\
+        return monthlyTotal, annualTotal\
+\
+    def main():\
+        loanCost , insuranceCost ,  gasCost , oilCost , tireCost , maintenanceCost = getInputs()\
+        monthlyTotal, annualTotal = doMath(loanCost , insuranceCost ,  gasCost , oilCost , tireCost , maintenanceCost)\
+\
+        print ("Monthly Cost is: %i" % (monthlyTotal))\
+        print("Annual cost is: %i" % annualTotal)\
+\
+\
+    main()\
+\
+5)\
+    propertyTax = .0072\
+    assessmentValue= .6\
+\
+    def getValue():\
+        actual = float(input("What is the actual value of the property? \\n"))\
+        doMath(actual)\
+\
+    def doMath(actual):\
+        assessment = actual * assessmentValue\
+\
+        tax = assessment * propertyTax\
+        printResults(assessment,tax)\
+\
+    def printResults(assessment,tax):\
+        print("Assesment Value: %.4f" % assessment)\
+        print("Property Tax: %.4f" % tax)\
+\
+\
+    getValue()\
+\
+\
+6)\
+    def getInput():\
+    fat = float(input("Number of Fat Grams?\\n"))\
+    carbohydrate = float(input("Number of Carbohydrate Grams?\\n"))\
+    return fat, carbohydrate\
+\
+\
+    def doMath(fat, carbohydrate):\
+        fatCalories = fat * 9\
+        carbCalories = carbohydrate * 4\
+        return fatCalories, carbCalories\
+\
+\
+    def main():\
+        fat, carb = getInput()\
+        fatCal, carbCal = doMath(fat, carb)\
+        print("Fat Calories: %.2f,  Carb Calories: %.2f" % (fatCal, carbCal))\
+\
+    main()}
