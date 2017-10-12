@@ -1,17 +1,214 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
-{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\margl1440\margr1440\vieww12160\viewh14580\viewkind0
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 HelveticaNeue;\f2\fnil\fcharset0 HelveticaNeue-Italic;
+}
+{\colortbl;\red255\green255\blue255;\red53\green53\blue53;}
+{\*\expandedcolortbl;;\cssrgb\c27059\c27059\c27059;}
+\margl1440\margr1440\vieww12120\viewh14580\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\fs24 \cf0 \
 \
 	2) File Head Display\
 \
-\
+\pard\pardeftab560\slleading20\partightenfactor0
+
+\f1 \cf2 file = input("
+\f2\i input filename (including extension): 
+\f1\i0 ")\
+count=0\
+
+\f2\i for
+\f1\i0  line in reversed(list(open(file))):\
+    
+\f2\i if
+\f1\i0  count < 5:\
+        print(line.rstrip())\
+        count+=1
+\f0 \cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
 	3) Line Numbers\
+\
+\pard\pardeftab560\slleading20\partightenfactor0
+
+\f1 \cf2 file = input("
+\f2\i input filename (including extension): 
+\f1\i0 ")\
+count = 1\
+
+\f2\i with
+\f1\i0  open(file) 
+\f2\i as
+\f1\i0  f:\
+    
+\f2\i for
+\f1\i0  line in (f):\
+        print("
+\f2\i %s) %s
+\f1\i0 " % (count, line))\
+        count +=1\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0 \cf0 \
 \
 	4) Item Counter\
 \
-	}
+
+\f1 \cf2 file = '
+\f2\i names.txt
+\f1\i0 '\
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf2 count = 0\
+
+\f2\i with
+\f1\i0  open(file) 
+\f2\i as
+\f1\i0  f:\
+    
+\f2\i for
+\f1\i0  line in (f):\
+        count +=1\
+print (count)\
+\
+	
+\f0 \cf0 5) Sum of Numbers\
+\
+
+\f1 \cf2 file = '
+\f2\i numbers.txt
+\f1\i0 '\
+count = 0\
+
+\f2\i with
+\f1\i0  open(file) 
+\f2\i as
+\f1\i0  f:\
+    
+\f2\i for
+\f1\i0  line in (f):\
+        count += int(line)\
+print (count)\
+
+\f0 \cf0 \
+\
+	6) Average of Numbers\
+\
+
+\f1 \cf2 file = '
+\f2\i numbers.txt
+\f1\i0 '\
+avg = 0\
+count = 0\
+
+\f2\i with
+\f1\i0  open(file) 
+\f2\i as
+\f1\i0  f:\
+    
+\f2\i for
+\f1\i0  line in (f):\
+        avg += int(line)\
+        count +=1\
+print (avg/count)\
+
+\f0 \cf0 \
+\
+	7) Random Number File Writer\
+\
+
+\f1 \cf2 numLen = input("
+\f2\i how many random numbers do you want?: 
+\f1\i0 ")\
+
+\f2\i import
+\f1\i0  random\
+file = '
+\f2\i random.txt
+\f1\i0 '\
+\
+
+\f2\i with
+\f1\i0  open(file,'
+\f2\i w
+\f1\i0 ') 
+\f2\i as
+\f1\i0  f:\
+    
+\f2\i for
+\f1\i0  i in range(int(numLen)):\
+        rndm = random.randint(1,500)\
+        f.write(str(rndm)+"
+\f2\i \\n
+\f1\i0 ")\
+
+\f0 \cf0 \
+\
+	8) Random Number File Reader\
+\
+
+\f1 \cf2 file = '
+\f2\i random.txt
+\f1\i0 '\
+total = 0\
+count = 0\
+
+\f2\i with
+\f1\i0  open(file) 
+\f2\i as
+\f1\i0  f:\
+    
+\f2\i for
+\f1\i0  line in (f):\
+        total += int(line)\
+        count +=1\
+print (total)\
+print ("
+\f2\i The number of random numbers is: 
+\f1\i0 " + str(count))\
+\
+
+\f0 \cf0 \
+	9) Exception Handling\
+\
+
+\f1 \cf2 file = '
+\f2\i numbers.txt
+\f1\i0 '\
+avg = 0\
+count = 0\
+
+\f2\i with
+\f1\i0  open(file) 
+\f2\i as
+\f1\i0  f:\
+    
+\f2\i try
+\f1\i0 :\
+        
+\f2\i for
+\f1\i0  line in (f):\
+            avg += int(line)\
+            count +=1\
+    
+\f2\i except
+\f1\i0  IOError:\
+        print('
+\f2\i An error occured trying to read the file.
+\f1\i0 ')\
+\
+    
+\f2\i except
+\f1\i0  ValueError:\
+        print('
+\f2\i Non-numeric data found in the file.
+\f1\i0 ')\
+\
+    
+\f2\i finally
+\f1\i0 :\
+        print (avg/count)\
+\
+\
+
+\f0 \cf0 \
+}
