@@ -1,0 +1,36 @@
+//  FIRST ROUND
+void uno(int x){
+    cout << "uno top" << x;
+    if(x>0)
+        uno (x-1);
+    cout << "uno bot" << x; /*B*/
+}
+
+int main(){
+    uno(3);
+    cout << "wow"; /*A*/
+    return 0;
+}
+
+//SECOND ROUND CALL DOS
+
+
+void uno(int x){
+    cout << "uno top" << x;
+    if(x>0)
+        dos (x-1);
+    cout << "uno bot" << x; /*B*/
+}
+void Dos(int y){
+    cout << "Dos Top "<<y;
+    uno(y-1);
+    cout << "Dos Bot" << y; /*C*/
+}
+
+int main(){
+    uno(2);
+    cout << "wow"; /*A*/
+    dos(2);
+    cout << "bye";
+    return 0;
+}
