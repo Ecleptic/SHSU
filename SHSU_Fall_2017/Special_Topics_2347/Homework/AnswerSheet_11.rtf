@@ -1,0 +1,215 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 HelveticaNeue;}
+{\colortbl;\red255\green255\blue255;\red53\green53\blue53;}
+{\*\expandedcolortbl;;\cssrgb\c27059\c27059\c27059;}
+\margl1440\margr1440\vieww12140\viewh14580\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 2) \
+I\'92m a plant.\
+I\'92m a tree.\
+\
+3) \
+\pard\pardeftab560\slleading20\partightenfactor0
+
+\f1 \cf2 \
+class Cola(Beverage):\
+    def __init__(self):\
+        Beverage.__init__(self,'cola')\
+\
+\
+Programming Exercises\
+1) \
+class Employee:\
+    def __init__(self, name, number):\
+        self.__name = name\
+        self.__number = number\
+\
+    def setName(self, name):\
+        self.__name = name\
+\
+    def setNumber(self, number):\
+        self.__number = number\
+\
+    def getName(self):\
+        return self.__name\
+\
+    def getNumber(self):\
+        return self.__number\
+\
+\
+class ProductionWorker(Employee):\
+    def __init__(self, name, number, shift, pay):\
+        Employee.__init__(self, name, number)\
+        self.__shift = shift\
+        self.__pay = pay\
+\
+    def setShift(self, shift):\
+        self.__shift = shift\
+\
+    def setPay(self, pay):\
+        self.__pay = pay\
+\
+    def getShift(self):\
+        if self.__shift % 2 == 0:\
+            return "Night Shift"\
+        else:\
+            return "Day shift"\
+\
+    def getPay(self):\
+        return self.__pay\
+\
+\
+def main():\
+    name = input("Name:\\n")\
+    number = int(input("Employee Number:\\n"))\
+    shift = int(input("Shift number:\\n"))\
+    pay = input("Pay:\\n")\
+\
+    worker = ProductionWorker(name, number, shift, pay)\
+\
+    print("Name: ",worker.getName())\
+    print("Number: ",worker.getNumber())\
+    print("Shift: ",worker.getShift())\
+    print("Pay: ",worker.getPay())\
+\
+\
+main()\
+\
+\
+2) Shift Supervisor\
+\
+class Employee:\
+    def __init__(self, name, number):\
+        self.__name = name\
+        self.__number = number\
+\
+    def setName(self, name):\
+        self.__name = name\
+\
+    def setNumber(self, number):\
+        self.__number = number\
+\
+    def getName(self):\
+        return self.__name\
+\
+    def getNumber(self):\
+        return self.__number\
+\
+\
+class ProductionWorker(Employee):\
+    def __init__(self, name, number, shift, pay):\
+        Employee.__init__(self, name, number)\
+        self.__shift = shift\
+        self.__pay = pay\
+\
+    def setShift(self, shift):\
+        self.__shift = shift\
+\
+    def setPay(self, pay):\
+        self.__pay = pay\
+\
+    def getShift(self):\
+        if self.__shift % 2 == 0:\
+            return "Night Shift"\
+        else:\
+            return "Day shift"\
+\
+    def getPay(self):\
+        return self.__pay\
+\
+class ShiftSupervisor(Employee):\
+    def __init__ (self,name,number,salary,bonus):\
+        Employee.__init__(self,name,number)\
+        self.__salary = salary\
+        self.__bonus = bonus\
+\
+    def setBonus(self,bonus):\
+        self.__bonus = bonus\
+\
+    def setSalary(self,salary):\
+        self.__salary = salary\
+\
+    def getBonus(self):\
+        return self.__bonus\
+\
+    def getSalary(self):\
+        return self.__salary\
+\
+\
+\
+def main():\
+    name = "Bren"\
+    number = 93821\
+    salary = 83200\
+    bonus = 9210\
+\
+    freddy = ShiftSupervisor(name,number,salary,bonus)\
+\
+    print("Name: ",freddy.getName())\
+    print("Number: ",freddy.getNumber())\
+    print("Salary: ",freddy.getSalary())\
+    print("Bonus: ",freddy.getBonus())\
+\
+main()\
+\
+3) Person&Customer\
+\
+class Person:\
+    def __init__(self, name, address, number):\
+        self.__name = name\
+        self.__address = address\
+        self.__number = number\
+\
+    def setName(self, name):\
+        self.__name = name\
+\
+    def setAddress(self, address):\
+        self.__address = address\
+\
+    def setPhoneNumber(self, number):\
+        self.__number = number\
+\
+    def getPhoneNumber(self):\
+        return self.__number\
+\
+    def getName(self):\
+        return self.__name\
+\
+    def getAddress(self):\
+        return self.__address\
+\
+\
+class Customer(Person):\
+    def __init__(self, name, address, tel_number, cust_number, mailing):\
+        Person.__init__(self, name, address, tel_number)\
+        self.__cust_number = cust_number\
+        self.__mailing =mailing\
+\
+\
+    def getCust_number(self):\
+        return self.__cust_number\
+\
+    def getMailing(self):\
+        return self.__mailing\
+\
+\
+def main():\
+    name = "Matt"\
+    address = "123 house road"\
+    tel_number = "982-9234"\
+    cust_number = 32194\
+    mailing = True\
+\
+    matt = Customer(name,address,tel_number,cust_number,mailing)\
+\
+    print("Name: ",matt.getName())\
+    print("Address: ",matt.getAddress())\
+    print("Telephone Number: ",matt.getPhoneNumber())\
+    print("Customer Number: ",matt.getCust_number())\
+    print("Is on Mailing List: ",matt.getMailing())\
+\
+main()\
+\
+\
+}
