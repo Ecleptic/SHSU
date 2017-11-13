@@ -30,7 +30,6 @@ def addTask():
     if task != "":  # if not empty
         tasks.append(task)
         redisClient.set('tasks', tasks)
-
         updateBox()
     else:
         messagebox.showwarning("Warning", "Please enter a todo")
@@ -58,13 +57,6 @@ def delete():
 def sort():
     tasks.sort()
     updateBox()
-
-
-# def show_number_of_tasks():
-#     number_of_tasks = len(tasks)
-#     msg = "Number of tasks: %s" % number_of_tasks
-#     labelDisplayText["text"] = msg
-
 
 def init():
     sort()
