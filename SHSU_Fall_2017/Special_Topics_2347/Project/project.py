@@ -1,17 +1,12 @@
 import tkinter
 from tkinter import Frame
 from tkinter import messagebox
-import redis
 import ast
+import redis
 
 # setup backend
 redisClient = redis.StrictRedis(host='localhost', port=6379, db=0,
                       charset="utf-8", decode_responses=True)
-
-class app(Frame):
-    def __init__(self,master = None):
-        Frame.__init__(self,master)
-        self.master=master
 
 # functions:
 
