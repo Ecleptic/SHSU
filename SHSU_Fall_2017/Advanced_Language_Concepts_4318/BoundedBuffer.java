@@ -1,13 +1,14 @@
 
 /*
-@author  j.n.magee 14/11/96
-@goober  g.w.smith 10/10/97
+@author     j.n.magee 14/11/96
+@goober     g.w.smith 10/10/97
+@gobSmacker c.k.green 11/12/17
 */
 
 import java.util.Random;
 
 /*********************BUFFER*****************************/
-class Buffer {
+class Bowl {
 
     private int[] buf;
     private int in = 0;
@@ -15,26 +16,31 @@ class Buffer {
     private int count = 0;
     private int size;
 
-    Buffer(int size) {
+    Bowl(int size) {
         this.size = size;
         buf = new int[size];
     }
 
     synchronized public void put(int o) {
         while (count == size) {
+            System.out.println("YESSS The bowl is filled, thanks Bubba!");
+            notifyAll();
             try {
                 wait();
             } catch (InterruptedException e) {
             }
         }
         buf[in] = o;
+//        System.out.println("o:"+o);
+//        System.out.println("buf[in]"+buf[in]);
         ++count;
         in = (in + 1) % size;
-        notifyAll();
     }
 
     synchronized public int get() {
         while (count == 0) {
+            System.out.println("Noooooo the bowl is empty Bubba! Come fix it!");
+            notifyAll();
             try {
                 wait();
             } catch (InterruptedException e) {
@@ -43,20 +49,17 @@ class Buffer {
         int ret_val = buf[out];
         --count;
         out = (out + 1) % size;
-        notifyAll();
         return (ret_val);
     }
 
-} // end class Buffer
+} // end class Bowl
 
 /*******************PRODUCER************************/
-class Producer extends Thread {
+class TeachingAssistant extends Thread {
 
-    Random TeachingAssistant = new Random();
+    Bowl buf_;
 
-    Buffer buf_;
-
-    Producer(Buffer b) {
+    TeachingAssistant(Bowl b) {
         buf_ = b;
     }
 
@@ -64,55 +67,69 @@ class Producer extends Thread {
         try {
             int value = 0;
             while (true) {
+                value += 1;
                 buf_.put(value);
-                Thread.sleep(500);
-                value += TeachingAssistant.nextInt(100);
+                System.out.println("Added piece of candy ");
+                Thread.sleep(10);
             }
         } catch (InterruptedException e) {
-            System.out.println("Producer: But I wasn't done!!!");
+            System.out.println("TeachingAssistant: But I wasn't done!!!");
         }
     }
-} // end class Producer
+} // end class TeachingAssistant
 
 /********************CONSUMER*******************************/
-class Consumer extends Thread {
-    Buffer buf_;
+class Professor extends Thread {
+    Bowl buf_;
+    Random rand = new Random();
 
-    Consumer(Buffer b) {
+    Professor(Bowl b) {
         buf_ = b;
     }
 
     public void run() {
         try {
-            int value;
+            int value = 0;
+            Thread.sleep(rand.nextInt(500));
             while (true) {
                 value = buf_.get();
-                System.out.println("Obtained value: " + value);
-                Thread.sleep(500);
+                System.out.println("A Prof ate: " + value + " total candies 🍬");
+                Thread.sleep(rand.nextInt(2000));
             }
         } catch (InterruptedException e) {
-            System.out.println("Consumer: But I wasn't done!!!");
+            System.out.println("Professor: But I wasn't done!!! 😵");
         }
     }
-} // end class Consumer
+} // end class Professor
 
 public class BoundedBuffer {
 
     public static void main(String args[]) {
-        Buffer Buff = new Buffer(10);
-        Producer Prod = new Producer(Buff);
-        Consumer Cons = new Consumer(Buff);
+        int mCandies = 50;
+        int nTeachers = 3;
+        Bowl Buff = new Bowl(mCandies);
+        TeachingAssistant TABubba = new TeachingAssistant(Buff);
 
-        Prod.start();
-        Cons.start();
+        Professor[] profs = new Professor[nTeachers];
+        for (int i = 0; i < profs.length; i++)
+            profs[i] = new Professor(Buff);
+
+        TABubba.start();
+        for (int i = 0; i < profs.length; i++)
+            profs[i].start();
+
         try {
-            Thread.sleep(500);
+
+            Thread.sleep(100000);
 
             System.out.println("Main: I'm tired of waiting!");
-            Prod.interrupt();
-            Cons.interrupt();
-            Prod.join();
-            Cons.join();
+
+            TABubba.interrupt();
+            for (int i = 0; i < profs.length; i++)
+                profs[i].interrupt();
+            TABubba.join();
+            for (int i = 0; i < profs.length; i++)
+                profs[i].join();
         } catch (InterruptedException e) {
         }
 

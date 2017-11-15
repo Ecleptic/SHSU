@@ -6,56 +6,59 @@ import redis
 
 # setup backend
 redisClient = redis.StrictRedis(host='localhost', port=6379, db=0,
-                      charset="utf-8", decode_responses=True)
+                                charset="utf-8", decode_responses=True)
+
+
+class List(Frame):
+    def __init__(self, master=None):
+        Frame.__init__(self, master)
+        self.master = master
 
 # functions:
 
-def updateBox():
-    clearBox()
-    for task in tasks:
-        todoListApp.insert("end", task)
+    def deleteAll():
+        confirmed = messagebox.askyesno(
+            "Please Confirm", "Do you really want to delete all?")
+        if confirmed == True:
+            global tasks  # needs to edit tasks, not just read it
+            tasks = []
+            List.updateBox()
 
+    def addTask():
+        task = textInput.get()
+        if task != "":  # if not empty
+            tasks.append(task)
+            redisClient.set('tasks', tasks)
+            List.sortBox()
+            List.updateBox()
+        else:
+            messagebox.showwarning("Warning", "Please enter a todo")
+        textInput.delete(0, "end")
 
-def clearBox():
-    todoListApp.delete(0, "end")
+    def delete():
+        task = todoListApp.get("active")
+        if task in tasks:  # Confirm in the list
+            tasks.remove(task)
 
-
-def addTask():
-    task = textInput.get()
-    if task != "":  # if not empty
-        tasks.append(task)
         redisClient.set('tasks', tasks)
-        updateBox()
-    else:
-        messagebox.showwarning("Warning", "Please enter a todo")
-    textInput.delete(0, "end")
+        List.updateBox()
 
 
-def deleteAll():
-    confirmed = messagebox.askyesno(
-        "Please Confirm", "Do you really want to delete all?")
-    if confirmed == True:
-        global tasks  # needs to edit tasks, not just read it
-        tasks = []
-        updateBox()
+    def updateBox():
+        List.clearBox()
+        for task in tasks:
+            todoListApp.insert("end", task)
 
+    def clearBox():
+        todoListApp.delete(0, "end")
 
-def delete():
-    task = todoListApp.get("active")
-    if task in tasks:  # Confirm in the list
-        tasks.remove(task)
+    def sortBox():
+        tasks.sort()
+        List.updateBox()
 
-    redisClient.set('tasks', tasks)
-    updateBox()
-
-
-def sort():
-    tasks.sort()
-    updateBox()
-
-def init():
-    sort()
-    print('hi there')
+    def init():
+        List.sortBox()
+        print('hi there')
 
 
 def exitApp():
@@ -64,37 +67,31 @@ def exitApp():
     app.quit()
 
 
-tasks = [] ## just in case redis breaks
+tasks = []  # just in case redis breaks
 
 tasks = redisClient.get('tasks')
 tasks = ast.literal_eval(tasks)
 print (tasks)
 
 
-
-
-class Window(Frame):
-    def __init__(self,master = None):
-        Frame.__init__(self,master)
-        self.master=master
-
-
 app = tkinter.Tk()
 app.title("Todo List")
 
-lableTitleText = tkinter.Label(app, text="ToDo List", bg="orange",fg="black").grid(row=0,column=0)
+lableTitleText = tkinter.Label(
+    app, text="ToDo List", bg="orange", fg="black").grid(row=0, column=0)
 
 # Button to add tasks
-addTaskButton = tkinter.Button(app, text="Add task", fg="green", bg="white", command=addTask)
-addTaskButton.grid(row=1,column=0)
+addTaskButton = tkinter.Button(
+    app, text="Add task", fg="green", bg="white", command=List.addTask)
+addTaskButton.grid(row=1, column=0)
 
 deleteButton = tkinter.Button(
-    app, text="Delete", fg="green", bg="white", command=delete)
+    app, text="Delete", fg="green", bg="white", command=List.delete)
 deleteButton.grid(row=3, column=0)
 
 
-textInput=tkinter.Entry(app,width=20,bg="white")
-textInput.grid(row=4,column=0)
+textInput = tkinter.Entry(app, width=20, bg="white")
+textInput.grid(row=4, column=0)
 
 
 todoListApp = tkinter.Listbox(app)
@@ -106,6 +103,6 @@ exitButton = tkinter.Button(
 exitButton.grid(row=25, column=0)
 
 
-app = Window(app)
-app.after_idle(init)
+app = List(app)
+app.after_idle(List.init)
 app.mainloop()
