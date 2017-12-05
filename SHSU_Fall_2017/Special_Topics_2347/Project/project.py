@@ -3,6 +3,7 @@ from tkinter import Frame
 from tkinter import messagebox
 import ast
 import redis
+import json
 
 # setup backend
 redisClient = redis.StrictRedis(host='localhost', port=6379, db=0,
@@ -56,7 +57,7 @@ class List(Frame):
         tasks.sort()
         List.updateBox()
 
-    def init():
+    def initialize():
         List.sortBox()
         print('hi there')
 
@@ -72,6 +73,7 @@ tasks = []  # just in case redis breaks
 tasks = redisClient.get('tasks')
 tasks = ast.literal_eval(tasks)
 print (tasks)
+
 
 
 app = tkinter.Tk()
@@ -104,5 +106,5 @@ exitButton.grid(row=25, column=0)
 
 
 app = List(app)
-app.after_idle(List.init)
+app.after_idle(List.initialize)
 app.mainloop()

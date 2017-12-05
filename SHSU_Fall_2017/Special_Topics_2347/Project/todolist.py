@@ -24,15 +24,15 @@ app.geometry("325x275")
 tasks = []
 
 
-r = redis.StrictRedis(host='localhost', port=6379, db=0,
-                      charset="utf-8", decode_responses=True)
-r.set('foo', 'bar')
-print(r.get('foo'))
-tasks = r.get('tasks')
-tasks = ast.literal_eval(tasks)
-print ((tasks))
+# r = redis.StrictRedis(host='localhost', port=6379, db=0,
+#                       charset="utf-8", decode_responses=True)
+# r.set('foo', 'bar')
+# print(r.get('foo'))
+# tasks = r.get('tasks')
+# tasks = ast.literal_eval(tasks)
+# print ((tasks))
 # For testing purposes use a default list
-# tasks = ["Call mom", "Buy a lootbox", "Eat a Burger"]
+tasks = ["Call mom", "Buy a lootbox", "Eat a Burger"]
 # Create functions
 
 
