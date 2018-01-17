@@ -1,0 +1,6 @@
+import urllib.request
+opener = urllib.request.FancyURLopener({})
+yahooFile = opener.open("http://www.yahoo.com/")
+yahooSegment = str(yahooFile.read(100))
+print(yahooSegment)
+
