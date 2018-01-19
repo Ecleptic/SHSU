@@ -1,0 +1,303 @@
+
+<!-- saved from url=(0196)https://shsu.blackboard.com/bbcswebdav/pid-2978972-dt-content-rid-33231306_1/courses/COSC431601218/COSC431601214_ImportedContent_20140125072142/Course%20Documents/Lecture%201%20Notes/lecture1.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><style></style></head><body><pre>
+Introduction
+
+Compiler -- a program that reads a program written in one 
+     language -- the source language -- and translates it into an 
+     equivalent program in another language -- the target 
+     language.
+                          +----------+
+     source program -----&gt;| compiler |-----&gt; target program
+                          +----+-----+
+                               |
+                               v
+                         error messages
+
+The term "compiler" is somewhat obscure.  It would be more clear 
+to use the word "translator".   The term compiler was coined in 
+the early 1950s by Grace Hopper.  Translation was then viewed as 
+the "compilation" of a sequence of subprograms selected from a 
+library.  
+
+Our knowledge of how to organize and write compilers has 
+developed over the years.  The first FORTRAN compiler, for 
+instance, took nearly 20 man-years to write, whereas now a simple 
+compiler could be written by a student as a class project in a 
+few weeks.  
+
+Many software tools use techniques similar to those compilers 
+must use:
+
+     1.  structure editor (intelligent editor)
+
+     2.  pretty printer (program formatter)
+
+     3.  static checker (checks for syntax errors, logic errors, 
+          etc.)
+
+     4.  interpreter 
+
+     5.  silicon compiler 
+
+     6.  query processor
+
+In a compiler, the analysis of a program consists of three 
+phases: 
+
+     1.  Lexical Analysis (linear analysis or scanning)
+          the stream of characters making up the source program 
+          is read from left-to-right and grouped into tokens.
+               token -- a sequence of characters having a 
+                         collective meaning
+
+     2.  Syntax Analysis (hierarchical analysis or parsing)
+          tokens are grouped hierarchically into nested 
+          collections with collective meaning
+
+     3.  Semantic Analysis
+          checks are performed to ensure that the components of a 
+          program fit together meaningfully.
+
+Lexical Analysis
+
+  e.g.,    
+     alpha := beta + 3.0*  delta; 
+
+lexical analysis would group the above assignment statement into 
+the following tokens:
+
+     a) the identifier alpha       b) the assignment symbol :=
+     b) the identifier beta        c) the plus sign +
+     d) the real number 3.0        e) the multiplication sign *
+     f) the identifer delta        g) the semicolon ;
+
+blanks would be recognized as meaningless and ignored
+
+
+Syntax Analysis 
+     groups the tokens into grammatical phrases, usually in the 
+form of a parse tree.
+
+
+
+
+
+
+
+
+
+
+The hierarchical structure of a program is usually expressed by 
+recursive rules.  For instance,
+
+     1. An assignment statement is an identifier followed by an 
+          assignment operator followed by an expression
+
+     2. An expression is any of the following:
+          a) a number 
+          b) an identifier 
+          c) an expression followed by a plus sign followed by an 
+               expression
+          d) an expression followed by a multiplication sign 
+               followed by an expression
+
+The dividing line between lexical analysis and syntax analysis is 
+somewhat arbitrary.  
+
+Usually is decided by whether the contruct is recursive.  
+Recursion is not necessary to recognize identifiers.  Identifiers 
+are recorded in a symbol table.  Linear scan cannot analyze 
+expressions (cant match parentheses, BEGINs and ENDs, etc.)
+
+Semantic Analysis
+     checks the source program for semantic errors
+     gathers type information for code generation phase
+     
+     important functions -- type checking and type coercion
+
+THE PHASES OF A COMPILER
+
+what we described before:
+
+                          +----------+
+     source program -----&gt;| compiler |-----&gt; target program
+                          +----+-----+
+                               |
+                               v
+                         error messages
+a more detailed view:
+                          source program 
+                                 v
+                   +---------------------------+ 
+                   |      lexical analyzer     |
+                   +-------------+-------------+
+                                 v
+                   +---------------------------+ 
+                   |      syntax analyzer      |
+                   +-------------+-------------+
+                                 v
+                   +---------------------------+ 
+                   |     semantic analyzer     |
+  symbol-          +-------------+-------------+       error
+   table                         v                    handler
+  manager          +---------------------------+ 
+                   |intermediate code generator|
+                   +-------------+-------------+
+                                 v
+                   +---------------------------+ 
+                   |       code optimizer      |
+                   +-------------+-------------+
+                                 v
+                   +---------------------------+ 
+                   |       code generator      |
+                   +-------------+-------------+
+                                 |
+                                 v
+                          target program
+
+
+Symbol-Table Management
+
+     symbol table -- data structure containing a record for each 
+          identifier, with fields for the attributes of the 
+          identifier.
+
+          attributes :  name, type, scope, size, etc.
+
+
+Error Detection and Reporting
+
+     Compiler that stops when it finds the first error is not as 
+helpful as it could be.  (Turbo Pascal???)
+
+Syntax and semantic analysis phases handle most of the errors, but 
+not all. 
+e.g., :: in a Pascal program would cause a lexical analysis error.
+      : : would cause a syntax error.
+
+The Analysis Phases
+     lexical analysis:
+          token     lexeme     lexical value
+   e.g.,    id       count      pointer to the symbol table
+                                   entry
+            if       if         none
+           plus      +        
+
+       alpha := beta + 3*gamma
+                |  (lexical analyzer)
+                v
+
+         id1 := id2 + 3 * id3
+
+                |  (syntactic analyzer)
+                v
+
+               :=
+              /   \
+            id1     +
+                  /   \
+               id2      *
+                      /   \
+                    3      id3
+
+                |  (semantic analyzer)
+                v
+
+               :=
+              /   \
+            id1     +
+                  /   \
+               id2      *
+                      /   \
+                 inttoreal id3
+                     |
+                     3
+
+               |   (intermediate code generator)
+               v
+                               program for an abstract machine 
+       temp1 := inttoreal(3)     should be:                        
+       temp2 := temp1 * id3       a) easy to produce               
+       temp3 := id2 + temp2       b) easy to translate into        
+         id1 := temp3                target language               
+                               (three address machine shown)
+               |   (code optimizer)
+               v
+
+       temp1 := 3.0 * id3
+       id1 := id2 + temp1
+
+               |   (code generator)
+               v
+
+       MOVF    ID3, R0       (VAX Assembly Language)
+       MULF    #3.0,R0
+       ADDF    ID2,R0
+       MOVF    R0,ID1
+
+COUSINS OF THE COMPILER
+
+ Preprocessors
+     produce input to compilers
+
+   1. macro processing
+   2. file inclusion
+   3. Rational preprocessors, e.g., RATFOR, SPARKS
+   4. Language extensions , e.g, EQUEL database processor is a 
+          preprocessor for C.
+
+ Assemblers
+
+    Two pass  assembly
+
+     pass 1 -- builds the symbol table
+
+     pass 2 -- generates relocatable machine code
+
+
+ Linkers/Loaders
+
+     linking -- ties together separately compiled modules
+     loading -- modifies addresses in relocatable code.
+
+GROUPING OF PHASES
+
+  Front end -- those phases or parts of phases which depend 
+     primarily upon the source language and are largely independent 
+     of the target machine.
+     typically:
+          lexical analysis
+          syntactic analysis
+          semantic analysis
+          intermediate code generation
+          (perhaps some code optimization)
+          those portions of symbol table processing and error 
+               handling that go with the above
+
+  Back end -- those portions of the compiler which depend on the 
+     target machine
+     typically:
+          code generation
+          (perhaps some code optimization)
+          any necessary error handling and symbol table processes
+
+     It is common to take the front end of a compiler and write 
+     different back ends for various machines.  Going the other way 
+     is not quite as common, because of the nuances of different 
+     languages.
+
+  Passes
+
+     Each pass usually consists of several phases.  
+     It is desirable to have only a few passes.  One pass compilers 
+     are possible, but can create limitations.  
+
+COMPILER-CONSTRUCTION TOOLS
+
+  1. Parser generators  
+  2. Scanner generators
+  3. Syntax-directed translation engines
+  4. Automatic code generators.
+  5. Data-flow engines.
+</pre></body></html>

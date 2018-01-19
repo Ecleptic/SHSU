@@ -1,0 +1,800 @@
+
+<!-- saved from url=(0196)https://shsu.blackboard.com/bbcswebdav/pid-2978973-dt-content-rid-33231308_1/courses/COSC431601218/COSC431601214_ImportedContent_20140125072142/Course%20Documents/Lecture%202%20Notes/lecture2.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><style></style></head><body><pre>                    A SIMPLE ONE-PASS COMPILER
+
+OVERVIEW
+
+  A programming language is defined by describing:
+    a) syntax
+        what its programs look like
+        we use context-free grammars (BNF -- Backus-Naur Form) to 
+        describe syntax
+    b) semantics 
+        what its programs mean
+        we don't have an accepted means of describing semantics 
+        (although some have used Vienna Definition Language, etc.)  
+        We will use English to describe the semantics.
+
+  Context-free grammars are also useful to help guide the 
+  translation of programs using a technique known as syntax-
+  directed translation.  
+
+SYNTAX DEFINITION
+
+  Informally, a context-free grammar is simply a set of rewriting 
+  rules, or productions.  A production is of the form 
+
+                          A --&gt; B C D .... 
+
+  A is called the left-hand side (LHS) and B C D .... is the right-
+  hand side.  Every production in a CFG has exactly one symbol on 
+  its LHS.  
+  A production represents the rule that any occurance of its LHS 
+  symbol can be replaced by the symbols on its RHS.  Thus the 
+  production
+
+              sentence --&gt; noun_phrase  verb_phrase
+
+  states that a sentence is required to be a noun phrase followed 
+  by a verb phrase.  Other productions would be required to define 
+  what is mean by noun_phrase and verb_phrase
+
+  Two types of symbols in a CFG:  nonterminals and terminals.
+
+  Nonterminals  -- often delimited by angle brackets (&lt;...&gt;). 
+                -- recognized by the fact that they appear on 
+                    the LHS of productions.  (i.e., they are 
+                    placeholders)
+
+  Terminals -- never changed or rewritten 
+            -- they represent the tokens of the language.  
+
+  Overall purpose of a CFG
+        -- specify what sequences of terminals are legal
+
+  How does it do this?
+        -- select one of the nonterminals as the start symbol.
+        -- apply productions rewriting nonterminals until only 
+           terminals remain.
+
+  Defn: A CFG is denoted G = (T,N,P,S) where
+    1.  T is a set of tokens, called terminal symbols
+    2.  N is a set of nonterminals
+    3.  P is a set of productions where each production consists of 
+            a nonterminal (LHS), an arrow, and a sequence of tokens 
+            and/or nonterminals (the RHS)
+    4.  S is a special nonterminal, called the start symbol.  By 
+            convention, the LHS of the first production is the 
+            start symbol.
+
+  Example:  infix expressions with single digits
+
+    list --&gt; list + digit | list - digit | digit
+    digit --&gt; 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 
+
+    N = { list, digit }
+    T = { + - 0 1 2 3 4 5 6 7 8 9 }
+    P -- see above
+    S = list
+
+                             1 + 2 - 3
+
+
+              list              1 is a list, since 1 is a digit
+            /  |  \
+           /   -   \            1 + 2 is a list, since 1 is a list
+        list       digit          and 2 is a digit
+      /  |  \        |
+     /   +   \       3          1 + 2 - 3 is a list, since 1 + 2 is 
+  list       digit                a list and 3 is a digit 
+    |          |
+ digit         2
+    |
+    1
+ 
+  A sequence of tokens may be empty -- called the empty string, e
+  (epsilon)
+
+  Example:  compound-statements in Pascal --
+
+    compound_stmt --&gt; BEGIN opt_stmts END
+        opt_stmts --&gt; stmt_list | e
+        stmt_list --&gt; stmt_list ; stmt | stmt
+
+    note: extended BNF would be
+       compound_stmt --&gt; BEGIN stmt { ; stmt } END
+
+       where one possible statement is e.  { } represents 0 or more 
+        repetitions
+
+Parse Trees
+
+  A parse tree pictorally shows how the start symbol of a grammar 
+  derives a string in the language.  Formally,
+
+    Given a CFG, a parse tree has the following properties:
+        1. The root is labeled by the start symbol.
+        2. Each leaf is labeled by a token or by e
+        3. Each interior node is labeled by a nonterminal.
+        4. If A is the nonterminal labeling some interior node and 
+           X1, X2,...,Xn are the labels of the children of that 
+           node from left to right, then A --&gt; X1 X2 ... Xn is a 
+           production.
+                
+    The leaves of the parse tree from left to right form the yield 
+    of the tree  (the string derived form the start symbol at the 
+    root.)
+
+Ambiguity
+
+    An ambiguous grammar is one in which one token string has more 
+    than one parse tree (not good!).  
+    e.g., 
+        E --&gt; E + E | E - E | E * E | num
+      num --&gt; 0 | 1 | 2 | ... | 9
+
+        3 + 1 * 2
+
+                +                        *        
+               / \                      / \     
+              3   *                    +   2
+                 / \                  / \   
+                1   2                3   1  
+
+
+Associativity of Operators
+
+        a+b+c  is  (a+b)+c = a+(b+c)
+        a-b-c  is  (a-b)-c =/ a-(b-c)
+
+     +, -, *, /  are evaluated left to right (left associative)
+     exponentiation is right associative.
+        2**3**2 = 2**(3**2) = 2**9 = 512
+                =/ (2**3)**2 = 8**2 = 64
+     The C assignment operator is also right associative
+        a=b=c means a = (b=c)
+
+    with left associative operators --
+        the parse tree grows down to the left
+        productions are left recursive
+    with right associative operators --
+        the parse tree grows down to the right
+        productions are right recursive
+
+            
+
+              ^                        -  
+             / \                      / \ 
+            2   ^                    -   2
+               / \                  / \   
+              3   2                3   1  
+
+
+Precedence of Operators
+
+    1 + 2 * 3       2*3 done first because * has higher precedence 
+                        than +
+
+    In a CFG, we create a precedence hierarchy by structuring the 
+    productions:
+
+        expr --&gt; expr + term | expr - term | term
+        term --&gt; term * factor | term / factor | factor
+      factor --&gt; id | num | ( expr )
+
+    What if we want to add exponentiation?
+        redefine factor and add a new production for primary:
+
+        expr --&gt; expr + term | expr - term | term
+        term --&gt; term * factor | term / factor | factor
+      factor --&gt; primary ^ factor | primary
+     primary --&gt; id | num | ( expr )
+  
+      
+SYNTAX-DIRECTED TRANSLATION
+
+Postfix Notation for an expression E
+
+    1. If E is a variable or constant, then the postfix notation 
+        for E is E itself.
+    2. If E is an expression of the form E1 op E2 where is any 
+        binary operator, then the postfix notation for E is
+        E1' E2' op, where  E1' and  E2' are the postfix notations 
+        for E1 and E2 respectively. 
+    3. If E is an expression of the form ( E1 ), then the postfix 
+        notation for E1 is also the postfix notation for E.
+
+    No parentheses are necessary in postfix notation.
+
+        (5 - 3) + 2       postfix form:   5 3 - 2 +
+        5 - (3 + 2)       postfix form:   5 3 2 + -
+
+
+
+Syntax-Directed Definitions
+
+    syntax-directed definition
+        --  uses a CFG to specify the syntactic structure of the 
+            input.  
+        --  with each grammar symbol, it associates a set of 
+            attributes (properties) 
+        --  with each production, it associates a set of semantic 
+            rules (actions) for computing the values of the 
+            attributes associated with the symbols
+
+    A parse tree showing the attribute values at each node is 
+    called an annotated parse tree.
+
+    An attribute, t, of a symbol, X, is denoted by X.t
+
+  Example
+     The symbol || represents string concatenation.
+     The attribute t is the string representing the postfix 
+        notation for the nonterminal
+
+     Productions                    Semantic rules                     
+ ----------------------------+-----------------------------------
+     expr --&gt; expr + term    |  expr.t := expr.t || term.t || '+'
+     expr --&gt; expr - term    |  expr.t := expr.t || term.t || '-'
+     expr --&gt; term           |  expr.t := term.t 
+     term --&gt; 0              |  term.t := '0'
+     term --&gt; 1              |  term.t := '1'
+      ...                    |       ...
+     term --&gt; 9              |  term.t := '9'
+
+
+    The annotated parse tree for the expression:
+                             1 + 2 - 3
+
+                   expr.t='12+3-'      
+                    /   |   \          
+                   /    -    \         
+           expr.t='12+'     term.t='3' 
+             /   |   \         |       
+            /    +    \        3       
+       expr.t='1'  term.t='2'
+           |           |
+       term.t='1'      2
+           |
+           1
+
+    The order of evaluation of the attributes is important.  In 
+    most cases a "postorder depth-first" traversal of the tree will 
+    be acceptable.  
+
+        PROCEDURE visit(n : node);
+          BEGIN
+            FOR each child m of n, from left to right DO
+                visit(m)
+            ENDFOR
+            evaluate semantic rules at node n
+          END visit
+
+Translation Schemes
+
+    A translation scheme is like a syntax-directed definition, 
+    except that the order of evaluation of the semantic rules is 
+    explicitly shown.  The position at which an action is to be 
+    executed is shown by enclosing it between braces and writing it 
+    within the RHS of a production; e.g, 
+
+     expr --&gt; expr + term   { print('+') }
+     expr --&gt; expr - term   { print('-') }
+     expr --&gt; term          { no action  }
+     term --&gt; 0             { print('0') }
+     term --&gt; 1             { print('1') }
+      ...                        ...
+     term --&gt; 9             { print('9') }
+
+  Example:  Parse tree with actions for the above grammar:
+
+                             1 + 2 - 3
+
+                      expr  .
+                   /   |    \  .         
+                  /    -     \   { print '-' }
+                 /            \          
+              expr .            term .
+            /  |  \  .            |    .      
+           /   +   \  {print'+'}  3    { print '3' }   
+       expr         term.
+        |           /    .
+       term.       2      {print'2'}
+       /    .
+      1      {print '1'}
+
+
+PARSING
+
+  Parsing -- process of determining whether a string of tokens can 
+             generated by a grammar
+
+          -- a parse tree may or may not be actually constructed
+
+  Programming language parsers usually make a single left-to-right 
+  scan over the input with one token lookahead.
+
+  Two parsing methods:
+
+    top-down
+        --  construction of the parse tree starts at the root and 
+            proceeds toward the leaves
+        --  efficient parsers can be easily constructed by hand 
+            using this method
+
+    bottom-up
+        --  construction starts at the leaves and proceeds toward 
+            the root
+        --  handles a larger class of grammars, therefore
+        --  software tools generally use this method
+
+    Most parsing methods process input in a "greedy" fashion -- 
+        construct as much of the parse tree as possible before 
+        proceeding to the next character.
+    If the actions in the syntax-directed scheme proceed from left 
+        to right (most do) we can execute the actions while parsing 
+        and avoid explicitly building the parse tree.
+
+Top-Down Parsing
+
+  consider the following grammar for the types of Pascal:
+    
+    type --&gt; simple | RECORD fields END | ARRAY [simple] OF type
+             | ( idlist )
+  simple --&gt; integer | char | num dotdot num
+  fields --&gt; field ; fields | field
+   field --&gt; idlist : type
+  idlist --&gt; identifier , idlist | identifier 
+
+                             parse tree
+
+  input string :  ARRAY [ num dotdot num ] OF integer
+
+  step 1                        type
+
+                ARRAY [ num dotdot num ] OF integer
+                  ^
+  step 2                        type
+
+               ARRAY    [    simple    ]    OF   type
+
+                ARRAY [ num dotdot num ] OF integer
+                      ^
+  step 3                        type
+
+               ARRAY    [    simple    ]    OF   type
+
+                ARRAY [ num dotdot num ] OF integer
+                         ^
+
+  step 4                        type
+
+               ARRAY    [    simple    ]    OF   type
+                            /  |   \
+                          num  ..  num
+
+                ARRAY [ num dotdot num ] OF integer
+                              ^
+  steps 5 - 8                   type
+
+               ARRAY    [    simple    ]    OF   type
+                            /  |   \
+                          num  ..  num
+
+                ARRAY [ num dotdot num ] OF integer
+                                              ^
+  steps 9                       type
+
+               ARRAY    [    simple    ]    OF   type
+                            /  |   \              |
+                          num  ..  num          simple
+                                                  |
+                                                integer
+
+                ARRAY [ num dotdot num ] OF integer   ;
+                                                      ^
+  The selection of a production for a nonterminal may involve 
+  trial-and-error.  May have to backtrack if a production is 
+  unsuitable.  
+
+
+Predictive Parsing  (A form of recursive descent parsing)
+
+  -- The lookahead symbol unambiguously determines the next 
+     production to apply.  
+  -- The parse tree is not explicitly built
+  -- Each invokation of a production calls a parsing procedure 
+     which can recognize any sequence of tokens generated by that 
+     nonterminal.  
+  -- To match a nonterminal A, we call the parsing procedure 
+     corresponding to A
+  -- To match a terminal symbol, t, we call a procedure match(t).  
+      - match compares t to the lookahead token
+      - if the lookahead token is t, everything is correct and the 
+        scanner is called to get the next lookahead token.  
+        Otherwise an error has occurred.
+
+  For the sample grammar:
+
+  -- lookahead is a global variable
+ 
+  procedure scan(var t : token);
+  begin
+    -- get the next token from the input stream
+  end scan
+
+  procedure match (t : token)
+  begin 
+   if t = lookahead then        -- a match has been made
+      scan(lookahead)           -- get new lookahead
+   else
+      error(t)                  -- report an error,e.g."t expected"
+   endif
+  end match
+
+  procedure idlist   -- parse an identifier list
+  begin
+    match(id)        -- an idlist must start with an identifier
+    if lookahead = comma then  -- another identifier follows
+       match(comma)
+       idlist
+    endif
+  end idlist
+
+  procedure field   -- parse a record field
+  begin
+    idlist
+    match(colon)
+    type
+  end field
+
+  procedure fields  
+  begin
+    field
+    if lookahead = semicolon then
+      match(semicolon)
+      fields
+    endif
+  end fields
+
+  procedure type
+  begin
+    case lookahead of 
+       recordsym :  match(recordsym)
+                    fields
+                    match(endsym)
+       arraysym  :  match(arraysym)
+                    match(lbracket)
+                    simple
+                    match(rbracket)
+                    match(ofsym)
+                    type
+       lparen    :  match(lparen)
+                    idlist
+                    match(rparen)
+       otherwise    simple
+    end case
+  end type
+
+  procedure simple;
+  begin
+    case lookahead of
+        intsym  : match(intsym)
+        charsym : match(charsym)
+        num     : match(num)
+                  match(dotdot)
+                  match(num)
+        otherwise error
+    end case
+  end simple
+
+  predictive parsing relies on information about what first symbols 
+  can be generated by the right side of a production.  
+
+  FIRST(s) -- set of tokens that appear as the first symbols of one 
+  or more strings generated from s.  
+  e.g., FIRST(simple) = { intsym, num, charsym }
+        FIRST(type) = { arraysym, recsym, lparen, intsym, num, 
+                                charsym }
+
+  Predictive parsing requires that if there are two productions 
+    A --&gt; r   and  A --&gt; s then  FIRST(r) and FIRST(s) are disjoint.
+  Otherwise, backtracking will be required.
+
+Left Recursion
+
+  Left recursion will result in an infinite loop
+
+  To remove left recursion, e.g.,
+
+    A --&gt; A &amp; | @     &amp; and @ are sequences of tokens/nonterminals
+
+  the only way to stop the recursion is to match A with @.
+  Thus, we must have @ followed by 0 or more &amp;'s
+
+  solution:
+    A --&gt; @ R
+    R --&gt; &amp; R | e     (right recursive)
+
+A TRANSLATOR FOR SIMPLE EXPRESSIONS
+
+   Example:
+        expr --&gt; expr + term | expr - term | term    
+
+    transform to:     
+        expr --&gt; term rest
+        rest --&gt; + term rest | - term rest | e
+
+   or
+        expr --&gt;  expr + term {print '+'} 
+                | expr - term {print '-'}
+                | term    
+        term --&gt; 0 {print '0'} | ... | 9 {print '9'}
+
+    transform to:     
+        expr --&gt;  term rest
+        rest --&gt;  + term {print '+'} rest 
+                | - term {print '-'} rest 
+                | e
+        term --&gt; 0 {print '0'} | ... | 9 {print '9'}
+
+
+Procedures for expr, term, and rest
+
+   procedure term
+    begin
+      if lookahead is a digit then 
+        write the digit
+        match(lookahead)
+      else
+        error(lookahead)
+      endif
+    end term
+
+   procedure rest
+    begin
+      case 
+        lookahead = plus_symbol :
+            match(plus_symbol)
+            term
+            write('+')
+            rest
+        lookahead = minus_symbol :
+            match(minus_symbol)
+            term
+            write('-')
+            rest
+        otherwise    -- do nothing; rest is empty string
+      endcase
+    end rest
+
+   procedure expr
+    begin
+      term
+      rest
+    end expr
+
+Optimizing the Translator
+
+   -- eliminate tail recursion (right recursion) by replacing with 
+        iteration (this is usually very easy to do)
+
+   procedure rest
+    begin
+     while lookahead in {plus_symbol, minus_symbol} do
+      case 
+        lookahead = plus_symbol :
+            match(plus_symbol)
+            term
+            write('+')
+        lookahead = minus_symbol :
+            match(minus_symbol)
+            term
+            write('-')
+      endcase
+     endwhile
+    end rest
+
+   Now, because the only call to rest comes in expr, we can put the 
+   above code directly in expr and eliminate the procedure.  This 
+   corresponds to the extended BNF
+
+     expr --&gt; term { (+|-) term }   ({ } means 0 or more times)
+
+   procedure term
+    begin
+      if lookahead is a digit then 
+        write the digit
+        match(lookahead)
+      else
+        error(lookahead)
+      endif
+    end term
+
+   procedure expr
+    begin
+      term
+      case 
+        lookahead = plus_symbol :
+            match(plus_symbol)
+            term
+            write('+')
+            rest
+        lookahead = minus_symbol :
+            match(minus_symbol)
+            term
+            write('-')
+            rest
+        otherwise    -- do nothing; rest is empty string
+      endcase
+    end expr
+
+LEXICAL ANALYSIS
+
+  Functions of a lexical analyzer: (a partial list)
+    1. Removal of white space and comments
+        If the lexical analyzer removes comments and white space 
+        the parser will never need to consider it
+    2. Recognition of constants
+       -If the lexical analyzer collects digits into integers, they 
+        may be treated as single units during translation
+       -The lexical analyzer passes both the token and the 
+        attribute (value) to the parser
+        e.g., 
+                11 + 22 - 30
+        sequence of tuples:
+            (num, 11) (plussym,_) (num, 22) (minussym,_) (num, 30)
+        plussym and minussym may or might not have an attribute
+    3. Recognizing identifiers and keywords
+        grammar treats identifier as a token
+        e.g., 
+            alpha := alpha + beta;
+        sequence of tuples
+         (id,ptr1) (becomes,_) (id,ptr1) (plussym,_) (id,ptr2) 
+         (semi,_)
+        here, ptr1, ptr2 are pointers to the symbol table entry for 
+        alpha and beta, respectively.
+        If keywords are reserved, lexical analysis is simpler
+            e.g.  if if then then else else
+        Other problems:
+            differentiate between &lt; , &lt;&gt;, &lt;=   etc.
+
+Interface to the lexical analyzer
+
+                 read                pass token and
+       +-----+ character +--------+  its attributes +------+
+       |Input|----------&gt;|Lexical |----------------&gt;|parser|
+       |     |&lt;----------|Analyzer|                 +------+
+       +-----+ push back +--------+  
+               character
+
+
+    When do we push a character back?  e.g., when the lexical 
+    analyzer sees the char '&lt;' it doesn't know if that is the 
+    entire token or not.  It could be '&lt;' or '&lt;&gt;'.  The next 
+    character must be read.  If it is not '&gt;', then the character 
+    must be pushed back into the input stream and the tuple <gtr,_> 
+    passed to the parser. Otherwise <geq,_> is passed to the 
+    parser.
+
+    How do we push back a char?  In C, use ungetc;  In Pascal, not 
+    really so difficult -- read a line as a string and use the 
+    string as a buffer.
+
+A simple lexical analyzer 
+
+    token lexan()
+     token t
+    begin lexan 
+     t.typ &lt;-- none
+     while t.typ = none do  // look for a token
+        while inbuffer = nullstring do  // read another line
+          readln(inbuffer)
+          lineno &lt;-- lineno + 1
+        endwhile
+        // strip out blanks and tabs
+        while inbuffer[1] = blank or inbuffer[1] = tab do
+          delete(inbuffer,1,1)
+        endwhile
+        if inbuffer &lt;&gt; nullstring then
+          case inbuffer[1] of
+            '0'..'9' : // recognize integers
+                        t.typ &lt;-- num
+                        t.val &lt;-- ch_to_i(inbuffer[1])
+                        delete(inbuffer,1,1)
+                        while inbuffer[1] in ['0'..'9'] do
+                          t.val &lt;-- t.val*10 + 
+                                            ch_to_i(inbuffer[i])
+                          delete(inbuffer,1,1)
+                        endwhile
+            'A'..'Z' : // recognize identifiers
+                        t.typ &lt;-- id
+                        t.nam &lt;-- lookup(inbuffer[1])
+                        delete(inbuffer,1,1)
+                        while inbuffer[1] in ['A'..'Z','0'..'9'] do
+                          t.nam &lt;-- t.nam || inbuffer[1]
+                          delete(inbuffer,1,1)
+                        endwhile
+                        t.ptr &lt;-- lookup(t.nam)
+                        if t.ptr = nil then
+                          insert(t.nam, t.id)
+                        endif
+            '+' : t.typ &lt;-- plussym
+            '-' : t.typ &lt;-- minussym
+            otherwise  error('invalid char');
+          endcase
+        endif
+     endwhile
+     return t
+    end lexan
+
+
+INCORPORATING A SYMBOL TABLE
+
+     -- used to store information about source language constructs
+     -- information gathered during the analysis phases
+        -- lexical analyzer 
+            creates a symbol table entry for an identifier 
+            associated with a given lexeme
+        -- syntax analyzer
+            type of the identifier       
+     -- information used during the synthesis phases 
+        -- code generation phase 
+            uses the symbol table information to generate the 
+            proper code to access and store the variable.
+
+Symbol Table Interface
+
+     The symbol table is a data structure ==&gt; accessing functions
+     
+        procedure insert(s : string; t : token);
+         inserts lexeme in s along with token t in symbol table
+
+     and
+
+        function lookup(s : string) : symbol_table_ptr;
+         returns pointer to the entry for s or null if s is not 
+         found
+
+
+Handling Reserved Words
+
+     Reserved words may be handled by initializing them in the 
+     symbol table; e.g.,
+
+        insert('div',divsy)  
+
+        insert('mod',modsy)
+
+        lookup('div') returns (a pointer to) the token divsy, so 
+        DIV cannot be used as an identifier.
+
+     Alternatively, the reserved words may be placed in a separate 
+     table which is always scanned (using, say, binary search)  
+     whenever an identifier is recognized.
+
+
+A Symbol-Table Implementation
+
+    Lexeme     |  Token  | Attributes ....
+  +------------+---------+---------------- ... --+
+  |  '       ' |  none   |                       |
+  +------------+---------+---------------- ... --+
+  |  'DIV'     |  divsy  |                       |
+  +------------+---------+---------------- ... --+
+  |  'MOD'     |  modsy  |                       |
+  +------------+---------+---------------- ... --+
+  |  'ALPHA'   |  ident  |                       |
+  +------------+---------+---------------- ... --+
+  |    ...     |   ...   |   ...                 |
+
+    Variations (desirable ones)
+
+        Don't set aside a fixed length lexeme; instead, make the 
+        lexeme field a pointer to the actual string.
+
+        Dynamically allocate the symbol table instead of storing it 
+        in an array format -- perhaps use BST, since no deletions, 
+        and get faster lookup.
+</geq,_></gtr,_></pre>
+</body></html>
