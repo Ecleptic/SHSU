@@ -1,0 +1,64 @@
+V "GNAT Lib v2015"
+M P W=b
+A -g
+P ZX
+
+RN
+RV NO_IO
+RV SPARK_05
+
+U lab01c%b		lab01c.adb		a197e267 NE OO SU
+W ada%s			ada.ads			ada.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W system.concat_3%s	s-conca3.adb		s-conca3.ali
+
+D ada.ads		20150506105328 3ffc8e18 ada%s
+D a-except.ads		20150506105328 5250cb69 ada.exceptions%s
+D a-ioexce.ads		20150506105327 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20150506105329 119b8fb3 ada.streams%s
+D a-tags.ads		20150506105332 dc4d0634 ada.tags%s
+D a-textio.ads		20150506105332 386df5d4 ada.text_io%s
+D a-unccon.ads		20150506105331 f9eb8f06 ada.unchecked_conversion%s
+D interfac.ads		20150506105327 6033a23f interfaces%s
+D i-cstrea.ads		20150506105327 e53d8b8e interfaces.c_streams%s
+D lab01c.adb		20180128205327 99fa17b3 lab01c%b
+D system.ads		20150506105331 100301f7 system%s
+D s-conca3.ads		20150506105332 0b705ca5 system.concat_3%s
+D s-crtl.ads		20150506105326 0ebbdb71 system.crtl%s
+D s-exctab.ads		20150506105331 54135002 system.exception_table%s
+D s-ficobl.ads		20150506105333 078245e4 system.file_control_block%s
+D s-parame.ads		20150506105331 7e2a0d7f system.parameters%s
+D s-soflin.ads		20150506105328 aa763b52 system.soft_links%s
+D s-stache.ads		20150506105332 a37c21ec system.stack_checking%s
+D s-stalib.ads		20150506105331 fa0a3617 system.standard_library%s
+D s-stoele.ads		20150506105332 2dc34a04 system.storage_elements%s
+D s-traent.ads		20150506105327 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20150506105330 9d58a4c0 system.unsigned_types%s
+D s-wchcon.ads		20150506105330 1b7d22d2 system.wch_con%s
+X 1 ada.ads
+16K9*Ada 19e8 10|7r6 7r23
+X 6 a-textio.ads
+49K13*Text_IO 471e16 10|7w10 7r27
+166U14*New_Line 10|47s4 56s4 59s4 62s4 65s4 68s4 71s4
+240U14*Get 10|41s4 42s4 43s4 44s4 45s4 46s4
+263U14*Put_Line 10|22s7 23s7 24s7 25s7 26s7 27s7 28s7 29s7 30s7 31s7 32s7
+. 33s7 34s7 35s7 50s7 54s4 55s4 57s4 58s4 60s4 61s4 63s4 64s4 66s4 67s4 69s4
+. 70s4
+X 10 lab01c.adb
+8U11*Lab01C 8b11 73l5 73t11
+9a4 i1{string} 41m8 49r7 52r16 54r16 55r16
+10a4 i2{string} 42m8 49r15 52r19 57r16 58r16
+11a4 i3{string} 43m8 52r22 60r16 61r16
+12a4 i4{string} 44m8 52r25 63r16 64r16
+13a4 i5{string} 45m8 52r28 66r16 67r16
+14a4 i6{string} 46m8 52r31 69r16 70r16
+16a4 empty{string}
+20U14 createGraph 20b14 20>26 20>29 20>32 20>35 20>38 20>41 37l8 37t19 52s4
+20a26 i1{string} 23r25
+20a29 i2{string}
+20a32 i3{string}
+20a35 i4{string}
+20a38 i5{string}
+20a41 i6{string}
+
