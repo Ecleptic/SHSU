@@ -4,25 +4,26 @@ A -g
 P ZX
 
 RN
-RV NO_DIRECT_BOOLEAN_OPERATORS
 RV NO_IO
 RV SPARK_05
 
-U lab01c%b		lab01c.adb		1eda5d4c NE OO SU
+U matrix%b		matrix.adb		4d8a45e0 NE OO SU
 W ada%s			ada.ads			ada.ali
+W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
-W warshall%s		warshall.adb		warshall.ali
 
 D ada.ads		20150506105328 3ffc8e18 ada%s
 D a-except.ads		20150506105328 5250cb69 ada.exceptions%s
+D a-inteio.ads		20150506105332 f64b89a4 ada.integer_text_io%s
 D a-ioexce.ads		20150506105327 e4a01f64 ada.io_exceptions%s
 D a-stream.ads		20150506105329 119b8fb3 ada.streams%s
 D a-tags.ads		20150506105332 dc4d0634 ada.tags%s
 D a-textio.ads		20150506105332 386df5d4 ada.text_io%s
+D a-tiinio.ads		20150506105328 aa04e5d6 ada.text_io.integer_io%s
 D a-unccon.ads		20150506105331 f9eb8f06 ada.unchecked_conversion%s
 D interfac.ads		20150506105327 6033a23f interfaces%s
 D i-cstrea.ads		20150506105327 e53d8b8e interfaces.c_streams%s
-D lab01c.adb		20180205045832 f678a24a lab01c%b
+D matrix.adb		20180125002723 83ac3990 matrix%b
 D system.ads		20150506105331 100301f7 system%s
 D s-crtl.ads		20150506105326 0ebbdb71 system.crtl%s
 D s-exctab.ads		20150506105331 54135002 system.exception_table%s
@@ -35,26 +36,32 @@ D s-stoele.ads		20150506105332 2dc34a04 system.storage_elements%s
 D s-traent.ads		20150506105327 005bf670 system.traceback_entries%s
 D s-unstyp.ads		20150506105330 9d58a4c0 system.unsigned_types%s
 D s-wchcon.ads		20150506105330 1b7d22d2 system.wch_con%s
-D warshall.ads		20180205050006 d0cf0ad2 warshall%s
 X 1 ada.ads
-16K9*Ada 19e8 10|18r6 18r23
-X 6 a-textio.ads
-49K13*Text_IO 471e16 10|18w10 18r27
-166U14*New_Line 10|45s4 72s7
-208U14*Put 10|41s7 49s7
-242U14*Put 10|38s4 42s7 50s7 64s13 66s13 69s10
-X 10 lab01c.adb
-20U11*Lab01C 20b11 75l5 75t11
-22i4 rowLen{integer} 23r27 25r30 26r45 39r16 47r16 51r19 56r20
-23a4 arrayMatrix(character) 41r11 49r11 58r16 58r59
-25a4 inputCharacters(character)
-26a4 computedCharacters{23|2A9} 58r33 58r76
-28i4 N{integer} 54m10 56r16 58r52 58r95 61m13 61r18
-29b4 isTrue{boolean} 59m16 63r13 68m10
-39i8 i{integer} 41r23
-47i8 i{integer} 49r23 58r28
-51i11 j{integer} 58r71
-X 23 warshall.ads
-1K10*warshall 10|19w6 19r20 26r25 23|4e13
-2A9*inChars(character)<integer> 10|26r34
+16K9*Ada 19e8 12|1r6 1r19 2r5 2r18
+X 3 a-inteio.ads
+18K13*Integer_Text_IO[8|46] 12|1w23 2r22
+X 7 a-textio.ads
+49K13*Text_IO 471e16 12|1w10 2r9
+166U14*New_Line 12|43s7
+242U14*Put 12|33s7 40s7
+263U14*Put_Line 12|34s7
+X 8 a-tiinio.ads
+66U14*Put 12|41s7[3|18] 42s7[3|18]
+X 12 matrix.adb
+4U11*Matrix 4b11 45l5 45t11
+6i4 N{integer} 8r38 9r24
+7a4 Dummy1(boolean)
+8a4 Dummy2(boolean)
+9a4 Dummy3(boolean)
+11A9 MY_ARRAY(integer)<integer> 13r19 14r19 15r19
+13a4 Total{11A9} 31m4 32r7 38m7 38r23 39r23 41r11
+14a4 First{11A9} 18m35 18r35 21m4 22m4 23m4 23r16 23r27 25m4 25r25 31r13
+. 32r15 39r38
+15a4 Second{11A9} 28m7 38r38
+16a4 Funny(integer) 39m7 42r11
+17a4 X(integer)
+17a6 Y(integer)
+18i4 Fourth_Value=18:35{integer} 24r4
+27i8 Index{integer} 28r14 28r28
+37i8 Index{integer} 38r13 38r29 38r45 39r13 39r29 39r48 41r17 42r17
 

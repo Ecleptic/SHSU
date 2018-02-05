@@ -4,12 +4,11 @@
 -- Cameron Green
 
 -- Start with enumerating the a..j
--- figure out warshaws
+-- figure out warshall
 -- print it
 
 
--- for B create a library of warshaws (.ads)
-
+-- for B create a library of warshall (.ads)
 
 
 --
@@ -17,68 +16,64 @@
 -----------------------------------------------------------
 
 with Ada.Text_IO; use Ada.Text_IO;
+with warshall; use warshall;
 procedure Lab01C is
-   i1: String(1 .. 2);
-   i2: String(1 .. 2);
-   i3: String(1 .. 2);
-   i4: String(1 .. 2);
-   i5: String(1 .. 2);
-   i6: String(1 .. 2);
+   -- arrayMatrix: array(Positive range <>, Positive range <>) of boolean;
+   rowLen : integer := 6;
+   arrayMatrix : array(1..rowLen+1) of character := ('A', 'B', 'C', 'D', 'J', 'K', 'L');
 
-   empty: String := "    ";
+   inputCharacters: array(1..rowLen*2) of character := (('A','B'),('B','D'),('C','B'),('B','C'),('J','K'),('J','L'));
+   computedCharacters : warshall.inChars(1..rowLen,1..rowLen);
+
+   N : integer := 1;
+   isTrue: boolean := false;
+--   size: integer;
 
 
-   procedure createGraph(i1,i2,i3,i4,i5,i6:in String)  is
-   begin
-      put_line("A    B    C    D    E    F    G    I    J    K    L");
-      put_line("A    "&"hi"&"                                            ");
-      put_line("B                                                  ");
-      put_line("C                                                  ");
-      put_line("D                                                  ");
-      put_line("E                                                  ");
-      put_line("F                                                  ");
-      put_line("G                                                  ");
-      put_line("H                                                  ");
-      put_line("I                                                  ");
-      put_line("J                                                  ");
-      put_line("K                                                  ");
-      put_line("L                                                  ");
-      put_line("M                                                  ");
-
-   end createGraph;
-
-abbcddlak
+----------
+-- Print array
+----------
 begin
-   get(i1);
-   get(i2);
-   get(i3);
-   get(i4);
-   get(i5);
-   get(i6);
-   new_line;
+   -- print top row
+   put("     ");          -- 7 spaces
+   for i in 1..rowLen +1
+    loop
+      put(arrayMatrix(i));
+      put("     ");          -- 8 spaces
+   end loop;
 
-   if i1(1) = i2(1) then
-      put_line("ok");
-   end if;
-   createGraph(i1,i2,i3,i4,i5,i6);
+   new_Line;
+   -- print initial matrix
+   for i in 1..rowLen +1 -- loop rows
+    loop
+      put(arrayMatrix(i)); -- print label i
+      put("    ");
+      for j in 1..rowLen+1 -- loop columns
+        loop
+         -- put("0");
+         N := 1;
 
-   put_line(""&i1(1));
-   put_line(""&i1(2));
-   new_line;
-   put_line(""&i2(1));
-   put_line(""&i2(2));
-   new_line;
-   put_line(""&i3(1));
-   put_line(""&i3(2));
-   new_line;
-   put_line(""&i4(1));
-   put_line(""&i4(2));
-   new_line;
-   put_line(""&i5(1));
-   put_line(""&i5(2));
-   new_line;
-   put_line(""&i6(1));
-   put_line(""&i6(2));
-   new_line;
+         while N < rowLen*2
+             loop
+            if arrayMatrix(i) = computedCharacters(N) and arrayMatrix(j) = computedCharacters(N+1) then
+               isTrue := true;
+            end if;
+            N := N + 2;
+         end loop;
+         if(isTrue = true) then
+            put("1");
+         else
+            put("0");
+         end if;
+         isTrue := false;
+         put("     ");          -- 8 spaces
+      end loop; -- end J loop
+     -- new_Line;
+      new_Line;
+   end loop; -- end I loop
 
 end Lab01C;
+
+
+
+

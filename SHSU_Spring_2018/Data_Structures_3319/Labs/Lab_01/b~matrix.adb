@@ -1,27 +1,26 @@
 pragma Ada_95;
-pragma Source_File_Name (ada_main, Spec_File_Name => "b~lab01c.ads");
-pragma Source_File_Name (ada_main, Body_File_Name => "b~lab01c.adb");
+pragma Source_File_Name (ada_main, Spec_File_Name => "b~matrix.ads");
+pragma Source_File_Name (ada_main, Body_File_Name => "b~matrix.adb");
 pragma Suppress (Overflow_Check);
 with Ada.Exceptions;
 
 package body ada_main is
    pragma Warnings (Off);
 
-   E72 : Short_Integer; pragma Import (Ada, E72, "system__os_lib_E");
+   E74 : Short_Integer; pragma Import (Ada, E74, "system__os_lib_E");
    E13 : Short_Integer; pragma Import (Ada, E13, "system__soft_links_E");
    E23 : Short_Integer; pragma Import (Ada, E23, "system__exception_table_E");
-   E46 : Short_Integer; pragma Import (Ada, E46, "ada__io_exceptions_E");
-   E48 : Short_Integer; pragma Import (Ada, E48, "ada__tags_E");
-   E45 : Short_Integer; pragma Import (Ada, E45, "ada__streams_E");
-   E70 : Short_Integer; pragma Import (Ada, E70, "interfaces__c_E");
+   E48 : Short_Integer; pragma Import (Ada, E48, "ada__io_exceptions_E");
+   E50 : Short_Integer; pragma Import (Ada, E50, "ada__tags_E");
+   E47 : Short_Integer; pragma Import (Ada, E47, "ada__streams_E");
+   E72 : Short_Integer; pragma Import (Ada, E72, "interfaces__c_E");
    E25 : Short_Integer; pragma Import (Ada, E25, "system__exceptions_E");
-   E75 : Short_Integer; pragma Import (Ada, E75, "system__file_control_block_E");
-   E64 : Short_Integer; pragma Import (Ada, E64, "system__file_io_E");
-   E68 : Short_Integer; pragma Import (Ada, E68, "system__finalization_root_E");
-   E66 : Short_Integer; pragma Import (Ada, E66, "ada__finalization_E");
+   E77 : Short_Integer; pragma Import (Ada, E77, "system__file_control_block_E");
+   E66 : Short_Integer; pragma Import (Ada, E66, "system__file_io_E");
+   E70 : Short_Integer; pragma Import (Ada, E70, "system__finalization_root_E");
+   E68 : Short_Integer; pragma Import (Ada, E68, "ada__finalization_E");
    E17 : Short_Integer; pragma Import (Ada, E17, "system__secondary_stack_E");
-   E06 : Short_Integer; pragma Import (Ada, E06, "ada__text_io_E");
-   E77 : Short_Integer; pragma Import (Ada, E77, "warshall_E");
+   E45 : Short_Integer; pragma Import (Ada, E45, "ada__text_io_E");
 
    Local_Priority_Specific_Dispatching : constant String := "";
    Local_Interrupt_States : constant String := "";
@@ -30,7 +29,7 @@ package body ada_main is
 
    procedure finalize_library is
    begin
-      E06 := E06 - 1;
+      E45 := E45 - 1;
       declare
          procedure F1;
          pragma Import (Ada, F1, "ada__text_io__finalize_spec");
@@ -41,7 +40,7 @@ package body ada_main is
          procedure F2;
          pragma Import (Ada, F2, "system__file_io__finalize_body");
       begin
-         E64 := E64 - 1;
+         E66 := E66 - 1;
          F2;
       end;
       declare
@@ -137,38 +136,37 @@ package body ada_main is
       System.Exception_Table'Elab_Body;
       E23 := E23 + 1;
       Ada.Io_Exceptions'Elab_Spec;
-      E46 := E46 + 1;
+      E48 := E48 + 1;
       Ada.Tags'Elab_Spec;
       Ada.Streams'Elab_Spec;
-      E45 := E45 + 1;
+      E47 := E47 + 1;
       Interfaces.C'Elab_Spec;
       System.Exceptions'Elab_Spec;
       E25 := E25 + 1;
       System.File_Control_Block'Elab_Spec;
-      E75 := E75 + 1;
+      E77 := E77 + 1;
       System.Finalization_Root'Elab_Spec;
-      E68 := E68 + 1;
-      Ada.Finalization'Elab_Spec;
-      E66 := E66 + 1;
-      System.File_Io'Elab_Body;
-      E64 := E64 + 1;
       E70 := E70 + 1;
+      Ada.Finalization'Elab_Spec;
+      E68 := E68 + 1;
+      System.File_Io'Elab_Body;
+      E66 := E66 + 1;
+      E72 := E72 + 1;
       Ada.Tags'Elab_Body;
-      E48 := E48 + 1;
+      E50 := E50 + 1;
       System.Soft_Links'Elab_Body;
       E13 := E13 + 1;
       System.Os_Lib'Elab_Body;
-      E72 := E72 + 1;
+      E74 := E74 + 1;
       System.Secondary_Stack'Elab_Body;
       E17 := E17 + 1;
       Ada.Text_Io'Elab_Spec;
       Ada.Text_Io'Elab_Body;
-      E06 := E06 + 1;
-      E77 := E77 + 1;
+      E45 := E45 + 1;
    end adainit;
 
    procedure Ada_Main_Program;
-   pragma Import (Ada, Ada_Main_Program, "_ada_lab01c");
+   pragma Import (Ada, Ada_Main_Program, "_ada_matrix");
 
    function main
      (argc : Integer;
@@ -200,8 +198,7 @@ package body ada_main is
    end;
 
 --  BEGIN Object file/option list
-   --   ./warshall.o
-   --   ./lab01c.o
+   --   ./matrix.o
    --   -L./
    --   -L/Users/cgreen/Documents/SHSU 👾 /SHSU_Spring_2018/Data_Structures_3319/Labs/Lab_01/
    --   -L/usr/local/gnat/lib/gcc/x86_64-apple-darwin13.4.0/4.9.3/adalib/
