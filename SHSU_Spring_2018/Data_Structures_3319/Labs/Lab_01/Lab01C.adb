@@ -15,15 +15,14 @@
 -- #7 should be the first character because that's the enumeration
 -----------------------------------------------------------
 
-with Ada.Text_IO; use Ada.Text_IO;
-with warshall; use warshall;
+with Ada.Text_IO, warshall; use Ada.Text_IO, warshall;
 procedure Lab01C is
    -- arrayMatrix: array(Positive range <>, Positive range <>) of boolean;
    rowLen : integer := 6;
    arrayMatrix : array(1..rowLen+1) of character := ('A', 'B', 'C', 'D', 'J', 'K', 'L');
 
-   inputCharacters: array(1..rowLen*2) of character := (('A','B'),('B','D'),('C','B'),('B','C'),('J','K'),('J','L'));
-   computedCharacters : warshall.inChars(1..rowLen,1..rowLen);
+   inputCharacters: array(character range<>, character range<>) of boolean := (('A','B'),('B','D'),('C','B'),('B','C'),('J','K'),('J','L'));
+  -- computedCharacters : warshall.inChars(1..rowLen,1..rowLen);
 
    N : integer := 1;
    isTrue: boolean := false;
@@ -45,16 +44,16 @@ begin
    new_Line;
    -- print initial matrix
    for i in 1..rowLen +1 -- loop rows
-    loop
+      loop
       put(arrayMatrix(i)); -- print label i
       put("    ");
       for j in 1..rowLen+1 -- loop columns
-        loop
-         -- put("0");
+          loop
+          -- put("0");
          N := 1;
-
+      
          while N < rowLen*2
-             loop
+              loop
             if arrayMatrix(i) = computedCharacters(N) and arrayMatrix(j) = computedCharacters(N+1) then
                isTrue := true;
             end if;
@@ -68,7 +67,7 @@ begin
          isTrue := false;
          put("     ");          -- 8 spaces
       end loop; -- end J loop
-     -- new_Line;
+      -- new_Line;
       new_Line;
    end loop; -- end I loop
 
