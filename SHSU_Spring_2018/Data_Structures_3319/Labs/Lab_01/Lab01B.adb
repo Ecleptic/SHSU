@@ -1,6 +1,6 @@
 -----------------------------------------------------------
--- Hello World program
--- C-Option
+-- Lab 01 program
+-- B-Option
 -- Cameron Green
 
 -- Start with enumerating the a..j
@@ -17,11 +17,11 @@
 
 with Ada.Text_IO, warshall; use Ada.Text_IO, warshall;
 procedure Lab01C is
-   -- arrayMatrix: array(Positive range <>, Positive range <>) of boolean;
+   type matrix is array(integer range <>, integer range <>) of boolean;
    rowLen : integer := 6;
+   bMatrix : matrix (1..rowLen+1, 1..rowLen+1);
    arrayMatrix : array(1..rowLen+1) of character := ('A', 'B', 'C', 'D', 'J', 'K', 'L');
-
-   inputCharacters: array(character range<>, character range<>) of boolean := (('A','B'),('B','D'),('C','B'),('B','C'),('J','K'),('J','L'));
+   inputCharacters: array(1..rowLen*2) of character := ('A','B','B','D','C','B','B','C','J','K','J','L');
   -- computedCharacters : warshall.inChars(1..rowLen,1..rowLen);
 
    N : integer := 1;
@@ -30,7 +30,7 @@ procedure Lab01C is
 
 
 ----------
--- Print array
+-- Print array and create bMatrix.
 ----------
 begin
    -- print top row
@@ -51,18 +51,20 @@ begin
           loop
           -- put("0");
          N := 1;
-      
+
          while N < rowLen*2
               loop
-            if arrayMatrix(i) = computedCharacters(N) and arrayMatrix(j) = computedCharacters(N+1) then
+            if arrayMatrix(i) = inputCharacters(N) and arrayMatrix(j) = inputCharacters(N+1) then
                isTrue := true;
             end if;
             N := N + 2;
          end loop;
          if(isTrue = true) then
             put("1");
+            bMatrix(i,j) := true; --setup bMatrix.
          else
             put("0");
+            bMatrix(i,j) := false;
          end if;
          isTrue := false;
          put("     ");          -- 8 spaces
@@ -71,8 +73,5 @@ begin
       new_Line;
    end loop; -- end I loop
 
+   -- bMatrix has been implemented now just need to pass it into warshalls and done.
 end Lab01C;
-
-
-
-

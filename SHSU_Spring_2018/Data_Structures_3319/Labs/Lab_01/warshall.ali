@@ -1,0 +1,25 @@
+V "GNAT Lib v2015"
+A -g
+P ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV SPARK_05
+
+U warshall%b		warshall.adb		e2de0a6c NE OO PK IL
+
+U warshall%s		warshall.ads		a851c5d1 EE NE OO PK IL
+
+D system.ads		20150506105331 100301f7 system%s
+D warshall.ads		20180206162303 a851c5d1 warshall%s
+D warshall.adb		20180205050032 4a8fcfbd warshall%b
+X 2 warshall.ads
+1K10*warshall 4l5 4e13 3|1b14 17l5 17t13
+2A9*inChars(boolean)<integer><integer> 3r40 3|2r40
+3U14*warshallFunc 3=27 3|2b14 16l8 16t20
+3a27 char{2A9} 3|2b27 4r19 6r22 8r16 9r28 11m19 11r32 11r45
+X 3 warshall.adb
+4i11 I{integer} 8r23 11r50
+6i14 j{integer} 8r21 11r24 11r37
+9i20 k{integer} 11r26 11r39 11r52
+

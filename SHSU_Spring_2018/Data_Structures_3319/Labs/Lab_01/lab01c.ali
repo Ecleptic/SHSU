@@ -1,0 +1,60 @@
+V "GNAT Lib v2015"
+M P W=b
+A -g
+P ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_IO
+RV SPARK_05
+
+U lab01c%b		lab01c.adb		9308ea7d NE OO SU
+W ada%s			ada.ads			ada.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W warshall%s		warshall.adb		warshall.ali
+
+D ada.ads		20150506105328 3ffc8e18 ada%s
+D a-except.ads		20150506105328 5250cb69 ada.exceptions%s
+D a-ioexce.ads		20150506105327 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20150506105329 119b8fb3 ada.streams%s
+D a-tags.ads		20150506105332 dc4d0634 ada.tags%s
+D a-textio.ads		20150506105332 386df5d4 ada.text_io%s
+D a-unccon.ads		20150506105331 f9eb8f06 ada.unchecked_conversion%s
+D interfac.ads		20150506105327 6033a23f interfaces%s
+D i-cstrea.ads		20150506105327 e53d8b8e interfaces.c_streams%s
+D lab01c.adb		20180206220040 0334da78 lab01c%b
+D system.ads		20150506105331 100301f7 system%s
+D s-crtl.ads		20150506105326 0ebbdb71 system.crtl%s
+D s-exctab.ads		20150506105331 54135002 system.exception_table%s
+D s-ficobl.ads		20150506105333 078245e4 system.file_control_block%s
+D s-parame.ads		20150506105331 7e2a0d7f system.parameters%s
+D s-soflin.ads		20150506105328 aa763b52 system.soft_links%s
+D s-stache.ads		20150506105332 a37c21ec system.stack_checking%s
+D s-stalib.ads		20150506105331 fa0a3617 system.standard_library%s
+D s-stoele.ads		20150506105332 2dc34a04 system.storage_elements%s
+D s-traent.ads		20150506105327 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20150506105330 9d58a4c0 system.unsigned_types%s
+D s-wchcon.ads		20150506105330 1b7d22d2 system.wch_con%s
+D warshall.ads		20180206162303 a851c5d1 warshall%s
+X 1 ada.ads
+16K9*Ada 19e8 10|18r6 18r33
+X 6 a-textio.ads
+49K13*Text_IO 471e16 10|18w10 18r37
+166U14*New_Line 10|44s4 73s7
+208U14*Put 10|40s7 48s7
+242U14*Put 10|37s4 41s7 49s7 63s13 66s13 70s10
+X 10 lab01c.adb
+19U11*Lab01C 19b11 76l5 76t11
+20A9 matrix(boolean)<integer><integer> 22r10
+21i4 rowLen{integer} 22r21 22r34 23r27 24r30 38r16 46r16 50r19 55r20
+22a4 bmr{20A9} 64m13 67m13
+23a4 arrayMatrix(character) 40r11 48r11 57r16 57r56
+24a4 inputCharacters(character) 57r33 57r73
+27i4 N{integer} 53m10 55r16 57r49 57r89 60m13 60r18
+28b4 isTrue{boolean} 58m16 62r13 69m10
+38i8 i{integer} 40r23
+46i8 i{integer} 48r23 57r28 64r17 67r17
+50i11 j{integer} 57r68 64r19 67r19
+X 23 warshall.ads
+1K10*warshall 10|18w19 18r46 23|4e13
+
