@@ -15,12 +15,22 @@
 -- #7 should be the first character because that's the enumeration
 -----------------------------------------------------------
 
-with Ada.Text_IO, warshall; use Ada.Text_IO, warshall;
+with Ada.Text_IO, warshall;
+use Ada.Text_IO, warshall;
+-- change string to char.
+with Unchecked_Conversion;
+use Unchecked_Conversion;
+
+
+
 procedure Lab01B is
+   function StringToCharacter is new Unchecked_Conversion(String, Character);
    inFile, outFile: File_Type;
+
    -- rowLen : integer := 6;     -- need to get from prompt
 
   -- computedCharacters : warshall.inChars(1..rowLen,1..rowLen);
+
 
    N : integer := 1;
    isTrue: boolean := false;
@@ -47,34 +57,36 @@ procedure Lab01B is
 ----------
 -- get arrray matrix from file
 ----------
-   function getMatrix  return character is
-      arrayMatrix : array(1..getRowLen) of character;
+   function getMatrixFromFile return myArray is
+      inputCharacters : myArray;
       i : integer := 1;
+      temp:string(1..1);
    begin
       Open (File => inFile,
          Mode => In_File,
          Name => "in.txt");
       Set_Line (inFile, To => 2);
 
-
       loop
          exit when End_Of_File (inFile);
-         arrayMatrix(i) := Get_Line(inFile);
+         temp := Get_Line (inFile);
+         inputCharacters(i) := StringToCharacter(temp);
          i := i + 1;
       end loop;
 
       Close (inFile);
-      return arrayMatrix;
+    return arrayMatrix;
+   end getMatrixFromFile;
 
-   end getMatrix;
 
 
 -- set variables
    rowLen : integer := getRowLen;
+   subtype myArray is array(1..rowLen*2) of character;
    bMatrix : warshall.matrix (1..rowLen, 1..rowLen); -- has to be the same type as the one in warshall
-   -- arrayMatrix : array(1..rowLen+1) of character := ('A', 'B', 'C', 'D', 'J', 'K', 'L');
-   arrayMatrix : array(1..rowLen) of character;
-   inputCharacters: array(1..rowLen*2) of character := ('A','B','B','D','C','B','B','C','J','K','J','L');
+   arrayMatrix : myArray:= ('A', 'B', 'C', 'D', 'J', 'K', 'L');
+   inputCharacters : myArray := getMatrixFromFile;
+   --inputCharacters: array(1..rowLen*2) of character := ('A','B','B','D','C','B','B','C','J','K','J','L');
 ----------
 -- Print array and create bMatrix.
 ----------
@@ -152,13 +164,21 @@ begin
       put(outFile,"    ");          -- 4 spaces
       for j in 1..rowLen+1 -- loop columns
       loop
-         put(outFile,boolean'Image(bMatrix(i,j)));
-         -- True has less letters than False, so make sure we print more spaces behind it.
-         if bMatrix(i,j) = true then
-            put(outFile,"     ");          -- 5 spaces
+         if arrayMatrix(i,j) = true then
+            put("1");
+            put(outFile,"1");
          else
-            put(outFile,"    ");          -- 4 spaces
+            put("0");
+            put(outFile,"0");
+
          end if;
+        -- put(outFile,boolean'Image(bMatrix(i,j)));
+        --  -- True has less letters than False, so make sure we print more spaces behind it.
+        --  if bMatrix(i,j) = true then
+         put(outFile,"     ");          -- 5 spaces
+        --  else
+        --     put(outFile,"    ");          -- 4 spaces
+        --  end if;
 
         --  put(Boolean'Image(i));
          -- put(Boolean'Image(j));

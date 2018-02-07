@@ -21,7 +21,7 @@ package body ada_main is
    E66 : Short_Integer; pragma Import (Ada, E66, "ada__finalization_E");
    E17 : Short_Integer; pragma Import (Ada, E17, "system__secondary_stack_E");
    E06 : Short_Integer; pragma Import (Ada, E06, "ada__text_io_E");
-   E81 : Short_Integer; pragma Import (Ada, E81, "warshall_E");
+   E83 : Short_Integer; pragma Import (Ada, E83, "warshall_E");
 
    Local_Priority_Specific_Dispatching : constant String := "";
    Local_Interrupt_States : constant String := "";
@@ -164,7 +164,7 @@ package body ada_main is
       Ada.Text_Io'Elab_Spec;
       Ada.Text_Io'Elab_Body;
       E06 := E06 + 1;
-      E81 := E81 + 1;
+      E83 := E83 + 1;
    end adainit;
 
    procedure Ada_Main_Program;

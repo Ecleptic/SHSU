@@ -4,15 +4,17 @@ A -g
 P SS ZX
 
 RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_ENUMERATION_MAPS
 RV NO_IO
 RV NO_SECONDARY_STACK
 RV NO_DEFAULT_INITIALIZATION
 RV SPARK_05
 
-U lab01b%b		lab01b.adb		32e6533c NE OO SU
+U lab01b%b		lab01b.adb		f2bee74d NE OO SU
 W ada%s			ada.ads			ada.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
-W system.img_int%s	s-imgint.adb		s-imgint.ali
+W system.img_bool%s	s-imgboo.adb		s-imgboo.ali
 W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 W system.val_int%s	s-valint.adb		s-valint.ali
 W warshall%s		warshall.adb		warshall.ali
@@ -26,12 +28,12 @@ D a-textio.ads		20150506105332 386df5d4 ada.text_io%s
 D a-unccon.ads		20150506105331 f9eb8f06 ada.unchecked_conversion%s
 D interfac.ads		20150506105327 6033a23f interfaces%s
 D i-cstrea.ads		20150506105327 e53d8b8e interfaces.c_streams%s
-D lab01b.adb		20180207000736 6a2b0409 lab01b%b
+D lab01b.adb		20180207004347 aa73b078 lab01b%b
 D system.ads		20150506105331 100301f7 system%s
 D s-crtl.ads		20150506105326 0ebbdb71 system.crtl%s
 D s-exctab.ads		20150506105331 54135002 system.exception_table%s
 D s-ficobl.ads		20150506105333 078245e4 system.file_control_block%s
-D s-imgint.ads		20150506105328 02dbe0c2 system.img_int%s
+D s-imgboo.ads		20150506105327 f5d971eb system.img_bool%s
 D s-parame.ads		20150506105331 7e2a0d7f system.parameters%s
 D s-secsta.ads		20150506105331 86a2856d system.secondary_stack%s
 D s-soflin.ads		20150506105328 aa763b52 system.soft_links%s
@@ -49,21 +51,45 @@ X 6 a-textio.ads
 49K13*Text_IO 471e16 10|18w10 18r37
 52P9*File_Type 10|20r21
 53n23*In_File{53E9} 10|39r18
+53n32*Out_File{53E9} 10|111r15
+86U14*Create 10|110s4
+87p7 File{52P9} 10|110r12
+88e7 Mode{53E9} 10|111r7
+89a7 Name{string} 10|112r7
 92U14*Open 10|38s7
 93p7 File{52P9} 10|38r13
 94e7 Mode{53E9} 10|39r10
 95a7 Name{string} 10|40r10
-242U14*Put 10|51s4 52s4
+166U14*New_Line 10|58s4 67s4 96s7 98s4 121s4 141s7
+207U14*Put 10|118s7 126s7
+208U14*Put 10|63s7 71s7
+241U14*Put 10|115s4 119s7 127s7 130s10 133s13 135s13
+242U14*Put 10|57s4 60s4 64s7 72s7 86s13 89s13 93s10 114s4
 253V13*Get_Line{string} 10|41s28
+259U14*Put_Line 10|122s4 142s7
 X 10 lab01b.adb
-19U11*Lab01B 19b11 54l5 54t11
+19U11*Lab01B 19b11 146l5 146t11
 20p4 inFile{6|52P9} 38m21 38r21 41r38
-20p12 outFile{6|52P9}
-25i4 N{integer}
-26b4 isTrue{boolean}
-34V13 getRowLen{integer} 34b13 44l8 44t17 48s24
+20p12 outFile{6|52P9} 110m20 110r20 115r8 118r11 119r11 122r13 126r11 127r11
+. 130r14 133r17 135r17 142r16
+25i4 N{integer} 76m10 78r16 80r49 80r89 83m13 83r18
+26b4 isTrue{boolean} 81m16 85r13 92m10
+34V13 getRowLen{integer} 34b13 44l8 44t17 47s24
 35i7 len{integer} 41m7 42r14
-48i4 rowLen{integer} 52r22
+47i4 rowLen{integer} 48r26 49r34 49r45 50r27 61r16 69r16 73r19 78r20 116r16
+. 124r16 128r19
+48i4 rowLenish{integer} 52r30
+49a4 bMatrix{26|2A9} 87m13 90m13 103m17 103r17 130r36 132r13
+50a4 arrayMatrix(character) 63r11 71r11 80r16 80r56 118r19 126r19
+52a4 inputCharacters(character) 80r33 80r73
+61i8 i{integer} 63r23
+69i8 i{integer} 71r23 80r28 87r21 90r21
+73i11 j{integer} 80r68 87r23 90r23
+116i8 i{integer} 118r31
+124i8 i{integer} 126r31 130r44 132r21
+128i11 j{integer} 130r46 132r23
 X 26 warshall.ads
-1K10*warshall 10|18w19 18r46 26|4e13
+1K10*warshall 10|18w19 18r46 49r14 26|4e13
+2A9*matrix(boolean)<integer><integer> 10|49r23
+3U14*warshallFunc 10|103s4
 
