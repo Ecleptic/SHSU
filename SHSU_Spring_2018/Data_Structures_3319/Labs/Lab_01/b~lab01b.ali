@@ -18,19 +18,19 @@ RV NO_IMPLEMENTATION_PRAGMAS
 RV NO_OBSOLESCENT_FEATURES
 RV SPARK_05
 
-U ada_main%b		b~lab01b.adb		4321d66c NE OO PK IL
+U ada_main%b		b~lab01b.adb		814fc38c NE OO PK IL
 W ada%s			ada.ads			ada.ali
 W ada.exceptions%s	a-except.adb		a-except.ali
 W system%s		system.ads		system.ali
 
-U ada_main%s		b~lab01b.ads		83bb4155 EE NE OO PK IL
+U ada_main%s		b~lab01b.ads		58841d52 EE NE OO PK IL
 W system%s		system.ads		system.ali
 
 D ada.ads		20150506105328 3ffc8e18 ada%s
 D a-except.ads		20150506105328 5250cb69 ada.exceptions%s
 D a-unccon.ads		20150506105331 f9eb8f06 ada.unchecked_conversion%s
-D b~lab01b.ads		20180207005547 93b840a2 ada_main%s
-D b~lab01b.adb		20180207005547 82c95da7 ada_main%b
+D b~lab01b.ads		20180207190620 48871ca5 ada_main%s
+D b~lab01b.adb		20180207190620 9b981440 ada_main%b
 D system.ads		20150506105331 100301f7 system%s
 D s-parame.ads		20150506105331 7e2a0d7f system.parameters%s
 D s-stalib.ads		20150506105331 fa0a3617 system.standard_library%s
@@ -40,7 +40,7 @@ X 1 ada.ads
 X 2 a-except.ads
 54K13*Exceptions 361e19 5|5w10
 X 4 b~lab01b.ads
-3K9*ada_main 297l5 297e13 5|7b14 212l5 212t13
+3K9*ada_main 291l5 291e13 5|7b14 212l5 212t13
 6i4*gnat_argc{integer} 10m22 10r22 5|190m7
 7m4*gnat_argv{6|67M9} 11m22 11r22 5|191m7
 8m4*gnat_envp{6|67M9} 12m22 12r22 5|192m7
@@ -60,7 +60,7 @@ X 4 b~lab01b.ads
 . 128r22 130r22 132r22 134r22 136r22 138r22 140r22 142r22 144r22 146r22 148r22
 . 150r22 152r22 154r22 156r22 158r22 160r22 162r22 164r22 166r22 168r22 170r22
 . 172r22 174r22 176r22 178r22 180r22 182r22 184r22 186r22 188r22 190r22 192r22
-. 194r22 196r22 198r22 200r22 202r22 204r22 206r22
+. 194r22 196r22 198r22 200r22 202r22
 38m4*u00001{37M9} 39r22
 40m4*u00002{37M9} 41r22
 42m4*u00003{37M9} 43r22
@@ -144,15 +144,13 @@ X 4 b~lab01b.ads
 198m4*u00081{37M9} 199r22
 200m4*u00082{37M9} 201r22
 202m4*u00083{37M9} 203r22
-204m4*u00084{37M9} 205r22
-206m4*u00085{37M9} 207r22
 X 5 b~lab01b.adb
 10i4 E72{short_integer} 10m45 10r45 161m7 161r14
 11i4 E13{short_integer} 11m45 11r45 159m7 159r14
 12i4 E23{short_integer} 12m45 12r45 138m7 138r14
-13i4 E46{short_integer} 13m45 13r45 140m7 140r14
-14i4 E48{short_integer} 14m45 14r45 157m7 157r14
-15i4 E45{short_integer} 15m45 15r45 143m7 143r14
+13i4 E59{short_integer} 13m45 13r45 140m7 140r14
+14i4 E06{short_integer} 14m45 14r45 157m7 157r14
+15i4 E58{short_integer} 15m45 15r45 143m7 143r14
 16i4 E70{short_integer} 16m45 16r45 155m7 155r14
 17i4 E25{short_integer} 17m45 17r45 146m7 146r14
 18i4 E75{short_integer} 18m45 18r45 148m7 148r14
@@ -160,8 +158,8 @@ X 5 b~lab01b.adb
 20i4 E68{short_integer} 20m45 20r45 150m7 150r14
 21i4 E66{short_integer} 21m45 21r45 152m7 152r14
 22i4 E17{short_integer} 22m45 22r45 163m7 163r14
-23i4 E06{short_integer} 23m45 23r45 33m7 33r14 166m7 166r14
-24i4 E83{short_integer} 24m45 24r45 167m7 167r14
+23i4 E56{short_integer} 23m45 23r45 33m7 33r14 166m7 166r14
+24i4 E81{short_integer} 24m45 24r45 167m7 167r14
 26a4 Local_Priority_Specific_Dispatching{string} 122r9
 27a4 Local_Interrupt_States{string} 125r27
 29b4 Is_Elaborated{boolean} 63r14 66m7 111r10 114m7

@@ -19,7 +19,7 @@ with Ada.Text_IO, warshall;
 use Ada.Text_IO, warshall;
 -- change string to char.
 with Unchecked_Conversion;
-use Unchecked_Conversion;
+-- use Unchecked_Conversion;
 
 
 
@@ -49,9 +49,15 @@ procedure Lab01B is
          Mode => In_File,
          Name => "in.txt");
       len := Integer'Value(Get_Line (inFile));
+
+      Close (inFile);
       return len;
 
    end getRowLen;
+
+
+   rowLen : integer := getRowLen;
+   type myArray is array(1..rowLen*2) of character;
 
 
 ----------
@@ -75,18 +81,18 @@ procedure Lab01B is
       end loop;
 
       Close (inFile);
-    return arrayMatrix;
+      return inputCharacters;
    end getMatrixFromFile;
 
 
 
 -- set variables
-   rowLen : integer := getRowLen;
-   subtype myArray is array(1..rowLen*2) of character;
+
    bMatrix : warshall.matrix (1..rowLen, 1..rowLen); -- has to be the same type as the one in warshall
-   arrayMatrix : myArray:= ('A', 'B', 'C', 'D', 'J', 'K', 'L');
+
+   arrayMatrix : array(1..rowLen) of character := ('A', 'B', 'C', 'D', 'J', 'K', 'L');
    inputCharacters : myArray := getMatrixFromFile;
-   --inputCharacters: array(1..rowLen*2) of character := ('A','B','B','D','C','B','B','C','J','K','J','L');
+   -- inputCharacters: array(1..rowLen*2) of character := ('A','B','B','D','C','B','B','C','J','K','J','L');
 ----------
 -- Print array and create bMatrix.
 ----------
@@ -95,7 +101,7 @@ begin
    new_Line;
    -- print top row
    put("     ");          -- 5 spaces
-   for i in 1..rowLen +1
+   for i in 1..rowLen
     loop
       put(arrayMatrix(i));
       put("     ");          -- 5 spaces
@@ -103,11 +109,11 @@ begin
 
    new_Line;
    -- print initial matrix
-   for i in 1..rowLen +1 -- loop rows
+   for i in 1..rowLen -- loop rows
       loop
       put(arrayMatrix(i)); -- print label i
       put("    ");          -- 4 spaces
-      for j in 1..rowLen+1 -- loop columns
+      for j in 1..rowLen -- loop columns
           loop
           -- put("0");
          N := 1;
@@ -150,7 +156,7 @@ begin
 
    put("     ");          -- 5 spaces
    put(outFile,"     ");          -- 5 spaces
-   for i in 1..rowLen +1
+   for i in 1..rowLen
     loop
       put(outFile,arrayMatrix(i)); -- print column labels
       put(outFile,"        ");          -- 8 spaces
@@ -158,13 +164,13 @@ begin
    new_Line;
    put_line(outFile," "); --new line on output text
 
-   for i in 1..rowLen +1 -- loop rows
+   for i in 1..rowLen  -- loop rows
       loop
       put(outFile,arrayMatrix(i)); -- print row label
       put(outFile,"    ");          -- 4 spaces
-      for j in 1..rowLen+1 -- loop columns
+      for j in 1..rowLen -- loop columns
       loop
-         if arrayMatrix(i,j) = true then
+         if bMatrix(i,j) = true then
             put("1");
             put(outFile,"1");
          else

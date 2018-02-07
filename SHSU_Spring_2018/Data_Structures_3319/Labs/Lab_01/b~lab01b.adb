@@ -10,9 +10,9 @@ package body ada_main is
    E72 : Short_Integer; pragma Import (Ada, E72, "system__os_lib_E");
    E13 : Short_Integer; pragma Import (Ada, E13, "system__soft_links_E");
    E23 : Short_Integer; pragma Import (Ada, E23, "system__exception_table_E");
-   E46 : Short_Integer; pragma Import (Ada, E46, "ada__io_exceptions_E");
-   E48 : Short_Integer; pragma Import (Ada, E48, "ada__tags_E");
-   E45 : Short_Integer; pragma Import (Ada, E45, "ada__streams_E");
+   E59 : Short_Integer; pragma Import (Ada, E59, "ada__io_exceptions_E");
+   E06 : Short_Integer; pragma Import (Ada, E06, "ada__tags_E");
+   E58 : Short_Integer; pragma Import (Ada, E58, "ada__streams_E");
    E70 : Short_Integer; pragma Import (Ada, E70, "interfaces__c_E");
    E25 : Short_Integer; pragma Import (Ada, E25, "system__exceptions_E");
    E75 : Short_Integer; pragma Import (Ada, E75, "system__file_control_block_E");
@@ -20,8 +20,8 @@ package body ada_main is
    E68 : Short_Integer; pragma Import (Ada, E68, "system__finalization_root_E");
    E66 : Short_Integer; pragma Import (Ada, E66, "ada__finalization_E");
    E17 : Short_Integer; pragma Import (Ada, E17, "system__secondary_stack_E");
-   E06 : Short_Integer; pragma Import (Ada, E06, "ada__text_io_E");
-   E83 : Short_Integer; pragma Import (Ada, E83, "warshall_E");
+   E56 : Short_Integer; pragma Import (Ada, E56, "ada__text_io_E");
+   E81 : Short_Integer; pragma Import (Ada, E81, "warshall_E");
 
    Local_Priority_Specific_Dispatching : constant String := "";
    Local_Interrupt_States : constant String := "";
@@ -30,7 +30,7 @@ package body ada_main is
 
    procedure finalize_library is
    begin
-      E06 := E06 - 1;
+      E56 := E56 - 1;
       declare
          procedure F1;
          pragma Import (Ada, F1, "ada__text_io__finalize_spec");
@@ -137,10 +137,10 @@ package body ada_main is
       System.Exception_Table'Elab_Body;
       E23 := E23 + 1;
       Ada.Io_Exceptions'Elab_Spec;
-      E46 := E46 + 1;
+      E59 := E59 + 1;
       Ada.Tags'Elab_Spec;
       Ada.Streams'Elab_Spec;
-      E45 := E45 + 1;
+      E58 := E58 + 1;
       Interfaces.C'Elab_Spec;
       System.Exceptions'Elab_Spec;
       E25 := E25 + 1;
@@ -154,7 +154,7 @@ package body ada_main is
       E64 := E64 + 1;
       E70 := E70 + 1;
       Ada.Tags'Elab_Body;
-      E48 := E48 + 1;
+      E06 := E06 + 1;
       System.Soft_Links'Elab_Body;
       E13 := E13 + 1;
       System.Os_Lib'Elab_Body;
@@ -163,8 +163,8 @@ package body ada_main is
       E17 := E17 + 1;
       Ada.Text_Io'Elab_Spec;
       Ada.Text_Io'Elab_Body;
-      E06 := E06 + 1;
-      E83 := E83 + 1;
+      E56 := E56 + 1;
+      E81 := E81 + 1;
    end adainit;
 
    procedure Ada_Main_Program;

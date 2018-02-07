@@ -5,18 +5,20 @@ P SS ZX
 
 RN
 RV NO_DIRECT_BOOLEAN_OPERATORS
-RV NO_ENUMERATION_MAPS
 RV NO_IO
 RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_CONVERSION
 RV NO_DEFAULT_INITIALIZATION
 RV SPARK_05
 
-U lab01b%b		lab01b.adb		f2bee74d NE OO SU
+U lab01b%b		lab01b.adb		b7f1954f NE OO SU
 W ada%s			ada.ads			ada.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
-W system.img_bool%s	s-imgboo.adb		s-imgboo.ali
 W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 W system.val_int%s	s-valint.adb		s-valint.ali
+W unchecked_conversion%s
 W warshall%s		warshall.adb		warshall.ali
 
 D ada.ads		20150506105328 3ffc8e18 ada%s
@@ -28,12 +30,11 @@ D a-textio.ads		20150506105332 386df5d4 ada.text_io%s
 D a-unccon.ads		20150506105331 f9eb8f06 ada.unchecked_conversion%s
 D interfac.ads		20150506105327 6033a23f interfaces%s
 D i-cstrea.ads		20150506105327 e53d8b8e interfaces.c_streams%s
-D lab01b.adb		20180207004347 aa73b078 lab01b%b
+D lab01b.adb		20180207190616 25135c62 lab01b%b
 D system.ads		20150506105331 100301f7 system%s
 D s-crtl.ads		20150506105326 0ebbdb71 system.crtl%s
 D s-exctab.ads		20150506105331 54135002 system.exception_table%s
 D s-ficobl.ads		20150506105333 078245e4 system.file_control_block%s
-D s-imgboo.ads		20150506105327 f5d971eb system.img_bool%s
 D s-parame.ads		20150506105331 7e2a0d7f system.parameters%s
 D s-secsta.ads		20150506105331 86a2856d system.secondary_stack%s
 D s-soflin.ads		20150506105328 aa763b52 system.soft_links%s
@@ -44,52 +45,67 @@ D s-traent.ads		20150506105327 005bf670 system.traceback_entries%s
 D s-unstyp.ads		20150506105330 9d58a4c0 system.unsigned_types%s
 D s-valint.ads		20150506105330 48a52a3f system.val_int%s
 D s-wchcon.ads		20150506105330 1b7d22d2 system.wch_con%s
+D unchconv.ads		20150506105326 ca2f9e18 unchecked_conversion%s
 D warshall.ads		20180206230508 60a0a2e1 warshall%s
 X 1 ada.ads
-16K9*Ada 19e8 10|18r6 18r33
+16K9*Ada 19e8 10|18r6 19r5
 X 6 a-textio.ads
-49K13*Text_IO 471e16 10|18w10 18r37
-52P9*File_Type 10|20r21
-53n23*In_File{53E9} 10|39r18
-53n32*Out_File{53E9} 10|111r15
-86U14*Create 10|110s4
-87p7 File{52P9} 10|110r12
-88e7 Mode{53E9} 10|111r7
-89a7 Name{string} 10|112r7
-92U14*Open 10|38s7
-93p7 File{52P9} 10|38r13
-94e7 Mode{53E9} 10|39r10
-95a7 Name{string} 10|40r10
-166U14*New_Line 10|58s4 67s4 96s7 98s4 121s4 141s7
-207U14*Put 10|118s7 126s7
-208U14*Put 10|63s7 71s7
-241U14*Put 10|115s4 119s7 127s7 130s10 133s13 135s13
-242U14*Put 10|57s4 60s4 64s7 72s7 86s13 89s13 93s10 114s4
-253V13*Get_Line{string} 10|41s28
-259U14*Put_Line 10|122s4 142s7
+49K13*Text_IO 471e16 10|18w10 19r9
+52P9*File_Type 10|28r21
+53n23*In_File{53E9} 10|49r18 72r18
+53n32*Out_File{53E9} 10|154r15
+64I9*Count<integer>
+68I12*Positive_Count{64I9}
+86U14*Create 10|153s4
+87p7 File{52P9} 10|153r12
+88e7 Mode{53E9} 10|154r7
+89a7 Name{string} 10|155r7
+92U14*Open 10|48s7 71s7
+93p7 File{52P9} 10|48r13 71r13
+94e7 Mode{53E9} 10|49r10 72r10
+95a7 Name{string} 10|50r10 73r10
+98U14*Close 10|53s7 83s7
+166U14*New_Line 10|101s4 110s4 139s7 141s4 164s4 192s7
+183V13*End_Of_File{boolean} 10|77s20
+189U14*Set_Line 10|74s7
+189i42 To{68I12} 10|74r25
+207U14*Put 10|161s7 169s7
+208U14*Put 10|106s7 114s7
+241U14*Put 10|158s4 162s7 170s7 175s13 178s13 184s10
+242U14*Put 10|100s4 103s4 107s7 115s7 129s13 132s13 136s10 157s4 174s13 177s13
+253V13*Get_Line{string} 10|51s28 78s18
+259U14*Put_Line 10|165s4 193s7
 X 10 lab01b.adb
-19U11*Lab01B 19b11 146l5 146t11
-20p4 inFile{6|52P9} 38m21 38r21 41r38
-20p12 outFile{6|52P9} 110m20 110r20 115r8 118r11 119r11 122r13 126r11 127r11
-. 130r14 133r17 135r17 142r16
-25i4 N{integer} 76m10 78r16 80r49 80r89 83m13 83r18
-26b4 isTrue{boolean} 81m16 85r13 92m10
-34V13 getRowLen{integer} 34b13 44l8 44t17 47s24
-35i7 len{integer} 41m7 42r14
-47i4 rowLen{integer} 48r26 49r34 49r45 50r27 61r16 69r16 73r19 78r20 116r16
-. 124r16 128r19
-48i4 rowLenish{integer} 52r30
-49a4 bMatrix{26|2A9} 87m13 90m13 103m17 103r17 130r36 132r13
-50a4 arrayMatrix(character) 63r11 71r11 80r16 80r56 118r19 126r19
-52a4 inputCharacters(character) 80r33 80r73
-61i8 i{integer} 63r23
-69i8 i{integer} 71r23 80r28 87r21 90r21
-73i11 j{integer} 80r68 87r23 90r23
-116i8 i{integer} 118r31
-124i8 i{integer} 126r31 130r44 132r21
-128i11 j{integer} 130r46 132r23
+26U11*Lab01B 26b11 197l5 197t11
+27V13 StringToCharacter[25|20]{character} 79s32
+28p4 inFile{6|52P9} 48m21 48r21 51r38 53m14 53r14 71m21 71r21 74r17 77r33
+. 78r28 83m14 83r14
+28p12 outFile{6|52P9} 153m20 153r20 158r8 161r11 162r11 165r13 169r11 170r11
+. 175r17 178r17 184r14 193r16
+35i4 N{integer} 119m10 121r16 123r49 123r89 126m13 126r18
+36b4 isTrue{boolean} 124m16 128r13 135m10
+44V13 getRowLen{integer} 44b13 56l8 56t17 59s24
+45i7 len{integer} 51m7 54r14
+59i4 rowLen{integer} 60r29 91r34 91r45 93r27 104r16 112r16 116r19 121r20
+. 159r16 167r16 171r19
+60A9 myArray(character)<integer> 66r38 67r25 94r22
+66V13 getMatrixFromFile{60A9} 66b13 85l8 85t25 94s33
+67a7 inputCharacters{60A9} 79m10 84r14
+68i7 i{integer} 79r26 80m10 80r15
+69a7 temp{string} 78m10 79r50
+91a4 bMatrix{26|2A9} 130m13 133m13 146m17 146r17 173r13
+93a4 arrayMatrix(character) 106r11 114r11 123r16 123r56 161r19 169r19
+94a4 inputCharacters{60A9} 123r33 123r73
+104i8 i{integer} 106r23
+112i8 i{integer} 114r23 123r28 130r21 133r21
+116i11 j{integer} 123r68 130r23 133r23
+159i8 i{integer} 161r31
+167i8 i{integer} 169r31 173r21
+171i11 j{integer} 173r23
+X 25 unchconv.ads
+20v10*Unchecked_Conversion 10|21w6 27r38
 X 26 warshall.ads
-1K10*warshall 10|18w19 18r46 49r14 26|4e13
-2A9*matrix(boolean)<integer><integer> 10|49r23
-3U14*warshallFunc 10|103s4
+1K10*warshall 10|18w19 19r18 91r14 26|4e13
+2A9*matrix(boolean)<integer><integer> 10|91r23
+3U14*warshallFunc 10|146s4
 
