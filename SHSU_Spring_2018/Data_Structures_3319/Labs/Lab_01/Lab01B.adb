@@ -16,12 +16,10 @@
 -----------------------------------------------------------
 
 with Ada.Text_IO, warshall; use Ada.Text_IO, warshall;
-procedure Lab01C is
-   type matrix is array(integer range <>, integer range <>) of boolean;
-   rowLen : integer := 6;
-   bMatrix : matrix (1..rowLen+1, 1..rowLen+1);
-   arrayMatrix : array(1..rowLen+1) of character := ('A', 'B', 'C', 'D', 'J', 'K', 'L');
-   inputCharacters: array(1..rowLen*2) of character := ('A','B','B','D','C','B','B','C','J','K','J','L');
+procedure Lab01B is
+   inFile, outFile: File_Type;
+   -- rowLen : integer := 6;     -- need to get from prompt
+
   -- computedCharacters : warshall.inChars(1..rowLen,1..rowLen);
 
    N : integer := 1;
@@ -29,16 +27,66 @@ procedure Lab01C is
 --   size: integer;
 
 
+
+----------
+-- get length
+----------
+   function getRowLen return integer is
+      len : integer;
+
+   begin
+      Open (File => inFile,
+         Mode => In_File,
+         Name => "in.txt");
+      len := Integer'Value(Get_Line (inFile));
+      return len;
+
+   end getRowLen;
+
+
+----------
+-- get arrray matrix from file
+----------
+   function getMatrix  return character is
+      arrayMatrix : array(1..getRowLen) of character;
+      i : integer := 1;
+   begin
+      Open (File => inFile,
+         Mode => In_File,
+         Name => "in.txt");
+      Set_Line (inFile, To => 2);
+
+
+      loop
+         exit when End_Of_File (inFile);
+         arrayMatrix(i) := Get_Line(inFile);
+         i := i + 1;
+      end loop;
+
+      Close (inFile);
+      return arrayMatrix;
+
+   end getMatrix;
+
+
+-- set variables
+   rowLen : integer := getRowLen;
+   bMatrix : warshall.matrix (1..rowLen, 1..rowLen); -- has to be the same type as the one in warshall
+   -- arrayMatrix : array(1..rowLen+1) of character := ('A', 'B', 'C', 'D', 'J', 'K', 'L');
+   arrayMatrix : array(1..rowLen) of character;
+   inputCharacters: array(1..rowLen*2) of character := ('A','B','B','D','C','B','B','C','J','K','J','L');
 ----------
 -- Print array and create bMatrix.
 ----------
 begin
+   put("Input: ");
+   new_Line;
    -- print top row
-   put("     ");          -- 7 spaces
+   put("     ");          -- 5 spaces
    for i in 1..rowLen +1
     loop
       put(arrayMatrix(i));
-      put("     ");          -- 8 spaces
+      put("     ");          -- 5 spaces
    end loop;
 
    new_Line;
@@ -46,7 +94,7 @@ begin
    for i in 1..rowLen +1 -- loop rows
       loop
       put(arrayMatrix(i)); -- print label i
-      put("    ");
+      put("    ");          -- 4 spaces
       for j in 1..rowLen+1 -- loop columns
           loop
           -- put("0");
@@ -67,11 +115,57 @@ begin
             bMatrix(i,j) := false;
          end if;
          isTrue := false;
-         put("     ");          -- 8 spaces
+         put("     ");          -- 5 spaces
       end loop; -- end J loop
       -- new_Line;
       new_Line;
    end loop; -- end I loop
+   new_Line(3);
 
-   -- bMatrix has been implemented now just need to pass it into warshalls and done.
-end Lab01C;
+----------
+-- Run warshalls on bMatrix!
+----------
+   warshallFunc(bMatrix);
+
+
+----------
+-- Write and Print Output
+----------
+
+   Create (File => outFile,
+      Mode => Out_File,
+      Name => "out.txt");
+
+   put("     ");          -- 5 spaces
+   put(outFile,"     ");          -- 5 spaces
+   for i in 1..rowLen +1
+    loop
+      put(outFile,arrayMatrix(i)); -- print column labels
+      put(outFile,"        ");          -- 8 spaces
+   end loop;
+   new_Line;
+   put_line(outFile," "); --new line on output text
+
+   for i in 1..rowLen +1 -- loop rows
+      loop
+      put(outFile,arrayMatrix(i)); -- print row label
+      put(outFile,"    ");          -- 4 spaces
+      for j in 1..rowLen+1 -- loop columns
+      loop
+         put(outFile,boolean'Image(bMatrix(i,j)));
+         -- True has less letters than False, so make sure we print more spaces behind it.
+         if bMatrix(i,j) = true then
+            put(outFile,"     ");          -- 5 spaces
+         else
+            put(outFile,"    ");          -- 4 spaces
+         end if;
+
+        --  put(Boolean'Image(i));
+         -- put(Boolean'Image(j));
+      end loop; -- end J loop
+      new_Line(2);
+      put_line(outFile," ");  --new line on output text
+   end loop; -- end I loopend Lab01B;
+
+
+end Lab01B;

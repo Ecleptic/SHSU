@@ -1,5 +1,5 @@
 package body warshall is
-   procedure warshallFunc(bMatrix: in out inChars )  is
+   procedure warshallFunc(bMatrix: in out matrix )  is
    begin
       for I in 1..bMatrix'length
        loop

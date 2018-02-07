@@ -1,0 +1,69 @@
+V "GNAT Lib v2015"
+M P W=b
+A -g
+P SS ZX
+
+RN
+RV NO_IO
+RV NO_SECONDARY_STACK
+RV NO_DEFAULT_INITIALIZATION
+RV SPARK_05
+
+U lab01b%b		lab01b.adb		32e6533c NE OO SU
+W ada%s			ada.ads			ada.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W system.img_int%s	s-imgint.adb		s-imgint.ali
+W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+W system.val_int%s	s-valint.adb		s-valint.ali
+W warshall%s		warshall.adb		warshall.ali
+
+D ada.ads		20150506105328 3ffc8e18 ada%s
+D a-except.ads		20150506105328 5250cb69 ada.exceptions%s
+D a-ioexce.ads		20150506105327 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20150506105329 119b8fb3 ada.streams%s
+D a-tags.ads		20150506105332 dc4d0634 ada.tags%s
+D a-textio.ads		20150506105332 386df5d4 ada.text_io%s
+D a-unccon.ads		20150506105331 f9eb8f06 ada.unchecked_conversion%s
+D interfac.ads		20150506105327 6033a23f interfaces%s
+D i-cstrea.ads		20150506105327 e53d8b8e interfaces.c_streams%s
+D lab01b.adb		20180207000736 6a2b0409 lab01b%b
+D system.ads		20150506105331 100301f7 system%s
+D s-crtl.ads		20150506105326 0ebbdb71 system.crtl%s
+D s-exctab.ads		20150506105331 54135002 system.exception_table%s
+D s-ficobl.ads		20150506105333 078245e4 system.file_control_block%s
+D s-imgint.ads		20150506105328 02dbe0c2 system.img_int%s
+D s-parame.ads		20150506105331 7e2a0d7f system.parameters%s
+D s-secsta.ads		20150506105331 86a2856d system.secondary_stack%s
+D s-soflin.ads		20150506105328 aa763b52 system.soft_links%s
+D s-stache.ads		20150506105332 a37c21ec system.stack_checking%s
+D s-stalib.ads		20150506105331 fa0a3617 system.standard_library%s
+D s-stoele.ads		20150506105332 2dc34a04 system.storage_elements%s
+D s-traent.ads		20150506105327 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20150506105330 9d58a4c0 system.unsigned_types%s
+D s-valint.ads		20150506105330 48a52a3f system.val_int%s
+D s-wchcon.ads		20150506105330 1b7d22d2 system.wch_con%s
+D warshall.ads		20180206230508 60a0a2e1 warshall%s
+X 1 ada.ads
+16K9*Ada 19e8 10|18r6 18r33
+X 6 a-textio.ads
+49K13*Text_IO 471e16 10|18w10 18r37
+52P9*File_Type 10|20r21
+53n23*In_File{53E9} 10|39r18
+92U14*Open 10|38s7
+93p7 File{52P9} 10|38r13
+94e7 Mode{53E9} 10|39r10
+95a7 Name{string} 10|40r10
+242U14*Put 10|51s4 52s4
+253V13*Get_Line{string} 10|41s28
+X 10 lab01b.adb
+19U11*Lab01B 19b11 54l5 54t11
+20p4 inFile{6|52P9} 38m21 38r21 41r38
+20p12 outFile{6|52P9}
+25i4 N{integer}
+26b4 isTrue{boolean}
+34V13 getRowLen{integer} 34b13 44l8 44t17 48s24
+35i7 len{integer} 41m7 42r14
+48i4 rowLen{integer} 52r22
+X 26 warshall.ads
+1K10*warshall 10|18w19 18r46 26|4e13
+

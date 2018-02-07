@@ -1,1 +1,8 @@
-
+     A        B        C        D        J        K        L         
+A    FALSE    TRUE     TRUE     TRUE     FALSE    FALSE    FALSE     
+B    FALSE    TRUE     TRUE     TRUE     FALSE    FALSE    FALSE     
+C    FALSE    TRUE     TRUE     TRUE     FALSE    FALSE    FALSE     
+D    FALSE    FALSE    FALSE    FALSE    FALSE    FALSE    FALSE     
+J    FALSE    FALSE    FALSE    FALSE    FALSE    TRUE     TRUE      
+K    FALSE    FALSE    FALSE    FALSE    FALSE    FALSE    FALSE     
+L    FALSE    FALSE    FALSE    FALSE    FALSE    FALSE    FALSE     

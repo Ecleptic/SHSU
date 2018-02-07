@@ -19,8 +19,7 @@ with Ada.Text_IO, warshall; use Ada.Text_IO, warshall;
 procedure Lab01C is
    type matrix is array(integer range <>, integer range <>) of boolean;
 
-   inFile : File_Type;
-   outFile : File_Type;
+   inFile, outFile: File_Type;
    rowLen : integer := 6;
    inputCharacters: array (1..rowLen*2) of character;
    bmr : matrix (1..rowLen, 1..rowLen);
