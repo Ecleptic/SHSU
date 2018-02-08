@@ -2,41 +2,20 @@
 -- Lab 01 program
 -- B-Option
 -- Cameron Green
-
--- Start with enumerating the a..j
--- figure out warshall
--- print it
-
-
--- for B create a library of warshall (.ads)
-
-
---
--- #7 should be the first character because that's the enumeration
 -----------------------------------------------------------
 
 with Ada.Text_IO, warshall;
 use Ada.Text_IO, warshall;
--- change string to char.
+-- used to change string to character
 with Unchecked_Conversion;
--- use Unchecked_Conversion;
-
 
 
 procedure Lab01B is
    function StringToCharacter is new Unchecked_Conversion(String, Character);
    inFile, outFile: File_Type;
 
-   -- rowLen : integer := 6;     -- need to get from prompt
-
-  -- computedCharacters : warshall.inChars(1..rowLen,1..rowLen);
-
-
    N : integer := 1;
    isTrue: boolean := false;
---   size: integer;
-
-
 
 ----------
 -- get length
@@ -49,19 +28,17 @@ procedure Lab01B is
          Mode => In_File,
          Name => "in.txt");
       len := Integer'Value(Get_Line (inFile));
-
       Close (inFile);
       return len;
-
    end getRowLen;
 
 
+   -- Set rowLen then create the myArray Type before it's used in getMatrixFromFile
    rowLen : integer := getRowLen;
    type myArray is array(1..rowLen*2) of character;
 
-
 ----------
--- get arrray matrix from file
+-- Get arrray matrix from file
 ----------
    function getMatrixFromFile return myArray is
       inputCharacters : myArray;
@@ -86,13 +63,10 @@ procedure Lab01B is
 
 
 
--- set variables
-
+-- set matrix and arraySize.
    bMatrix : warshall.matrix (1..rowLen, 1..rowLen); -- has to be the same type as the one in warshall
-
    arrayMatrix : array(1..rowLen) of character := ('A', 'B', 'C', 'D', 'J', 'K', 'L');
-   inputCharacters : myArray := getMatrixFromFile;
-   -- inputCharacters: array(1..rowLen*2) of character := ('A','B','B','D','C','B','B','C','J','K','J','L');
+   inputCharacters : myArray := getMatrixFromFile;          -- Expected look of inputCharacters := ('A','B','B','D','C','B','B','C','J','K','J','L');
 ----------
 -- Print array and create bMatrix.
 ----------
@@ -145,30 +119,33 @@ begin
 ----------
    warshallFunc(bMatrix);
 
-
 ----------
 -- Write and Print Output
 ----------
-
    Create (File => outFile,
       Mode => Out_File,
       Name => "out.txt");
-
    put("     ");          -- 5 spaces
    put(outFile,"     ");          -- 5 spaces
    for i in 1..rowLen
     loop
+      put(arrayMatrix(i)); -- print column labels
       put(outFile,arrayMatrix(i)); -- print column labels
-      put(outFile,"        ");          -- 8 spaces
+
+      put("     ");                 -- 5 spaces
+      put(outFile,"     ");          -- 5 spaces
    end loop;
    new_Line;
    put_line(outFile," "); --new line on output text
 
    for i in 1..rowLen  -- loop rows
       loop
-      put(outFile,arrayMatrix(i)); -- print row label
-      put(outFile,"    ");          -- 4 spaces
-      for j in 1..rowLen -- loop columns
+      put(arrayMatrix(i));                -- print row label
+      put(outFile,arrayMatrix(i));        -- print row label
+
+      put("    ");                        -- 4 spaces
+      put(outFile,"    ");                -- 4 spaces
+      for j in 1..rowLen                  -- loop columns
       loop
          if bMatrix(i,j) = true then
             put("1");
@@ -176,20 +153,11 @@ begin
          else
             put("0");
             put(outFile,"0");
-
          end if;
-        -- put(outFile,boolean'Image(bMatrix(i,j)));
-        --  -- True has less letters than False, so make sure we print more spaces behind it.
-        --  if bMatrix(i,j) = true then
          put(outFile,"     ");          -- 5 spaces
-        --  else
-        --     put(outFile,"    ");          -- 4 spaces
-        --  end if;
-
-        --  put(Boolean'Image(i));
-         -- put(Boolean'Image(j));
+         put("     ");          -- 5 spaces
       end loop; -- end J loop
-      new_Line(2);
+      new_Line;
       put_line(outFile," ");  --new line on output text
    end loop; -- end I loopend Lab01B;
 
