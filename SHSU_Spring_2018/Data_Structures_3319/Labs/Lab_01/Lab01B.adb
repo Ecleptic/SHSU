@@ -35,7 +35,7 @@ procedure Lab01B is
 
    -- Set rowLen then create the myArray Type before it's used in getMatrixFromFile
    rowLen : integer := getRowLen;
-   type myArray is array(1..rowLen*2) of character;
+   type myArray is array(1..rowLen*3) of character;
 
 ----------
 -- Get arrray matrix from file
