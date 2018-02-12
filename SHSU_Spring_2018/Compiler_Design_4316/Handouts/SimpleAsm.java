@@ -9,8 +9,9 @@ public class SimpleAsm
 	public static final int LVALUE 	= 3;
 	public static final int ASGN 	= 4;
 
-
 	public static String [] opcodes = {"HALT","PUSH","RVALUE","LVALUE",":="};
+	// public static String [] opcodes = {"HALT","PUSH","RVALUE","LVALUE",":=",";"."+","-"};
+
 
 	public static void main(String [] args)throws IOException
 	{
