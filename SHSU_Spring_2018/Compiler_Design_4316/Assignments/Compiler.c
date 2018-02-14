@@ -11,7 +11,7 @@
 			STMT --> 		id := expr |  ε
 			STMT_LIST -->  	STMT ; STMT_LIST | STMT
 			EXPR --> 		TERM + EXPR | TERM - EXPR| EXPR
-			TERM --> 		FCTR * TERM | FCTR div TERM | FCTR mod TERM | FCTR
+			TERM --> 		FCTR * TERM | FCTR / TERM | FCTR % TERM | FCTR
 			FCTR --> 		PRM ^ FCTR | PRM
 			PRM --> 		id | NUM |( EXPR )
 
@@ -46,15 +46,15 @@
 #include <ctype.h>  // char function prototypes
 
 // constants
-#define PLUSSYM 	'+'
-#define MINUSSYM 	'-'
-#define MULTSYM 	'*'
-#define DIVSYM 		'div'
-#define MODSYM 		'mod'
-#define OPENPAREN 	'('
-#define CLOSEPAREN 	')'
-#define BLANK 		' '
-#define NULLSTRING 	""
+#define PLUSSYM '+'
+#define MINUSSYM '-'
+#define MULTSYM '*'
+#define DIVSYM 'div'
+#define MODSYM 'mod'
+#define OPENPAREN '('
+#define CLOSEPAREN ')'
+#define BLANK ' '
+#define NULLSTRING ""
 
 typedef int boolean;
 
@@ -122,9 +122,12 @@ void scan(void)
 	case MINUSSYM:
 	case MULTSYM:
 	case DIVSYM:
+	case MODSYM:
 	case OPENPAREN:
 	case CLOSEPAREN:
-	{ /* note: all operators are 1 character */
+	{ /* note: all operators are 1 character
+	TODO: If necessary make them longer (for div and mod) */
+
 		lookahead[0] = ch;
 		lookahead[1] = '\0';
 		break;
@@ -235,3 +238,4 @@ void parse(void)
 	scan();
 	expr();
 } // end parse()
+

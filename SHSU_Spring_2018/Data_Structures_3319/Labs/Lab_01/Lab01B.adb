@@ -1,6 +1,6 @@
 -----------------------------------------------------------
 -- Lab 01 program
--- B-Option
+-- C-Option Attempt 2
 -- Cameron Green
 -----------------------------------------------------------
 
@@ -22,7 +22,7 @@ procedure Lab01B is
 ----------
    function getRowLen return integer is
       len : integer;
-   
+
    begin
       Open (File => inFile,
          Mode => In_File,
@@ -49,14 +49,14 @@ procedure Lab01B is
          Mode => In_File,
          Name => "in.txt");
       Set_Line (inFile, To => 2);
-   
+
       loop
          exit when End_Of_File (inFile);
          temp := Get_Line (inFile);
          inputCharacters(i) := StringToCharacter(temp);
          i := i + 1;
       end loop;
-   
+
       Close (inFile);
       return inputCharacters;
    end getMatrixFromFile;
@@ -91,7 +91,7 @@ begin
           loop
           -- put("0");
          N := 1;
-      
+
          while N < rowLen*3
               loop
             if arrayMatrix(i) = inputCharacters(N) and arrayMatrix(j) = inputCharacters(N+1) then
@@ -131,7 +131,7 @@ begin
     loop
       put(arrayMatrix(i)); -- print column labels
       put(outFile,arrayMatrix(i)); -- print column labels
-   
+
       put("     ");                 -- 5 spaces
       put(outFile,"     ");          -- 5 spaces
    end loop;
@@ -142,7 +142,7 @@ begin
       loop
       put(arrayMatrix(i));                -- print row label
       put(outFile,arrayMatrix(i));        -- print row label
-   
+
       put("    ");                        -- 4 spaces
       put(outFile,"    ");                -- 4 spaces
       for j in 1..rowLen                  -- loop columns
