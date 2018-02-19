@@ -1,0 +1,14 @@
+begin
+    alpha := 20; gamma := 11; C3P0 := 5; R2D2 := 4;
+    answer := alpha + 2 * gamma div (C3P0 - R2D2);
+    gun := (i mod ammo)^2^2^2
+end
+
+
+/*
+
+Emit an Lval for the destination then get the code to evaluate the expression. then sto pops the value and stores it.
+instead of the assignment operator we want sto for the output.
+
+
+*/

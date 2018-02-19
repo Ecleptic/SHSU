@@ -7,38 +7,18 @@
 		parse and encode expressions from the following
 		context-free grammar:
 
-			PRGM --> 		BEGIN STMT_LIST End
-			STMT --> 		id := expr |  ε
-			STMT_LIST -->  	STMT ; STMT_LIST | STMT
-			EXPR --> 		TERM + EXPR | TERM - EXPR| EXPR
-			TERM --> 		FCTR * TERM | FCTR / TERM | FCTR % TERM | FCTR
-			FCTR --> 		PRM ^ FCTR | PRM
-			PRM --> 		id | NUM |( EXPR )
+                	EXPR --> EXPR + TERM | EXPR - TERM
+			TERM --> TERM * FCTR | TERM / FCTR | FCTR
+			FCTR --> id | ( EXPR )
 
   The expressions will be encoded for a hypothetical stack machine with the
   following instructions:
 
-		LOD  A 		-- push the value in A on top of the stack
-		ADD			-- add the two values on top of the stack, push result
-		SUB			-- subtract     "
-		MPY 		-- multiply     "
-		DIV			-- divide       "
-
-		PUSH v		-- push v (an integer constant) on the stack
-		RVALUE l	-- push the contents of variable l
-		LVALUE l	-- push the address of the variable l
-		POP			-- throw away the top value on the stack
-		STO			-- the rvalue on top of the stack is place in the lvalue below it and both are popped
-		COPY		-- push a copy of the top value on the stack
-		ADD		 	-- pop the top two values off the stack, add them, and push the result
-		SUB			-- pop the top two values off the stack, subtract them, and push the result
-		MPY			-- pop the top two values off the stack, multiply them, and push the result
-		DIV			-- pop the top two values off the stack, divide them, and push the result
-		MOD			-- pop the top two values off the stack, compute the modulus, and push the result
-		POW			-- pop the top two values off the stack, compute the exponentiation operation,   	and push the result
-		HALT		-- stop execution
-
-
+		LOD  A    -- push the value in A on top of the stack
+		ADD       -- add the two values on top of the stack, push result
+		SUB       -- subtract     "
+		MPY       -- multiply     "
+		DIV       -- divide       "
 */
 
 #include <stdio.h>  // standard i/o prototypes
@@ -49,8 +29,7 @@
 #define PLUSSYM '+'
 #define MINUSSYM '-'
 #define MULTSYM '*'
-#define DIVSYM 'div'
-#define MODSYM 'mod'
+#define DIVSYM '/'
 #define OPENPAREN '('
 #define CLOSEPAREN ')'
 #define BLANK ' '
@@ -66,9 +45,6 @@ void term(void);
 void factor(void);
 void error(char *);
 void scan(void);
-void prgm(void);
-void stmt_list(void);
-void stmt(void);
 
 //necessary global variables
 FILE *infile;
