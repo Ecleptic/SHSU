@@ -1,0 +1,31 @@
+V "GNAT Lib v2015"
+M P W=b
+A -g
+P ZX
+
+RN
+RV SPARK_05
+
+U lab_02_c%b		lab_02_c.adb		1b28b26e NE OO SU
+W gnat%s		gnat.ads		gnat.ali
+W gnat.io%s		g-io.adb		g-io.ali
+
+D gnat.ads		20150506105333 fd2ad2f1 gnat%s
+D g-io.ads		20150506105327 9f0d3ab2 gnat.io%s
+D lab_02_c.adb		20180223034651 842588dc lab_02_c%b
+D system.ads		20150506105331 100301f7 system%s
+X 1 gnat.ads
+34K9*GNAT 37e9 3|6r6 6r19
+X 2 g-io.ads
+41K14*IO 91e12 3|6w11 6r24
+53U14*Get 3|17s4 19s4
+59U14*Put 3|22s4 24s4
+68U14*Put 3|29s7
+72U14*Put_Line 3|16s4 18s4
+77U14*New_Line 3|21s4 23s4
+X 3 lab_02_c.adb
+9U11*Lab_02_C 9b11 31l5 31t13
+11i4 totalMemory{integer} 17m8 22r9 27r30
+12i4 numStacks{integer} 19m8 24r9
+27A12 stack(character)<integer>
+

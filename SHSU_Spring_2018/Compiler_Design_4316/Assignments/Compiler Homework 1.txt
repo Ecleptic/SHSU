@@ -1,0 +1,7 @@
+1. ^a[a-z]*|[a-z]*a
+2. ((a*|b*|!bbb))
+3. (abstract|assert|boolean|break|byte|case|catch|char|class|continue|default|do|double|else|enum|extends|final|finally|float|for|if|implements|import|instanceof|int|interface|long|native|new|package|private|protected|public|return|short|static|strictfp|super|switch|synchronized|this|throw|throws|transient|try|void|volatile|while|true|null|false|goto)
+4A. q0 -> q1 -> q2 -> q3 -> q4 -> q5 -> q8 -> q6 -> q7 -> q8 -> q9
+4b. q0 -> q1 -> q2 -> q9 -> q3 -> q4 -> q5 -> q8 -> q6 -> q7
+
+
