@@ -1,0 +1,6 @@
+/**
+ * symTable
+ */
+public class symbol {
+
+}
