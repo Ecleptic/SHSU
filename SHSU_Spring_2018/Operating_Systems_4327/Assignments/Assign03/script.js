@@ -22,7 +22,7 @@ document
     e => (!isNaN(e.target.value) ? (RRN = Number(e.target.value)) : (RRN = 2))
   )
 
-const charList = document.querySelector("#charList")
+const chartList = document.querySelector("#chartList")
 
 document.forms["myform"].elements["myfile"].addEventListener("change", addItem)
 
@@ -229,7 +229,7 @@ function eventLoop(i) {
       active.Burst--
       // push into the list
       GANTT.push(active.Name)
-      charList.innerHTML = GANTT.toString()
+      chartList.innerHTML = GANTT.toString()
     }
 
     console.log("%cGantt 📊:", "color:purple", GANTT)

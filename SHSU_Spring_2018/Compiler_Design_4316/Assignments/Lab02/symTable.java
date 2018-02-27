@@ -1,6 +1,0 @@
-/**
- * symTable
- */
-public class symbol {
-
-}

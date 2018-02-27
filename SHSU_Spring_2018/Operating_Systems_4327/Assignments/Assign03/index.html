@@ -10,15 +10,18 @@
 </head>
 
 <body>
-
+    <label for="delayTime">Delay Time (In seconds)</label>
+    <input type="number" name="delayTime" value="1" id="delayTimeInput" step=".1">
     <form id="myform">
-        <p>
-            <input id="myfile" name="files[]" multiple="" type="file" />
-            <textarea id="text" placeholder="Nothing Uploaded, Add something!!"></textarea>
-        </p>
+        <input id="myfile" name="files[]" multiple="" type="file" />
     </form>
+    <label for="rrInput">Round Robin Q</label>
+    <input type="text" id="rrInput" placeholder="2"></input>
+    <span>Input</span>
+    <ul class="inputDisplayContainer"></ul>
 
-    <script src="./think.js"></script>
+    <li id="charList"></li>
 </body>
+<script src="index.js"></script>
 
 </html>
