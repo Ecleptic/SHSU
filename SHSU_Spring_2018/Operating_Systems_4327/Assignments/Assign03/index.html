@@ -10,17 +10,31 @@
 </head>
 
 <body>
-    <label for="delayTime">Delay Time (In seconds)</label>
-    <input type="number" name="delayTime" value="1" id="delayTimeInput" step=".1">
-    <form id="myform">
-        <input id="myfile" name="files[]" multiple="" type="file" />
+    <form id="myform" action="">
+        <input id="myfile" name="files[]" multiple="" type="file" style="display: none;" />
+        <input type="button" value="Select Input File" onclick="document.getElementById('myfile').click()" />
     </form>
-    <label for="rrInput">Round Robin Q</label>
-    <input type="text" id="rrInput" placeholder="2"></input>
-    <span>Input</span>
+    <button class="startButton">Start</button>
+    <textarea name="readInInputDisplay" id="" cols="5" rows="10" class="readInInputDisplay__TextArea" placeholder="Your Input Text"></textarea>
+    <div class="Inputs__Container">
+        <div id="delayTimeDisv">
+            <label for="delayTime">Delay Time (In seconds)</label>
+            <input type="number" name="delayTime" value="1" id="delayTimeInput" step=".1">
+        </div>
+        <div id="RRInputDiv">
+            <label for="rrInput">Round Robin Q</label>
+            <input type="text" id="rrInput" placeholder="2">
+        </div>
+        <span class="queueList"></span>
+    </div>
     <ul class="inputDisplayContainer"></ul>
 
-    <li id="charList"></li>
+    <div class="turnaround__container">
+        <ul class="turnaround__turnaroundList"></ul>
+        <div class="turnaround__totalTurnaround"></div>
+    </div>
+
+    <ul id="chartList"></ul>
 </body>
 <script src="index.js"></script>
 

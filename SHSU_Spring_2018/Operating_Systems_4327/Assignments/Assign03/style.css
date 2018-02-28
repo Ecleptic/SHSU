@@ -1,4 +1,69 @@
-body{
-    background: #002B35;
-    color: #B7882A;
-  }
+body {
+  background: #002b35;
+  color: #b7882a;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  /*     grid-auto-rows: minmax(100px, auto); */
+  grid-gap: 20px;
+  grid-template-areas:
+    "Input     Start         .           Turnarounds"
+    "TextArea  TranslatedInput     Items Turnarounds"
+    "Queue     Queue         Queue       Queue ";
+}
+input[type="button"] {
+  background-color: yellow; /* Green */
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 12px;
+}
+
+button {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 12px;
+  width: 150px;
+  height: auto;
+}
+#myform {
+  grid-area: Input;
+}
+.startButton {
+  grid-area: Start;
+}
+
+.readInInputDisplay__TextArea {
+  grid-area: TextArea;
+}
+.Inputs__Container {
+  grid-area: Items;
+}
+.inputDisplayContainer,
+.inputDisplayContainer > li > ul > li {
+  grid-area: TranslatedInput;
+  list-style: none;
+}
+
+#chartList {
+  grid-area: Queue;
+  display: flex;
+  list-style-type: none;
+  padding: 10px;
+  /*   border: 1px solid grey; */
+}
+
+.GanttItem__list {
+  list-style-type: none;
+  padding: 10px;
+  border: 1px solid grey;
+}
