@@ -51,7 +51,8 @@ begin
 -- Reallocate Storage Algorithm
 ------------------------
 
---- ReA1:
+-- ReA1:
+-- avail space is the total memory - top of stack N to base of stack N
 AvailSpace := Base[N+1] - Base[0];
 Totallnc := 0;
 J := N;

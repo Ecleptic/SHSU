@@ -196,7 +196,6 @@ function getTotalSteps() {
 
 function eventLoop(i) {
   setTimeout(() => {
-    // console.log(`%cCurrent Quantum: ${currentQ}, at RR:${RRN}`, "color:violet;")
     // sort queue backwards by priority
     queue = queue.sort((a, b) => (a.Priority > b.Priority ? -1 : 1))
 
@@ -260,7 +259,6 @@ function eventLoop(i) {
       // push into the list
       GANTT.push(active.Name)
       chartList.innerHTML = GANTT.map((item, key) => {
-        // console.log("%cKey:", "color:purple", key)
         return `
         <ul class="GanttItem__list">
           <li>${key}</li>
@@ -269,7 +267,7 @@ function eventLoop(i) {
         `
       })
         .join("")
-        .toString() //TODO: Map it you artard
+        .toString()
     }
 
     console.log("%cGantt 📊:", "color:purple", GANTT)
@@ -289,12 +287,8 @@ function eventLoop(i) {
  * @param {array} array
  */
 function getTurnaround(array) {
-  // console.log("%cArray","color:green",array)
   const uniques = array.reduce((obj, item, index) => {
     if (!obj[item]) {
-      // const ProcessArrival = inputProcesses.map(key=>{
-      // if(key.Name === item)return key.Arrival
-      // })
       let ProcessArrival
       for (const i in inputProcesses) {
         if (inputProcesses[i].Name === item)
@@ -303,9 +297,6 @@ function getTurnaround(array) {
       console.log("Process Arrival", ProcessArrival)
       obj[item] = { first: ProcessArrival, last: index }
     }
-    // console.log("item",item)
-    // console.log("obj",obj)
-    // console.log("obj[item]",obj[item])
     console.log(
       `%c ${item}'s current last is: ${obj[item].last}`,
       "color:red; font-size:13px;"
@@ -319,7 +310,6 @@ function getTurnaround(array) {
   }
   console.table(uniques)
 
-  // console.log(Object.keys(uniques))
   const turnaround =
     Object.keys(uniques).reduce((previous, key) => {
       return previous + uniques[key].turnaround
@@ -329,7 +319,6 @@ function getTurnaround(array) {
     "Turnarounds" +
     Object.keys(uniques)
       .map(key => {
-        // console.log(`${key}: ${uniques[key].turnaround}`)
         return `
         <li>${key}: ${uniques[key].first} - ${uniques[key].last} = ${
           uniques[key].turnaround
