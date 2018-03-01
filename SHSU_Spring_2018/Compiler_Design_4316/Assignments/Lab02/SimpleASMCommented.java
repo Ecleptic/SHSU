@@ -1,6 +1,5 @@
 import java.util.*;
 import java.io.*;
-import java.nio.ByteBuffer;
 
 //  Storing my names as enums for comparison.
 public class SimpleAsm {
@@ -83,6 +82,7 @@ public class SimpleAsm {
 		String lexeme;
 
 		// find start of data section
+		// if there's no ".data" then it closes the program
 		do {
 			line = infile.nextLine();
 			System.out.println(line);
@@ -103,12 +103,13 @@ public class SimpleAsm {
 		while (!(lexeme = input.next()).equalsIgnoreCase("Section")) {
 			// look for labels (they end with a colon)
 			int pos = lexeme.indexOf(':');
+			// if label exists, place it in our lexeme
 			if (pos > 0) {
 				lexeme = lexeme.substring(0, pos);
 			} else {
 				System.err.println("error parsing " + line);
 			}
-			// insert the lexeme, the type, and its address into the symbol table
+			// insert the lexeme, the type, and its address into the symbol table list
 			tab.add(new Symbol(lexeme, "Int", locationCounter));
 			locationCounter++;
 			line = infile.nextLine();
@@ -125,7 +126,6 @@ public class SimpleAsm {
 			// when a label is found, place it and its code offset in the symbol table
 			if (lexeme.equalsIgnoreCase("label")) {
 				lexeme = input.next();
-				// tab.addNewSymbol(lexeme,"Code",locationCounter);
 				tab.add(new Symbol(lexeme, "Code", locationCounter));
 			}
 			locationCounter++;
@@ -177,9 +177,7 @@ public class SimpleAsm {
 			lexeme = input.next();
 			int ptr;
 			//	lookup opcode and generate appropriate instructions
-			// int opcode = lookUpOpcode(lexeme);
 			opcodeNums opcode = opcodeNums.values()[lookUpOpcode(lexeme)];
-			// System.out.println("debug: " + opcode);
 			switch (opcode) {
 			case HALT:
 			case POP:
@@ -230,15 +228,14 @@ public class SimpleAsm {
 	}
 
 	public static void insertCode(int loc, int opcode, int operand) {
-		System.out.println(Integer.toHexString(opcode) + "\t" + Integer.toHexString(operand));
+		// System.out.println(Integer.toHexString(opcode) + "\t" + Integer.toHexString(operand));
 
 		try {
-
+			// write the opcodes then operands
 			writer.write(toBytes(opcode), 2, 2);
 			writer.write(toBytes(operand), 2, 2);
 
 		} catch (Exception err) {
-			// System.out.println(err.${getMessage()});
 		}
 	}
 
@@ -247,7 +244,8 @@ public class SimpleAsm {
 	}
 
 	public static int lookup(List<Symbol> symtab, String lexeme) {
-		// loop through symtab and try to match a lexeme
+		// loop through symtab and try to match a lexeme. return the number address in the symbol table
+		// if not, return -1
 		for (int i = 0; i < symtab.size(); i++) {
 			if (symtab.get(i).lexeme.equals(lexeme)) {
 				return i;

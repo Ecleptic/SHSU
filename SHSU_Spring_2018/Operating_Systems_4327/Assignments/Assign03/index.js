@@ -5,9 +5,9 @@ let RRN = document.querySelector("#rrInput").value || 2
 let maxSteps = 0
 let uniqueNames
 let GANTT = []
-let currentQ = 1
+let currentQ = 0
 let delay = 1 //in seconds
-let step
+let step = 0
 const readInInputDisplay = document.querySelector(
   ".readInInputDisplay__TextArea"
 )
@@ -207,15 +207,6 @@ function eventLoop(i) {
         queue.push(i)
         // sort queue backwards by priority
         queue = queue.sort((a, b) => (a.Priority > b.Priority ? -1 : 1))
-
-        document.querySelector(".queueList").innerHTML =
-          "Queue: " +
-          queue
-            .sort((a, b) => (a.Priority > b.Priority ? 1 : -1))
-            .map(key => {
-              return `${key.Name}`
-            })
-            .join(", ")
       }
     }
 
@@ -226,6 +217,12 @@ function eventLoop(i) {
       queue.pop()
     }
 
+    console.log(
+      "%c CURRENT QUEUE:",
+      "color: blue; font-size:12px;",
+      currentQ,
+      queue
+    )
     // ALWAYS make sure active is the one with highest priority
     if (active != null && queue.length > 0) {
       if (active.Priority > queue[queue.length - 1].Priority) {
@@ -235,11 +232,10 @@ function eventLoop(i) {
         queue.pop()
       }
       // if priority is equal, do round robin
+      currentQ++
       if (active.Priority === queue[queue.length - 1].Priority) {
-        if (currentQ < RRN) {
-          currentQ++
-        } else {
-          currentQ = 1
+        if (currentQ >= RRN) {
+          currentQ = 0
           queue = queue.sort((a, b) => (a.Priority > b.Priority ? -1 : 1))
 
           let temp = queue[queue.length - 1]
@@ -269,7 +265,15 @@ function eventLoop(i) {
         .join("")
         .toString()
     }
-
+    // update the queue
+    document.querySelector(".queueList").innerHTML =
+      "Queue: " +
+      queue
+        .sort((a, b) => (a.Priority > b.Priority ? 1 : -1))
+        .map(key => {
+          return `${key.Name}`
+        })
+        .join(", ")
     console.log("%cGantt 📊:", "color:purple", GANTT)
     step++
     console.log("%cAre we done?", "color:orange", isDone())
@@ -326,6 +330,7 @@ function getTurnaround(array) {
         `
       })
       .join("")
+  // document.querySelector(".queueList").innerHTML = "Queue:"
   document.querySelector(".turnaround__totalTurnaround").innerHTML =
     "Total Turnaround: " + turnaround
 

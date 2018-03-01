@@ -1,6 +1,5 @@
 import java.util.*;
 import java.io.*;
-import java.nio.ByteBuffer;
 
 public class SimpleAsm {
 	public enum opcodeNums {
@@ -172,7 +171,6 @@ public class SimpleAsm {
 			lexeme = input.next();
 			int ptr;
 			//	lookup opcode and generate appropriate instructions
-			// int opcode = lookUpOpcode(lexeme);
 			opcodeNums opcode = opcodeNums.values()[lookUpOpcode(lexeme)];
 			// System.out.println("debug: " + opcode);
 			switch (opcode) {
@@ -212,7 +210,6 @@ public class SimpleAsm {
 			case GOTRUE:
 			case GOSUB:
 				lexeme = input.next();
-				// System.out.println("lexeme:" + lexeme);
 				ptr = lookup(tab, lexeme);
 				insertCode(locationCounter, opcode.ordinal(), tab.get(ptr).address);
 				break;

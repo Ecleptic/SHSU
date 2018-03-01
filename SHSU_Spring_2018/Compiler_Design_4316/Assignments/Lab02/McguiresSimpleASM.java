@@ -180,7 +180,7 @@ public class SimpleAsm {
 
 	public static void insertCode(int loc, int opcode, int operand) {
 		System.out.println(loc + ":\t" + opcode + "\t" + operand);
-		;
+
 	}
 
 	public static void insertCode(int loc, int opcode) {

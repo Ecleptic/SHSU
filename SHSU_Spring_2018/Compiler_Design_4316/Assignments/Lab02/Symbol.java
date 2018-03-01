@@ -6,6 +6,9 @@ public class Symbol {
     String type;
     int address;
 
+    /**
+     * Constructor:
+     */
     public Symbol(String lexeme, String type, int address) {
         this.lexeme = lexeme;
         this.type = type;
