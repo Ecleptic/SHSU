@@ -1,0 +1,376 @@
+Enter lower bound for array: -11
+Enter upper bound for array:  51
+Enter number of stacks:  4
+Enter lower bound for stacks:  4
+Enter upper bound for stacks:  20
+
+Begin Opcodes, type 'EX' to quit: 
+Opcode: 
+I1 BURRIS
+
+Opcode: 
+I2 ZHOU
+
+Opcode: 
+I2 SHASHIDHAR
+
+Opcode: 
+I3 SHANNON
+
+Opcode: 
+I1 YANG
+
+Opcode: 
+I3 SMITH
+
+Opcode: 
+D2 
+
+Opcode: 
+I1 WEI
+
+Opcode: 
+I2 RABIEH
+
+Opcode: 
+D1 
+
+Opcode: 
+D1 
+
+Opcode: 
+I2 SONG
+
+Opcode: 
+I2 CHO
+
+Opcode: 
+D3 
+
+Opcode: 
+I2 VAROL
+
+OVERFLOW: calling 'reallocate'...
+
+---------------------------------------------------------
+<><><>Before<><><>
+Base[ 1]:  4  Top[ 1]:  5  OldTop[ 1]:  4  
+Base[ 2]:  8  Top[ 2]:  13  OldTop[ 2]:  8  
+Base[ 3]:  12  Top[ 3]:  13  OldTop[ 3]:  12  
+Base[ 4]:  16  Top[ 4]:  16  OldTop[ 4]:  16  
+Base[ 5]:  20  
+
+ 5: BURRIS
+ 6: 
+ 7: 
+ 8: 
+ 9: ZHOU
+ 10: RABIEH
+ 11: SONG
+ 12: CHO
+ 13: SHANNON
+ 14: 
+ 15: 
+ 16: 
+ 17: 
+ 18: 
+ 19: 
+ 20: 
+
+<><><>After<><><>
+Base[ 1]:  4  Top[ 1]:  5  OldTop[ 1]:  5  
+Base[ 2]:  6  Top[ 2]:  11  OldTop[ 2]:  11  
+Base[ 3]:  17  Top[ 3]:  18  OldTop[ 3]:  18  
+Base[ 4]:  19  Top[ 4]:  19  OldTop[ 4]:  19  
+Base[ 5]:  20  
+
+ 5: BURRIS
+ 6: 
+ 7: ZHOU
+ 8: RABIEH
+ 9: SONG
+ 10: CHO
+ 11: VAROL
+ 12: 
+ 13: 
+ 14: 
+ 15: 
+ 16: 
+ 17: 
+ 18: SHANNON
+ 19: 
+ 20: 
+---------------------------------------------------------
+
+Opcode: 
+I3 KARABIYIK
+
+Opcode: 
+I1 COOPER
+
+Opcode: 
+I1 SMITH
+
+OVERFLOW: calling 'reallocate'...
+
+---------------------------------------------------------
+<><><>Before<><><>
+Base[ 1]:  4  Top[ 1]:  7  OldTop[ 1]:  5  
+Base[ 2]:  6  Top[ 2]:  11  OldTop[ 2]:  11  
+Base[ 3]:  17  Top[ 3]:  19  OldTop[ 3]:  18  
+Base[ 4]:  19  Top[ 4]:  19  OldTop[ 4]:  19  
+Base[ 5]:  20  
+
+ 5: BURRIS
+ 6: COOPER
+ 7: ZHOU
+ 8: RABIEH
+ 9: SONG
+ 10: CHO
+ 11: VAROL
+ 12: 
+ 13: 
+ 14: 
+ 15: 
+ 16: 
+ 17: 
+ 18: SHANNON
+ 19: KARABIYIK
+ 20: 
+
+<><><>After<><><>
+Base[ 1]:  4  Top[ 1]:  7  OldTop[ 1]:  7  
+Base[ 2]:  10  Top[ 2]:  15  OldTop[ 2]:  15  
+Base[ 3]:  15  Top[ 3]:  17  OldTop[ 3]:  17  
+Base[ 4]:  19  Top[ 4]:  19  OldTop[ 4]:  19  
+Base[ 5]:  20  
+
+ 5: BURRIS
+ 6: COOPER
+ 7: SMITH
+ 8: 
+ 9: 
+ 10: 
+ 11: ZHOU
+ 12: RABIEH
+ 13: SONG
+ 14: CHO
+ 15: VAROL
+ 16: SHANNON
+ 17: KARABIYIK
+ 18: 
+ 19: 
+ 20: 
+---------------------------------------------------------
+
+Opcode: 
+I1 MCGUIRE
+
+Opcode: 
+I3 NAJAR
+
+Opcode: 
+I2 AN
+
+OVERFLOW: calling 'reallocate'...
+
+---------------------------------------------------------
+<><><>Before<><><>
+Base[ 1]:  4  Top[ 1]:  8  OldTop[ 1]:  7  
+Base[ 2]:  10  Top[ 2]:  16  OldTop[ 2]:  15  
+Base[ 3]:  15  Top[ 3]:  18  OldTop[ 3]:  17  
+Base[ 4]:  19  Top[ 4]:  19  OldTop[ 4]:  19  
+Base[ 5]:  20  
+
+ 5: BURRIS
+ 6: COOPER
+ 7: SMITH
+ 8: MCGUIRE
+ 9: 
+ 10: 
+ 11: ZHOU
+ 12: RABIEH
+ 13: SONG
+ 14: CHO
+ 15: VAROL
+ 16: SHANNON
+ 17: KARABIYIK
+ 18: NAJAR
+ 19: 
+ 20: 
+
+<><><>After<><><>
+Base[ 1]:  4  Top[ 1]:  8  OldTop[ 1]:  8  
+Base[ 2]:  8  Top[ 2]:  14  OldTop[ 2]:  14  
+Base[ 3]:  15  Top[ 3]:  18  OldTop[ 3]:  18  
+Base[ 4]:  19  Top[ 4]:  19  OldTop[ 4]:  19  
+Base[ 5]:  20  
+
+ 5: BURRIS
+ 6: COOPER
+ 7: SMITH
+ 8: MCGUIRE
+ 9: ZHOU
+ 10: RABIEH
+ 11: SONG
+ 12: CHO
+ 13: VAROL
+ 14: AN
+ 15: 
+ 16: SHANNON
+ 17: KARABIYIK
+ 18: NAJAR
+ 19: 
+ 20: 
+---------------------------------------------------------
+
+Opcode: 
+I1 ZHOU
+
+OVERFLOW: calling 'reallocate'...
+
+---------------------------------------------------------
+<><><>Before<><><>
+Base[ 1]:  4  Top[ 1]:  9  OldTop[ 1]:  8  
+Base[ 2]:  8  Top[ 2]:  14  OldTop[ 2]:  14  
+Base[ 3]:  15  Top[ 3]:  18  OldTop[ 3]:  18  
+Base[ 4]:  19  Top[ 4]:  19  OldTop[ 4]:  19  
+Base[ 5]:  20  
+
+ 5: BURRIS
+ 6: COOPER
+ 7: SMITH
+ 8: MCGUIRE
+ 9: ZHOU
+ 10: RABIEH
+ 11: SONG
+ 12: CHO
+ 13: VAROL
+ 14: AN
+ 15: 
+ 16: SHANNON
+ 17: KARABIYIK
+ 18: NAJAR
+ 19: 
+ 20: 
+
+<><><>After<><><>
+Base[ 1]:  4  Top[ 1]:  9  OldTop[ 1]:  9  
+Base[ 2]:  10  Top[ 2]:  16  OldTop[ 2]:  16  
+Base[ 3]:  16  Top[ 3]:  19  OldTop[ 3]:  19  
+Base[ 4]:  19  Top[ 4]:  19  OldTop[ 4]:  19  
+Base[ 5]:  20  
+
+ 5: BURRIS
+ 6: COOPER
+ 7: SMITH
+ 8: MCGUIRE
+ 9: ZHOU
+ 10: 
+ 11: ZHOU
+ 12: RABIEH
+ 13: SONG
+ 14: CHO
+ 15: VAROL
+ 16: AN
+ 17: SHANNON
+ 18: KARABIYIK
+ 19: NAJAR
+ 20: 
+---------------------------------------------------------
+
+Opcode: 
+D2 
+
+Opcode: 
+I2 DEERING
+
+Opcode: 
+I1 BURRIS
+
+Opcode: 
+I2 CHO
+
+OVERFLOW: calling 'reallocate'...
+
+---------------------------------------------------------
+<><><>Before<><><>
+Base[ 1]:  4  Top[ 1]:  10  OldTop[ 1]:  9  
+Base[ 2]:  10  Top[ 2]:  17  OldTop[ 2]:  16  
+Base[ 3]:  16  Top[ 3]:  19  OldTop[ 3]:  19  
+Base[ 4]:  19  Top[ 4]:  19  OldTop[ 4]:  19  
+Base[ 5]:  20  
+
+ 5: BURRIS
+ 6: COOPER
+ 7: SMITH
+ 8: MCGUIRE
+ 9: ZHOU
+ 10: BURRIS
+ 11: ZHOU
+ 12: RABIEH
+ 13: SONG
+ 14: CHO
+ 15: VAROL
+ 16: DEERING
+ 17: SHANNON
+ 18: KARABIYIK
+ 19: NAJAR
+ 20: 
+
+<><><>After<><><>
+Base[ 1]:  4  Top[ 1]:  10  OldTop[ 1]:  10  
+Base[ 2]:  10  Top[ 2]:  17  OldTop[ 2]:  17  
+Base[ 3]:  17  Top[ 3]:  20  OldTop[ 3]:  20  
+Base[ 4]:  20  Top[ 4]:  20  OldTop[ 4]:  20  
+Base[ 5]:  20  
+
+ 5: BURRIS
+ 6: COOPER
+ 7: SMITH
+ 8: MCGUIRE
+ 9: ZHOU
+ 10: BURRIS
+ 11: ZHOU
+ 12: RABIEH
+ 13: SONG
+ 14: CHO
+ 15: VAROL
+ 16: DEERING
+ 17: CHO
+ 18: SHANNON
+ 19: KARABIYIK
+ 20: NAJAR
+---------------------------------------------------------
+
+Opcode: 
+I2 MCGUIRE
+
+OVERFLOW: calling 'reallocate'...
+
+---------------------------------------------------------
+<><><>Before<><><>
+Base[ 1]:  4  Top[ 1]:  10  OldTop[ 1]:  10  
+Base[ 2]:  10  Top[ 2]:  18  OldTop[ 2]:  17  
+Base[ 3]:  17  Top[ 3]:  20  OldTop[ 3]:  20  
+Base[ 4]:  20  Top[ 4]:  20  OldTop[ 4]:  20  
+Base[ 5]:  20  
+
+ 5: BURRIS
+ 6: COOPER
+ 7: SMITH
+ 8: MCGUIRE
+ 9: ZHOU
+ 10: BURRIS
+ 11: ZHOU
+ 12: RABIEH
+ 13: SONG
+ 14: CHO
+ 15: VAROL
+ 16: DEERING
+ 17: CHO
+ 18: SHANNON
+ 19: KARABIYIK
+ 20: NAJAR
+
+OUT OF MEMORY, terminating program...
