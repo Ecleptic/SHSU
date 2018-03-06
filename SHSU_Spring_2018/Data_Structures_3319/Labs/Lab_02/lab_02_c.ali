@@ -5,10 +5,8 @@ P SS ZX
 
 RN
 RV NO_EXCEPTION_HANDLERS
-RV NO_EXCEPTION_PROPAGATION
 RV NO_EXCEPTIONS
 RV NO_IO
-RV NO_IMPLICIT_LOOPS
 RV NO_NESTED_FINALIZATION
 RV NO_SECONDARY_STACK
 RV NO_STANDARD_STORAGE_POOLS
@@ -16,7 +14,7 @@ RV NO_UNCHECKED_CONVERSION
 RV NO_DEFAULT_INITIALIZATION
 RV SPARK_05
 
-U lab_02_c%b		lab_02_c.adb		214096fe NE OO SU
+U lab_02_c%b		lab_02_c.adb		9d8ea2d3 NE OO SU
 W ada%s			ada.ads			ada.ali
 W ada.exceptions%s	a-except.adb		a-except.ali
 W ada.strings%s		a-string.ads		a-string.ali
@@ -24,14 +22,11 @@ W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
 W ada.tags%s		a-tags.adb		a-tags.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
 W genericstack%s	genericstack.adb	genericstack.ali
-W system%s		system.ads		system.ali
 W system.concat_2%s	s-conca2.adb		s-conca2.ali
-W system.finalization_masters%s  s-finmas.adb	s-finmas.ali
 W system.img_int%s	s-imgint.adb		s-imgint.ali
 W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 W system.soft_links%s	s-soflin.adb		s-soflin.ali
 W system.standard_library%s  s-stalib.adb	s-stalib.ali
-W system.storage_elements%s  s-stoele.adb	s-stoele.ali
 W system.val_int%s	s-valint.adb		s-valint.ali
 W unchecked_conversion%s
 
@@ -48,10 +43,10 @@ D a-strunb.ads		20150506105327 3f91d4c5 ada.strings.unbounded%s
 D a-tags.ads		20150506105332 dc4d0634 ada.tags%s
 D a-textio.ads		20150506105332 386df5d4 ada.text_io%s
 D a-unccon.ads		20150506105331 f9eb8f06 ada.unchecked_conversion%s
-D genericstack.ads	20180306043109 c17396cb genericstack%s
+D genericstack.ads	20180306061401 a65a303d genericstack%s
 D interfac.ads		20150506105327 6033a23f interfaces%s
 D i-cstrea.ads		20150506105327 e53d8b8e interfaces.c_streams%s
-D lab_02_c.adb		20180306043114 2de0bf3c lab_02_c%b
+D lab_02_c.adb		20180306061459 f6072de7 lab_02_c%b
 D system.ads		20150506105331 100301f7 system%s
 D s-atocou.ads		20150506105332 cd7c94ca system.atomic_counters%s
 D s-conca2.ads		20150506105329 02a0d7d0 system.concat_2%s
@@ -83,7 +78,7 @@ X 8 a-string.ads
 16K13*Strings 35e16 17|22r10 22r37
 X 10 a-strunb.ads
 76K21*Unbounded 489e26 17|22w18 22r45
-79R9*Unbounded_String<5|43R9> 473e14 17|39r11 47r45
+79R9*Unbounded_String<5|43R9> 473e14 17|39r11
 94V13*To_Unbounded_String{79R9} 17|80s21
 100V13*To_String{string} 17|81s31
 X 12 a-textio.ads
@@ -94,29 +89,32 @@ X 12 a-textio.ads
 93p7 File{52P9} 17|52r13
 94e7 Mode{53E9} 17|53r10
 95a7 Name{string} 17|54r10
-98U14*Close 17|97s7
-166U14*New_Line 17|58s10 68s13 73s13 78s13 82s13 91s13
-183V13*End_Of_File{boolean} 17|57s20 90s13
-242U14*Put 17|67s13 67s47 72s13 77s13 77s31 81s13 81s27
+98U14*Close 17|99s7
+166U14*New_Line 17|58s10 68s13 73s13 78s13 82s13 93s13
+183V13*End_Of_File{boolean} 17|57s20 92s13
+242U14*Put 17|67s13 72s13 77s13 77s31 81s13 81s27
 253V13*Get_Line{string} 17|61s34 66s39 76s39 80s41
-263U14*Put_Line 17|60s10 92s13
+263U14*Put_Line 17|60s10 94s13
 X 14 genericstack.ads
-6K9*genericStack 34e17 17|20w6 20r24
-12i4*numStacks{integer} 17|36r19
-31V13*push{boolean} 17|84s24
-32U14*pop 17|69s13
+6K9*genericStack 38e17 17|20w6 20r24
+9A9*namesArray(10|79R9)<integer>
+13i4*numStacks{integer} 17|36r19
+21a4*stack{9A9} 17|86m42 86r42
+32V13*reallocate{boolean} 17|86s31
+35V13*push{boolean} 17|84s24
+36U14*pop 17|69s13
 X 17 lab_02_c.adb
-28U11*Lab_02_C 28b11 151l5 151t13
+28U11*Lab_02_C 28b11 125l5 125t13
 29V13 StringToCharacter[42|20]{character} 61s16
-31p4 inFile{12|52P9} 52m21 52r21 57r33 61r43 66r48 76r48 80r50 90r25 97m14
-. 97r14
+31p4 inFile{12|52P9} 52m21 52r21 57r33 61r43 66r48 76r48 80r50 92r25 99m14
+. 99r14
 35i4 m{integer}
 36i4 N{integer}
-39r4 name{10|79R9} 80m13 81r41 84r40
-40i4 stackNum{integer} 66m13 67r65 69r17 76m13 77r49 84r30
+39r4 name{10|79R9} 80m13 81r41 84r40 86r58
+40i4 stackNum{integer} 66m13 69r17 76m13 77r49 84r30 86m48 86r48
 43e4 op{character} 61m10 64r13 71r13 72r25
-44b4 didPush{boolean} 84m13
-47A9 stack(10|79R9)<integer>
+44b4 didPush{boolean} 84m13 85r16
+45b4 didAllocate{boolean} 86m16
 X 18 system.ads
 67M9*Address
 X 27 s-memory.ads

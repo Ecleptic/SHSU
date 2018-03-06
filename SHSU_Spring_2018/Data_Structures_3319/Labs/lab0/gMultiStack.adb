@@ -9,7 +9,7 @@ package body gMultiStack is
 	use NameType_IO;
 
 	package IIO is new Ada.Text_IO.Integer_IO(integer); use IIO;
-	
+
 	function getLowerBound return integer is
 		low: integer;
 		Output: File_Type;
@@ -22,7 +22,7 @@ package body gMultiStack is
 		Close(Output);
 		return low;
 	end getLowerBound;
-	
+
 	function getUpperBound return integer is
 		high: integer;
 		Output: File_Type;
@@ -35,7 +35,7 @@ package body gMultiStack is
 		Close(Output);
 		return high;
 	end getUpperBound;
-	
+
 	function getNumOfStacks return integer is
 		num: integer;
 		Output: File_Type;
@@ -48,7 +48,7 @@ package body gMultiStack is
 		Close(Output);
 		return num;
 	end getNumOfStacks;
-		
+
 	function floor(x: float) return integer is
 		temp: integer;
 	begin
@@ -62,20 +62,20 @@ package body gMultiStack is
 
 	procedure runMultiStack is
 		StackSpace: arrayType(getLowerBound..getUpperBound);
-		
+
 		N: integer := getNumOfStacks;
 		L: integer;
 		M: integer;
 		K: integer;
-		
+
 		Base: intArray(1..N + 1);
 		Top: intArray(1..N);
 		Info: intArray(1..N + 1);		--holds OldTop, Growth, and NewBase
-		
+
 		opcode: String := "  ";
 		input: MyType;
 		temp: String := " ";
-		
+
 		Output: File_Type;
 	begin
 		Open(Output, Append_File, Output_File);
@@ -88,38 +88,38 @@ package body gMultiStack is
 		IIO.get(M);
 		put_Line(Output, M'Image);
 		put_line(Output, "");
-		
+
 		for J in 1..N loop
-			Base(j) := floor((float(J) - 1.0)/float(N)*(float(M) - float(L))) + L;
+			Base(j) := floor((float(J) - 1.0) / float(N)*(float(M) - float(L))) + L;
 			Top(j) := Base(J);
 			Info(J) := Top(J);		--collect OldTop values
 		end loop;
 		Base(N + 1) := M;
 		Info(N + 1) := M;
-		
+
 		new_line;
 		put("Begin Opcodes, type 'EX' to quit: "); new_line;
 		put(Output, "Begin Opcodes, type 'EX' to quit: ");
 		Close(Output);
-		
+
 		while opcode /= "EX" loop		--loop until exit or out of memory
 			put("Opcode: "); new_line;
 			Open(Output, Append_File, Output_File);
 			put_line(Output, "Opcode: ");
 			Ada.Text_IO.get(opcode);
 			put(Output, opcode); put(Output, " ");
-			
+
 			if opcode(1) = 'I' then
 				get(input);
 				put(Output, convert(input)); put_Line(Output, ""); put_Line(Output, "");
-				
+
 				temp(1) := opcode(2);
 				K := Integer'Value(temp);
 				Top(K) := Top(K) + 1;
 				if Top(K) > Base(K + 1) then
 					put("OVERFLOW: calling 'reallocate'..."); new_line;
 					put_line(Output, "OVERFLOW: calling 'reallocate'..."); put_Line(Output, "");
-					
+
 					put_line(Output, "---------------------------------------------------------");
 					put_line(Output, "<><><>Before<><><>");
 					Close(Output);
@@ -161,11 +161,11 @@ package body gMultiStack is
 			new_line;
 		end loop;
 	end runMultiStack;
-	
+
 	function reallocate(StackSpace: in out arrayType; Info: in out intArray;
 		Base: in out intArray; Top: in out intArray; L: integer; M: integer;
 		N: integer; K: integer; input: MyType) return boolean is
-		
+
 		AvailSpace: integer;
 		TotalInc: integer := 0;
 		MinSpace: integer := floor(0.05*(float(M) - float(L)));
@@ -175,7 +175,7 @@ package body gMultiStack is
 		Sigma: float;
 		Tau: float;
 		temp: integer;
-		
+
 		Output: File_Type;
 	begin
 		if MinSpace = 0 then
@@ -220,11 +220,11 @@ package body gMultiStack is
 		end loop;
 		return true;
 	end reallocate;
-	
+
 	procedure movestack(StackSpace: in out arrayType; Info: intArray;
 		Top: in out intArray; Base: in out intArray; N: integer) is
 		Delt: integer;
-	begin	
+	begin
 		for J in 2..N loop
 			if Info(J) < Base(J) then
 				Delt := Base(J) - Info(J);
@@ -246,7 +246,7 @@ package body gMultiStack is
 			end if;
 		end loop;
 	end movestack;
-	
+
 	procedure print(StackSpace: arrayType; L: integer; M: integer;
 		N: integer; Base: intArray; Top: intArray; Info: intArray) is
 		Output: File_Type;
@@ -268,7 +268,7 @@ package body gMultiStack is
 		end loop;
 		put_line(Output, ""); put_line(Output, "");
 		new_line;
-		
+
 		for j in 1..N loop
 			for i in Base(j)+1..Top(j) loop
 				if i <= Base(j+1) then

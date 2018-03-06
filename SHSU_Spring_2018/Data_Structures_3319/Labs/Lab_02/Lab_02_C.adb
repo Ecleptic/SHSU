@@ -42,9 +42,9 @@ procedure Lab_02_C is
   -- base : genericStack.intArray (1..N+1);
    op : character;
    didPush : boolean;
+   didAllocate : boolean;
 	-- new stack := genericStack;
 
-   type stack is array(Integer range <>) of Unbounded_String;
 
 begin
 
@@ -82,7 +82,9 @@ begin
             new_line;
 
             didPush := push (stackNum, name);
-
+            if(didPush = false) then
+               didAllocate := reallocate(stack,stackNum, name);
+            end if;
 
 
          end if;
@@ -113,34 +115,6 @@ begin
 
 
 
-
-
-
-
-
-
-
---  put_line("Total memory?");
---  get(totalMemory);
---  put_line("Number of stacks?");
---  get(numStacks);
-
---  new_line;
---  put(totalMemory);
---  new_line;
---  put(numStacks);
---  new_line;
-
-
-   ------------------------
-   -- Setup Stack
-   ------------------------
- --  declare
- --     type stack is array(-11..60) of string;
- --  begin
- --     put("oh dang");
- --  end;
---      Base[J] := Top[J] = Float'Floor((J-1)/N*<) + L0
 
 
 
