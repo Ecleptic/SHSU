@@ -38,7 +38,7 @@ package body genericStack is
       beta: float;
       sigma: float;
       tau: float;
-      temp: integer;
+      -- temp: integer;
       --  Top:= growth (1..N);
 
    begin
@@ -101,58 +101,61 @@ package body genericStack is
     Base: in out intArray;
     n: integer) is
 
+      ddelta :integer;
+
    begin
       put("move please");
+      For J in 2..N
+         loop
+         If growth(j) < Base(j) then
+            dDelta := Base(j) - growth(j);
+            For L in Base(j) + 2.. Top(j)
+                  loop
+               StackSpace(l - ddelta) := StackSpace(l);
+            End loop;
+            Base(j) := growth(j);
+            Top(j) := Top(j) - dDelta;
+         End If;
+      End Loop;
 
-   --      For J in 2..N
-   --   loop
-   --       If NewBase(j) < Base(j) then
-   --           Delta := Base(j) - NewBase(j);
-   --           For L in (Base(j) + 1), (Base(j) + 2).. Top(j)
-   --           loop
-   --               StackSpace(l - delta) := StackSpace(l);
-   --           End loop;
-   --           Base(j) := NewBase(j);
-   --           Top(j) := Top(j) - Delta;
-   --       End If;
-   --   End Loop;
-   --
-   --   -- MoA2
-   --   For J in N..2
-   --   loop
-   --       If NewBase(j) > Base(j) then
-   --           Delta := NewBase(j) - Base(j);
-   --           For L in Top(j), (Top(j)-1), ... (Base(j) + 1)
-   --           loop
-   --               StackSpace(l + delta) := StackSpace(l);
-   --           End loop;
-   --           Base(j) := NewBase(j);
-   --           Top(j) := Top(j) + Delta;
-   --       End If;
-   --   End Loop;
+         -- MoA2
+      For J in N..2
+         loop
+         If growth(j) > Base(j) then
+            dDelta := growth(j) - Base(j);
+            For l in (Top(j)-1) .. (Base(j) + 1)
+                  loop
+               StackSpace(l + ddelta) := StackSpace(l);
+            End loop;
+            Base(j) := growth(j);
+            Top(j) := Top(j) + dDelta;
+         End If;
+      End Loop;
    end move;
 
 
    ------------------------
    -- Push onto Stack
    ------------------------
-   function push( stackspace: in out namesArray;
-                  top: in out intArray;
-                  base: in out intArray;
-                  stackNum: in integer;
+   function push( stackNum: in integer;
                   name: in Unbounded_String) return boolean is
    begin
       -- increment up one before starting
       top(stackNum) := top(stackNum) + 1;
       -- if full, return false and overflow
-      if (top(stackNum) > base(stackNum + 1)) then
-         put_line("stack overflow at " & Integer'Image(stackNum));
+      put("stackNum: "); put(Integer'Image(stackNum));
+      new_line;
+      put("top at: ");put(Integer'Image(top(stackNum)));
+      new_line;
+      put("bottom at: "); put(Integer'Image(base(stackNum+1)));
+      new_line;
+
+      if top(stackNum) > base(stackNum+1) then
+         put_line("stack overflow at stack " & Integer'Image(stackNum));
          new_line;
          return false;
       else
-         put("Inserting into stack number " & To_String(name));
-         put(Integer'Image(stackNum));
-         put("at stack location" & Integer'Image(top(stackNum)) );
+         put("Inserting " & To_String(name)& " into stack number " & Integer'Image(stackNum) & " at stack location" & Integer'Image(top(stackNum)) );
          New_Line;
          stackspace(top(stackNum)) := name;
          return true;
@@ -161,10 +164,7 @@ package body genericStack is
    ------------------------
    -- Pop From Stack
    ------------------------
-   procedure pop( stackspace: in out namesArray;
-                  top: in out intArray;
-                  base: in out intArray;
-                  stackNum: in integer) is
+   procedure pop(stackNum: in integer) is
    begin
       if top(stackNum) = base(stackNum) then
          put_line("stack underflow" & Integer'Image(stackNum));
@@ -176,6 +176,15 @@ package body genericStack is
       end if;
    end pop;
 
+begin
+   for i in 1..numStacks
+   loop
+      base(i) := integer(Float'Floor((Float(i - 1) / Float(numStacks)) * Float((totalMemory)))) + (l0);
+      top(i) := base(i);
+      oldTop(i) := top(i);
+   end loop;
+   base(numStacks + 1) := totalMemory + l0 - 1;
+   --base(numStacks ) := totalMemory + l0 - 1;
 
 
 end genericStack;

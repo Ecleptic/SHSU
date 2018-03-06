@@ -9,7 +9,7 @@ package body ada_main is
 
    E105 : Short_Integer; pragma Import (Ada, E105, "system__os_lib_E");
    E011 : Short_Integer; pragma Import (Ada, E011, "system__soft_links_E");
-   E117 : Short_Integer; pragma Import (Ada, E117, "system__fat_flt_E");
+   E121 : Short_Integer; pragma Import (Ada, E121, "system__fat_flt_E");
    E021 : Short_Integer; pragma Import (Ada, E021, "system__exception_table_E");
    E084 : Short_Integer; pragma Import (Ada, E084, "ada__io_exceptions_E");
    E042 : Short_Integer; pragma Import (Ada, E042, "ada__strings_E");
@@ -163,7 +163,7 @@ package body ada_main is
 
       System.Soft_Links'Elab_Spec;
       System.Fat_Flt'Elab_Spec;
-      E117 := E117 + 1;
+      E121 := E121 + 1;
       System.Exception_Table'Elab_Body;
       E021 := E021 + 1;
       Ada.Io_Exceptions'Elab_Spec;
@@ -207,6 +207,8 @@ package body ada_main is
       Ada.Text_Io'Elab_Spec;
       Ada.Text_Io'Elab_Body;
       E096 := E096 + 1;
+      genericstack'elab_spec;
+      genericstack'elab_body;
       E110 := E110 + 1;
    end adainit;
 

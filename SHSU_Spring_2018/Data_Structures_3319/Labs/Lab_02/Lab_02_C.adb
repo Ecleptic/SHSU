@@ -29,17 +29,17 @@ procedure Lab_02_C is
    function StringToCharacter is new Unchecked_Conversion(String, Character);
 
    inFile: File_Type;
-   totalMemory: integer := 27;
-   numStacks: integer := 4;
-   l0: integer := 4;
+   --totalMemory: integer := 27;
+   -- numStacks: integer := 4;
+   -- l0: integer := 4;
    m: integer := 27;
    N : integer := numStacks;
-   upper : integer := 24;
-   lower: integer := 4;
+   -- upper : integer := 24;
+   -- lower: integer := 4;
    name : Unbounded_String;
    stackNum : integer;
-   top : genericStack.intArray (1..N);
-   base : genericStack.intArray (1..N+1);
+   --top : genericStack.intArray (1..N);
+  -- base : genericStack.intArray (1..N+1);
    op : character;
    didPush : boolean;
 	-- new stack := genericStack;
@@ -64,8 +64,9 @@ begin
          if op = 'D' then
             	-- pop name from stack
             stackNum := Integer'Value(get_line(inFile));
-            put("Popping from stack number ");put(Integer'Image(stackNum));
+            put("Popping");
             new_line;
+            pop(stackNum);
          end if;
          if op = 'I' then
             put("got "& op);
