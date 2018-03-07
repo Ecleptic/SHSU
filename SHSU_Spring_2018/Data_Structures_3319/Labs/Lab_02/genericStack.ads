@@ -9,7 +9,6 @@ package genericStack is
    type namesArray is array(Integer range <>) of Unbounded_String;
    type intArray is array(Integer range <>) of integer;
 
-
    numStacks : integer := 4;
    totalMemory: integer := 27;
    upper : integer := 24;
@@ -19,19 +18,17 @@ package genericStack is
    growth : intArray (1..numStacks);
    base : intArray (1..numStacks+1);
    stack : namesArray (1..numStacks);
+   minSpace : integer := Integer(Float'Ceiling(0.05 * Float(upper - lower)));
 
    stackspace: array (-11..60) of Unbounded_String;
-   -- top: array (1..numStacks) of integer;
    oldTop: array (1..numStacks) of integer;
-   -- base: array (1..numStacks) of integer;
    oldBase: array (1..numStacks) of integer;
    newBase: array (1..numStacks) of integer;
 
 
 
    function reallocate(stackspace: in out namesArray; stackNum: in out integer; name: Unbounded_String) return boolean;
-   procedure move(stackspace: in out namesArray; growth: intArray; Top: in out intArray; base: in out intArray; n: integer);
-   -- at the begin, set the top and bottom to 0 and setup everything... so i only need to use the funcitions.
+   procedure move(stackspace: in out namesArray; newBase: intArray; Top: in out intArray; base: in out intArray; n: integer);
    function push(stackNum: in integer; name: in Unbounded_String) return boolean;
    procedure pop(stackNum: in integer);
 

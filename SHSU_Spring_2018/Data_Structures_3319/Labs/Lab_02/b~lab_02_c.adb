@@ -211,7 +211,6 @@ package body ada_main is
       Ada.Text_Io'Elab_Body;
       E096 := E096 + 1;
       genericstack'elab_spec;
-      genericstack'elab_body;
       E110 := E110 + 1;
    end adainit;
 

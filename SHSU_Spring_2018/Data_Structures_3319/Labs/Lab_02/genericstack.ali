@@ -16,7 +16,7 @@ RV NO_DEFAULT_INITIALIZATION
 RV NO_ELABORATION_CODE
 RV SPARK_05
 
-U genericstack%b	genericstack.adb	c8acd1f4 OO PK IL
+U genericstack%b	genericstack.adb	2c55e2db NE OO PK IL
 W ada.exceptions%s	a-except.adb		a-except.ali
 W ada.tags%s		a-tags.adb		a-tags.ali
 W system.concat_2%s	s-conca2.adb		s-conca2.ali
@@ -29,7 +29,7 @@ W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 W system.soft_links%s	s-soflin.adb		s-soflin.ali
 W system.standard_library%s  s-stalib.adb	s-stalib.ali
 
-U genericstack%s	genericstack.ads	a1a6112c BD EE OO PK IL
+U genericstack%s	genericstack.ads	31f21cc6 EE OO PK IL
 W ada%s			ada.ads			ada.ali
 W ada.exceptions%s	a-except.adb		a-except.ali
 W ada.strings%s		a-string.ads		a-string.ali
@@ -37,6 +37,7 @@ W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
 W ada.tags%s		a-tags.adb		a-tags.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
 W system%s		system.ads		system.ali
+W system.fat_flt%s	s-fatflt.ads		s-fatflt.ali
 W system.finalization_masters%s  s-finmas.adb	s-finmas.ali
 W system.soft_links%s	s-soflin.adb		s-soflin.ali
 W system.standard_library%s  s-stalib.adb	s-stalib.ali
@@ -55,8 +56,8 @@ D a-strunb.ads		20150506105327 3f91d4c5 ada.strings.unbounded%s
 D a-tags.ads		20150506105332 dc4d0634 ada.tags%s
 D a-textio.ads		20150506105332 386df5d4 ada.text_io%s
 D a-unccon.ads		20150506105331 f9eb8f06 ada.unchecked_conversion%s
-D genericstack.ads	20180306061401 a65a303d genericstack%s
-D genericstack.adb	20180306061439 6ef6e1c9 genericstack%b
+D genericstack.ads	20180307023411 360e3dd7 genericstack%s
+D genericstack.adb	20180307025501 1a5bdf0c genericstack%b
 D interfac.ads		20150506105327 6033a23f interfaces%s
 D i-cstrea.ads		20150506105327 e53d8b8e interfaces.c_streams%s
 D system.ads		20150506105331 100301f7 system%s
@@ -93,17 +94,17 @@ X 8 a-string.ads
 16K13*Strings 35e16 14|2r10 2r37
 X 10 a-strunb.ads
 76K21*Unbounded 489e26 14|2w18 2r45
-79R9*Unbounded_String<5|43R9> 473e14 14|9r50 23r35 32r87 35r49 15|17r13 146r28
-94V13*To_Unbounded_String{79R9} 15|179s39
-100V13*To_String{string} 15|163s29 177s77
+79R9*Unbounded_String<5|43R9> 473e14 14|9r50 23r35 30r87 32r49 15|11r13 128r28
+94V13*To_Unbounded_String{79R9} 15|162s39
+100V13*To_String{string} 15|145s29 160s77
 X 12 a-textio.ads
 49K13*Text_IO 471e16 14|1w10 1r27
-166U14*New_Line 15|51s7 53s7 55s7 152s7 154s7 156s7 160s10 164s10 178s10
-242U14*Put 15|50s7 50s28 52s7 52s23 54s7 54s27 68s10 81s10 112s7 151s7 151s26
-. 153s7 153s23 155s7 155s27 163s10 177s10
-263U14*Put_Line 15|159s10 175s10
+166U14*New_Line 15|33s7 35s7 37s7 134s7 136s7 138s7 142s10 146s10 161s10
+242U14*Put 15|32s7 32s28 34s7 34s23 36s7 36s27 63s10 94s7 133s7 133s26 135s7
+. 135s23 137s7 137s27 145s10 160s10
+263U14*Put_Line 15|50s10 141s10 158s10
 X 14 genericstack.ads
-6K9*genericStack 38l5 38e17 15|2b14 195l5 195t17
+6K9*genericStack 35l5 35e17 15|2b14 168l5 168t17
 8E9*names 8e171
 8n19*zhou{8E9}
 8n25*wei{8E9}
@@ -126,70 +127,65 @@ X 14 genericstack.ads
 8n152*hope{8E9}
 8n158*pray{8E9}
 8n164*nohope{8E9}
-9A9*namesArray(10|79R9)<integer> 21r12 32r43 33r38 15|9r43 103r24
-10A9*intArray(integer)<integer> 18r10 19r13 20r11 33r58 33r80 33r103 15|104r13
-. 105r17 106r18
-13i4*numStacks{integer} 18r23 19r26 20r24 21r27 25r22 27r23 28r23 15|185r16
-. 187r60 191r9
-14i4*totalMemory{integer} 15|187r81 191r27
-15i4*upper{integer}
-16i4*lower{integer}
-17i4*l0{integer} 15|34r33 187r100 191r41
-18a4*top{10A9} 15|52r41 57r38 58r13 59r26 82r39 86m7 86r24 88m32 88r32 89m7
-. 89r24 91r18 93r23 149m7 149r24 153r41 158r10 163r133 165r21 174r10 177r98
-. 179r21 180m10 180r27 188m7 189r20
-19a4*growth{10A9} 15|59m13 60r36 62m13 80r39 88r24
-20a4*base{10A9} 15|30r21 45r21 45r26 45r39 45r44 54r45 57r47 77r21 82r50
-. 88m37 88r37 155r45 158r26 174r26 187m7 188r17 191m4
-21a4*stack{9A9}
-23a4*stackspace(10|79R9) 15|165m10 177r87 179m10
-25a4*oldTop(integer) 15|58r22 59r35 93m10 189m7
-27a4*oldBase(integer)
-28a4*newBase(integer) 15|77m7 82m10 82r24
-32V13*reallocate{boolean} 32=24 32=55 32>81 15|9b13 96l8 96t18
-32a24 stackspace{9A9} 15|9b24 88m12 91m7
-32i55 stackNum{integer} 15|10b7 86r11 86r28 89r11 89r28 91r22
-32r81 name{10|79R9} 15|17b7 91r36
-33U14*move 33=19 33>50 33=68 33=90 33>113 15|88s7 102b14 139l8 139t12
-33a19 stackspace{9A9} 15|103b5 119m16 119r42 133m16 133r42
-33a50 growth{10A9} 15|104b5 115r13 116r33 121r24 129r13 130r23 135r24
-33a68 Top{10A9} 15|105b5 117r36 122m13 122r23 131r23 136m13 136r23
-33a90 base{10A9} 15|106b5 115r25 116r23 117r22 121m13 129r25 130r35 131r37
-. 135m13
-33i113 n{integer} 15|107b5 113r19 127r16
-35V13*push{boolean} 35>18 35>40 15|145b13 168l8 168t12
-35i18 stackNum{integer} 15|145b19 149r11 149r28 151r44 153r45 155r50 158r14
-. 158r31 159r62 163r84 163r137 165r25
-35r40 name{10|79R9} 15|146b19 163r39 165r39
-36U14*pop 36>18 15|172b14 182l8 182t11
-36i18 stackNum{integer} 15|172b18 174r14 174r31 175r53 177r59 177r102 179r25
-. 180r14 180r31
+9A9*namesArray(10|79R9)<integer> 20r12 30r43 31r38 15|9r43 85r24
+10A9*intArray(integer)<integer> 17r10 18r13 19r11 31r59 31r81 31r104 15|86r14
+. 87r17 88r18
+12i4*numStacks{integer} 17r23 18r26 19r24 20r27 24r22 25r23 26r23 15|61r19
+. 70r43 74r19
+13i4*totalMemory{integer} 15|27r21
+14i4*upper{integer} 21r61
+15i4*lower{integer} 21r69
+16i4*l0{integer} 15|27r35
+17a4*top{10A9} 15|34r41 39r38 40r13 41r26 64r39 68m7 68r24 70m32 70r32 71m7
+. 71r24 73r18 75r23 131m7 131r24 135r41 140r10 145r133 147r21 157r10 160r98
+. 162r21 163m10 163r27
+18a4*growth{10A9} 15|41m13 42r36 44m13 62r39 70r24
+19a4*base{10A9} 15|17r21 36r45 39r47 59r21 64r50 70m37 70r37 137r45 140r26
+. 157r26
+20a4*stack{9A9}
+21i4*minSpace{integer} 15|49r24
+23a4*stackspace(10|79R9) 15|147m10 160r87 162m10
+24a4*oldTop(integer) 15|40r22 41r35 75m10
+25a4*oldBase(integer)
+26a4*newBase(integer) 15|59m7 64m10 64r24
+30V13*reallocate{boolean} 30=24 30=55 30>81 15|9b13 78l8 78t18
+30a24 stackspace{9A9} 15|9b24 70m12 73m7
+30i55 stackNum{integer} 15|10b7 55r63 68r11 68r28 71r11 71r28 73r22
+30r81 name{10|79R9} 15|11b7 73r36
+31U14*move 31=19 31>50 31=69 31=91 31>114 15|70s7 84b14 121l8 121t12
+31a19 stackspace{9A9} 15|85b5 101m16 101r42 115m16 115r42
+31a50 newBase{10A9} 15|86b5 97r13 98r33 103r24 111r13 112r23 117r24
+31a69 Top{10A9} 15|87b5 99r36 104m13 104r23 113r43 118m13 118r23
+31a91 base{10A9} 15|88b5 97r26 98r23 99r22 103m13 111r26 112r36 113r31 117m13
+31i114 n{integer} 15|89b5 94r41 95r19 109r27
+32V13*push{boolean} 32>18 32>40 15|127b13 150l8 150t12
+32i18 stackNum{integer} 15|127b19 131r11 131r28 133r44 135r45 137r50 140r14
+. 140r31 141r62 145r84 145r137 147r25
+32r40 name{10|79R9} 15|128b19 145r39 147r39
+33U14*pop 33>18 15|155b14 165l8 165t11
+33i18 stackNum{integer} 15|155b18 157r14 157r31 158r53 160r59 160r102 162r25
+. 163r14 163r31
 X 15 genericstack.adb
-23i7 M{integer} 34r29
-24i7 N{integer} 73r63 79r19 88r43 92r19
-25i7 K{integer}
-26i7 availSpace{integer} 45m7 50r46 57m10 57r24 67r10 73r45 75r45
-27i7 totalInc{integer} 46m7 60m13 60r25 75r65
-28f7 GrowthAllocate{float} 72m7 75r21
-29f7 equalAllocate{float} 72r31 73r22
-30i7 j{integer} 52r45 54r50 56r13 57r42 57r52 58r17 58r29 59r20 59r30 59r42
-. 60r43 62r20 64m10 64r15
-32A12 stack(float)<integer>
-34i7 minSpace{integer} 67r24
-36f7 alpha{float} 73m7 80r25
-37f7 beta{float} 75m7 80r52
-38f7 sigma{float} 78m7 80r17 82r110 83m10
-39f7 tau{float} 80m10 81r26 82r82 83r19
-79i11 p{integer} 80r46 82r18 82r32 82r43 82r55
-92i11 J{integer} 93r17 93r27
-109i7 ddelta{integer} 116m13 119r31 122r32 130m13 133r31 136r32
-113i11 J{integer} 115r20 115r30 116r28 116r40 117r27 117r40 121r18 121r31
-. 122r17 122r27
-117i17 L{integer} 119r27 119r53
-127i11 J{integer} 129r20 129r30 130r30 130r40 131r27 131r42 135r18 135r31
-. 136r17 136r27
-131i17 l{integer} 133r27 133r53
-185i8 i{integer} 187r12 187r45 188r11 188r22 189r14 189r24
+13i7 availSpace{integer} 27m7 32r46 39m10 39r24 49r10 55r45 57r45
+14i7 totalInc{integer} 28m7 42m13 42r25 57r65
+15f7 GrowthAllocate{float} 54m7 57r21
+16f7 equalAllocate{float} 54r31 55r22
+17i7 j{integer} 34r45 36r50 38r13 39r42 39r52 40r17 40r29 41r20 41r30 41r42
+. 42r43 44r20 46m10 46r15
+18A12 stack(float)<integer>
+20f7 alpha{float} 55m7 62r25
+21f7 beta{float} 57m7 62r52
+22f7 sigma{float} 60m7 62r17 64r110 65m10
+23f7 tau{float} 62m10 63r26 64r82 65r19
+61i11 p{integer} 62r46 64r18 64r32 64r43 64r55
+74i11 J{integer} 75r17 75r27
+91i7 ddelta{integer} 98m13 101r31 104r32 112m13 115r31 118r32
+95i11 J{integer} 97r21 97r31 98r28 98r41 99r27 99r40 103r18 103r32 104r17
+. 104r27
+99i17 L{integer} 101r27 101r53
+109i11 J{integer} 111r21 111r31 112r31 112r41 113r36 113r47 117r18 117r32
+. 118r17 118r27
+113i17 l{integer} 115r27 115r53
 X 18 system.ads
 67M9*Address
 X 32 s-memory.ads

@@ -8,41 +8,23 @@ package body genericStack is
    ------------------------
    function reallocate(stackspace: in out namesArray;
       stackNum: in out integer;
-      --growth: in out intArray;
-      --oldTop: in out intArray;
-      --newBase: in out intArray;
-      --Base: in out intArray;
-      --Top: in out intArray;
-      --l0: integer;
       name: Unbounded_String)
       return boolean is
-
-
-      -- totalMemory: integer := 27;
-      -- numStacks: integer := 4;
-      M: integer;
-      N: integer;
-      K: integer;
       availSpace :integer;
       totalInc: integer;
       GrowthAllocate : float;
       equalAllocate : float := 0.87;
       j: integer := base'Last-1;
-      -- k: integer;
       type stack is array(Integer range <>) of float;
 
-      minSpace : integer := m - l0;
-      --  J: integer := N;
       alpha: float;
       beta: float;
       sigma: float;
       tau: float := 0.0;
-      -- temp: integer;
-      --  Top:= growth (1..N);
 
    begin
 
-      availSpace := base(base'last) - base(base'first);
+      availSpace := totalMemory - l0;
       totalInc := 0;
 
       -- ReA1:
@@ -65,18 +47,18 @@ package body genericStack is
       end loop;
       -- ReA2
       if availSpace < (minSpace - 1) then
-         put("memory overflowed. ending");
+         put_line("memory overflowed. ending");
          return false;
       end if;
       -- ReA3
       GrowthAllocate := 1.0 - equalAllocate;
-      alpha := float(equalAllocate) * float(availSpace)/float(n);
+      alpha := float(equalAllocate) * float(availSpace)/float(stackNum);
       -- ReA4
       beta := float(GrowthAllocate) * float(availSpace) / float(totalInc);
       -- ReA5
       newBase(1) := base(1);
       sigma := float(0);
-      for p in 2..N loop
+      for p in 2..numStacks loop
          tau := sigma + alpha + float(growth(p-1))*beta;
          put(float'image(tau));
          newBase(p) := newBase(p-1) + top(p-1) - Base(p-1) + Integer(Float'Floor(tau)) - integer(Float'Floor(sigma));
@@ -85,11 +67,11 @@ package body genericStack is
       -- ReA6
       Top(stackNum) := Top(stackNum) - 1;
      -- perform movestack
-      move(stackspace, growth, Top, Base, N);
+      move(stackspace, growth, Top, Base, stackNum);
       Top(stackNum) := Top(stackNum) + 1;
      -- insert overflow item into top[k]
       stackspace(Top(stackNum)) := name;
-      for J in 1..N loop
+      for J in 1..numStacks loop
          oldTop(J) := Top(J);
       end loop;
       return true;
@@ -101,7 +83,7 @@ package body genericStack is
    -- MoA1
    procedure move(
     stackspace: in out namesArray;
-    growth: intArray;
+    newBase: intArray;
     Top: in out intArray;
     Base: in out intArray;
     n: integer) is
@@ -109,30 +91,30 @@ package body genericStack is
       ddelta :integer;
 
    begin
-      put("move please");
+      put("move please" & integer'image(n));
       For J in 2..N
          loop
-         If growth(j) < Base(j) then
-            dDelta := Base(j) - growth(j);
-            For L in Base(j) + 2.. Top(j)
-                  loop
+         If newBase(j) < Base(j) then
+            dDelta := Base(j) - newBase(j);
+            For L in Base(j) + 1.. Top(j)
+               loop
                StackSpace(l - ddelta) := StackSpace(l);
             End loop;
-            Base(j) := growth(j);
+            Base(j) := newBase(j);
             Top(j) := Top(j) - dDelta;
          End If;
       End Loop;
 
          -- MoA2
-      For J in N..2
+      For J in reverse 2..N
          loop
-         If growth(j) > Base(j) then
-            dDelta := growth(j) - Base(j);
-            For l in (Top(j)-1) .. (Base(j) + 1)
-                  loop
+         If newBase(j) > Base(j) then
+            dDelta := newBase(j) - Base(j);
+            For l in reverse (Base(J)+1)..Top(J)
+            loop
                StackSpace(l + ddelta) := StackSpace(l);
             End loop;
-            Base(j) := growth(j);
+            Base(j) := newBase(j);
             Top(j) := Top(j) + dDelta;
          End If;
       End Loop;
@@ -166,6 +148,7 @@ package body genericStack is
          return true;
       end if;
    end push;
+
    ------------------------
    -- Pop From Stack
    ------------------------
@@ -180,16 +163,6 @@ package body genericStack is
          top(stackNum) := top(stackNum) - 1;
       end if;
    end pop;
-
-begin
-   for i in 1..numStacks
-   loop
-      base(i) := integer(Float'Floor((Float(i - 1) / Float(numStacks)) * Float((totalMemory)))) + (l0);
-      top(i) := base(i);
-      oldTop(i) := top(i);
-   end loop;
-   base(numStacks + 1) := totalMemory + l0 - 1;
-   --base(numStacks ) := totalMemory + l0 - 1;
 
 
 end genericStack;

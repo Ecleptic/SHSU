@@ -1,0 +1,587 @@
+
+ ----jGRASP exec: /Users/cgreen/Documents/SHSU 👾 /SHSU_Spring_2018/Data_Structures_3319/Labs/Lab_02/Lab_02_C
+base at  1 4
+base at  2 9
+base at  3 15
+base at  4 21
+
+
+
+get operand
+got I
+stackNum:  4
+name: Zhou
+stackNum:  4
+top at:  22
+bottom at:  30
+Inserting Zhou into stack number  4 at stack location 22
+base addresses: 	 4	 9	 15	 21
+top addresses: 		 4	 9	 15	 22
+oldTop addresses: 	 4	 9	 15	 21
+
+stack number  1
+Address	Name
+-------------------
+_________________
+
+stack number  2
+Address	Name
+-------------------
+_________________
+
+stack number  3
+Address	Name
+-------------------
+_________________
+
+stack number  4
+Address	Name
+-------------------
+ 22   	Zhou
+_________________
+
+
+
+
+
+get operand
+got I
+stackNum:  4
+name: Wei
+stackNum:  4
+top at:  23
+bottom at:  30
+Inserting Wei into stack number  4 at stack location 23
+base addresses: 	 4	 9	 15	 21
+top addresses: 		 4	 9	 15	 23
+oldTop addresses: 	 4	 9	 15	 21
+
+stack number  1
+Address	Name
+-------------------
+_________________
+
+stack number  2
+Address	Name
+-------------------
+_________________
+
+stack number  3
+Address	Name
+-------------------
+_________________
+
+stack number  4
+Address	Name
+-------------------
+ 22   	Zhou
+ 23   	Wei
+_________________
+
+
+
+
+
+get operand
+got I
+stackNum:  1
+name: Burris
+stackNum:  1
+top at:  5
+bottom at:  9
+Inserting Burris into stack number  1 at stack location 5
+base addresses: 	 4	 9	 15	 21
+top addresses: 		 5	 9	 15	 23
+oldTop addresses: 	 4	 9	 15	 21
+
+stack number  1
+Address	Name
+-------------------
+ 5   	Burris
+_________________
+
+stack number  2
+Address	Name
+-------------------
+_________________
+
+stack number  3
+Address	Name
+-------------------
+_________________
+
+stack number  4
+Address	Name
+-------------------
+ 22   	Zhou
+ 23   	Wei
+_________________
+
+
+
+
+
+get operand
+got I
+stackNum:  2
+name: Zhou
+stackNum:  2
+top at:  10
+bottom at:  15
+Inserting Zhou into stack number  2 at stack location 10
+base addresses: 	 4	 9	 15	 21
+top addresses: 		 5	 10	 15	 23
+oldTop addresses: 	 4	 9	 15	 21
+
+stack number  1
+Address	Name
+-------------------
+ 5   	Burris
+_________________
+
+stack number  2
+Address	Name
+-------------------
+ 10   	Zhou
+_________________
+
+stack number  3
+Address	Name
+-------------------
+_________________
+
+stack number  4
+Address	Name
+-------------------
+ 22   	Zhou
+ 23   	Wei
+_________________
+
+
+
+
+
+get operand
+got I
+stackNum:  2
+name: Shashidhar
+stackNum:  2
+top at:  11
+bottom at:  15
+Inserting Shashidhar into stack number  2 at stack location 11
+base addresses: 	 4	 9	 15	 21
+top addresses: 		 5	 11	 15	 23
+oldTop addresses: 	 4	 9	 15	 21
+
+stack number  1
+Address	Name
+-------------------
+ 5   	Burris
+_________________
+
+stack number  2
+Address	Name
+-------------------
+ 10   	Zhou
+ 11   	Shashidhar
+_________________
+
+stack number  3
+Address	Name
+-------------------
+_________________
+
+stack number  4
+Address	Name
+-------------------
+ 22   	Zhou
+ 23   	Wei
+_________________
+
+
+
+
+
+get operand
+got I
+stackNum:  3
+name: Deering
+stackNum:  3
+top at:  16
+bottom at:  21
+Inserting Deering into stack number  3 at stack location 16
+base addresses: 	 4	 9	 15	 21
+top addresses: 		 5	 11	 16	 23
+oldTop addresses: 	 4	 9	 15	 21
+
+stack number  1
+Address	Name
+-------------------
+ 5   	Burris
+_________________
+
+stack number  2
+Address	Name
+-------------------
+ 10   	Zhou
+ 11   	Shashidhar
+_________________
+
+stack number  3
+Address	Name
+-------------------
+ 16   	Deering
+_________________
+
+stack number  4
+Address	Name
+-------------------
+ 22   	Zhou
+ 23   	Wei
+_________________
+
+
+
+
+
+get operand
+got I
+stackNum:  2
+name: An
+stackNum:  2
+top at:  12
+bottom at:  15
+Inserting An into stack number  2 at stack location 12
+base addresses: 	 4	 9	 15	 21
+top addresses: 		 5	 12	 16	 23
+oldTop addresses: 	 4	 9	 15	 21
+
+stack number  1
+Address	Name
+-------------------
+ 5   	Burris
+_________________
+
+stack number  2
+Address	Name
+-------------------
+ 10   	Zhou
+ 11   	Shashidhar
+ 12   	An
+_________________
+
+stack number  3
+Address	Name
+-------------------
+ 16   	Deering
+_________________
+
+stack number  4
+Address	Name
+-------------------
+ 22   	Zhou
+ 23   	Wei
+_________________
+
+
+
+
+
+get operand
+got I
+stackNum:  2
+name: Deering
+stackNum:  2
+top at:  13
+bottom at:  15
+Inserting Deering into stack number  2 at stack location 13
+base addresses: 	 4	 9	 15	 21
+top addresses: 		 5	 13	 16	 23
+oldTop addresses: 	 4	 9	 15	 21
+
+stack number  1
+Address	Name
+-------------------
+ 5   	Burris
+_________________
+
+stack number  2
+Address	Name
+-------------------
+ 10   	Zhou
+ 11   	Shashidhar
+ 12   	An
+ 13   	Deering
+_________________
+
+stack number  3
+Address	Name
+-------------------
+ 16   	Deering
+_________________
+
+stack number  4
+Address	Name
+-------------------
+ 22   	Zhou
+ 23   	Wei
+_________________
+
+
+
+
+
+get operand
+got I
+stackNum:  3
+name: Lester
+stackNum:  3
+top at:  17
+bottom at:  21
+Inserting Lester into stack number  3 at stack location 17
+base addresses: 	 4	 9	 15	 21
+top addresses: 		 5	 13	 17	 23
+oldTop addresses: 	 4	 9	 15	 21
+
+stack number  1
+Address	Name
+-------------------
+ 5   	Burris
+_________________
+
+stack number  2
+Address	Name
+-------------------
+ 10   	Zhou
+ 11   	Shashidhar
+ 12   	An
+ 13   	Deering
+_________________
+
+stack number  3
+Address	Name
+-------------------
+ 16   	Deering
+ 17   	Lester
+_________________
+
+stack number  4
+Address	Name
+-------------------
+ 22   	Zhou
+ 23   	Wei
+_________________
+
+
+
+
+
+get operand
+got I
+stackNum:  1
+name: Yang
+stackNum:  1
+top at:  6
+bottom at:  9
+Inserting Yang into stack number  1 at stack location 6
+base addresses: 	 4	 9	 15	 21
+top addresses: 		 6	 13	 17	 23
+oldTop addresses: 	 4	 9	 15	 21
+
+stack number  1
+Address	Name
+-------------------
+ 5   	Burris
+ 6   	Yang
+_________________
+
+stack number  2
+Address	Name
+-------------------
+ 10   	Zhou
+ 11   	Shashidhar
+ 12   	An
+ 13   	Deering
+_________________
+
+stack number  3
+Address	Name
+-------------------
+ 16   	Deering
+ 17   	Lester
+_________________
+
+stack number  4
+Address	Name
+-------------------
+ 22   	Zhou
+ 23   	Wei
+_________________
+
+
+
+
+
+get operand
+got I
+stackNum:  3
+name: Smith
+stackNum:  3
+top at:  18
+bottom at:  21
+Inserting Smith into stack number  3 at stack location 18
+base addresses: 	 4	 9	 15	 21
+top addresses: 		 6	 13	 18	 23
+oldTop addresses: 	 4	 9	 15	 21
+
+stack number  1
+Address	Name
+-------------------
+ 5   	Burris
+ 6   	Yang
+_________________
+
+stack number  2
+Address	Name
+-------------------
+ 10   	Zhou
+ 11   	Shashidhar
+ 12   	An
+ 13   	Deering
+_________________
+
+stack number  3
+Address	Name
+-------------------
+ 16   	Deering
+ 17   	Lester
+ 18   	Smith
+_________________
+
+stack number  4
+Address	Name
+-------------------
+ 22   	Zhou
+ 23   	Wei
+_________________
+
+
+
+
+
+get operand
+got I
+stackNum:  2
+name: Wei
+stackNum:  2
+top at:  14
+bottom at:  15
+Inserting Wei into stack number  2 at stack location 14
+base addresses: 	 4	 9	 15	 21
+top addresses: 		 6	 14	 18	 23
+oldTop addresses: 	 4	 9	 15	 21
+
+stack number  1
+Address	Name
+-------------------
+ 5   	Burris
+ 6   	Yang
+_________________
+
+stack number  2
+Address	Name
+-------------------
+ 10   	Zhou
+ 11   	Shashidhar
+ 12   	An
+ 13   	Deering
+ 14   	Wei
+_________________
+
+stack number  3
+Address	Name
+-------------------
+ 16   	Deering
+ 17   	Lester
+ 18   	Smith
+_________________
+
+stack number  4
+Address	Name
+-------------------
+ 22   	Zhou
+ 23   	Wei
+_________________
+
+
+
+
+
+get operand
+got I
+stackNum:  2
+name: Zhou
+stackNum:  2
+top at:  15
+bottom at:  15
+Inserting Zhou into stack number  2 at stack location 15
+base addresses: 	 4	 9	 15	 21
+top addresses: 		 6	 15	 18	 23
+oldTop addresses: 	 4	 9	 15	 21
+
+stack number  1
+Address	Name
+-------------------
+ 5   	Burris
+ 6   	Yang
+_________________
+
+stack number  2
+Address	Name
+-------------------
+ 10   	Zhou
+ 11   	Shashidhar
+ 12   	An
+ 13   	Deering
+ 14   	Wei
+ 15   	Zhou
+_________________
+
+stack number  3
+Address	Name
+-------------------
+ 16   	Deering
+ 17   	Lester
+ 18   	Smith
+_________________
+
+stack number  4
+Address	Name
+-------------------
+ 22   	Zhou
+ 23   	Wei
+_________________
+
+
+
+
+
+get operand
+got I
+stackNum:  2
+name: Arcos
+stackNum:  2
+top at:  16
+bottom at:  15
+stack overflow at stack  2
+
+could not push. Reallocating.
+availSpace:  23
+top at:  23
+bottom at:  21
+ 4.08214E+00 8.58214E+00 1.27479E+01move please
+
+raised CONSTRAINT_ERROR : genericstack.adb:101 index check failed
+
+ ----jGRASP wedge: exit code for process is 1.
+ ----jGRASP: operation complete.
