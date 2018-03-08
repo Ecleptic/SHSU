@@ -35,7 +35,7 @@ package ada_main is
    pragma Export (C, main, "main");
 
    type Version_32 is mod 2 ** 32;
-   u00001 : constant Version_32 := 16#b1c37030#;
+   u00001 : constant Version_32 := 16#75b273d9#;
    pragma Export (C, u00001, "lab_02_cB");
    u00002 : constant Version_32 := 16#fbff4c67#;
    pragma Export (C, u00002, "system__standard_libraryB");
@@ -251,9 +251,9 @@ package ada_main is
    pragma Export (C, u00107, "system__stringsS");
    u00108 : constant Version_32 := 16#ed9c9b5f#;
    pragma Export (C, u00108, "system__file_control_blockS");
-   u00109 : constant Version_32 := 16#2c55e2db#;
+   u00109 : constant Version_32 := 16#9a0a7691#;
    pragma Export (C, u00109, "genericstackB");
-   u00110 : constant Version_32 := 16#31f21cc6#;
+   u00110 : constant Version_32 := 16#ec6ee11d#;
    pragma Export (C, u00110, "genericstackS");
    u00111 : constant Version_32 := 16#fd83e873#;
    pragma Export (C, u00111, "system__concat_2B");
@@ -277,38 +277,18 @@ package ada_main is
    pragma Export (C, u00120, "system__concat_5S");
    u00121 : constant Version_32 := 16#48761de3#;
    pragma Export (C, u00121, "system__fat_fltS");
-   u00122 : constant Version_32 := 16#f0df9003#;
-   pragma Export (C, u00122, "system__img_realB");
-   u00123 : constant Version_32 := 16#d7ab5015#;
-   pragma Export (C, u00123, "system__img_realS");
-   u00124 : constant Version_32 := 16#1494ba04#;
-   pragma Export (C, u00124, "system__fat_llfS");
-   u00125 : constant Version_32 := 16#1b28662b#;
-   pragma Export (C, u00125, "system__float_controlB");
-   u00126 : constant Version_32 := 16#f0ff42cb#;
-   pragma Export (C, u00126, "system__float_controlS");
-   u00127 : constant Version_32 := 16#f1f88835#;
-   pragma Export (C, u00127, "system__img_lluB");
-   u00128 : constant Version_32 := 16#c492a5f4#;
-   pragma Export (C, u00128, "system__img_lluS");
-   u00129 : constant Version_32 := 16#eef535cd#;
-   pragma Export (C, u00129, "system__img_unsB");
-   u00130 : constant Version_32 := 16#12af99c0#;
-   pragma Export (C, u00130, "system__img_unsS");
-   u00131 : constant Version_32 := 16#40736780#;
-   pragma Export (C, u00131, "system__powten_tableS");
-   u00132 : constant Version_32 := 16#7ebd8839#;
-   pragma Export (C, u00132, "system__val_intB");
-   u00133 : constant Version_32 := 16#58a62bc8#;
-   pragma Export (C, u00133, "system__val_intS");
-   u00134 : constant Version_32 := 16#b44f9ae7#;
-   pragma Export (C, u00134, "system__val_unsB");
-   u00135 : constant Version_32 := 16#9df3480c#;
-   pragma Export (C, u00135, "system__val_unsS");
-   u00136 : constant Version_32 := 16#9d39c675#;
-   pragma Export (C, u00136, "system__memoryB");
-   u00137 : constant Version_32 := 16#497e67c3#;
-   pragma Export (C, u00137, "system__memoryS");
+   u00122 : constant Version_32 := 16#7ebd8839#;
+   pragma Export (C, u00122, "system__val_intB");
+   u00123 : constant Version_32 := 16#58a62bc8#;
+   pragma Export (C, u00123, "system__val_intS");
+   u00124 : constant Version_32 := 16#b44f9ae7#;
+   pragma Export (C, u00124, "system__val_unsB");
+   u00125 : constant Version_32 := 16#9df3480c#;
+   pragma Export (C, u00125, "system__val_unsS");
+   u00126 : constant Version_32 := 16#9d39c675#;
+   pragma Export (C, u00126, "system__memoryB");
+   u00127 : constant Version_32 := 16#497e67c3#;
+   pragma Export (C, u00127, "system__memoryS");
    --  BEGIN ELABORATION ORDER
    --  ada%s
    --  ada.characters%s
@@ -321,14 +301,11 @@ package ada_main is
    --  system.atomic_counters%b
    --  system.case_util%s
    --  system.case_util%b
-   --  system.float_control%s
-   --  system.float_control%b
    --  system.htable%s
    --  system.img_bool%s
    --  system.img_bool%b
    --  system.img_int%s
    --  system.img_int%b
-   --  system.img_real%s
    --  system.io%s
    --  system.io%b
    --  system.parameters%s
@@ -336,7 +313,6 @@ package ada_main is
    --  system.crtl%s
    --  interfaces.c_streams%s
    --  interfaces.c_streams%b
-   --  system.powten_table%s
    --  system.standard_library%s
    --  system.exceptions_debug%s
    --  system.exceptions_debug%b
@@ -356,12 +332,6 @@ package ada_main is
    --  system.soft_links%s
    --  system.unsigned_types%s
    --  system.fat_flt%s
-   --  system.fat_llf%s
-   --  system.img_llu%s
-   --  system.img_llu%b
-   --  system.img_uns%s
-   --  system.img_uns%b
-   --  system.img_real%b
    --  system.val_int%s
    --  system.val_llu%s
    --  system.val_uns%s

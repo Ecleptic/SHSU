@@ -6,16 +6,12 @@ package body genericStack is
    ------------------------
    -- Reallocate Storage Algorithm
    ------------------------
-   function reallocate(stackspace: in out namesArray;
-      stackNum: in out integer;
-      name: Unbounded_String)
-      return boolean is
+   function reallocate(currentStackNumber: in out integer; name: Unbounded_String) return  boolean is
       availSpace :integer;
       totalInc: integer;
-      GrowthAllocate : float;
-      equalAllocate : float := 0.87;
-      j: integer := base'Last-1;
-      type stack is array(Integer range <>) of float;
+      GrowthAllocate : float := 0.87;
+      equalAllocate : float := 0.13;
+      j: integer := numStacks;
 
       alpha: float;
       beta: float;
@@ -24,20 +20,27 @@ package body genericStack is
 
    begin
 
+
+       -- ReA1:
+       -- avail space is the total memory - top of stack N to base of stack N
       availSpace := totalMemory - l0;
       totalInc := 0;
+      if minSpace = 0 then
+         minSpace := 1;
+      end if;
 
-      -- ReA1:
-      -- avail space is the total memory - top of stack N to base of stack N
+
       put("availSpace: "); put(Integer'Image(availSpace));
       new_line;
       put("top at: ");put(Integer'Image(top(j)));
       new_line;
       put("bottom at: "); put(Integer'Image(base(j)));
       new_line;
-      while J > 0 loop
+      while J > 0
+       loop
          availSpace := availSpace - (top(J) - base(J));
-         if top(J) > oldTop(J) then
+         if top(J) > oldTop(J)
+          then
             growth(J) := top(J) - oldTop(J);
             totalInc := totalInc + growth(J);
          else
@@ -45,106 +48,82 @@ package body genericStack is
          end if;
          J := J - 1;
       end loop;
-      -- ReA2
-      if availSpace < (minSpace - 1) then
+       -- ReA2
+      if availSpace < minSpace - 1
+       then
          put_line("memory overflowed. ending");
          return false;
       end if;
-      -- ReA3
-      GrowthAllocate := 1.0 - equalAllocate;
-      alpha := float(equalAllocate) * float(availSpace)/float(stackNum);
-      -- ReA4
+       -- ReA3
+      alpha := float(equalAllocate) * float(availSpace)/float(numStacks);
+       -- ReA4
       beta := float(GrowthAllocate) * float(availSpace) / float(totalInc);
-      -- ReA5
+       -- ReA5
       newBase(1) := base(1);
       sigma := float(0);
-      for p in 2..numStacks loop
+      for p in 2..numStacks
+       loop
          tau := sigma + alpha + float(growth(p-1))*beta;
-         put(float'image(tau));
-         newBase(p) := newBase(p-1) + top(p-1) - Base(p-1) + Integer(Float'Floor(tau)) - integer(Float'Floor(sigma));
+         newBase(p) := newBase(p-1) + top(p-1) - Base(p-1) + Integer(Float'Floor(tau)) -  integer(Float'Floor(sigma));
          sigma := tau;
       end loop;
-      -- ReA6
-      Top(stackNum) := Top(stackNum) - 1;
-     -- perform movestack
-      move(stackspace, growth, Top, Base, stackNum);
-      Top(stackNum) := Top(stackNum) + 1;
-     -- insert overflow item into top[k]
-      stackspace(Top(stackNum)) := name;
-      for J in 1..numStacks loop
-         oldTop(J) := Top(J);
-      end loop;
+       -- ReA6
+      Top(currentStackNumber) := Top(currentStackNumber) - 1;
+
+      -- perform movestack
+      move(Top, Base, numStacks);
+
+      Top(currentStackNumber) := Top(currentStackNumber) + 1;
+      -- insert overflow item into top[k]
+      stackspace(Top(currentStackNumber)) := name;
+
       return true;
    end reallocate;
 
-   ------------------------
-   -- MoveStack Algorithm
-   ------------------------
-   -- MoA1
-   procedure move(
-    stackspace: in out namesArray;
-    newBase: intArray;
-    Top: in out intArray;
-    Base: in out intArray;
-    n: integer) is
 
-      ddelta :integer;
-
+   procedure move( Top: in out intArray; Base: in out intArray; N: integer) is
+      Delt: integer;
    begin
-      put("move please" & integer'image(n));
-      For J in 2..N
-         loop
-         If newBase(j) < Base(j) then
-            dDelta := Base(j) - newBase(j);
-            For L in Base(j) + 1.. Top(j)
-               loop
-               StackSpace(l - ddelta) := StackSpace(l);
-            End loop;
-            Base(j) := newBase(j);
-            Top(j) := Top(j) - dDelta;
-         End If;
-      End Loop;
-
-         -- MoA2
-      For J in reverse 2..N
-         loop
-         If newBase(j) > Base(j) then
-            dDelta := newBase(j) - Base(j);
-            For l in reverse (Base(J)+1)..Top(J)
-            loop
-               StackSpace(l + ddelta) := StackSpace(l);
-            End loop;
-            Base(j) := newBase(j);
-            Top(j) := Top(j) + dDelta;
-         End If;
-      End Loop;
+      for J in 2..N loop
+         if newBase(J) < Base(J) then
+            Delt := Base(J) - newBase(J);
+            for L in (Base(J)+1)..Top(J) loop
+               StackSpace(L - Delt) := StackSpace(L);
+            end loop;
+            Base(J) := newBase(J);
+            Top(J) := Top(J) - Delt;
+         end if;
+      end loop;
+      for J in reverse 2..N loop
+         if newBase(J) > Base(J) then
+            Delt := newBase(J) - Base(J);
+            for L in reverse (Base(J)+1)..Top(J) loop
+               StackSpace(L + Delt) := StackSpace(L);
+            end loop;
+            Base(J) := newBase(J);
+            Top(J) := Top(J) + Delt;
+         end if;
+      end loop;
    end move;
 
 
    ------------------------
    -- Push onto Stack
    ------------------------
-   function push( stackNum: in integer;
-                  name: in Unbounded_String) return boolean is
+   function push( currentStackNumber: in integer; name: in Unbounded_String) return boolean is
    begin
       -- increment up one before starting
-      top(stackNum) := top(stackNum) + 1;
-      -- if full, return false and overflow
-      put("stackNum: "); put(Integer'Image(stackNum));
-      new_line;
-      put("top at: ");put(Integer'Image(top(stackNum)));
-      new_line;
-      put("bottom at: "); put(Integer'Image(base(stackNum+1)));
-      new_line;
+      top(currentStackNumber) := top(currentStackNumber) + 1;
 
-      if top(stackNum) > base(stackNum+1) then
-         put_line("stack overflow at stack " & Integer'Image(stackNum));
+      -- if full, return false and overflow
+      if top(currentStackNumber) > base(currentStackNumber+1) then
+         put_line("stack overflow at stack " & Integer'Image(currentStackNumber));
          new_line;
          return false;
       else
-         put("Inserting " & To_String(name)& " into stack number " & Integer'Image(stackNum) & " at stack location" & Integer'Image(top(stackNum)) );
+         put("Inserting " & To_String(name)& " into stack number " & Integer'Image(currentStackNumber) & " at stack location" & Integer'Image(top(currentStackNumber)) );
          New_Line;
-         stackspace(top(stackNum)) := name;
+         stackspace(top(currentStackNumber)) := name;
          return true;
       end if;
    end push;
@@ -152,15 +131,15 @@ package body genericStack is
    ------------------------
    -- Pop From Stack
    ------------------------
-   procedure pop(stackNum: in integer) is
+   procedure pop(currentStackNumber: in integer) is
    begin
-      if top(stackNum) = base(stackNum) then
-         put_line("stack underflow" & Integer'Image(stackNum));
+      if top(currentStackNumber) = base(currentStackNumber) then
+         put_line("stack underflow" & Integer'Image(currentStackNumber));
       else
-         put("popping from stack number " & Integer'Image(stackNum) & " " & To_String(stackspace(top(stackNum))));
+         put("popping from stack number" & Integer'Image(currentStackNumber) & " " & To_String(stackspace(top(currentStackNumber))));
          New_Line;
-         stackspace(top(stackNum)) := to_unbounded_string("empty space");
-         top(stackNum) := top(stackNum) - 1;
+         stackspace(top(currentStackNumber)) := to_unbounded_string(" ");
+         top(currentStackNumber) := top(currentStackNumber) - 1;
       end if;
    end pop;
 
