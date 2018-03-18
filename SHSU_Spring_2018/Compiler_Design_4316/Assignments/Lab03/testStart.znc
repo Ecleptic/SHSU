@@ -1,0 +1,5 @@
+program
+  var N : integer;
+  var SQRT : integer;
+begin
+  N := readInt;
