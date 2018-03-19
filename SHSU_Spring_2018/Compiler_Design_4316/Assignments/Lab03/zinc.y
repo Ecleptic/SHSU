@@ -1,74 +1,52 @@
+
 %{
+/* C code to be copied verbatim */
 #include <stdio.h>
-#include <stdlib.h>
-extern int yylex();
-extern int yyparse();
-extern FILE* yyin;
-void yyerror(const char* s);
+#include <math.h>
 %}
 
-%union {
-	int ival;
-	float fval;
-}
 
-%token<ival> T_INT
-%token<fval> T_FLOAT
-%token T_PLUS T_MINUS T_MULTIPLY T_DIVIDE T_LEFT T_RIGHT
-%token T_NEWLINE T_QUIT
-%left T_PLUS T_MINUS
-%left T_MULTIPLY T_DIVIDE
+%option noyywrap
 
-%type<ival> expression
-%type<fval> mixed_expression
 
-%start calculation
+DIV "div"
+MOD "mod"
+PROGRAM "program"
+VAR "var"
+
+
 
 %%
 
-calculation:
-	   | calculation line
-;
-
-line: T_NEWLINE
-    | mixed_expression T_NEWLINE { printf("\tResult: %f\n", $1);}
-    | expression T_NEWLINE { printf("\tResult: %i\n", $1); }
-    | T_QUIT T_NEWLINE { printf("bye!\n"); exit(0); }
-;
-
-mixed_expression: T_FLOAT                 		 { $$ = $1; }
-	  | mixed_expression T_PLUS mixed_expression	 { $$ = $1 + $3; }
-	  | mixed_expression T_MINUS mixed_expression	 { $$ = $1 - $3; }
-	  | mixed_expression T_MULTIPLY mixed_expression { $$ = $1 * $3; }
-	  | mixed_expression T_DIVIDE mixed_expression	 { $$ = $1 / $3; }
-	  | T_LEFT mixed_expression T_RIGHT		 { $$ = $2; }
-	  | expression T_PLUS mixed_expression	 	 { $$ = $1 + $3; }
-	  | expression T_MINUS mixed_expression	 	 { $$ = $1 - $3; }
-	  | expression T_MULTIPLY mixed_expression 	 { $$ = $1 * $3; }
-	  | expression T_DIVIDE mixed_expression	 { $$ = $1 / $3; }
-	  | mixed_expression T_PLUS expression	 	 { $$ = $1 + $3; }
-	  | mixed_expression T_MINUS expression	 	 { $$ = $1 - $3; }
-	  | mixed_expression T_MULTIPLY expression 	 { $$ = $1 * $3; }
-	  | mixed_expression T_DIVIDE expression	 { $$ = $1 / $3; }
-	  | expression T_DIVIDE expression		 { $$ = $1 / (float)$3; }
-;
-
-expression: T_INT				{ $$ = $1; }
-	  | expression T_PLUS expression	{ $$ = $1 + $3; }
-	  | expression T_MINUS expression	{ $$ = $1 - $3; }
-	  | expression T_MULTIPLY expression	{ $$ = $1 * $3; }
-	  | T_LEFT expression T_RIGHT		{ $$ = $2; }
-;
+[ \t\n]	; // ignore all whitespace
+[0-9]+			printf("<\"%s\", INT>\n",yytext);
+([a-z]|[A-Z])+	printf("<\"%s\", ident>\n",yytext);
+"("		        printf("<\"%s\", OPENPAREN>\n",yytext);
+")"		        printf("<\"%s\", CLOSEPAREN>\n",yytext);
+":="	        printf("<\"%s\", ASSIGNEQUAL>\n",yytext);
+";"		        printf("<\"%s\", SC>\n",yytext);
+"**"		    printf("<\"%s\", EXPONENT>\n",yytext);
+"*"		        printf("<\"%s\", MPY>\n",yytext);
+"div"		    printf("<\"%s\", DIV>\n",yytext);
+{MOD}		    printf("<\"%s\", MOD>\n",yytext);
+"+"		        printf("<\"%s\", ADD>\n",yytext);
+"-"		        printf("<\"%s\", SUBTRACT>\n",yytext);
+"="		        printf("<\"%s\", EQUALBOOL>\n",yytext);
+"<>"		    printf("<\"%s\", OPENCLOSEBRACKET>\n",yytext);
+"<"		        printf("<\"%s\", LESSTHAN>\n",yytext);
+"<="		    printf("<\"%s\", LESSEQUAL>\n",yytext);
+">"		       printf("<\"%s\", GREATERTHAN>\n",yytext);
+">="		    printf("<\"%s\", GREATEREQUAL>\n",yytext);
+{PROGRAM}		printf("<\"%s\", PROGRAM>\n",yytext);
+{VAR}		    printf("<\"%s\", VAR>\n",yytext);
 
 %%
-int main() {
-	yyin = stdin;
-	do {
-		yyparse();
-	} while(!feof(yyin));
+
+/*** C Code section ***/
+
+int main(void)
+{
+	/* Call the lexer, then quit. */
+	yylex();
 	return 0;
-}
-void yyerror(const char* s) {
-	fprintf(stderr, "Parse error: %s\n", s);
-	exit(1);
 }

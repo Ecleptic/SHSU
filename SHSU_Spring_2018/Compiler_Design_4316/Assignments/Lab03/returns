@@ -1,0 +1,55 @@
+%option noyywrap
+
+%{
+#include <stdio.h>
+
+
+
+%}
+
+%%
+
+[ \t]	; // ignore all whitespace
+[0-9]+\.[0-9]+ 	{yylval.fval = atof(yytext); return T_FLOAT;}
+/ // [0-9]+		{yylval.ival = atoi(yytext); return T_INT;}
+[0-9]+		{return INT;}
+([a-z]|[A-Z])+	{return ident;}
+\n		        {return T_NEWLINE;}
+"("		        {return OPENPAREN;}
+"("		        printf("<\"%s\", OPENPAREN>\n",yytext);
+")"		        {return CLOSEPAREN;}
+")"		        printf("<\"%s\", CLOSEPAREN>\n",yytext);
+":="	        {return ASSIGNEQUAL;}
+":="	        printf("<\"%s\", ASSIGNEQUAL>\n",yytext);
+";"		        {return SC;}
+";"		        printf("<\"%s\", SC>\n",yytext);
+"**"		    {return EXPONENT;}
+"**"		    printf("<\"%s\", EXPONENT>\n",yytext);
+"*"		        {return MPY;}
+"*"		        printf("<\"%s\", MPY>\n",yytext);
+"div"		    {return DIV;}
+"div"		    printf("<\"%s\", DIV>\n",yytext);
+"mod"		    {return MOD;}
+"mod"		    printf("<\"%s\", MOD>\n",yytext);
+"+"		        {return ADD;}
+"+"		        printf("<\"%s\", ADD>\n",yytext);
+"-"		        {return SUBTRACT;}
+"-"		        printf("<\"%s\", SUBTRACT>\n",yytext);
+"="		        {return EQUALBOOL;}
+"="		        printf("<\"%s\", EQUALBOOL>\n",yytext);
+"<>"		    {return OPENCLOSEBRACKET;}
+"<>"		    printf("<\"%s\", OPENCLOSEBRACKET>\n",yytext);
+"<"		        {return LESSTHAN;}
+"<"		        printf("<\"%s\", LESSTHAN>\n",yytext);
+"<="		    {return LESSEQUAL;}
+"<="		    printf("<\"%s\", LESSEQUAL>\n",yytext);
+">"		        {return GREATERTHAN;}
+">"		       printf("<\"%s\", GREATERTHAN>\n",yytext);
+">="		    {return GREATEREQUAL;}
+">="		    printf("<\"%s\", GREATEREQUAL>\n",yytext);
+"program"		{return PROGRAM;}
+"program"		printf("<\"%s\", PROGRAM>\n",yytext);
+"var"		    {return VAR;}
+"var"		    printf("<\"%s\", VAR>\n",yytext);
+
+%%
