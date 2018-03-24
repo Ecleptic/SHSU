@@ -11,7 +11,7 @@ begin
   endwhile;
 
   SQRT := SQRT - 1; -- subtract one SQRT is <= sqrt(N)
-
+  p := nope;
   writeInt(SQRT);
 
 end

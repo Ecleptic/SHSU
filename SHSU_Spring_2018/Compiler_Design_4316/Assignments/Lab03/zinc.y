@@ -1,52 +1,64 @@
-
 %{
-/* C code to be copied verbatim */
 #include <stdio.h>
-#include <math.h>
+#include <ctype.h>
+/* #include <malloc.h> */
+#include <string.h>
+#include <stdlib.h>
+
+#define yycode printf
+
+#define YYSTYPE char*
+char * gen_label();
+
 %}
 
+%token NUM
+%token IDENT
 
-%option noyywrap
+%token LP
+%token RP
+%token ASGN
+%token SC
+%token COLON
+%token POWER
+%token MULTIPLICATIVE
+%token ADDITIVE
+%token COMPARE
+%token IF
+%token THEN
+%token ELSE
+%token BEGIN
+%token END
+%token ENDIF
+%token ENDWHILE
+%token WHILE
+%token LOOP
+%token PROGRAM
+%token VAR
+%token INT
+%token WRITEINT
+%token READINT
+%token COMMENT
 
 
-DIV "div"
-MOD "mod"
-PROGRAM "program"
-VAR "var"
-
-
-
-%%
-
-[ \t\n]	; // ignore all whitespace
-[0-9]+			printf("<\"%s\", INT>\n",yytext);
-([a-z]|[A-Z])+	printf("<\"%s\", ident>\n",yytext);
-"("		        printf("<\"%s\", OPENPAREN>\n",yytext);
-")"		        printf("<\"%s\", CLOSEPAREN>\n",yytext);
-":="	        printf("<\"%s\", ASSIGNEQUAL>\n",yytext);
-";"		        printf("<\"%s\", SC>\n",yytext);
-"**"		    printf("<\"%s\", EXPONENT>\n",yytext);
-"*"		        printf("<\"%s\", MPY>\n",yytext);
-"div"		    printf("<\"%s\", DIV>\n",yytext);
-{MOD}		    printf("<\"%s\", MOD>\n",yytext);
-"+"		        printf("<\"%s\", ADD>\n",yytext);
-"-"		        printf("<\"%s\", SUBTRACT>\n",yytext);
-"="		        printf("<\"%s\", EQUALBOOL>\n",yytext);
-"<>"		    printf("<\"%s\", OPENCLOSEBRACKET>\n",yytext);
-"<"		        printf("<\"%s\", LESSTHAN>\n",yytext);
-"<="		    printf("<\"%s\", LESSEQUAL>\n",yytext);
-">"		       printf("<\"%s\", GREATERTHAN>\n",yytext);
-">="		    printf("<\"%s\", GREATEREQUAL>\n",yytext);
-{PROGRAM}		printf("<\"%s\", PROGRAM>\n",yytext);
-{VAR}		    printf("<\"%s\", VAR>\n",yytext);
 
 %%
 
-/*** C Code section ***/
-
-int main(void)
+%%
+#include "lex.yy.c"
+char *gen_label()
 {
-	/* Call the lexer, then quit. */
-	yylex();
-	return 0;
+    static int i = 1000;
+    char *temp = malloc(5);
+    sprintf(temp,"%04d",i++);
+    return temp;
 }
+
+yyerror(char *s)
+{
+    printf("%s\n", s);
+}
+
+main()
+{
+    yyparse();
