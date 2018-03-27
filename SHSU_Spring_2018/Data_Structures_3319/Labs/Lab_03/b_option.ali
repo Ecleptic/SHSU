@@ -1,0 +1,149 @@
+V "GNAT Lib v2015"
+M P W=b
+A -g
+P SS ZX
+
+RN
+RV NO_DISPATCHING_CALLS
+RV NO_ENUMERATION_MAPS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTIONS
+RV NO_IO
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_CONVERSION
+RV SPARK_05
+
+U b_option%b		b_option.adb		fc089494 NE OO SU
+W ada%s			ada.ads			ada.ali
+W ada.exceptions%s	a-except.adb		a-except.ali
+W ada.streams%s		a-stream.adb		a-stream.ali
+W ada.strings%s		a-string.ads		a-string.ali
+W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+Z ada.text_io.enumeration_aux%s  a-tienau.adb	a-tienau.ali
+W ada.text_io.enumeration_io%s
+Z ada.text_io.integer_aux%s  a-tiinau.adb	a-tiinau.ali
+W ada.text_io.integer_io%s
+W compstkg%s		compstkg.adb		compstkg.ali
+W interfaces%s		interfac.ads		interfac.ali
+W system%s		system.ads		system.ali
+W system.address_image%s  s-addima.adb		s-addima.ali
+W system.concat_2%s	s-conca2.adb		s-conca2.ali
+W system.img_enum_new%s	s-imenne.adb		s-imenne.ali
+W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+W system.storage_elements%s  s-stoele.adb	s-stoele.ali
+W system.stream_attributes%s  s-stratt.adb	s-stratt.ali
+W system.val_enum%s	s-valenu.adb		s-valenu.ali
+W unchecked_conversion%s
+
+D ada.ads		20150506105328 3ffc8e18 ada%s
+D a-charac.ads		20150506105330 2d3ec45b ada.characters%s
+D a-chlat1.ads		20150506105329 66457d31 ada.characters.latin_1%s
+D a-except.ads		20150506105328 5250cb69 ada.exceptions%s
+D a-finali.ads		20150506105331 69f99942 ada.finalization%s
+D a-inteio.ads		20150506105332 f64b89a4 ada.integer_text_io%s
+D a-ioexce.ads		20150506105327 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20150506105329 119b8fb3 ada.streams%s
+D a-string.ads		20150506105330 90ac6797 ada.strings%s
+D a-strmap.ads		20150506105329 e8bb714a ada.strings.maps%s
+D a-strunb.ads		20150506105327 3f91d4c5 ada.strings.unbounded%s
+D a-tags.ads		20150506105332 dc4d0634 ada.tags%s
+D a-textio.ads		20150506105332 386df5d4 ada.text_io%s
+D a-tienau.ads		20150506105328 6a9c157b ada.text_io.enumeration_aux%s
+D a-tienio.ads		20150506105327 fc618ae6 ada.text_io.enumeration_io%s
+D a-tienio.adb		20150506105330 c9e6b5af ada.text_io.enumeration_io%b
+D a-tiinau.ads		20150506105329 8114c8e4 ada.text_io.integer_aux%s
+D a-tiinio.ads		20150506105328 aa04e5d6 ada.text_io.integer_io%s
+D a-tiinio.adb		20150506105329 df9cd7af ada.text_io.integer_io%b
+D a-unccon.ads		20150506105331 f9eb8f06 ada.unchecked_conversion%s
+D a-uncdea.ads		20150506105330 f15a5ed1 ada.unchecked_deallocation%s
+D b_option.adb		20180327024033 bf8593e9 b_option%b
+D compstkg.ads		20180326175538 8e5eb874 compstkg%s
+D compstkg.adb		20180327021928 c5ea9172 compstkg%b
+D interfac.ads		20150506105327 6033a23f interfaces%s
+D i-cstrea.ads		20150506105327 e53d8b8e interfaces.c_streams%s
+D system.ads		20150506105331 100301f7 system%s
+D s-addima.ads		20150506105328 a1ec9d3a system.address_image%s
+D s-atocou.ads		20150506105332 cd7c94ca system.atomic_counters%s
+D s-conca2.ads		20150506105329 02a0d7d0 system.concat_2%s
+D s-crtl.ads		20150506105326 0ebbdb71 system.crtl%s
+D s-exctab.ads		20150506105331 54135002 system.exception_table%s
+D s-ficobl.ads		20150506105333 078245e4 system.file_control_block%s
+D s-finmas.ads		20150506105330 814daec4 system.finalization_masters%s
+D s-finroo.ads		20150506105331 4ff27390 system.finalization_root%s
+D s-imenne.ads		20150506105328 614c06c0 system.img_enum_new%s
+D s-parame.ads		20150506105331 7e2a0d7f system.parameters%s
+D s-secsta.ads		20150506105331 86a2856d system.secondary_stack%s
+D s-soflin.ads		20150506105328 aa763b52 system.soft_links%s
+D s-stache.ads		20150506105332 a37c21ec system.stack_checking%s
+D s-stalib.ads		20150506105331 fa0a3617 system.standard_library%s
+D s-stoele.ads		20150506105332 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20150506105330 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20150506105328 b16154c2 system.storage_pools%s
+D s-stposu.ads		20150506105327 97a6219c system.storage_pools.subpools%s
+D s-stratt.ads		20150506105327 aedef97e system.stream_attributes%s
+D s-traent.ads		20150506105327 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20150506105330 9d58a4c0 system.unsigned_types%s
+D s-valenu.ads		20150506105331 bb1a4295 system.val_enum%s
+D s-wchcon.ads		20150506105330 1b7d22d2 system.wch_con%s
+D unchconv.ads		20150506105326 ca2f9e18 unchecked_conversion%s
+X 1 ada.ads
+16K9*Ada 19e8 22|6r6 6r23 7r6 7r33 13r25 17r10
+X 9 a-string.ads
+16K13*Strings 35e16 22|7r10 7r37
+X 11 a-strunb.ads
+76K21*Unbounded 489e26 22|7w18 7r45
+X 13 a-textio.ads
+49K13*Text_IO 471e16 22|6w10 6r27 13r29 17r14
+242U14*Put 22|27s7 29s7 31s7
+263U14*Put_Line 22|60s4
+X 15 a-tienio.ads
+26k21*Enumeration_IO 55e31 22|17r22
+40U14 Put 22|28s7[16]
+X 18 a-tiinio.ads
+46k21*Integer_IO 85e27 22|13r37
+66U14 Put 22|30s7[13] 32s7[13]
+X 22 b_option.adb
+12U11*B_Option 12b11 62l5 62t13
+13K12 IntIO[18|46] 14r8
+15E9 MonthName 15e82 17r37 20r17
+15n23 Jan{15E9}
+15n28 Feb{15E9}
+15n33 Mar{15E9}
+15n38 Apr{15E9}
+15n43 May{15E9}
+15n48 Jun{15E9}
+15n53 Jul{15E9}
+15n58 Aug{15E9}
+15n63 Sep{15E9}
+15n68 Oct{15E9}
+15n73 Nov{15E9}
+15n78 Dec{15E9}
+16K12 MonthNameIO[15|26] 18r8
+19R9 Date 23e17 25r31
+20e10 Month{15E9} 28r17
+21i10 Day{integer} 30r17
+22i10 Year{integer} 32r17
+25U14 PrintDate 25b14 25>24 33l8 33t17
+25r24 aDate{19R9} 28r11 30r11 32r11
+35E9 carMakes 35e67 39r16
+35n22 Ford{35E9}
+35n28 GMC{35E9}
+35n33 RAM{35E9}
+35n38 Chevy{35E9}
+35n46 Boeing{35E9}
+35n54 Piper{35E9}
+35n61 Cesna{35E9}
+38R9 car 42e17 44r22
+39e10 make{35E9}
+40i10 doors{integer}
+44R9 plane<38R9> 46e17
+45i10 engines{integer}
+X 23 compstkg.ads
+4k9*CompStkg 22|8w6 23|17e13
+X 51 unchconv.ads
+20v10*Unchecked_Conversion 22|9w6
+

@@ -1,0 +1,72 @@
+V "GNAT Lib v2015"
+A -g
+P ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_IO
+RV NO_LOCAL_ALLOCATORS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_DEALLOCATION
+RV SPARK_05
+
+U compstkg%b		compstkg.adb		74c80ba7 NE OO PK GE
+W ada%s			ada.ads			ada.ali
+W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W ada.unchecked_deallocation%s
+
+U compstkg%s		compstkg.ads		7f04e6a5 BN EE NE OO PK GE
+W ada%s			ada.ads			ada.ali
+W ada.unchecked_deallocation%s
+
+D ada.ads		20150506105328 3ffc8e18 ada%s
+D a-except.ads		20150506105328 5250cb69 ada.exceptions%s
+D a-inteio.ads		20150506105332 f64b89a4 ada.integer_text_io%s
+D a-ioexce.ads		20150506105327 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20150506105329 119b8fb3 ada.streams%s
+D a-tags.ads		20150506105332 dc4d0634 ada.tags%s
+D a-textio.ads		20150506105332 386df5d4 ada.text_io%s
+D a-tiinio.ads		20150506105328 aa04e5d6 ada.text_io.integer_io%s
+D a-unccon.ads		20150506105331 f9eb8f06 ada.unchecked_conversion%s
+D a-uncdea.ads		20150506105330 f15a5ed1 ada.unchecked_deallocation%s
+D compstkg.ads		20180326175538 8e5eb874 compstkg%s
+D compstkg.adb		20180327021928 c5ea9172 compstkg%b
+D interfac.ads		20150506105327 6033a23f interfaces%s
+D i-cstrea.ads		20150506105327 e53d8b8e interfaces.c_streams%s
+D system.ads		20150506105331 100301f7 system%s
+D s-crtl.ads		20150506105326 0ebbdb71 system.crtl%s
+D s-exctab.ads		20150506105331 54135002 system.exception_table%s
+D s-ficobl.ads		20150506105333 078245e4 system.file_control_block%s
+D s-parame.ads		20150506105331 7e2a0d7f system.parameters%s
+D s-soflin.ads		20150506105328 aa763b52 system.soft_links%s
+D s-stache.ads		20150506105332 a37c21ec system.stack_checking%s
+D s-stalib.ads		20150506105331 fa0a3617 system.standard_library%s
+D s-stoele.ads		20150506105332 2dc34a04 system.storage_elements%s
+D s-traent.ads		20150506105327 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20150506105330 9d58a4c0 system.unsigned_types%s
+D s-wchcon.ads		20150506105330 1b7d22d2 system.wch_con%s
+X 1 ada.ads
+16K9*Ada 19e8 11|1r6 12|1r6 1r19 1r40 5r27
+X 3 a-inteio.ads
+18K13*Integer_Text_IO[8|46] 12|1w23
+X 7 a-textio.ads
+49K13*Text_IO 471e16 12|1w10
+X 10 a-uncdea.ads
+20u15*Unchecked_Deallocation 11|1w10 12|1w44 5r31
+X 11 compstkg.ads
+3+6 MyType 5r23 6r25 14r17 12|9r22 14r24 15r10
+4k9*CompStkg 3z6 10E10 17l5 17e13 12|2b14 24l5 24t13
+5U15*Push 5>20 12|9b14 12l8 12t12
+5*20 X{3+6} 12|9b19 11r25
+6V14*Pop{3+6} 12|14b13 22l8 22t11
+10R10 Node 11r28 13c10 16e15 12|5r54 11r19
+11P10 NodePtr(10R10) 15r15 12|5r60 7r14
+14*9 MyData{3+6} 12|17r17
+15p9 Next{11P10} 12|19r20
+X 12 compstkg.adb
+5U14 Free[10|20] 20s7
+7p4 Head{11|11P10} 11m7 11r28 17r12 18r13 19m7 19r15
+7p10 pt{11|11P10} 18m7 20m12 20r12
+15*7 X{11|3+6} 17m7 21r14
+
