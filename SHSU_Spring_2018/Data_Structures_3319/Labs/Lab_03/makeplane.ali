@@ -1,5 +1,4 @@
 V "GNAT Lib v2015"
-M P W=b
 A -g
 P SS ZX
 
@@ -9,55 +8,47 @@ RV NO_EXCEPTION_HANDLERS
 RV NO_EXCEPTIONS
 RV NO_IO
 RV NO_IMPLICIT_CONDITIONALS
+RV NO_IMPLICIT_LOOPS
 RV NO_SECONDARY_STACK
 RV NO_STANDARD_STORAGE_POOLS
-RV NO_UNCHECKED_CONVERSION
+RV NO_ELABORATION_CODE
 RV SPARK_05
 
-U b_option%b		b_option.adb		0d253ad7 NE OO SU
+U makeplane%b		makeplane.adb		8acd6c9f OO PK
 W abststck%s		abststck.adb		abststck.ali
 W ada%s			ada.ads			ada.ali
 W ada.exceptions%s	a-except.adb		a-except.ali
-W ada.streams%s		a-stream.adb		a-stream.ali
-W ada.strings%s		a-string.ads		a-string.ali
-W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
-W ada.tags%s		a-tags.adb		a-tags.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
-W compstkg%s		compstkg.adb		compstkg.ali
+Z ada.text_io.integer_aux%s  a-tiinau.adb	a-tiinau.ali
+W ada.text_io.integer_io%s
+
+U makeplane%s		makeplane.ads		2ad96cf8 EE OO PF PK
+W abststck%s		abststck.adb		abststck.ali
+W ada.exceptions%s	a-except.adb		a-except.ali
+W ada.streams%s		a-stream.adb		a-stream.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
 W system%s		system.ads		system.ali
-W system.address_image%s  s-addima.adb		s-addima.ali
-W system.concat_2%s	s-conca2.adb		s-conca2.ali
 W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 W system.storage_elements%s  s-stoele.adb	s-stoele.ali
 W system.stream_attributes%s  s-stratt.adb	s-stratt.ali
-W unchecked_conversion%s
 
 D abststck.ads		20180329003718 bba65ae9 abststck%s
 D ada.ads		20150506105328 3ffc8e18 ada%s
-D a-charac.ads		20150506105330 2d3ec45b ada.characters%s
-D a-chlat1.ads		20150506105329 66457d31 ada.characters.latin_1%s
 D a-except.ads		20150506105328 5250cb69 ada.exceptions%s
 D a-finali.ads		20150506105331 69f99942 ada.finalization%s
-D a-inteio.ads		20150506105332 f64b89a4 ada.integer_text_io%s
 D a-ioexce.ads		20150506105327 e4a01f64 ada.io_exceptions%s
 D a-stream.ads		20150506105329 119b8fb3 ada.streams%s
-D a-string.ads		20150506105330 90ac6797 ada.strings%s
-D a-strmap.ads		20150506105329 e8bb714a ada.strings.maps%s
-D a-strunb.ads		20150506105327 3f91d4c5 ada.strings.unbounded%s
 D a-tags.ads		20150506105332 dc4d0634 ada.tags%s
 D a-textio.ads		20150506105332 386df5d4 ada.text_io%s
+D a-tiinau.ads		20150506105329 8114c8e4 ada.text_io.integer_aux%s
 D a-tiinio.ads		20150506105328 aa04e5d6 ada.text_io.integer_io%s
+D a-tiinio.adb		20150506105329 df9cd7af ada.text_io.integer_io%b
 D a-unccon.ads		20150506105331 f9eb8f06 ada.unchecked_conversion%s
-D a-uncdea.ads		20150506105330 f15a5ed1 ada.unchecked_deallocation%s
-D b_option.adb		20180329003806 f50e6743 b_option%b
-D compstkg.ads		20180326175538 8e5eb874 compstkg%s
-D compstkg.adb		20180327021928 c5ea9172 compstkg%b
 D interfac.ads		20150506105327 6033a23f interfaces%s
 D i-cstrea.ads		20150506105327 e53d8b8e interfaces.c_streams%s
+D makeplane.ads		20180329233901 917f3611 makeplane%s
+D makeplane.adb		20180329233324 9879f5b3 makeplane%b
 D system.ads		20150506105331 100301f7 system%s
-D s-addima.ads		20150506105328 a1ec9d3a system.address_image%s
-D s-atocou.ads		20150506105332 cd7c94ca system.atomic_counters%s
-D s-conca2.ads		20150506105329 02a0d7d0 system.concat_2%s
 D s-crtl.ads		20150506105326 0ebbdb71 system.crtl%s
 D s-exctab.ads		20150506105331 54135002 system.exception_table%s
 D s-ficobl.ads		20150506105333 078245e4 system.file_control_block%s
@@ -72,50 +63,47 @@ D s-stalib.ads		20150506105331 fa0a3617 system.standard_library%s
 D s-stoele.ads		20150506105332 2dc34a04 system.storage_elements%s
 D s-stoele.adb		20150506105330 ed88f8fb system.storage_elements%b
 D s-stopoo.ads		20150506105328 b16154c2 system.storage_pools%s
-D s-stposu.ads		20150506105327 97a6219c system.storage_pools.subpools%s
 D s-stratt.ads		20150506105327 aedef97e system.stream_attributes%s
 D s-traent.ads		20150506105327 005bf670 system.traceback_entries%s
 D s-unstyp.ads		20150506105330 9d58a4c0 system.unsigned_types%s
 D s-wchcon.ads		20150506105330 1b7d22d2 system.wch_con%s
-D unchconv.ads		20150506105326 ca2f9e18 unchecked_conversion%s
 X 1 abststck.ads
-2K9*AbstStck 26e13 18|9w6
+2K9*AbstStck 26e13 15|2w6 6r22 16|2w41
+5R9*AbstractStackElement 20e17 15|6r31
 X 2 ada.ads
-16K9*Ada 19e8 18|6r6 6r23 7r6 7r33
-X 10 a-string.ads
-16K13*Strings 35e16 18|7r10 7r37
-X 12 a-strunb.ads
-76K21*Unbounded 489e26 18|7w18 7r45
-X 14 a-textio.ads
-49K13*Text_IO 471e16 18|6w10 6r27
-263U14*Put_Line 18|33s4
-X 18 b_option.adb
-13U11*B_Option 13b11 35l5 35t13
-14E9 carMakes 14e67 22r16
-14n22 Ford{14E9}
-14n28 GMC{14E9}
-14n33 RAM{14E9}
-14n38 Chevy{14E9}
-14n46 Boeing{14E9}
-14n54 Piper{14E9}
-14n61 Cesna{14E9}
-15E9 planeMakes 15e69 27r16
-15n24 Ford{15E9}
-15n30 GMC{15E9}
-15n35 RAM{15E9}
-15n40 Chevy{15E9}
-15n48 Boeing{15E9}
-15n56 Piper{15E9}
-15n63 Cesna{15E9}
-16R9 vehicle 18e17 21r20 26r22
-17i10 doors{integer}
-21R9 car<16R9> 23e17
-22e10 make{14E9}
-26R9 plane<16R9> 29e17
-27e10 make{15E9}
-28i10 engines{integer}
-X 19 compstkg.ads
-4k9*CompStkg 18|8w6 19|17e13
-X 46 unchconv.ads
-20v10*Unchecked_Conversion 18|10w6
+16K9*Ada 19e8 16|2r6 2r23 5r26
+X 8 a-textio.ads
+49K13*Text_IO 471e16 16|2w10 2r27 5r30
+166U14*New_Line 16|35s9 38s9 41s9 52s9
+208U14*Put 16|27s13
+242U14*Put 16|33s9 36s9 39s9 46s9 48s9 50s9
+X 10 a-tiinio.ads
+46k21*Integer_IO 85e27 16|5r38
+66U14*Put 16|34s9[5] 37s9[5] 47s9[5] 49s9[5]
+X 15 makeplane.ads
+4K9*MakePlane 19l5 19e14 16|3b14 55l5 55t14
+5A9*String8<string>(character)<integer> 9r24 13r64 15r35 16|13r65 23r36
+6R9*Plane<1|5R9> 10e17 12p14 12r44 13p14 13r48 14p14 14r46 16p14 16r36 17p14
+. 17r41 16|8r45 13r49 18r47 31r37 44r42
+7i10*NumDoors{integer} 16|10m16 34r20 47r20
+8i10*NumEngines{integer} 16|20m16 37r20 49r20
+9a10*Manufacturer{5A9} 16|15m16 40r29 51r29
+12U14*AssignNumDoors 12=29 12>51 16|8b15 11l9 11t23
+12r29 aPlane{6R9} 16|8b30 10m9
+12i51 N{integer} 16|8b52 10r28
+13U14*AssignManufacturer 13=33 13>55 16|13b15 16l9 16t27
+13r33 aPlane{6R9} 16|13b34 15m9
+13a55 Manu{5A9} 16|13b56 15r32
+14U14*AssignNumEngines 14=31 14>53 16|18b15 21l9 21t25
+14r31 aPlane{6R9} 16|18b32 20m9
+14i53 NE{integer} 16|18b54 20r30
+15U14*PrintString8 15>27 16|23b15 29l9 29t21 40s9 51s9
+15a27 PrtStr{5A9} 16|23b28 27r17
+16U14*PrintPlane 16>25 16|31b15 42l9 42t19
+16r25 aPlane{6R9} 16|31b26 34r13 37r13 40r22
+17U14*IdentifyVehicle 17>30 16|44b15 53l9 53t24
+17r30 aPlane{6R9} 16|44b31 47r13 49r13 51r22
+X 16 makeplane.adb
+5K13 IntIO[10|46] 6r9
+25i13 I{integer} 27r24
 

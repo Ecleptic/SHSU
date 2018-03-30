@@ -1,0 +1,86 @@
+V "GNAT Lib v2015"
+A -g
+P SS ZX
+
+RN
+RV NO_DISPATCH
+RV NO_DISPATCHING_CALLS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTIONS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_ELABORATION_CODE
+RV SPARK_05
+
+U abststck%b		abststck.adb		06c08e91 NE OO PK
+W ada.tags%s		a-tags.adb		a-tags.ali
+
+U abststck%s		abststck.ads		bba65ae9 EE OO PF PK
+W ada.exceptions%s	a-except.adb		a-except.ali
+W ada.streams%s		a-stream.adb		a-stream.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
+W system%s		system.ads		system.ali
+W system.finalization_masters%s  s-finmas.adb	s-finmas.ali
+W system.pool_global%s	s-pooglo.adb		s-pooglo.ali
+W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+W system.soft_links%s	s-soflin.adb		s-soflin.ali
+W system.standard_library%s  s-stalib.adb	s-stalib.ali
+W system.storage_elements%s  s-stoele.adb	s-stoele.ali
+W system.stream_attributes%s  s-stratt.adb	s-stratt.ali
+
+D abststck.ads		20180329003718 bba65ae9 abststck%s
+D abststck.adb		20180329003746 bd66d478 abststck%b
+D ada.ads		20150506105328 3ffc8e18 ada%s
+D a-except.ads		20150506105328 5250cb69 ada.exceptions%s
+D a-finali.ads		20150506105331 69f99942 ada.finalization%s
+D a-stream.ads		20150506105329 119b8fb3 ada.streams%s
+D a-tags.ads		20150506105332 dc4d0634 ada.tags%s
+D a-unccon.ads		20150506105331 f9eb8f06 ada.unchecked_conversion%s
+D system.ads		20150506105331 100301f7 system%s
+D s-exctab.ads		20150506105331 54135002 system.exception_table%s
+D s-finmas.ads		20150506105330 814daec4 system.finalization_masters%s
+D s-finroo.ads		20150506105331 4ff27390 system.finalization_root%s
+D s-memory.ads		20150506105329 597d6634 system.memory%s
+D s-parame.ads		20150506105331 7e2a0d7f system.parameters%s
+D s-pooglo.ads		20150506105326 542f33d0 system.pool_global%s
+D s-secsta.ads		20150506105331 86a2856d system.secondary_stack%s
+D s-soflin.ads		20150506105328 aa763b52 system.soft_links%s
+D s-stache.ads		20150506105332 a37c21ec system.stack_checking%s
+D s-stalib.ads		20150506105331 fa0a3617 system.standard_library%s
+D s-stalib.adb		20150506105326 f2fe2716 system.standard_library%b
+D s-stoele.ads		20150506105332 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20150506105330 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20150506105328 b16154c2 system.storage_pools%s
+D s-stratt.ads		20150506105327 aedef97e system.stream_attributes%s
+D s-traent.ads		20150506105327 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20150506105330 9d58a4c0 system.unsigned_types%s
+X 1 abststck.ads
+2K9*AbstStck 17E9 26l5 26e13 2|2b14 27l5 27t13
+3R9*AbstractStack 11r33 12r33 13r31 21c9 25e17 2|3r33 10r31 23r30
+5R9*AbstractStackElement 7r20 17c9 20e17
+6P9*AbstractStackElementPtr(5R9) 11r54 12r55 19r16 24r15 2|3r54 4r11 10r53
+. 11r11
+11U14*Push 11^19 11>48 2|3b14 9l8 9t12
+11p19 Stack(3R9) 2|3b19 6r17 7r7 8r7 8r22
+11p48 Y{6P9} 2|3b48 6r7 7r20
+12V15*Pop{6P9} 12^19 2|10b13 21l8 21t11
+12p19 Stack(3R9) 2|10b17 13r10 17r7 17r22 18r13 19r7 19r20
+13V14*StackSize{integer} 13>24 2|23b13 26l8 26t17
+13r24 Stack{3R9} 2|23b23 25r14
+19p10*Next{6P9} 2|6m9 19r30
+23i10*Count{integer} 2|8m13 8r28 17m13 17r28 25r20
+24p10*Top{6P9} 2|6r23 7m13 13r16 18r19 19m13 19r26
+X 2 abststck.adb
+4p7 Pt{1|6P9}
+11p7 Pt{1|6P9} 18m7 20r14
+X 9 system.ads
+67M9*Address
+X 13 s-memory.ads
+53V13*Alloc{9|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{9|67M9} 105i<c,__gnat_realloc>22
+X 20 s-stalib.adb
+93U14 Break_Start 94i<c,__gnat_break_start>22
+

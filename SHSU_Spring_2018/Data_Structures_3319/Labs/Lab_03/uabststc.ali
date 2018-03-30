@@ -1,0 +1,95 @@
+V "GNAT Lib v2015"
+M P W=b
+A -g
+P SS ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_DISPATCH
+RV NO_DISPATCHING_CALLS
+RV NO_IO
+RV NO_LOCAL_ALLOCATORS
+RV NO_STANDARD_ALLOCATORS_AFTER_ELABORATION
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DEFAULT_INITIALIZATION
+RV SPARK_05
+
+U uabststc%b		uabststc.adb		34f40bad NE OO SU
+W abststck%s		abststck.adb		abststck.ali
+W ada%s			ada.ads			ada.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W makecar%s		makecar.adb		makecar.ali
+W makeplane%s		makeplane.adb		makeplane.ali
+W system%s		system.ads		system.ali
+W system.storage_elements%s  s-stoele.adb	s-stoele.ali
+W system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
+W system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
+
+D abststck.ads		20180329003718 bba65ae9 abststck%s
+D ada.ads		20150506105328 3ffc8e18 ada%s
+D a-except.ads		20150506105328 5250cb69 ada.exceptions%s
+D a-finali.ads		20150506105331 69f99942 ada.finalization%s
+D a-ioexce.ads		20150506105327 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20150506105329 119b8fb3 ada.streams%s
+D a-tags.ads		20150506105332 dc4d0634 ada.tags%s
+D a-textio.ads		20150506105332 386df5d4 ada.text_io%s
+D a-unccon.ads		20150506105331 f9eb8f06 ada.unchecked_conversion%s
+D interfac.ads		20150506105327 6033a23f interfaces%s
+D i-cstrea.ads		20150506105327 e53d8b8e interfaces.c_streams%s
+D makecar.ads		20180329225657 02ae8cf2 makecar%s
+D makeplane.ads		20180329233901 917f3611 makeplane%s
+D system.ads		20150506105331 100301f7 system%s
+D s-crtl.ads		20150506105326 0ebbdb71 system.crtl%s
+D s-exctab.ads		20150506105331 54135002 system.exception_table%s
+D s-ficobl.ads		20150506105333 078245e4 system.file_control_block%s
+D s-finmas.ads		20150506105330 814daec4 system.finalization_masters%s
+D s-finroo.ads		20150506105331 4ff27390 system.finalization_root%s
+D s-parame.ads		20150506105331 7e2a0d7f system.parameters%s
+D s-pooglo.ads		20150506105326 542f33d0 system.pool_global%s
+D s-secsta.ads		20150506105331 86a2856d system.secondary_stack%s
+D s-soflin.ads		20150506105328 aa763b52 system.soft_links%s
+D s-stache.ads		20150506105332 a37c21ec system.stack_checking%s
+D s-stalib.ads		20150506105331 fa0a3617 system.standard_library%s
+D s-stoele.ads		20150506105332 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20150506105330 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20150506105328 b16154c2 system.storage_pools%s
+D s-stposu.ads		20150506105327 97a6219c system.storage_pools.subpools%s
+D s-stratt.ads		20150506105327 aedef97e system.stream_attributes%s
+D s-traent.ads		20150506105327 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20150506105330 9d58a4c0 system.unsigned_types%s
+D s-wchcon.ads		20150506105330 1b7d22d2 system.wch_con%s
+D uabststc.adb		20180329233520 24ee1e73 uabststc%b
+X 1 abststck.ads
+2K9*AbstStck 26e13 34|35w6 35r20
+3R9*AbstractStack 25e17 34|39r29 40r35
+5R9*AbstractStackElement 20e17 34|45r23 48r27
+6P9*AbstractStackElementPtr(5R9) 34|42r48
+11U14*Push 34|46s4 49s4
+12V15*Pop{6P9} 34|53s20
+13V14*StackSize{integer} 34|51s16
+X 2 ada.ads
+16K9*Ada 19e8 34|34r6 34r23
+X 8 a-textio.ads
+49K13*Text_IO 471e16 34|34w10 34r27
+166U14*New_Line 34|61s7
+X 12 makecar.ads
+4K9*MakeCar 18e12 34|36w6 36r30
+7R10*Car<1|5R9> 10e15 34|45r18 54r27 56r26
+16U15*IdentifyVehicle 34|56R10
+X 13 makeplane.ads
+4K9*MakePlane 19e14 34|36w15 36r39
+6R9*Plane<1|5R9> 10e17 34|48r20 57r30 59r26
+17U14*IdentifyVehicle 34|59R10
+X 34 uabststc.adb
+38U11*UAbstStc 38b11 64l5 64t13
+39P9 Stack_Ptr(1|3R9) 40r18 41r16
+40p4 VehicleStack{39P9} 46r9 49r9 51r26 53r24
+41p4 StackPoint{39P9}
+42p4 NewCar{1|6P9} 45m4 46r23
+42p11 CarPt{1|6P9}
+42p18 NewPlane{1|6P9} 48m4 49r23
+42p28 PlanePt{1|6P9}
+42p37 VehiclePt{1|6P9} 53m7 54r10 56r36 57r13 59r38
+51i8 I{integer}
+
