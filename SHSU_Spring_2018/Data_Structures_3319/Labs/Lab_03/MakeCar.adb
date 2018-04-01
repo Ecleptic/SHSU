@@ -40,7 +40,7 @@
     procedure IdentifyVehicle(aCar: in Car) is
     begin
         put("Car with ");
-        put(aCar.NumDoors, 4);
+        put(aCar.NumDoors, 1);
         put(" doors");
         put(" made by ");
         PrintString4(aCar.Manufacturer);

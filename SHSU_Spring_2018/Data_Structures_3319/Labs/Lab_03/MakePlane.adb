@@ -44,9 +44,9 @@ package body MakePlane is
     procedure IdentifyVehicle(aPlane: in Plane) is
     begin
         put("Plane with ");
-        put(aPlane.NumDoors, 4);
+        put(aPlane.NumDoors, 1);
         put(" doors, ");
-        put(aPlane.NumEngines, 4);
+        put(aPlane.NumEngines, 1);
         put(" engines, made by ");
         PrintString8(aPlane.Manufacturer);
         new_line;

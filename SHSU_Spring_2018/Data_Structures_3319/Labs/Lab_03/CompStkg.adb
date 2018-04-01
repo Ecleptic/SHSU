@@ -9,6 +9,7 @@ package body CompStkg is
    procedure Push(X: MyType) is
    begin -- No check for overflow.
       Head := new Node'(X, Head); -- Allocated from returned memory, heap is none returned.
+      put(Head)
    end Push; -- Most languages return Head = null if out of storage.
 
    function Pop return MyType is

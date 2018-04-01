@@ -13,5 +13,7 @@ package CompStkg is
     type Node is record -- Allocated in heap at run time.
         MyData: MyType;
         Next: NodePtr;
+        Previous: NodePtr;
+
     end record;
 end CompStkg;

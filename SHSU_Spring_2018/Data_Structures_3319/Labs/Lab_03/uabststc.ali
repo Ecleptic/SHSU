@@ -14,7 +14,7 @@ RV NO_STANDARD_STORAGE_POOLS
 RV NO_DEFAULT_INITIALIZATION
 RV SPARK_05
 
-U uabststc%b		uabststc.adb		34f40bad NE OO SU
+U uabststc%b		uabststc.adb		c4a795cf NE OO SU
 W abststck%s		abststck.adb		abststck.ali
 W ada%s			ada.ads			ada.ali
 W ada.tags%s		a-tags.adb		a-tags.ali
@@ -38,7 +38,7 @@ D a-unccon.ads		20150506105331 f9eb8f06 ada.unchecked_conversion%s
 D interfac.ads		20150506105327 6033a23f interfaces%s
 D i-cstrea.ads		20150506105327 e53d8b8e interfaces.c_streams%s
 D makecar.ads		20180329225657 02ae8cf2 makecar%s
-D makeplane.ads		20180329233901 917f3611 makeplane%s
+D makeplane.ads		20180330204637 612ca873 makeplane%s
 D system.ads		20150506105331 100301f7 system%s
 D s-crtl.ads		20150506105326 0ebbdb71 system.crtl%s
 D s-exctab.ads		20150506105331 54135002 system.exception_table%s
