@@ -14,7 +14,7 @@ RV NO_STANDARD_STORAGE_POOLS
 RV NO_ELABORATION_CODE
 RV SPARK_05
 
-U makeplane%b		makeplane.adb		ff12aa96 OO PK
+U makeplane%b		makeplane.adb		2e3e44a8 OO PK
 W abststck%s		abststck.adb		abststck.ali
 W ada%s			ada.ads			ada.ali
 W ada.exceptions%s	a-except.adb		a-except.ali
@@ -22,7 +22,7 @@ W ada.text_io%s		a-textio.adb		a-textio.ali
 Z ada.text_io.integer_aux%s  a-tiinau.adb	a-tiinau.ali
 W ada.text_io.integer_io%s
 
-U makeplane%s		makeplane.ads		da8af29a EE OO PF PK
+U makeplane%s		makeplane.ads		0ba61ca4 EE OO PF PK
 W abststck%s		abststck.adb		abststck.ali
 W ada.exceptions%s	a-except.adb		a-except.ali
 W ada.streams%s		a-stream.adb		a-stream.ali
@@ -32,7 +32,7 @@ W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 W system.storage_elements%s  s-stoele.adb	s-stoele.ali
 W system.stream_attributes%s  s-stratt.adb	s-stratt.ali
 
-D abststck.ads		20180329003718 bba65ae9 abststck%s
+D abststck.ads		20180331171833 6a8ab4d7 abststck%s
 D ada.ads		20150506105328 3ffc8e18 ada%s
 D a-except.ads		20150506105328 5250cb69 ada.exceptions%s
 D a-finali.ads		20150506105331 69f99942 ada.finalization%s
@@ -47,7 +47,7 @@ D a-unccon.ads		20150506105331 f9eb8f06 ada.unchecked_conversion%s
 D interfac.ads		20150506105327 6033a23f interfaces%s
 D i-cstrea.ads		20150506105327 e53d8b8e interfaces.c_streams%s
 D makeplane.ads		20180330204637 612ca873 makeplane%s
-D makeplane.adb		20180330195444 1df5add8 makeplane%b
+D makeplane.adb		20180401215848 1df5add8 makeplane%b
 D system.ads		20150506105331 100301f7 system%s
 D s-crtl.ads		20150506105326 0ebbdb71 system.crtl%s
 D s-exctab.ads		20150506105331 54135002 system.exception_table%s
@@ -68,8 +68,8 @@ D s-traent.ads		20150506105327 005bf670 system.traceback_entries%s
 D s-unstyp.ads		20150506105330 9d58a4c0 system.unsigned_types%s
 D s-wchcon.ads		20150506105330 1b7d22d2 system.wch_con%s
 X 1 abststck.ads
-2K9*AbstStck 26e13 15|2w6 6r22 16|2w41
-5R9*AbstractStackElement 20e17 15|6r31
+2K9*AbstStck 29e13 15|2w6 6r22 16|2w41
+5R9*AbstractStackElement 22e17 15|6r31
 X 2 ada.ads
 16K9*Ada 19e8 16|2r6 2r23 5r26
 X 8 a-textio.ads

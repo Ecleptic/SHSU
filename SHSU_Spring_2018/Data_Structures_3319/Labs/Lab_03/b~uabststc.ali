@@ -18,19 +18,19 @@ RV NO_IMPLEMENTATION_PRAGMAS
 RV NO_OBSOLESCENT_FEATURES
 RV SPARK_05
 
-U ada_main%b		b~uabststc.adb		7d5e9346 NE OO PK IL
+U ada_main%b		b~uabststc.adb		6dffb4ad NE OO PK IL
 W ada%s			ada.ads			ada.ali
 W ada.exceptions%s	a-except.adb		a-except.ali
 W system%s		system.ads		system.ali
 
-U ada_main%s		b~uabststc.ads		8f9c8f0c EE NE OO PK IL
+U ada_main%s		b~uabststc.ads		9f3da8e7 EE NE OO PK IL
 W system%s		system.ads		system.ali
 
 D ada.ads		20150506105328 3ffc8e18 ada%s
 D a-except.ads		20150506105328 5250cb69 ada.exceptions%s
 D a-unccon.ads		20150506105331 f9eb8f06 ada.unchecked_conversion%s
-D b~uabststc.ads	20180330204829 9f9f8efb ada_main%s
-D b~uabststc.adb	20180330204829 b091d6d4 ada_main%b
+D b~uabststc.ads	20180402021551 8f3ea910 ada_main%s
+D b~uabststc.adb	20180402021551 b091d6d4 ada_main%b
 D system.ads		20150506105331 100301f7 system%s
 D s-parame.ads		20150506105331 7e2a0d7f system.parameters%s
 D s-stalib.ads		20150506105331 fa0a3617 system.standard_library%s
