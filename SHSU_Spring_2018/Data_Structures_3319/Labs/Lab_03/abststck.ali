@@ -15,12 +15,12 @@ RV NO_DEFAULT_INITIALIZATION
 RV NO_ELABORATION_CODE
 RV SPARK_05
 
-U abststck%b		abststck.adb		ec4434ef NE OO PK
+U abststck%b		abststck.adb		493c2cfd NE OO PK
 W ada%s			ada.ads			ada.ali
 W ada.tags%s		a-tags.adb		a-tags.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
 
-U abststck%s		abststck.ads		6a8ab4d7 EE OO PF PK
+U abststck%s		abststck.ads		4a23a985 EE OO PF PK
 W ada.exceptions%s	a-except.adb		a-except.ali
 W ada.streams%s		a-stream.adb		a-stream.ali
 W ada.tags%s		a-tags.adb		a-tags.ali
@@ -33,8 +33,8 @@ W system.standard_library%s  s-stalib.adb	s-stalib.ali
 W system.storage_elements%s  s-stoele.adb	s-stoele.ali
 W system.stream_attributes%s  s-stratt.adb	s-stratt.ali
 
-D abststck.ads		20180331171833 6a8ab4d7 abststck%s
-D abststck.adb		20180402021551 bea375ec abststck%b
+D abststck.ads		20180402031835 4a23a985 abststck%s
+D abststck.adb		20180402050239 3b7270ac abststck%b
 D ada.ads		20150506105328 3ffc8e18 ada%s
 D a-except.ads		20150506105328 5250cb69 ada.exceptions%s
 D a-finali.ads		20150506105331 69f99942 ada.finalization%s
@@ -67,36 +67,39 @@ D s-traent.ads		20150506105327 005bf670 system.traceback_entries%s
 D s-unstyp.ads		20150506105330 9d58a4c0 system.unsigned_types%s
 D s-wchcon.ads		20150506105330 1b7d22d2 system.wch_con%s
 X 1 abststck.ads
-2K9*AbstStck 18E9 29l5 29e13 2|4b14 51l5 51t13
-3R9*AbstractStack 11r33 12r36 13r33 14r31 23c9 28e14 2|5r33 16r36 31r31 47r30
+2K9*AbstStck 18E9 29l5 29e13 2|4b14 64l5 64t13
+3R9*AbstractStack 11r36 12r36 13r33 14r31 23c9 28e14 2|5r36 24r36 44r31 60r30
 5R9*AbstractStackElement 7r20 18c9 22e17
-6P9*AbstractStackElementPtr(5R9) 11r54 12r57 13r55 20r16 21r16 26r12 27r15
-. 2|5r54 6r11 16r57 17r11 31r53 32r11
-11U14*Push 11^19 11>48 2|5b14 15l8 15t12
-11p19 Stack(3R9) 2|5b19 8r17 9r7 10r7 10r22 11r10 12r10
-11p48 Y{6P9} 2|5b48 8r7 9r20 12r26
-12U14*PushBot 12^22 12>51 2|16b14 29l8 29t15
-12p22 Stack(3R9) 2|16b22 22r17 23r7 24r7 24r22 25r10 26r10
-12p51 Y{6P9} 2|16b51 22r7 23r23 26r26
-13V15*Pop{6P9} 13^19 2|31b13 43l8 43t11
-13p19 Stack(3R9) 2|31b17 34r10 39r7 39r22 40r13 41r7 41r20
-14V14*StackSize{integer} 14>24 2|47b13 50l8 50t17
-14r24 Stack{3R9} 2|47b23 49r14
-20p10*Next{6P9} 2|8m9 41r30
-21p10*Prev{6P9} 2|22m9
-25i7*Count{integer} 2|10m13 10r28 24m13 24r28 39m13 39r28 49r20
-26p7*Top{6P9} 2|8r23 9m13 25r16 34r16 40r19 41m13 41r26
-27p7*Bottom{6P9} 2|11r16 12m16 22r23 23m13 26m16
+6P9*AbstractStackElementPtr(5R9) 11r57 12r57 13r55 20r16 21r16 26r12 27r15
+. 2|5r57 6r11 24r57 25r11 44r53 45r11
+11U14*PushTop 11^22 11>51 2|24b14 42l8 42t15
+11p22 Stack(3R9) 2|24b22 27r10 30r20 31r10 32r20 33r10 34r10 34r25 36r20
+. 37r10 38r10 39r10 39r25
+11p51 Y{6P9} 2|24b51 30r10 31r23 32r10 33r26 36r10 37r28 38r23
+12U14*PushBot 12^22 12>51 2|5b14 23l8 23t15
+12p22 Stack(3R9) 2|5b22 8r10 11r20 12r10 13r20 14r10 15r10 15r25 17r20 18r10
+. 19r10 20r10 20r25
+12p51 Y{6P9} 2|5b51 11r10 12r23 13r10 14r26 17r10 18r31 19r26
+13V15*Pop{6P9} 13^19 2|44b13 56l8 56t11
+13p19 Stack(3R9) 2|44b17 47r10 52r7 52r22 53r13 54r7 54r20
+14V14*StackSize{integer} 14>24 2|60b13 63l8 63t17
+14r24 Stack{3R9} 2|60b23 62r14
+20p10*Next{6P9} 2|11m12 17m12 30m12 37m20
+21p10*Prev{6P9} 2|13m12 18m23 32m12 36m12 54r30
+25i7*Count{integer} 2|8r16 15m16 15r31 20m16 20r31 27r16 34m16 34r31 39m16
+. 39r31 52m13 52r28 62r20
+26p7*Top{6P9} 2|11r26 12m16 30r26 31m16 36r26 37r16 38m16 47r16 53r19 54m13
+. 54r26
+27p7*Bottom{6P9} 2|13r26 14m16 17r26 18r16 19m16 32r26 33m16
 X 2 abststck.adb
 6p7 Pt{1|6P9}
-17p7 Pt{1|6P9}
-32p7 Pt{1|6P9} 40m7 42r14
+25p7 Pt{1|6P9}
+45p7 Pt{1|6P9} 53m7 55r14
 X 3 ada.ads
 16K9*Ada 2|2r6 2r23 3|19e8
 X 9 a-textio.ads
 49K13*Text_IO 2|2w10 2r27 9|471e16
-242U14*Put 2|36s10
-263U14*Put_Line 2|14s7 28s7
+242U14*Put 2|49s10
 X 13 system.ads
 67M9*Address
 X 19 s-memory.ads

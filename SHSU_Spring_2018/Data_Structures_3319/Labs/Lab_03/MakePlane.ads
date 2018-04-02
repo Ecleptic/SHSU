@@ -6,7 +6,7 @@ package MakePlane is
    type Plane is new AbstStck.AbstractStackElement with record
          NumDoors: integer;
          NumEngines: integer;
-         Manufacturer: String8 := "Boeing_";
+         Manufacturer: String8 := "Boeing  ";
       end record;
 
    procedure AssignNumDoors(aPlane: in out Plane; N: in integer);
@@ -15,5 +15,7 @@ package MakePlane is
    procedure PrintString8(PrtStr: String8);
    procedure PrintPlane(aPlane: in Plane);
    procedure IdentifyVehicle(aPlane: in Plane);
+   function IdentifyMake(aPlane: in Plane; str: in String8) return boolean;
+
 
 end MakePlane;

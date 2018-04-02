@@ -14,7 +14,7 @@ RV NO_STANDARD_STORAGE_POOLS
 RV NO_ELABORATION_CODE
 RV SPARK_05
 
-U makecar%b		makecar.adb		3f1acb87 OO PK
+U makecar%b		makecar.adb		e9006054 OO PK
 W abststck%s		abststck.adb		abststck.ali
 W ada%s			ada.ads			ada.ali
 W ada.exceptions%s	a-except.adb		a-except.ali
@@ -22,7 +22,7 @@ W ada.text_io%s		a-textio.adb		a-textio.ali
 Z ada.text_io.integer_aux%s  a-tiinau.adb	a-tiinau.ali
 W ada.text_io.integer_io%s
 
-U makecar%s		makecar.ads		68243825 EE OO PF PK
+U makecar%s		makecar.ads		75b8f9cc EE OO PF PK
 W abststck%s		abststck.adb		abststck.ali
 W ada.exceptions%s	a-except.adb		a-except.ali
 W ada.streams%s		a-stream.adb		a-stream.ali
@@ -32,7 +32,7 @@ W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 W system.storage_elements%s  s-stoele.adb	s-stoele.ali
 W system.stream_attributes%s  s-stratt.adb	s-stratt.ali
 
-D abststck.ads		20180331171833 6a8ab4d7 abststck%s
+D abststck.ads		20180402031835 4a23a985 abststck%s
 D ada.ads		20150506105328 3ffc8e18 ada%s
 D a-except.ads		20150506105328 5250cb69 ada.exceptions%s
 D a-finali.ads		20150506105331 69f99942 ada.finalization%s
@@ -46,8 +46,8 @@ D a-tiinio.adb		20150506105329 df9cd7af ada.text_io.integer_io%b
 D a-unccon.ads		20150506105331 f9eb8f06 ada.unchecked_conversion%s
 D interfac.ads		20150506105327 6033a23f interfaces%s
 D i-cstrea.ads		20150506105327 e53d8b8e interfaces.c_streams%s
-D makecar.ads		20180329225657 02ae8cf2 makecar%s
-D makecar.adb		20180330195437 6f530676 makecar%b
+D makecar.ads		20180402043602 3f9b5049 makecar%s
+D makecar.adb		20180402043548 a4d56c4c makecar%b
 D system.ads		20150506105331 100301f7 system%s
 D s-crtl.ads		20150506105326 0ebbdb71 system.crtl%s
 D s-exctab.ads		20150506105331 54135002 system.exception_table%s
@@ -68,40 +68,43 @@ D s-traent.ads		20150506105327 005bf670 system.traceback_entries%s
 D s-unstyp.ads		20150506105330 9d58a4c0 system.unsigned_types%s
 D s-wchcon.ads		20150506105330 1b7d22d2 system.wch_con%s
 X 1 abststck.ads
-2K9*AbstStck 29e13 15|2w6 7r21 16|3w10
-5R9*AbstractStackElement 22e17 15|7r30
+2K9*AbstStck 29e13 15|2w6 7r20 16|3w6
+5R9*AbstractStackElement 22e17 15|7r29
 X 2 ada.ads
-16K9*Ada 19e8 16|2r10 2r27 6r26
+16K9*Ada 19e8 16|2r6 2r23 6r25
 X 8 a-textio.ads
-49K13*Text_IO 471e16 16|2w14 2r31 6r30
-166U14*New_Line 16|22s9 37s9 47s9
-208U14*Put 16|29s13
-242U14*Put 16|20s9 35s9 42s9 44s9 45s9
+49K13*Text_IO 471e16 16|2w10 2r27 6r29
+166U14*New_Line 16|22s7 37s7 47s7
+208U14*Put 16|29s10
+242U14*Put 16|20s7 35s7 42s7 44s7 45s7
 X 10 a-tiinio.ads
-46k21*Integer_IO 85e27 16|6r38
-66U14*Put 16|21s9[6] 43s9[6]
+46k21*Integer_IO 85e27 16|6r37
+66U14*Put 16|21s7[6] 43s7[6]
 X 15 makecar.ads
-4K9*MakeCar 18l5 18e12 16|5b18 49l5 49t12
-6A10*String4<string>(character)<integer> 9r23 13r61 16|13r61 25r36
-7R10*Car<1|5R9> 10e15 12p15 12r43 13p15 13r47 14p15 14r38 15p15 15r42 16p15
-. 16r40 16|8r43 13r47 18r38 33r42 40r40
-8i9*NumDoors{integer} 16|10m14 21r18 43r18
-9a9*Manufacturer{6A10} 16|15m14 36r27 46r27
-12U15*AssignNumDoors 12=30 12>48 16|8b15 11l9 11t23
-12r30 aCar{7R10} 16|8b30 10m9
-12i48 N{integer} 16|8b48 10r26
-13U15*AssignManufacturer 13=34 13>52 16|13b15 16l9 16t27
-13r34 aCar{7R10} 16|13b34 15m9
-13a52 Manu{6A10} 16|13b52 15r30
-14U15*PrintNumDoors 14>29 16|18b15 23l9 23t22
-14r29 aCar{7R10} 16|18b29 21r13
-15U15*PrintManufacturer 15>33 16|33b15 38t8
-15r33 aCar{7R10} 16|33b33 36r22
-16U15*IdentifyVehicle 16>31 16|40b15 48l9 48t24
-16r31 aCar{7R10} 16|40b31 43r13 46r22
+4K9*MakeCar 20l5 20e12 16|5b14 54l5 54t12
+6A9*String4<string>(character)<integer> 9r24 13r60 17r48 16|13r60 25r35 50r48
+7R9*Car<1|5R9> 10e17 12p14 12r42 13p14 13r46 14p14 14r37 15p14 15r41 16p14
+. 16r39 17p13 17r35 16|8r42 13r46 18r37 33r41 40r39 50r35
+8i10*NumDoors{integer} 16|10m12 21r16 43r16
+9a10*Manufacturer{6A9} 16|15m12 36r25 46r25 52r19
+12U14*AssignNumDoors 12=29 12>47 16|8b14 11l8 11t22
+12r29 aCar{7R9} 16|8b29 10m7
+12i47 N{integer} 16|8b47 10r24
+13U14*AssignManufacturer 13=33 13>51 16|13b14 16l8 16t26
+13r33 aCar{7R9} 16|13b33 15m7
+13a51 Manu{6A9} 16|13b51 15r28
+14U14*PrintNumDoors 14>28 16|18b14 23l8 23t21
+14r28 aCar{7R9} 16|18b28 21r11
+15U14*PrintManufacturer 15>32 16|33b14 38t7
+15r32 aCar{7R9} 16|33b32 36r20
+16U14*IdentifyVehicle 16>30 16|40b14 48l8 48t23
+16r30 aCar{7R9} 16|40b30 43r11 46r20
+17V13*IdentifyMake{boolean} 17>26 17>40 16|50b13 53l8 53t20
+17r26 aCar{7R9} 16|50b26 52r14
+17a40 str{6A9} 16|50b40 52r34
 X 16 makecar.adb
-6K13 IntIO[10|46] 6r63
-25U15 PrintString4 25b15 25>28 31l9 31t21 36s9 46s9
-25a28 PrtStr{15|6A10} 29r17
-27i13 I{integer} 29r24
+6K12 IntIO[10|46] 6r62
+25U14 PrintString4 25b14 25>27 31l8 31t20 36s7 46s7
+25a27 PrtStr{15|6A9} 29r14
+27i11 I{integer} 29r21
 

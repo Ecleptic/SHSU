@@ -52,4 +52,9 @@ package body MakePlane is
         new_line;
     end IdentifyVehicle;
 
+   function IdentifyMake(aPlane: in plane; str: in String8) return boolean is
+   begin
+      return aPlane.Manufacturer = str;
+   end IdentifyMake;
+
 end MakePlane;

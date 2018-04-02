@@ -5,6 +5,7 @@ P SS ZX
 
 RN
 RV NO_ALLOCATORS
+RV NO_DIRECT_BOOLEAN_OPERATORS
 RV NO_DISPATCH
 RV NO_DISPATCHING_CALLS
 RV NO_IO
@@ -14,7 +15,7 @@ RV NO_STANDARD_STORAGE_POOLS
 RV NO_DEFAULT_INITIALIZATION
 RV SPARK_05
 
-U uabststc%b		uabststc.adb		618e8fd5 NE OO SU
+U uabststc%b		uabststc.adb		ca2c53c0 NE OO SU
 W abststck%s		abststck.adb		abststck.ali
 W ada%s			ada.ads			ada.ali
 W ada.tags%s		a-tags.adb		a-tags.ali
@@ -27,7 +28,7 @@ W system.storage_elements%s  s-stoele.adb	s-stoele.ali
 W system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
 W system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
 
-D abststck.ads		20180331171833 6a8ab4d7 abststck%s
+D abststck.ads		20180402031835 4a23a985 abststck%s
 D ada.ads		20150506105328 3ffc8e18 ada%s
 D a-except.ads		20150506105328 5250cb69 ada.exceptions%s
 D a-finali.ads		20150506105331 69f99942 ada.finalization%s
@@ -38,8 +39,8 @@ D a-textio.ads		20150506105332 386df5d4 ada.text_io%s
 D a-unccon.ads		20150506105331 f9eb8f06 ada.unchecked_conversion%s
 D interfac.ads		20150506105327 6033a23f interfaces%s
 D i-cstrea.ads		20150506105327 e53d8b8e interfaces.c_streams%s
-D makecar.ads		20180329225657 02ae8cf2 makecar%s
-D makeplane.ads		20180330204637 612ca873 makeplane%s
+D makecar.ads		20180402043602 3f9b5049 makecar%s
+D makeplane.ads		20180402045053 72e6d370 makeplane%s
 D system.ads		20150506105331 100301f7 system%s
 D s-crtl.ads		20150506105326 0ebbdb71 system.crtl%s
 D s-exctab.ads		20150506105331 54135002 system.exception_table%s
@@ -61,40 +62,55 @@ D s-stratt.ads		20150506105327 aedef97e system.stream_attributes%s
 D s-traent.ads		20150506105327 005bf670 system.traceback_entries%s
 D s-unstyp.ads		20150506105330 9d58a4c0 system.unsigned_types%s
 D s-wchcon.ads		20150506105330 1b7d22d2 system.wch_con%s
-D uabststc.adb		20180402020231 50ebea57 uabststc%b
+D uabststc.adb		20180402153028 f51f8ca8 uabststc%b
 X 1 abststck.ads
-2K9*AbstStck 29e13 35|35w6 35r20
-3R9*AbstractStack 28e14 35|39r29 40r35 41r32
-5R9*AbstractStackElement 22e17 35|46r23 48r23 50r23 52r23 54r23
-6P9*AbstractStackElementPtr(5R9) 35|43r48
-11U14*Push 35|49s4 55s4 77s7
-12U14*PushBot 35|47s4 51s4 53s4
-13V15*Pop{6P9} 35|68s20
-14V14*StackSize{integer} 35|58s45 66s16
+2K9*AbstStck 29e13 35|8w6 8r20
+3R9*AbstractStack 28e14 35|12r29 13r35 14r32
+5R9*AbstractStackElement 22e17 35|21r23 24r23 27r23 30r23 33r23 121r27 124r27
+. 127r27
+6P9*AbstractStackElementPtr(5R9) 35|16r48
+11U14*PushTop 35|25s4 34s4 56s13 65s13 88s7 106s7 115s7 122s4 125s4 128s4
+12U14*PushBot 35|22s4 28s4 31s4
+13V15*Pop{6P9} 35|48s20 80s20 98s20 114s20 134s20
+14V14*StackSize{integer} 35|37s45 46s16 74s49 78s16 93s49 96s16 112s16 132s16
 X 2 ada.ads
-16K9*Ada 19e8 35|34r6 34r23
+16K9*Ada 19e8 35|7r6 7r23
 X 8 a-textio.ads
-49K13*Text_IO 471e16 35|34w10 34r27
-166U14*New_Line 35|57s4 59s4 76s7
-242U14*Put 35|58s4 58s27
+49K13*Text_IO 471e16 35|7w10 7r27
+166U14*New_Line 35|36s4 38s4 69s7 73s4 75s4 89s7 92s4 94s4 107s7 116s7 142s7
+242U14*Put 35|37s4 37s27 74s4 74s31 93s4 93s31
+263U14*Put_Line 35|20s4 23s4 26s4 29s4 32s4 45s4 119s4 120s4 123s4 126s4
 X 12 makecar.ads
-4K9*MakeCar 18e12 35|36w6 36r30
-7R10*Car<1|5R9> 10e15 35|46r18 48r18 50r18 52r18 54r18 69r27 71r26
-16U15*IdentifyVehicle 35|71R10
+4K9*MakeCar 20e12 35|9w6 9r30
+7R9*Car<1|5R9> 10e17 35|21r18 24r18 27r18 30r18 33r18 49r27 51r26 52r38 81r27
+. 83r26 99r27 101r26 135r27 137r26
+16U14*IdentifyVehicle 35|51R10 83R10 101R10 137R10
+17V13*IdentifyMake{boolean} 35|52s25
 X 13 makeplane.ads
-4K9*MakePlane 19e14 35|36w15 36r39
-6R9*Plane<1|5R9> 10e17 35|72r30 74r26
-17U14*IdentifyVehicle 35|74R10
+4K9*MakePlane 21e14 35|9w15 9r39
+6R9*Plane<1|5R9> 10e17 35|58r30 60r26 61r38 84r30 86r26 102r30 104r26 121r20
+. 124r20 127r20 138r30 140r26
+17U14*IdentifyVehicle 35|60R10 86R10 104R10 140R10
+18V13*IdentifyMake{boolean} 35|61s25
 X 35 uabststc.adb
-38U11*UAbstStc 38b11 95l5 95t13
-39P9 Stack_Ptr(1|3R9) 40r18 41r15 42r16
-40p4 VehicleStack{39P9} 47r12 49r9 51r12 53r12 55r9 58r55 66r26 68r24
-41p4 TempStack{39P9} 77r12
-42p4 StackPoint{39P9}
-43p4 NewCar{1|6P9} 46m4 47r26 48m4 49r23 50m4 51r26 52m4 53r26 54m4 55r23
-43p11 CarPt{1|6P9}
-43p18 NewPlane{1|6P9}
-43p28 PlanePt{1|6P9}
-43p37 VehiclePt{1|6P9} 68m7 69r10 71r36 72r13 74r38 77r22
-66i8 I{integer}
+11U11*UAbstStc 11b11 147l5 147t13
+12P9 Stack_Ptr(1|3R9) 13r18 14r15 15r16
+13p4 VehicleStack{12P9} 22r12 25r12 28r12 31r12 34r12 37r55 46r26 48r24 88r15
+. 93r59 96r26 98r24 115r15 122r12 125r12 128r12 132r26 134r24
+14p4 TempStack{12P9} 56r21 65r21 74r59 78r26 80r24 106r15 112r26 114r24
+15p4 StackPoint{12P9}
+16p4 NewCar{1|6P9} 21m4 22r26 24m4 25r26 27m4 28r26 30m4 31r26 33m4 34r26
+16p11 CarPt{1|6P9}
+16p18 NewPlane{1|6P9} 121m4 122r26 124m4 125r26 127m4 128r26
+16p28 PlanePt{1|6P9}
+16p37 VehiclePt{1|6P9} 48m7 49r10 51r36 52r42 56r31 58r13 60r38 61r44 65r31
+. 80m7 81r10 83r36 84r13 86r38 88r28 98m7 99r10 101r36 102r13 104r38 106r25
+. 114m7 115r28 134m7 135r10 137r36 138r13 140r38
+17b4 correctMake{boolean} 52m10 53r13 61m10 62r13
+18i4 tempKnt{integer} 53r36 54m13 54r24 62r36 63m13 63r24 71m4
+46i8 I{integer}
+78i8 I{integer}
+96i8 I{integer}
+112i8 I{integer}
+132i8 I{integer}
 

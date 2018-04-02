@@ -8,7 +8,7 @@ package AbstStck is
         --Allows access to AbstractStackElement and any class inheriting
         --(created fromusing inheritance) from AbstractStackElement.
 
-   procedure Push(Stack: access AbstractStack; Y: in AbstractStackElementPtr);
+   procedure PushTop(Stack: access AbstractStack; Y: in AbstractStackElementPtr);
    procedure PushBot(Stack: access AbstractStack; Y: in AbstractStackElementPtr);
    function   Pop(Stack: access AbstractStack) return AbstractStackElementPtr;
    function  StackSize(Stack: AbstractStack) return integer;

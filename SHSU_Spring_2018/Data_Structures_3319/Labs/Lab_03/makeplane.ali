@@ -14,7 +14,7 @@ RV NO_STANDARD_STORAGE_POOLS
 RV NO_ELABORATION_CODE
 RV SPARK_05
 
-U makeplane%b		makeplane.adb		2e3e44a8 OO PK
+U makeplane%b		makeplane.adb		83396d35 OO PK
 W abststck%s		abststck.adb		abststck.ali
 W ada%s			ada.ads			ada.ali
 W ada.exceptions%s	a-except.adb		a-except.ali
@@ -22,7 +22,7 @@ W ada.text_io%s		a-textio.adb		a-textio.ali
 Z ada.text_io.integer_aux%s  a-tiinau.adb	a-tiinau.ali
 W ada.text_io.integer_io%s
 
-U makeplane%s		makeplane.ads		0ba61ca4 EE OO PF PK
+U makeplane%s		makeplane.ads		38c57af5 EE OO PF PK
 W abststck%s		abststck.adb		abststck.ali
 W ada.exceptions%s	a-except.adb		a-except.ali
 W ada.streams%s		a-stream.adb		a-stream.ali
@@ -32,7 +32,7 @@ W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 W system.storage_elements%s  s-stoele.adb	s-stoele.ali
 W system.stream_attributes%s  s-stratt.adb	s-stratt.ali
 
-D abststck.ads		20180331171833 6a8ab4d7 abststck%s
+D abststck.ads		20180402031835 4a23a985 abststck%s
 D ada.ads		20150506105328 3ffc8e18 ada%s
 D a-except.ads		20150506105328 5250cb69 ada.exceptions%s
 D a-finali.ads		20150506105331 69f99942 ada.finalization%s
@@ -46,8 +46,8 @@ D a-tiinio.adb		20150506105329 df9cd7af ada.text_io.integer_io%b
 D a-unccon.ads		20150506105331 f9eb8f06 ada.unchecked_conversion%s
 D interfac.ads		20150506105327 6033a23f interfaces%s
 D i-cstrea.ads		20150506105327 e53d8b8e interfaces.c_streams%s
-D makeplane.ads		20180330204637 612ca873 makeplane%s
-D makeplane.adb		20180401215848 1df5add8 makeplane%b
+D makeplane.ads		20180402045053 72e6d370 makeplane%s
+D makeplane.adb		20180402152451 8391e214 makeplane%b
 D system.ads		20150506105331 100301f7 system%s
 D s-crtl.ads		20150506105326 0ebbdb71 system.crtl%s
 D s-exctab.ads		20150506105331 54135002 system.exception_table%s
@@ -81,13 +81,14 @@ X 10 a-tiinio.ads
 46k21*Integer_IO 85e27 16|5r38
 66U14*Put 16|34s9[5] 37s9[5] 47s9[5] 49s9[5]
 X 15 makeplane.ads
-4K9*MakePlane 19l5 19e14 16|3b14 55l5 55t14
-5A9*String8<string>(character)<integer> 9r24 13r64 15r35 16|13r65 23r36
+4K9*MakePlane 21l5 21e14 16|3b14 60l5 60t14
+5A9*String8<string>(character)<integer> 9r24 13r64 15r35 18r52 16|13r65 23r36
+. 55r52
 6R9*Plane<1|5R9> 10e17 12p14 12r44 13p14 13r48 14p14 14r46 16p14 16r36 17p14
-. 17r41 16|8r45 13r49 18r47 31r37 44r42
+. 17r41 18p13 18r37 16|8r45 13r49 18r47 31r37 44r42 55r37
 7i10*NumDoors{integer} 16|10m16 34r20 47r20
 8i10*NumEngines{integer} 16|20m16 37r20 49r20
-9a10*Manufacturer{5A9} 16|15m16 40r29 51r29
+9a10*Manufacturer{5A9} 16|15m16 40r29 51r29 57r21
 12U14*AssignNumDoors 12=29 12>51 16|8b15 11l9 11t23
 12r29 aPlane{6R9} 16|8b30 10m9
 12i51 N{integer} 16|8b52 10r28
@@ -103,6 +104,9 @@ X 15 makeplane.ads
 16r25 aPlane{6R9} 16|31b26 34r13 37r13 40r22
 17U14*IdentifyVehicle 17>30 16|44b15 53l9 53t24
 17r30 aPlane{6R9} 16|44b31 47r13 49r13 51r22
+18V13*IdentifyMake{boolean} 18>26 18>44 16|55b13 58l8 58t20
+18r26 aPlane{6R9} 16|55b26 57r14
+18a44 str{5A9} 16|55b44 57r36
 X 16 makeplane.adb
 5K13 IntIO[10|46] 6r9
 25i13 I{integer} 27r24
