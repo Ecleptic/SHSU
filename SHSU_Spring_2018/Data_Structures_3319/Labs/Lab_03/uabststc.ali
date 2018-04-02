@@ -62,7 +62,7 @@ D s-stratt.ads		20150506105327 aedef97e system.stream_attributes%s
 D s-traent.ads		20150506105327 005bf670 system.traceback_entries%s
 D s-unstyp.ads		20150506105330 9d58a4c0 system.unsigned_types%s
 D s-wchcon.ads		20150506105330 1b7d22d2 system.wch_con%s
-D uabststc.adb		20180402153028 f51f8ca8 uabststc%b
+D uabststc.adb		20180402153502 f51f8ca8 uabststc%b
 X 1 abststck.ads
 2K9*AbstStck 29e13 35|8w6 8r20
 3R9*AbstractStack 28e14 35|12r29 13r35 14r32

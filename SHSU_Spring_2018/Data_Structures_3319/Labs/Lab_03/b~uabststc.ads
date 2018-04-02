@@ -41,7 +41,7 @@ package ada_main is
    pragma Export (C, u00002, "system__standard_libraryB");
    u00003 : constant Version_32 := 16#13e2b8e6#;
    pragma Export (C, u00003, "system__standard_libraryS");
-   u00004 : constant Version_32 := 16#493c2cfd#;
+   u00004 : constant Version_32 := 16#f775fa5b#;
    pragma Export (C, u00004, "abststckB");
    u00005 : constant Version_32 := 16#4a23a985#;
    pragma Export (C, u00005, "abststckS");

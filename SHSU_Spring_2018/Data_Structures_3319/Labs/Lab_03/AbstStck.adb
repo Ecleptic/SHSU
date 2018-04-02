@@ -3,7 +3,7 @@ with Ada.Text_IO; use Ada.Text_io;
 
 package body AbstStck is
    procedure PushBot(Stack: access AbstractStack; Y: in AbstractStackElementPtr) is
-      Pt: AbstractStackElementPtr;
+      --Pt: AbstractStackElementPtr;
    begin
       if Stack.Count = 0
       then
@@ -22,7 +22,7 @@ package body AbstStck is
       -- put_line("PUSHING BOT! :D");
    end PushBot;
    procedure PushTop(Stack: access AbstractStack; Y: in AbstractStackElementPtr) is
-      Pt: AbstractStackElementPtr;
+     -- Pt: AbstractStackElementPtr;
    begin
       if Stack.Count = 0
       then
@@ -49,7 +49,7 @@ package body AbstStck is
          put("Null Stack");
          return null;
       end if;
-      Stack.Count := Stack.Count -1;
+      Stack.Count := Stack.Count - 1;
       Pt := Stack.Top;
       Stack.Top := Stack.Top.Prev;  -- Pop stack, note hemmoraging.
       return Pt;						        -- Storage should be returned to an available storage list for applications

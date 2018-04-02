@@ -15,7 +15,7 @@ RV NO_DEFAULT_INITIALIZATION
 RV NO_ELABORATION_CODE
 RV SPARK_05
 
-U abststck%b		abststck.adb		493c2cfd NE OO PK
+U abststck%b		abststck.adb		f775fa5b NE OO PK
 W ada%s			ada.ads			ada.ali
 W ada.tags%s		a-tags.adb		a-tags.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
@@ -34,7 +34,7 @@ W system.storage_elements%s  s-stoele.adb	s-stoele.ali
 W system.stream_attributes%s  s-stratt.adb	s-stratt.ali
 
 D abststck.ads		20180402031835 4a23a985 abststck%s
-D abststck.adb		20180402050239 3b7270ac abststck%b
+D abststck.adb		20180402211015 853ba60a abststck%b
 D ada.ads		20150506105328 3ffc8e18 ada%s
 D a-except.ads		20150506105328 5250cb69 ada.exceptions%s
 D a-finali.ads		20150506105331 69f99942 ada.finalization%s
@@ -71,7 +71,7 @@ X 1 abststck.ads
 3R9*AbstractStack 11r36 12r36 13r33 14r31 23c9 28e14 2|5r36 24r36 44r31 60r30
 5R9*AbstractStackElement 7r20 18c9 22e17
 6P9*AbstractStackElementPtr(5R9) 11r57 12r57 13r55 20r16 21r16 26r12 27r15
-. 2|5r57 6r11 24r57 25r11 44r53 45r11
+. 2|5r57 24r57 44r53 45r11
 11U14*PushTop 11^22 11>51 2|24b14 42l8 42t15
 11p22 Stack(3R9) 2|24b22 27r10 30r20 31r10 32r20 33r10 34r10 34r25 36r20
 . 37r10 38r10 39r10 39r25
@@ -92,8 +92,6 @@ X 1 abststck.ads
 . 54r26
 27p7*Bottom{6P9} 2|13r26 14m16 17r26 18r16 19m16 32r26 33m16
 X 2 abststck.adb
-6p7 Pt{1|6P9}
-25p7 Pt{1|6P9}
 45p7 Pt{1|6P9} 53m7 55r14
 X 3 ada.ads
 16K9*Ada 2|2r6 2r23 3|19e8
