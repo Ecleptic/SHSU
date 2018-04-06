@@ -9,16 +9,6 @@ Inserting a Chev with 3 doors
 
 stack size is:  5
 removing the first ford
-Car with 3 doors made by Chev
-
-Car with 2 doors made by Ford
-
-Car with 4 doors made by Ford
-
-Car with 2 doors made by GMC
-
-Car with 2 doors made by RAM
-
 
 stack size is now:  4
 Car with 2 doors made by RAM

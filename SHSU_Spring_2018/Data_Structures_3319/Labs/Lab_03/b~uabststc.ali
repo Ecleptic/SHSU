@@ -29,8 +29,8 @@ W system%s		system.ads		system.ali
 D ada.ads		20150506105328 3ffc8e18 ada%s
 D a-except.ads		20150506105328 5250cb69 ada.exceptions%s
 D a-unccon.ads		20150506105331 f9eb8f06 ada.unchecked_conversion%s
-D b~uabststc.ads	20180402211035 32d514f2 ada_main%s
-D b~uabststc.adb	20180402211035 b091d6d4 ada_main%b
+D b~uabststc.ads	20180403144614 32d514f2 ada_main%s
+D b~uabststc.adb	20180403144614 b091d6d4 ada_main%b
 D system.ads		20150506105331 100301f7 system%s
 D s-parame.ads		20150506105331 7e2a0d7f system.parameters%s
 D s-stalib.ads		20150506105331 fa0a3617 system.standard_library%s
