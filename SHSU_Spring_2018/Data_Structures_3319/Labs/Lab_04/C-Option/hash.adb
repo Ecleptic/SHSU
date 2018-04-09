@@ -41,15 +41,14 @@ procedure hash is
 		str1: slice := str(3..4);
 		str2: slice :=  str(8..9);
 	begin
-
 		return longToInt((((sliceToLong(str1) + sliceToLong(str2))*256) + charToLong(str(1))) mod 128);
 	end hash;
 
 	function cameronHash(str: string16) return integer is
-	--str1: cSlice := str(1..6);
+	str1: cSlice := str(1..6);
 	begin
-		-- put_line(integer'image(longToInt(charToLong(str(1)) + charToLong(str(2)) + charToLong(str(3))) mod 128));
-		return (longToInt(charToLong(str(1)) + charToLong(str(2)) + charToLong(str(3))) mod 128);
+		-- put_line(integer'image(longToInt(cSliceToLong(str1) xor  199933 ) mod 128));
+		return (longToInt((cSliceToLong(str1) xor 3) / 100000) mod 128);
 	end cameronHash;
 
 	procedure insert(str: string16; initialProbe: integer; isLinear: boolean) is
@@ -126,20 +125,30 @@ procedure hash is
 	end printTable;
 
 	procedure first30Stats is
-	maxProbes: integer := 1; minProbes: integer := 128; avgProbes: float := 0.0;
+	maxProbes: integer := 1; minProbes: integer := 128; avgProbes: float := 0.0; avgKnt: integer := 0;
 	begin
 		for i in 0..29 loop
 			--put_line(integer'Image(table(i).probes));
-			avgProbes := avgProbes + float(table(i).probes);
 			if table(i).probes > maxProbes
 			then
 				maxProbes := table(i).probes;
-			elsif  table(i).probes < minProbes and table(i).probes > 0
+			end if;
+			if  table(i).probes < minProbes and table(i).probes > 0
 			then
 				minProbes := table(i).probes;
 			end if;
+			if table(i).probes > 0
+			then
+				avgProbes := (avgProbes) + float(table(i).probes);
+				avgKnt := avgKnt + 1;
+			end if;
 		end loop;
-		avgProbes := float(avgProbes) / float(30);
+		if avgKnt > 0
+		then
+			avgProbes := float(avgProbes) / float(avgKnt);
+		else
+			avgProbes := 0.0;
+		end if;
 		put_line("Stats for the first 30 entries");
 		put_line("Minimum Probes: " & integer'image(minProbes));
 		put_line("Maximum Probes: " & integer'image(maxProbes));
@@ -147,20 +156,30 @@ procedure hash is
 	end first30Stats;
 
 	procedure last30Stats is
-	maxProbes: integer := 1; minProbes: integer := 128; avgProbes: float := 0.0;
+	maxProbes: integer := 1; minProbes: integer := 128; avgProbes: float := 0.0; avgKnt: integer := 0;
 	begin
 		for i in 97..127 loop
 			--put_line(integer'Image(table(i).probes));
-			avgProbes := (avgProbes) + float(table(i).probes);
 			if table(i).probes > maxProbes
 			then
 				maxProbes := table(i).probes;
-			elsif  table(i).probes < minProbes and table(i).probes > 0
+			end if;
+			if  table(i).probes < minProbes and table(i).probes > 0
 			then
 				minProbes := table(i).probes;
 			end if;
+			if table(i).probes > 0
+			then
+				avgProbes := (avgProbes) + float(table(i).probes);
+				avgKnt := avgKnt + 1;
+			end if;
 		end loop;
-		avgProbes := float(avgProbes) / float(30);
+		if avgKnt > 0
+		then
+			avgProbes := float(avgProbes) / float(avgKnt);
+		else
+			avgProbes := 0.0;
+		end if;
 		put_line("Stats for the last 30 entries");
 		put_line("Minimum Probes: " & integer'image(minProbes));
 		put_line("Maximum Probes: " & integer'image(maxProbes));
@@ -186,7 +205,7 @@ begin
 		actualLine := Line(1..16); -- need to remove the newline character
 		insert(actualLine,hash(actualLine), true);
 	end loop;
-	-- printTable;
+	printTable;
 	first30Stats;
 	last30Stats;
 	new_line(2);
@@ -197,7 +216,7 @@ begin
 		actualLine := Line(1..16); -- need to remove the new line character
 		insert(actualLine,hash(actualLine), true);
 	end loop;
-	-- printTable;
+	printTable;
 	first30Stats;
 	last30Stats;
 	Close(input);
@@ -213,7 +232,7 @@ begin
 		actualLine := Line(1..16); -- need to remove the new line character
 		insert(actualLine,hash(actualLine), false);
 	end loop;
-	-- printTable;
+	printTable;
 	first30Stats;
 	last30Stats;
 	new_line(2);
@@ -224,7 +243,7 @@ begin
 		actualLine := Line(1..16); -- need to remove the new line character
 		insert(actualLine,hash(actualLine), true);
 	end loop;
-	-- printTable;
+	printTable;
 	first30Stats;
 	last30Stats;
 	Close(input);
@@ -244,7 +263,7 @@ begin
 		actualLine := Line(1..16); -- need to remove the newline character
 		insert(actualLine,cameronHash(actualLine), true);
 	end loop;
-	-- printTable;
+	printTable;
 	first30Stats;
 	last30Stats;
 	new_line(2);
@@ -255,12 +274,12 @@ begin
 		actualLine := Line(1..16); -- need to remove the new line character
 		insert(actualLine,cameronHash(actualLine), true);
 	end loop;
-	-- printTable;
+	printTable;
 	first30Stats;
 	last30Stats;
 	Close(input);
 	initTable;
-	-- printTable;
+
 	new_line(3);
 	put_line("Random Insertion");
 	Open(Input, In_File, "Words.txt");
@@ -271,7 +290,7 @@ begin
 		actualLine := Line(1..16); -- need to remove the new line character
 		insert(actualLine,cameronHash(actualLine), false);
 	end loop;
-	-- printTable;
+	printTable;
 	first30Stats;
 	last30Stats;
 	new_line(2);
@@ -282,7 +301,7 @@ begin
 		actualLine := Line(1..16); -- need to remove the new line character
 		insert(actualLine,cameronHash(actualLine), true);
 	end loop;
-	-- printTable;
+	printTable;
 	first30Stats;
 	last30Stats;
 	Close(input);
