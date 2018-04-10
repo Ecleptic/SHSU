@@ -124,6 +124,7 @@ procedure hash is
 		end loop;
 	end printTable;
 
+	-- TODO: STATS SHOULD COME FROM THE INPUT TIME, NOT PLACE ON TABLE
 	procedure first30Stats is
 	maxProbes: integer := 1; minProbes: integer := 128; avgProbes: float := 0.0; avgKnt: integer := 0;
 	begin
