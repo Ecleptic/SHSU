@@ -207,97 +207,181 @@ procedure hash is
 	end printStatsTable;
 
 
-	procedure printStats(isLinear: boolean; givenHash: boolean) is
-		maxProbes: integer := 1; minProbes: integer := 128;
-		avgProbes: float := 0.0; avgKnt: integer := 0;	Line: string(1..17);
- 		actualLine: string16;
+	procedure printStats(isLinear: boolean; givenHash: boolean; is50: boolean) is
+		maxProbes: integer := 1; minProbes: integer := 128; avgProbes: float := 0.0;
+		avgKnt: integer := 0;	Line: string(1..17); actualLine: string16;
 	begin
 		initStatsTable;
 		Open(Input, In_File, "Words.txt");
 		Set_Line (input, To => 1);
-
-		for i in 0..126
-		loop
-			Line := Get_Line(Input);
-			actualLine := Line(1..16); -- need to remove the newline character
-			if givenHash = true
-			then
-				-- put_line("not my hash");
-				insertStatsTable(actualLine,hash(actualLine), isLinear);
-			else
-				-- put_line("my hash");
-				insertStatsTable(actualLine,cameronHash(actualLine), isLinear);
-			end if;
-			--put_line(integer'Image(statsTable(i)).probes));
-			if i < 30
-			then
-				for j in 0..127
-				loop
-					if statsTable(j).key = actualLine
-					then
-						if statsTable(j).probes > maxProbes
-						then
-							maxProbes := statsTable(j).probes;
-							-- put_line("Maximum probes for " & statsTable(j).key & "is now" & Integer'Image(statsTable(j).probes));
-						end if;
-						if  statsTable(j).probes < minProbes and statsTable(j).probes > 0
-						then
-							minProbes := statsTable(j).probes;
-							-- put_line("minimum probes for " & statsTable(j).key & "is now" & Integer'Image(statsTable(j).probes));
-						end if;
-						if statsTable(j).probes > 0
-						then
-							avgProbes := (avgProbes) + float(statsTable(j).probes);
-							avgKnt := avgKnt + 1;
-							-- put_line("Avg probes for " & statsTable(j).key & "is now" & Integer'Image(avgKnt));
-						end if;
-					end if;
-				end loop;
-			elsif i = 31
-			then
-				avgProbes := avgProbes / float(avgKnt);
-				put_line("Stats for the first 30 entries");
-				put_line("Minimum Probes: " & integer'image(minProbes));
-				put_line("Maximum Probes: " & integer'image(maxProbes));
-				put_line("Average Probes: " & float'image(avgProbes));
-				minProbes := 128;
-				maxProbes := 0;
-				avgProbes := 0.0;
-
-			elsif i > 96 and i < 125
-			then
-				for j in 0..127
-				loop
-					if statsTable(j).key = actualLine
-					then
-						if statsTable(j).probes > maxProbes
-						then
-							maxProbes := statsTable(j).probes;
-							-- put_line("Maximum probes for " & statsTable(j).key & "is now" & Integer'Image(statsTable(j).probes));
-						end if;
-						if  statsTable(j).probes < minProbes and statsTable(j).probes > 0
-						then
-							minProbes := statsTable(j).probes;
-							-- put_line("minimum probes for " & statsTable(j).key & "is now" & Integer'Image(statsTable(j).probes));
-						end if;
-						if statsTable(j).probes > 0
-						then
-							avgProbes := (avgProbes) + float(statsTable(j).probes);
-							avgKnt := avgKnt + 1;
-							-- put_line("avg probes for " & statsTable(j).key & "is now" & Integer'Image(avgKnt));
-						end if;
+		if is50 = true
+		then
+			for i in 0..63
+			loop
+				Line := Get_Line(Input);
+				actualLine := Line(1..16); -- need to remove the newline character
+				if givenHash = true
+				then
+					-- put_line("not my hash");
+					insertStatsTable(actualLine,hash(actualLine), isLinear);
+				else
+					-- put_line("my hash");
+					insertStatsTable(actualLine,cameronHash(actualLine), isLinear);
 				end if;
-				end loop;
+				--put_line(integer'Image(statsTable(i)).probes));
+				if i < 30
+				then
+					for j in 0..127
+					loop
+						if statsTable(j).key = actualLine
+						then
+							if statsTable(j).probes > maxProbes
+							then
+								maxProbes := statsTable(j).probes;
+								-- put_line("Maximum probes for " & statsTable(j).key & "is now" & Integer'Image(statsTable(j).probes));
+							end if;
+							if  statsTable(j).probes < minProbes and statsTable(j).probes > 0
+							then
+								minProbes := statsTable(j).probes;
+								-- put_line("minimum probes for " & statsTable(j).key & "is now" & Integer'Image(statsTable(j).probes));
+							end if;
+							if statsTable(j).probes > 0
+							then
+								avgProbes := (avgProbes) + float(statsTable(j).probes);
+								avgKnt := avgKnt + 1;
+								-- put_line("Avg probes for " & statsTable(j).key & "is now" & Integer'Image(avgKnt));
+							end if;
+						end if;
+					end loop;
+				elsif i = 31
+				then
+					avgProbes := avgProbes / float(avgKnt);
+					put_line("Stats for the first 30 entries");
+					put_line("Minimum Probes: " & integer'image(minProbes));
+					put_line("Maximum Probes: " & integer'image(maxProbes));
+					put_line("Average Probes: " & float'image(avgProbes));
+					minProbes := 128;
+					maxProbes := 0;
+					avgProbes := 0.0;
 
-			elsif  i = 126
-			then
-				avgProbes := avgProbes / float(avgKnt);
-				put_line("Stats for the last 30 entries");
-				put_line("Minimum Probes: " & integer'image(minProbes));
-				put_line("Maximum Probes: " & integer'image(maxProbes));
-				put_line("Average Probes: " & float'image(avgProbes));
-			end if;
-		end loop;
+				elsif i > 33 and i < 63
+				then
+					for j in 0..127
+					loop
+						if statsTable(j).key = actualLine
+						then
+							if statsTable(j).probes > maxProbes
+							then
+								maxProbes := statsTable(j).probes;
+								-- put_line("Maximum probes for " & statsTable(j).key & "is now" & Integer'Image(statsTable(j).probes));
+							end if;
+							if  statsTable(j).probes < minProbes and statsTable(j).probes > 0
+							then
+								minProbes := statsTable(j).probes;
+								-- put_line("minimum probes for " & statsTable(j).key & "is now" & Integer'Image(statsTable(j).probes));
+							end if;
+							if statsTable(j).probes > 0
+							then
+								avgProbes := (avgProbes) + float(statsTable(j).probes);
+								avgKnt := avgKnt + 1;
+								-- put_line("avg probes for " & statsTable(j).key & "is now" & Integer'Image(avgKnt));
+							end if;
+					end if;
+					end loop;
+
+				elsif  i = 63
+				then
+					avgProbes := avgProbes / float(avgKnt);
+					put_line("Stats for the last 30 entries");
+					put_line("Minimum Probes: " & integer'image(minProbes));
+					put_line("Maximum Probes: " & integer'image(maxProbes));
+					put_line("Average Probes: " & float'image(avgProbes));
+				end if;
+			end loop;
+		else
+			for i in 0..115
+			loop
+				Line := Get_Line(Input);
+				actualLine := Line(1..16); -- need to remove the newline character
+				if givenHash = true
+				then
+					-- put_line("not my hash");
+					insertStatsTable(actualLine,hash(actualLine), isLinear);
+				else
+					-- put_line("my hash");
+					insertStatsTable(actualLine,cameronHash(actualLine), isLinear);
+				end if;
+				--put_line(integer'Image(statsTable(i)).probes));
+				if i < 30
+				then
+					for j in 0..127
+					loop
+						if statsTable(j).key = actualLine
+						then
+							if statsTable(j).probes > maxProbes
+							then
+								maxProbes := statsTable(j).probes;
+								-- put_line("Maximum probes for " & statsTable(j).key & "is now" & Integer'Image(statsTable(j).probes));
+							end if;
+							if  statsTable(j).probes < minProbes and statsTable(j).probes > 0
+							then
+								minProbes := statsTable(j).probes;
+								-- put_line("minimum probes for " & statsTable(j).key & "is now" & Integer'Image(statsTable(j).probes));
+							end if;
+							if statsTable(j).probes > 0
+							then
+								avgProbes := (avgProbes) + float(statsTable(j).probes);
+								avgKnt := avgKnt + 1;
+								-- put_line("Avg probes for " & statsTable(j).key & "is now" & Integer'Image(avgKnt));
+							end if;
+						end if;
+					end loop;
+				elsif i = 31
+				then
+					avgProbes := avgProbes / float(avgKnt);
+					put_line("Stats for the first 30 entries");
+					put_line("Minimum Probes: " & integer'image(minProbes));
+					put_line("Maximum Probes: " & integer'image(maxProbes));
+					put_line("Average Probes: " & float'image(avgProbes));
+					minProbes := 128;
+					maxProbes := 0;
+					avgProbes := 0.0;
+
+				elsif i > 85 and i < 115
+				then
+					for j in 0..127
+					loop
+						if statsTable(j).key = actualLine
+						then
+							if statsTable(j).probes > maxProbes
+							then
+								maxProbes := statsTable(j).probes;
+								-- put_line("Maximum probes for " & statsTable(j).key & "is now" & Integer'Image(statsTable(j).probes));
+							end if;
+							if  statsTable(j).probes < minProbes and statsTable(j).probes > 0
+							then
+								minProbes := statsTable(j).probes;
+								-- put_line("minimum probes for " & statsTable(j).key & "is now" & Integer'Image(statsTable(j).probes));
+							end if;
+							if statsTable(j).probes > 0
+							then
+								avgProbes := (avgProbes) + float(statsTable(j).probes);
+								avgKnt := avgKnt + 1;
+								-- put_line("avg probes for " & statsTable(j).key & "is now" & Integer'Image(avgKnt));
+							end if;
+					end if;
+					end loop;
+
+				elsif  i = 115
+				then
+					avgProbes := avgProbes / float(avgKnt);
+					put_line("Stats for the last 30 entries");
+					put_line("Minimum Probes: " & integer'image(minProbes));
+					put_line("Maximum Probes: " & integer'image(maxProbes));
+					put_line("Average Probes: " & float'image(avgProbes));
+				end if;
+			end loop;
+		end if;
 		close(input);
 	end printStats;
 
@@ -321,13 +405,14 @@ begin
 			actualLine := Line(1..16); -- need to remove the newline character
 			insert(actualLine,hash(actualLine), true);
 		end loop;
-		-- printTable;
+		printTable;
 		Close(Input);
 
-	printStats(true,true);
+	printStats(true,true, true);
 	initTable;
 
-		Open(Input, In_File, "Words.txt"); 		Set_Line (input, To => 1);
+		Open(Input, In_File, "Words.txt");
+		Set_Line (input, To => 1);
 		new_line(2);
 		put_line("filling to 90%");
 		for i in 0..115 -- fill to 90%
@@ -336,11 +421,11 @@ begin
 			actualLine := Line(1..16); -- need to remove the new line character
 			insert(actualLine,hash(actualLine), true);
 		end loop;
-		-- printTable;
+		printTable;
 		Close(input);
 
 
-	printStats(true, true);
+	printStats(true, true, false);
 
 	initTable;
 
@@ -354,11 +439,11 @@ begin
 			actualLine := Line(1..16); -- need to remove the new line character
 			insert(actualLine,hash(actualLine), false);
 		end loop;
-		-- printTable;
+		printTable;
 		Close(Input);
 
 
-	printStats(false, true);
+	printStats(false, true, true);
 	initTable;
 
 		new_line(2);
@@ -370,11 +455,11 @@ begin
 			actualLine := Line(1..16); -- need to remove the new line character
 			insert(actualLine,hash(actualLine), false);
 		end loop;
-		-- printTable;
+		printTable;
 		Close(input);
 
 
-	printStats(false, true);
+	printStats(false, true, false);
 
 	initTable;
 	new_line(3);
@@ -391,11 +476,11 @@ begin
 			actualLine := Line(1..16); -- need to remove the newline character
 			insert(actualLine,cameronHash(actualLine), true);
 		end loop;
-		-- printTable;
+		printTable;
 		Close(Input);
 
 
-	printStats(true, false);
+	printStats(true, false, true);
 	initTable;
 
 	new_line(2);
@@ -408,11 +493,11 @@ begin
 			actualLine := Line(1..16); -- need to remove the new line character
 			insert(actualLine,hash(actualLine), true);
 		end loop;
-		-- printTable;
+		printTable;
 		Close(Input);
 
 
-	printStats(true, false);
+	printStats(true, false, false);
 
 	initTable;
 
@@ -428,11 +513,11 @@ begin
 			actualLine := Line(1..16); -- need to remove the new line character
 			insert(actualLine,cameronHash(actualLine), false);
 		end loop;
-		-- printTable;
+		printTable;
 		Close(Input);
 
 
-	printStats(false, false);
+	printStats(false, false, true);
 	initTable;
 
 		Open(Input, In_File, "Words.txt"); 		Set_Line (input, To => 1);
@@ -444,10 +529,10 @@ begin
 			actualLine := Line(1..16); -- need to remove the new line character
 			insert(actualLine,hash(actualLine), false);
 		end loop;
-		-- printTable;
+		printTable;
 		Close(input);
 
 
-	printStats(false, false);
+	printStats(false, false, false);
 
 end hash;

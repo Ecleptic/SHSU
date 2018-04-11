@@ -1,92 +1,1122 @@
 
-
-
 Linear Insertion
 filling to 50%
+		Key 		Address		Probes
+ 0:	|	Undefined_Key    | 0		| 0
+ 1:	|	Undefined_Key    | 0		| 0
+ 2:	|	Undefined_Key    | 0		| 0
+ 3:	|	Undefined_Key    | 0		| 0
+ 4:	|	Undefined_Key    | 0		| 0
+ 5:	|	Undefined_Key    | 0		| 0
+ 6:	|	Undefined_Key    | 0		| 0
+ 7:	|	Undefined_Key    | 0		| 0
+ 8:	|	Undefined_Key    | 0		| 0
+ 9:	|	Undefined_Key    | 0		| 0
+ 10:	|	Undefined_Key    | 0		| 0
+ 11:	|	Undefined_Key    | 0		| 0
+ 12:	|	Undefined_Key    | 0		| 0
+ 13:	|	Undefined_Key    | 0		| 0
+ 14:	|	Undefined_Key    | 0		| 0
+ 15:	|	Undefined_Key    | 0		| 0
+ 16:	|	Undefined_Key    | 0		| 0
+ 17:	|	Undefined_Key    | 0		| 0
+ 18:	|	Undefined_Key    | 0		| 0
+ 19:	|	Undefined_Key    | 0		| 0
+ 20:	|	Undefined_Key    | 0		| 0
+ 21:	|	Undefined_Key    | 0		| 0
+ 22:	|	Undefined_Key    | 0		| 0
+ 23:	|	Undefined_Key    | 0		| 0
+ 24:	|	Undefined_Key    | 0		| 0
+ 25:	|	Undefined_Key    | 0		| 0
+ 26:	|	Undefined_Key    | 0		| 0
+ 27:	|	Undefined_Key    | 0		| 0
+ 28:	|	Undefined_Key    | 0		| 0
+ 29:	|	Undefined_Key    | 0		| 0
+ 30:	|	Undefined_Key    | 0		| 0
+ 31:	|	Undefined_Key    | 0		| 0
+ 32:	|	Undefined_Key    | 0		| 0
+ 33:	|	Undefined_Key    | 0		| 0
+ 34:	|	Undefined_Key    | 0		| 0
+ 35:	|	Undefined_Key    | 0		| 0
+ 36:	|	Undefined_Key    | 0		| 0
+ 37:	|	Undefined_Key    | 0		| 0
+ 38:	|	Undefined_Key    | 0		| 0
+ 39:	|	Undefined_Key    | 0		| 0
+ 40:	|	Undefined_Key    | 0		| 0
+ 41:	|	Undefined_Key    | 0		| 0
+ 42:	|	Undefined_Key    | 0		| 0
+ 43:	|	Undefined_Key    | 0		| 0
+ 44:	|	Undefined_Key    | 0		| 0
+ 45:	|	Undefined_Key    | 0		| 0
+ 46:	|	Undefined_Key    | 0		| 0
+ 47:	|	Undefined_Key    | 0		| 0
+ 48:	|	Undefined_Key    | 0		| 0
+ 49:	|	1234567890123456 | 49		| 1
+ 50:	|	Undefined_Key    | 0		| 0
+ 51:	|	Undefined_Key    | 0		| 0
+ 52:	|	Undefined_Key    | 0		| 0
+ 53:	|	Undefined_Key    | 0		| 0
+ 54:	|	Undefined_Key    | 0		| 0
+ 55:	|	Undefined_Key    | 0		| 0
+ 56:	|	Undefined_Key    | 0		| 0
+ 57:	|	Undefined_Key    | 0		| 0
+ 58:	|	Undefined_Key    | 0		| 0
+ 59:	|	Undefined_Key    | 0		| 0
+ 60:	|	Undefined_Key    | 0		| 0
+ 61:	|	Undefined_Key    | 0		| 0
+ 62:	|	Undefined_Key    | 0		| 0
+ 63:	|	Undefined_Key    | 0		| 0
+ 64:	|	Undefined_Key    | 0		| 0
+ 65:	|	Aguirrie         | 65		| 1
+ 66:	|	Alcantara        | 65		| 2
+ 67:	|	Bhandari         | 66		| 2
+ 68:	|	Carmona          | 67		| 2
+ 69:	|	Casper           | 67		| 3
+ 70:	|	Cook             | 67		| 4
+ 71:	|	Daniels          | 68		| 4
+ 72:	|	Acevedo          | 65		| 8
+ 73:	|	Ajose            | 65		| 9
+ 74:	|	Arauza           | 65		| 10
+ 75:	|	Buck             | 66		| 10
+ 76:	|	Clark            | 67		| 10
+ 77:	|	Crouch           | 67		| 11
+ 78:	|	Nienberg         | 78		| 1
+ 79:	|	Davies           | 68		| 12
+ 80:	|	Paschal          | 80		| 1
+ 81:	|	Qamruddin        | 81		| 1
+ 82:	|	Red              | 82		| 1
+ 83:	|	Salkowski        | 83		| 1
+ 84:	|	Dugger           | 68		| 17
+ 85:	|	Egbe             | 69		| 17
+ 86:	|	Ellington        | 69		| 18
+ 87:	|	Farral           | 70		| 18
+ 88:	|	Garza            | 71		| 18
+ 89:	|	Gurung           | 71		| 19
+ 90:	|	Zulfiqar         | 90		| 1
+ 91:	|	Joseph           | 74		| 18
+ 92:	|	Kelly            | 75		| 18
+ 93:	|	Corey            | 67		| 27
+ 94:	|	Adam             | 65		| 30
+ 95:	|	Clayton          | 67		| 29
+ 96:	|	Dustin           | 68		| 29
+ 97:	|	Robert           | 82		| 16
+ 98:	|	Kyle             | 75		| 24
+ 99:	|	Scott            | 83		| 17
+ 100:	|	Octavio          | 79		| 22
+ 101:	|	Judy             | 74		| 28
+ 102:	|	Derek            | 68		| 35
+ 103:	|	Jeffrey          | 74		| 30
+ 104:	|	Jordon           | 74		| 31
+ 105:	|	Vinnela          | 86		| 20
+ 106:	|	Lisa             | 76		| 31
+ 107:	|	Todd             | 84		| 24
+ 108:	|	Veronica         | 86		| 23
+ 109:	|	Matthew          | 77		| 33
+ 110:	|	Michael          | 77		| 34
+ 111:	|	Akhila           | 65		| 47
+ 112:	|	John             | 74		| 39
+ 113:	|	Charles          | 67		| 47
+ 114:	|	James            | 74		| 41
+ 115:	|	Chris            | 67		| 49
+ 116:	|	Wade             | 87		| 30
+ 117:	|	Christopher      | 67		| 51
+ 118:	|	Fernando         | 70		| 49
+ 119:	|	Batbold          | 66		| 54
+ 120:	|	Joel             | 74		| 47
+ 121:	|	Fabulous         | 70		| 52
+ 122:	|	Misogamist       | 77		| 46
+ 123:	|	Maiden           | 77		| 47
+ 124:	|	Eye              | 69		| 56
+ 125:	|	Constriction     | 67		| 59
+ 126:	|	Necromancer      | 78		| 49
+ 127:	|	Syncopate        | 83		| 45
 Stats for the first 30 entries
 Minimum Probes:  1
 Maximum Probes:  27
 Average Probes:  8.83333E+00
 Stats for the last 30 entries
-Minimum Probes:  44
-Maximum Probes:  85
-Average Probes:  3.31695E+01
+Minimum Probes:  17
+Maximum Probes:  59
+Average Probes:  1.88983E+01
 
 
 filling to 90%
+		Key 		Address		Probes
+ 0:	|	Yolk             | 89		| 40
+ 1:	|	Afterwards       | 65		| 65
+ 2:	|	Person           | 80		| 51
+ 3:	|	Northwest        | 78		| 54
+ 4:	|	Irreversible     | 73		| 60
+ 5:	|	Fabricate        | 70		| 64
+ 6:	|	Honor            | 72		| 63
+ 7:	|	Staple           | 83		| 53
+ 8:	|	Under            | 85		| 52
+ 9:	|	Jutty            | 74		| 64
+ 10:	|	Finagle          | 70		| 69
+ 11:	|	Cook             | 67		| 73
+ 12:	|	Rush             | 82		| 59
+ 13:	|	Wine             | 87		| 55
+ 14:	|	Screen           | 83		| 60
+ 15:	|	Perfect          | 80		| 64
+ 16:	|	mole             | 109		| 36
+ 17:	|	parasympathetic  | 112		| 34
+ 18:	|	poison           | 112		| 35
+ 19:	|	brutalize        | 98		| 50
+ 20:	|	cap              | 99		| 50
+ 21:	|	ratiocination    | 114		| 36
+ 22:	|	cauldron         | 99		| 52
+ 23:	|	prepossess       | 112		| 40
+ 24:	|	wince            | 119		| 34
+ 25:	|	orthodontist     | 111		| 43
+ 26:	|	live             | 108		| 47
+ 27:	|	magnetic         | 109		| 47
+ 28:	|	inlet            | 105		| 52
+ 29:	|	constrain        | 99		| 59
+ 30:	|	marsupial        | 109		| 50
+ 31:	|	rationalize      | 114		| 46
+ 32:	|	scat             | 115		| 46
+ 33:	|	toluene          | 116		| 46
+ 34:	|	wet              | 119		| 44
+ 35:	|	sparse           | 115		| 49
+ 36:	|	quandary         | 113		| 52
+ 37:	|	dactyl           | 100		| 66
+ 38:	|	nosegay          | 110		| 57
+ 39:	|	option           | 111		| 57
+ 40:	|	forgetful        | 102		| 67
+ 41:	|	privilege        | 112		| 58
+ 42:	|	sponsor          | 115		| 56
+ 43:	|	exhilarate       | 101		| 71
+ 44:	|	guard            | 103		| 70
+ 45:	|	noggin           | 110		| 64
+ 46:	|	prologue         | 112		| 63
+ 47:	|	seal             | 115		| 61
+ 48:	|	seat             | 115		| 62
+ 49:	|	1234567890123456 | 49		| 1
+ 50:	|	tiller           | 116		| 63
+ 51:	|	ichthyosaur      | 105		| 75
+ 52:	|	lazy             | 108		| 73
+ 53:	|	Undefined_Key    | 0		| 0
+ 54:	|	Undefined_Key    | 0		| 0
+ 55:	|	Undefined_Key    | 0		| 0
+ 56:	|	Undefined_Key    | 0		| 0
+ 57:	|	Undefined_Key    | 0		| 0
+ 58:	|	Undefined_Key    | 0		| 0
+ 59:	|	Undefined_Key    | 0		| 0
+ 60:	|	Undefined_Key    | 0		| 0
+ 61:	|	Undefined_Key    | 0		| 0
+ 62:	|	Undefined_Key    | 0		| 0
+ 63:	|	Undefined_Key    | 0		| 0
+ 64:	|	Undefined_Key    | 0		| 0
+ 65:	|	Aguirrie         | 65		| 1
+ 66:	|	Alcantara        | 65		| 2
+ 67:	|	Bhandari         | 66		| 2
+ 68:	|	Carmona          | 67		| 2
+ 69:	|	Casper           | 67		| 3
+ 70:	|	Cook             | 67		| 4
+ 71:	|	Daniels          | 68		| 4
+ 72:	|	Acevedo          | 65		| 8
+ 73:	|	Ajose            | 65		| 9
+ 74:	|	Arauza           | 65		| 10
+ 75:	|	Buck             | 66		| 10
+ 76:	|	Clark            | 67		| 10
+ 77:	|	Crouch           | 67		| 11
+ 78:	|	Nienberg         | 78		| 1
+ 79:	|	Davies           | 68		| 12
+ 80:	|	Paschal          | 80		| 1
+ 81:	|	Qamruddin        | 81		| 1
+ 82:	|	Red              | 82		| 1
+ 83:	|	Salkowski        | 83		| 1
+ 84:	|	Dugger           | 68		| 17
+ 85:	|	Egbe             | 69		| 17
+ 86:	|	Ellington        | 69		| 18
+ 87:	|	Farral           | 70		| 18
+ 88:	|	Garza            | 71		| 18
+ 89:	|	Gurung           | 71		| 19
+ 90:	|	Zulfiqar         | 90		| 1
+ 91:	|	Joseph           | 74		| 18
+ 92:	|	Kelly            | 75		| 18
+ 93:	|	Corey            | 67		| 27
+ 94:	|	Adam             | 65		| 30
+ 95:	|	Clayton          | 67		| 29
+ 96:	|	Dustin           | 68		| 29
+ 97:	|	Robert           | 82		| 16
+ 98:	|	Kyle             | 75		| 24
+ 99:	|	Scott            | 83		| 17
+ 100:	|	Octavio          | 79		| 22
+ 101:	|	Judy             | 74		| 28
+ 102:	|	Derek            | 68		| 35
+ 103:	|	Jeffrey          | 74		| 30
+ 104:	|	Jordon           | 74		| 31
+ 105:	|	Vinnela          | 86		| 20
+ 106:	|	Lisa             | 76		| 31
+ 107:	|	Todd             | 84		| 24
+ 108:	|	Veronica         | 86		| 23
+ 109:	|	Matthew          | 77		| 33
+ 110:	|	Michael          | 77		| 34
+ 111:	|	Akhila           | 65		| 47
+ 112:	|	John             | 74		| 39
+ 113:	|	Charles          | 67		| 47
+ 114:	|	James            | 74		| 41
+ 115:	|	Chris            | 67		| 49
+ 116:	|	Wade             | 87		| 30
+ 117:	|	Christopher      | 67		| 51
+ 118:	|	Fernando         | 70		| 49
+ 119:	|	Batbold          | 66		| 54
+ 120:	|	Joel             | 74		| 47
+ 121:	|	Fabulous         | 70		| 52
+ 122:	|	Misogamist       | 77		| 46
+ 123:	|	Maiden           | 77		| 47
+ 124:	|	Eye              | 69		| 56
+ 125:	|	Constriction     | 67		| 59
+ 126:	|	Necromancer      | 78		| 49
+ 127:	|	Syncopate        | 83		| 45
 Stats for the first 30 entries
 Minimum Probes:  1
 Maximum Probes:  27
 Average Probes:  8.83333E+00
 Stats for the last 30 entries
-Minimum Probes:  44
-Maximum Probes:  85
-Average Probes:  3.31695E+01
+Minimum Probes:  34
+Maximum Probes:  75
+Average Probes:  2.70678E+01
 
 
 
 Random Insertion
 filling to 50%
+		Key 		Address		Probes
+ 0:	|	Undefined_Key    | 0		| 0
+ 1:	|	Undefined_Key    | 0		| 0
+ 2:	|	Chris            | 67		| 11
+ 3:	|	Undefined_Key    | 0		| 0
+ 4:	|	Adam             | 65		| 7
+ 5:	|	Undefined_Key    | 0		| 0
+ 6:	|	Crouch           | 67		| 7
+ 7:	|	Dustin           | 68		| 7
+ 8:	|	Undefined_Key    | 0		| 0
+ 9:	|	James            | 74		| 11
+ 10:	|	Undefined_Key    | 0		| 0
+ 11:	|	Undefined_Key    | 0		| 0
+ 12:	|	Maiden           | 77		| 11
+ 13:	|	Jeffrey          | 74		| 7
+ 14:	|	Undefined_Key    | 0		| 0
+ 15:	|	Corey            | 67		| 8
+ 16:	|	Derek            | 68		| 8
+ 17:	|	Undefined_Key    | 0		| 0
+ 18:	|	Fabulous         | 70		| 8
+ 19:	|	Undefined_Key    | 0		| 0
+ 20:	|	Undefined_Key    | 0		| 0
+ 21:	|	Undefined_Key    | 0		| 0
+ 22:	|	Jordon           | 74		| 8
+ 23:	|	Undefined_Key    | 0		| 0
+ 24:	|	Undefined_Key    | 0		| 0
+ 25:	|	Michael          | 77		| 8
+ 26:	|	Undefined_Key    | 0		| 0
+ 27:	|	Undefined_Key    | 0		| 0
+ 28:	|	Undefined_Key    | 0		| 0
+ 29:	|	Charles          | 67		| 10
+ 30:	|	Undefined_Key    | 0		| 0
+ 31:	|	Undefined_Key    | 0		| 0
+ 32:	|	Undefined_Key    | 0		| 0
+ 33:	|	Undefined_Key    | 0		| 0
+ 34:	|	Undefined_Key    | 0		| 0
+ 35:	|	Undefined_Key    | 0		| 0
+ 36:	|	John             | 74		| 10
+ 37:	|	Undefined_Key    | 0		| 0
+ 38:	|	Undefined_Key    | 0		| 0
+ 39:	|	Misogamist       | 77		| 10
+ 40:	|	Undefined_Key    | 0		| 0
+ 41:	|	Constriction     | 67		| 14
+ 42:	|	Undefined_Key    | 0		| 0
+ 43:	|	Undefined_Key    | 0		| 0
+ 44:	|	Undefined_Key    | 0		| 0
+ 45:	|	Undefined_Key    | 0		| 0
+ 46:	|	Undefined_Key    | 0		| 0
+ 47:	|	Undefined_Key    | 0		| 0
+ 48:	|	Undefined_Key    | 0		| 0
+ 49:	|	1234567890123456 | 49		| 1
+ 50:	|	Undefined_Key    | 0		| 0
+ 51:	|	Undefined_Key    | 0		| 0
+ 52:	|	Undefined_Key    | 0		| 0
+ 53:	|	Undefined_Key    | 0		| 0
+ 54:	|	Undefined_Key    | 0		| 0
+ 55:	|	Undefined_Key    | 0		| 0
+ 56:	|	Undefined_Key    | 0		| 0
+ 57:	|	Undefined_Key    | 0		| 0
+ 58:	|	Akhila           | 65		| 9
+ 59:	|	Undefined_Key    | 0		| 0
+ 60:	|	Clayton          | 67		| 9
+ 61:	|	Undefined_Key    | 0		| 0
+ 62:	|	Undefined_Key    | 0		| 0
+ 63:	|	Undefined_Key    | 0		| 0
+ 64:	|	Undefined_Key    | 0		| 0
+ 65:	|	Aguirrie         | 65		| 1
+ 66:	|	Alcantara        | 65		| 2
+ 67:	|	Bhandari         | 66		| 2
+ 68:	|	Carmona          | 67		| 2
+ 69:	|	Daniels          | 68		| 2
+ 70:	|	Egbe             | 69		| 2
+ 71:	|	Acevedo          | 65		| 3
+ 72:	|	Buck             | 66		| 3
+ 73:	|	Casper           | 67		| 3
+ 74:	|	Davies           | 68		| 3
+ 75:	|	Ellington        | 69		| 3
+ 76:	|	Farral           | 70		| 3
+ 77:	|	Garza            | 71		| 3
+ 78:	|	Nienberg         | 78		| 1
+ 79:	|	Octavio          | 79		| 1
+ 80:	|	Paschal          | 80		| 1
+ 81:	|	Qamruddin        | 81		| 1
+ 82:	|	Red              | 82		| 1
+ 83:	|	Salkowski        | 83		| 1
+ 84:	|	Scott            | 83		| 2
+ 85:	|	Todd             | 84		| 2
+ 86:	|	Vinnela          | 86		| 1
+ 87:	|	Judy             | 74		| 6
+ 88:	|	Robert           | 82		| 3
+ 89:	|	Syncopate        | 83		| 3
+ 90:	|	Zulfiqar         | 90		| 1
+ 91:	|	Undefined_Key    | 0		| 0
+ 92:	|	Veronica         | 86		| 3
+ 93:	|	Arauza           | 65		| 5
+ 94:	|	Joel             | 74		| 13
+ 95:	|	Clark            | 67		| 5
+ 96:	|	Ajose            | 65		| 4
+ 97:	|	Batbold          | 66		| 4
+ 98:	|	Cook             | 67		| 4
+ 99:	|	Dugger           | 68		| 4
+ 100:	|	Eye              | 69		| 4
+ 101:	|	Fernando         | 70		| 4
+ 102:	|	Gurung           | 71		| 4
+ 103:	|	Kyle             | 75		| 5
+ 104:	|	Undefined_Key    | 0		| 0
+ 105:	|	Joseph           | 74		| 4
+ 106:	|	Kelly            | 75		| 4
+ 107:	|	Lisa             | 76		| 4
+ 108:	|	Matthew          | 77		| 4
+ 109:	|	Necromancer      | 78		| 4
+ 110:	|	Undefined_Key    | 0		| 0
+ 111:	|	Undefined_Key    | 0		| 0
+ 112:	|	Undefined_Key    | 0		| 0
+ 113:	|	Undefined_Key    | 0		| 0
+ 114:	|	Undefined_Key    | 0		| 0
+ 115:	|	Undefined_Key    | 0		| 0
+ 116:	|	Undefined_Key    | 0		| 0
+ 117:	|	Undefined_Key    | 0		| 0
+ 118:	|	Wade             | 87		| 4
+ 119:	|	Undefined_Key    | 0		| 0
+ 120:	|	Undefined_Key    | 0		| 0
+ 121:	|	Undefined_Key    | 0		| 0
+ 122:	|	Christopher      | 67		| 12
+ 123:	|	Undefined_Key    | 0		| 0
+ 124:	|	Undefined_Key    | 0		| 0
+ 125:	|	Undefined_Key    | 0		| 0
+ 126:	|	Undefined_Key    | 0		| 0
+ 127:	|	Undefined_Key    | 0		| 0
 Stats for the first 30 entries
 Minimum Probes:  1
 Maximum Probes:  8
 Average Probes:  2.93333E+00
 Stats for the last 30 entries
-Minimum Probes:  4
-Maximum Probes:  42
-Average Probes:  5.83051E+00
+Minimum Probes:  1
+Maximum Probes:  14
+Average Probes:  3.35593E+00
 
 
 filling to 90%
+		Key 		Address		Probes
+ 0:	|	Undefined_Key    | 0		| 0
+ 1:	|	scat             | 115		| 6
+ 2:	|	Chris            | 67		| 11
+ 3:	|	cap              | 99		| 4
+ 4:	|	Adam             | 65		| 7
+ 5:	|	exhilarate       | 101		| 4
+ 6:	|	Crouch           | 67		| 7
+ 7:	|	Dustin           | 68		| 7
+ 8:	|	seal             | 115		| 13
+ 9:	|	James            | 74		| 11
+ 10:	|	magnetic         | 109		| 5
+ 11:	|	Honor            | 72		| 7
+ 12:	|	Maiden           | 77		| 11
+ 13:	|	Jeffrey          | 74		| 7
+ 14:	|	nosegay          | 110		| 4
+ 15:	|	Corey            | 67		| 8
+ 16:	|	Derek            | 68		| 8
+ 17:	|	quandary         | 113		| 4
+ 18:	|	Fabulous         | 70		| 8
+ 19:	|	Perfect          | 80		| 7
+ 20:	|	toluene          | 116		| 4
+ 21:	|	Undefined_Key    | 0		| 0
+ 22:	|	Jordon           | 74		| 8
+ 23:	|	wet              | 119		| 4
+ 24:	|	Undefined_Key    | 0		| 0
+ 25:	|	Michael          | 77		| 8
+ 26:	|	Undefined_Key    | 0		| 0
+ 27:	|	Afterwards       | 65		| 10
+ 28:	|	Undefined_Key    | 0		| 0
+ 29:	|	Charles          | 67		| 10
+ 30:	|	Undefined_Key    | 0		| 0
+ 31:	|	Screen           | 83		| 8
+ 32:	|	Finagle          | 70		| 10
+ 33:	|	ichthyosaur      | 105		| 12
+ 34:	|	prologue         | 112		| 18
+ 35:	|	dactyl           | 100		| 11
+ 36:	|	John             | 74		| 10
+ 37:	|	seat             | 115		| 18
+ 38:	|	cauldron         | 99		| 7
+ 39:	|	Misogamist       | 77		| 10
+ 40:	|	privilege        | 112		| 12
+ 41:	|	Constriction     | 67		| 14
+ 42:	|	guard            | 103		| 7
+ 43:	|	sponsor          | 115		| 12
+ 44:	|	inlet            | 105		| 7
+ 45:	|	Undefined_Key    | 0		| 0
+ 46:	|	Undefined_Key    | 0		| 0
+ 47:	|	constrain        | 99		| 8
+ 48:	|	Jutty            | 74		| 14
+ 49:	|	1234567890123456 | 49		| 1
+ 50:	|	forgetful        | 102		| 8
+ 51:	|	prepossess       | 112		| 7
+ 52:	|	Undefined_Key    | 0		| 0
+ 53:	|	rationalize      | 114		| 7
+ 54:	|	sparse           | 115		| 7
+ 55:	|	tiller           | 116		| 7
+ 56:	|	lazy             | 108		| 8
+ 57:	|	marsupial        | 109		| 8
+ 58:	|	Akhila           | 65		| 9
+ 59:	|	Undefined_Key    | 0		| 0
+ 60:	|	Clayton          | 67		| 9
+ 61:	|	Undefined_Key    | 0		| 0
+ 62:	|	Cook             | 67		| 15
+ 63:	|	Fabricate        | 70		| 9
+ 64:	|	Undefined_Key    | 0		| 0
+ 65:	|	Aguirrie         | 65		| 1
+ 66:	|	Alcantara        | 65		| 2
+ 67:	|	Bhandari         | 66		| 2
+ 68:	|	Carmona          | 67		| 2
+ 69:	|	Daniels          | 68		| 2
+ 70:	|	Egbe             | 69		| 2
+ 71:	|	Acevedo          | 65		| 3
+ 72:	|	Buck             | 66		| 3
+ 73:	|	Casper           | 67		| 3
+ 74:	|	Davies           | 68		| 3
+ 75:	|	Ellington        | 69		| 3
+ 76:	|	Farral           | 70		| 3
+ 77:	|	Garza            | 71		| 3
+ 78:	|	Nienberg         | 78		| 1
+ 79:	|	Octavio          | 79		| 1
+ 80:	|	Paschal          | 80		| 1
+ 81:	|	Qamruddin        | 81		| 1
+ 82:	|	Red              | 82		| 1
+ 83:	|	Salkowski        | 83		| 1
+ 84:	|	Scott            | 83		| 2
+ 85:	|	Todd             | 84		| 2
+ 86:	|	Vinnela          | 86		| 1
+ 87:	|	Judy             | 74		| 6
+ 88:	|	Robert           | 82		| 3
+ 89:	|	Syncopate        | 83		| 3
+ 90:	|	Zulfiqar         | 90		| 1
+ 91:	|	Northwest        | 78		| 6
+ 92:	|	Veronica         | 86		| 3
+ 93:	|	Arauza           | 65		| 5
+ 94:	|	Joel             | 74		| 13
+ 95:	|	Clark            | 67		| 5
+ 96:	|	Ajose            | 65		| 4
+ 97:	|	Batbold          | 66		| 4
+ 98:	|	Cook             | 67		| 4
+ 99:	|	Dugger           | 68		| 4
+ 100:	|	Eye              | 69		| 4
+ 101:	|	Fernando         | 70		| 4
+ 102:	|	Gurung           | 71		| 4
+ 103:	|	Kyle             | 75		| 5
+ 104:	|	Irreversible     | 73		| 4
+ 105:	|	Joseph           | 74		| 4
+ 106:	|	Kelly            | 75		| 4
+ 107:	|	Lisa             | 76		| 4
+ 108:	|	Matthew          | 77		| 4
+ 109:	|	Necromancer      | 78		| 4
+ 110:	|	mole             | 109		| 2
+ 111:	|	Person           | 80		| 4
+ 112:	|	parasympathetic  | 112		| 1
+ 113:	|	Rush             | 82		| 4
+ 114:	|	Staple           | 83		| 4
+ 115:	|	Wine             | 87		| 5
+ 116:	|	Under            | 85		| 4
+ 117:	|	orthodontist     | 111		| 3
+ 118:	|	Wade             | 87		| 4
+ 119:	|	wince            | 119		| 1
+ 120:	|	Yolk             | 89		| 4
+ 121:	|	live             | 108		| 6
+ 122:	|	Christopher      | 67		| 12
+ 123:	|	noggin           | 110		| 6
+ 124:	|	option           | 111		| 6
+ 125:	|	poison           | 112		| 6
+ 126:	|	brutalize        | 98		| 5
+ 127:	|	ratiocination    | 114		| 6
 Stats for the first 30 entries
 Minimum Probes:  1
 Maximum Probes:  8
 Average Probes:  2.93333E+00
 Stats for the last 30 entries
-Minimum Probes:  4
-Maximum Probes:  42
-Average Probes:  5.83051E+00
+Minimum Probes:  1
+Maximum Probes:  18
+Average Probes:  3.76271E+00
 
 
 
 WITH MY HASH
 Linear Insertion
 filling to 50%
+		Key 		Address		Probes
+ 0:	|	Undefined_Key    | 0		| 0
+ 1:	|	Undefined_Key    | 0		| 0
+ 2:	|	Undefined_Key    | 0		| 0
+ 3:	|	Undefined_Key    | 0		| 0
+ 4:	|	Undefined_Key    | 0		| 0
+ 5:	|	Kelly            | 5		| 1
+ 6:	|	Fabulous         | 5		| 2
+ 7:	|	Necromancer      | 7		| 1
+ 8:	|	Robert           | 8		| 1
+ 9:	|	Todd             | 9		| 1
+ 10:	|	Vinnela          | 10		| 1
+ 11:	|	Undefined_Key    | 0		| 0
+ 12:	|	Undefined_Key    | 0		| 0
+ 13:	|	Undefined_Key    | 0		| 0
+ 14:	|	Undefined_Key    | 0		| 0
+ 15:	|	Undefined_Key    | 0		| 0
+ 16:	|	Jordon           | 16		| 1
+ 17:	|	Undefined_Key    | 0		| 0
+ 18:	|	Undefined_Key    | 0		| 0
+ 19:	|	Undefined_Key    | 0		| 0
+ 20:	|	Undefined_Key    | 0		| 0
+ 21:	|	Farral           | 21		| 1
+ 22:	|	Undefined_Key    | 0		| 0
+ 23:	|	Matthew          | 23		| 1
+ 24:	|	Undefined_Key    | 0		| 0
+ 25:	|	John             | 25		| 1
+ 26:	|	Jeffrey          | 26		| 1
+ 27:	|	Lisa             | 27		| 1
+ 28:	|	Undefined_Key    | 0		| 0
+ 29:	|	Clark            | 29		| 1
+ 30:	|	Undefined_Key    | 0		| 0
+ 31:	|	Buck             | 31		| 1
+ 32:	|	Undefined_Key    | 0		| 0
+ 33:	|	Qamruddin        | 33		| 1
+ 34:	|	Veronica         | 34		| 1
+ 35:	|	Derek            | 35		| 1
+ 36:	|	Octavio          | 36		| 1
+ 37:	|	Undefined_Key    | 0		| 0
+ 38:	|	Undefined_Key    | 0		| 0
+ 39:	|	Cook             | 39		| 1
+ 40:	|	Undefined_Key    | 0		| 0
+ 41:	|	Undefined_Key    | 0		| 0
+ 42:	|	Undefined_Key    | 0		| 0
+ 43:	|	Undefined_Key    | 0		| 0
+ 44:	|	Ajose            | 44		| 1
+ 45:	|	Undefined_Key    | 0		| 0
+ 46:	|	Garza            | 46		| 1
+ 47:	|	Egbe             | 47		| 1
+ 48:	|	Undefined_Key    | 0		| 0
+ 49:	|	Salkowski        | 49		| 1
+ 50:	|	Wade             | 49		| 2
+ 51:	|	Undefined_Key    | 0		| 0
+ 52:	|	Undefined_Key    | 0		| 0
+ 53:	|	Undefined_Key    | 0		| 0
+ 54:	|	Kyle             | 54		| 1
+ 55:	|	Undefined_Key    | 0		| 0
+ 56:	|	Gurung           | 56		| 1
+ 57:	|	Undefined_Key    | 0		| 0
+ 58:	|	Undefined_Key    | 0		| 0
+ 59:	|	Undefined_Key    | 0		| 0
+ 60:	|	Undefined_Key    | 0		| 0
+ 61:	|	Undefined_Key    | 0		| 0
+ 62:	|	Zulfiqar         | 62		| 1
+ 63:	|	Syncopate        | 62		| 2
+ 64:	|	Akhila           | 64		| 1
+ 65:	|	Paschal          | 65		| 1
+ 66:	|	Undefined_Key    | 0		| 0
+ 67:	|	Daniels          | 67		| 1
+ 68:	|	Undefined_Key    | 0		| 0
+ 69:	|	Undefined_Key    | 0		| 0
+ 70:	|	Undefined_Key    | 0		| 0
+ 71:	|	Michael          | 71		| 1
+ 72:	|	Joel             | 72		| 1
+ 73:	|	Undefined_Key    | 0		| 0
+ 74:	|	Undefined_Key    | 0		| 0
+ 75:	|	Undefined_Key    | 0		| 0
+ 76:	|	Judy             | 76		| 1
+ 77:	|	James            | 77		| 1
+ 78:	|	Fernando         | 78		| 1
+ 79:	|	Undefined_Key    | 0		| 0
+ 80:	|	Undefined_Key    | 0		| 0
+ 81:	|	Clayton          | 81		| 1
+ 82:	|	Charles          | 82		| 1
+ 83:	|	Alcantara        | 83		| 1
+ 84:	|	Maiden           | 81		| 4
+ 85:	|	Bhandari         | 85		| 1
+ 86:	|	Undefined_Key    | 0		| 0
+ 87:	|	Ellington        | 87		| 1
+ 88:	|	Undefined_Key    | 0		| 0
+ 89:	|	Misogamist       | 89		| 1
+ 90:	|	Undefined_Key    | 0		| 0
+ 91:	|	Aguirrie         | 91		| 1
+ 92:	|	Undefined_Key    | 0		| 0
+ 93:	|	Undefined_Key    | 0		| 0
+ 94:	|	Undefined_Key    | 0		| 0
+ 95:	|	Undefined_Key    | 0		| 0
+ 96:	|	Acevedo          | 96		| 1
+ 97:	|	Undefined_Key    | 0		| 0
+ 98:	|	Undefined_Key    | 0		| 0
+ 99:	|	Undefined_Key    | 0		| 0
+ 100:	|	Crouch           | 100		| 1
+ 101:	|	Undefined_Key    | 0		| 0
+ 102:	|	Casper           | 102		| 1
+ 103:	|	Undefined_Key    | 0		| 0
+ 104:	|	Arauza           | 104		| 1
+ 105:	|	Scott            | 105		| 1
+ 106:	|	Batbold          | 105		| 2
+ 107:	|	Dustin           | 107		| 1
+ 108:	|	Undefined_Key    | 0		| 0
+ 109:	|	Adam             | 109		| 1
+ 110:	|	Undefined_Key    | 0		| 0
+ 111:	|	Constriction     | 111		| 1
+ 112:	|	Chris            | 112		| 1
+ 113:	|	Undefined_Key    | 0		| 0
+ 114:	|	Undefined_Key    | 0		| 0
+ 115:	|	Corey            | 115		| 1
+ 116:	|	Joseph           | 116		| 1
+ 117:	|	Undefined_Key    | 0		| 0
+ 118:	|	Carmona          | 118		| 1
+ 119:	|	Christopher      | 119		| 1
+ 120:	|	Red              | 120		| 1
+ 121:	|	1234567890123456 | 121		| 1
+ 122:	|	Dugger           | 120		| 3
+ 123:	|	Eye              | 121		| 3
+ 124:	|	Undefined_Key    | 0		| 0
+ 125:	|	Nienberg         | 125		| 1
+ 126:	|	Davies           | 126		| 1
+ 127:	|	Undefined_Key    | 0		| 0
 Stats for the first 30 entries
 Minimum Probes:  1
 Maximum Probes:  3
 Average Probes:  1.06667E+00
 Stats for the last 30 entries
 Minimum Probes:  1
-Maximum Probes:  58
-Average Probes:  6.54237E+00
+Maximum Probes:  4
+Average Probes:  6.27119E-01
 
 
 filling to 90%
+		Key 		Address		Probes
+ 0:	|	Yolk             | 89		| 40
+ 1:	|	Afterwards       | 65		| 65
+ 2:	|	Person           | 80		| 51
+ 3:	|	Northwest        | 78		| 54
+ 4:	|	Irreversible     | 73		| 60
+ 5:	|	Fabricate        | 70		| 64
+ 6:	|	Honor            | 72		| 63
+ 7:	|	Staple           | 83		| 53
+ 8:	|	Under            | 85		| 52
+ 9:	|	Jutty            | 74		| 64
+ 10:	|	Finagle          | 70		| 69
+ 11:	|	Cook             | 67		| 73
+ 12:	|	Rush             | 82		| 59
+ 13:	|	Wine             | 87		| 55
+ 14:	|	Screen           | 83		| 60
+ 15:	|	Perfect          | 80		| 64
+ 16:	|	mole             | 109		| 36
+ 17:	|	parasympathetic  | 112		| 34
+ 18:	|	poison           | 112		| 35
+ 19:	|	brutalize        | 98		| 50
+ 20:	|	cap              | 99		| 50
+ 21:	|	ratiocination    | 114		| 36
+ 22:	|	cauldron         | 99		| 52
+ 23:	|	prepossess       | 112		| 40
+ 24:	|	wince            | 119		| 34
+ 25:	|	orthodontist     | 111		| 43
+ 26:	|	live             | 108		| 47
+ 27:	|	magnetic         | 109		| 47
+ 28:	|	inlet            | 105		| 52
+ 29:	|	constrain        | 99		| 59
+ 30:	|	marsupial        | 109		| 50
+ 31:	|	rationalize      | 114		| 46
+ 32:	|	scat             | 115		| 46
+ 33:	|	toluene          | 116		| 46
+ 34:	|	wet              | 119		| 44
+ 35:	|	sparse           | 115		| 49
+ 36:	|	quandary         | 113		| 52
+ 37:	|	dactyl           | 100		| 66
+ 38:	|	nosegay          | 110		| 57
+ 39:	|	option           | 111		| 57
+ 40:	|	forgetful        | 102		| 67
+ 41:	|	privilege        | 112		| 58
+ 42:	|	sponsor          | 115		| 56
+ 43:	|	exhilarate       | 101		| 71
+ 44:	|	guard            | 103		| 70
+ 45:	|	noggin           | 110		| 64
+ 46:	|	prologue         | 112		| 63
+ 47:	|	seal             | 115		| 61
+ 48:	|	seat             | 115		| 62
+ 49:	|	1234567890123456 | 49		| 1
+ 50:	|	tiller           | 116		| 63
+ 51:	|	ichthyosaur      | 105		| 75
+ 52:	|	lazy             | 108		| 73
+ 53:	|	Undefined_Key    | 0		| 0
+ 54:	|	Undefined_Key    | 0		| 0
+ 55:	|	Undefined_Key    | 0		| 0
+ 56:	|	Undefined_Key    | 0		| 0
+ 57:	|	Undefined_Key    | 0		| 0
+ 58:	|	Undefined_Key    | 0		| 0
+ 59:	|	Undefined_Key    | 0		| 0
+ 60:	|	Undefined_Key    | 0		| 0
+ 61:	|	Undefined_Key    | 0		| 0
+ 62:	|	Undefined_Key    | 0		| 0
+ 63:	|	Undefined_Key    | 0		| 0
+ 64:	|	Undefined_Key    | 0		| 0
+ 65:	|	Aguirrie         | 65		| 1
+ 66:	|	Alcantara        | 65		| 2
+ 67:	|	Bhandari         | 66		| 2
+ 68:	|	Carmona          | 67		| 2
+ 69:	|	Casper           | 67		| 3
+ 70:	|	Cook             | 67		| 4
+ 71:	|	Daniels          | 68		| 4
+ 72:	|	Acevedo          | 65		| 8
+ 73:	|	Ajose            | 65		| 9
+ 74:	|	Arauza           | 65		| 10
+ 75:	|	Buck             | 66		| 10
+ 76:	|	Clark            | 67		| 10
+ 77:	|	Crouch           | 67		| 11
+ 78:	|	Nienberg         | 78		| 1
+ 79:	|	Davies           | 68		| 12
+ 80:	|	Paschal          | 80		| 1
+ 81:	|	Qamruddin        | 81		| 1
+ 82:	|	Red              | 82		| 1
+ 83:	|	Salkowski        | 83		| 1
+ 84:	|	Dugger           | 68		| 17
+ 85:	|	Egbe             | 69		| 17
+ 86:	|	Ellington        | 69		| 18
+ 87:	|	Farral           | 70		| 18
+ 88:	|	Garza            | 71		| 18
+ 89:	|	Gurung           | 71		| 19
+ 90:	|	Zulfiqar         | 90		| 1
+ 91:	|	Joseph           | 74		| 18
+ 92:	|	Kelly            | 75		| 18
+ 93:	|	Corey            | 67		| 27
+ 94:	|	Adam             | 65		| 30
+ 95:	|	Clayton          | 67		| 29
+ 96:	|	Dustin           | 68		| 29
+ 97:	|	Robert           | 82		| 16
+ 98:	|	Kyle             | 75		| 24
+ 99:	|	Scott            | 83		| 17
+ 100:	|	Octavio          | 79		| 22
+ 101:	|	Judy             | 74		| 28
+ 102:	|	Derek            | 68		| 35
+ 103:	|	Jeffrey          | 74		| 30
+ 104:	|	Jordon           | 74		| 31
+ 105:	|	Vinnela          | 86		| 20
+ 106:	|	Lisa             | 76		| 31
+ 107:	|	Todd             | 84		| 24
+ 108:	|	Veronica         | 86		| 23
+ 109:	|	Matthew          | 77		| 33
+ 110:	|	Michael          | 77		| 34
+ 111:	|	Akhila           | 65		| 47
+ 112:	|	John             | 74		| 39
+ 113:	|	Charles          | 67		| 47
+ 114:	|	James            | 74		| 41
+ 115:	|	Chris            | 67		| 49
+ 116:	|	Wade             | 87		| 30
+ 117:	|	Christopher      | 67		| 51
+ 118:	|	Fernando         | 70		| 49
+ 119:	|	Batbold          | 66		| 54
+ 120:	|	Joel             | 74		| 47
+ 121:	|	Fabulous         | 70		| 52
+ 122:	|	Misogamist       | 77		| 46
+ 123:	|	Maiden           | 77		| 47
+ 124:	|	Eye              | 69		| 56
+ 125:	|	Constriction     | 67		| 59
+ 126:	|	Necromancer      | 78		| 49
+ 127:	|	Syncopate        | 83		| 45
 Stats for the first 30 entries
 Minimum Probes:  1
 Maximum Probes:  3
 Average Probes:  1.06667E+00
 Stats for the last 30 entries
 Minimum Probes:  1
-Maximum Probes:  58
-Average Probes:  6.54237E+00
+Maximum Probes:  11
+Average Probes:  2.25424E+00
 
 
 
 Random Insertion
 filling to 50%
+		Key 		Address		Probes
+ 0:	|	Undefined_Key    | 0		| 0
+ 1:	|	Undefined_Key    | 0		| 0
+ 2:	|	Undefined_Key    | 0		| 0
+ 3:	|	Undefined_Key    | 0		| 0
+ 4:	|	Undefined_Key    | 0		| 0
+ 5:	|	Kelly            | 5		| 1
+ 6:	|	Fabulous         | 5		| 2
+ 7:	|	Necromancer      | 7		| 1
+ 8:	|	Robert           | 8		| 1
+ 9:	|	Todd             | 9		| 1
+ 10:	|	Vinnela          | 10		| 1
+ 11:	|	Undefined_Key    | 0		| 0
+ 12:	|	Undefined_Key    | 0		| 0
+ 13:	|	Undefined_Key    | 0		| 0
+ 14:	|	Undefined_Key    | 0		| 0
+ 15:	|	Undefined_Key    | 0		| 0
+ 16:	|	Jordon           | 16		| 1
+ 17:	|	Undefined_Key    | 0		| 0
+ 18:	|	Undefined_Key    | 0		| 0
+ 19:	|	Undefined_Key    | 0		| 0
+ 20:	|	Undefined_Key    | 0		| 0
+ 21:	|	Farral           | 21		| 1
+ 22:	|	Undefined_Key    | 0		| 0
+ 23:	|	Matthew          | 23		| 1
+ 24:	|	Dugger           | 120		| 4
+ 25:	|	John             | 25		| 1
+ 26:	|	Jeffrey          | 26		| 1
+ 27:	|	Lisa             | 27		| 1
+ 28:	|	Undefined_Key    | 0		| 0
+ 29:	|	Clark            | 29		| 1
+ 30:	|	Undefined_Key    | 0		| 0
+ 31:	|	Buck             | 31		| 1
+ 32:	|	Undefined_Key    | 0		| 0
+ 33:	|	Qamruddin        | 33		| 1
+ 34:	|	Veronica         | 34		| 1
+ 35:	|	Derek            | 35		| 1
+ 36:	|	Octavio          | 36		| 1
+ 37:	|	Undefined_Key    | 0		| 0
+ 38:	|	Undefined_Key    | 0		| 0
+ 39:	|	Cook             | 39		| 1
+ 40:	|	Undefined_Key    | 0		| 0
+ 41:	|	Undefined_Key    | 0		| 0
+ 42:	|	Undefined_Key    | 0		| 0
+ 43:	|	Undefined_Key    | 0		| 0
+ 44:	|	Ajose            | 44		| 1
+ 45:	|	Undefined_Key    | 0		| 0
+ 46:	|	Garza            | 46		| 1
+ 47:	|	Egbe             | 47		| 1
+ 48:	|	Undefined_Key    | 0		| 0
+ 49:	|	Salkowski        | 49		| 1
+ 50:	|	Wade             | 49		| 2
+ 51:	|	Undefined_Key    | 0		| 0
+ 52:	|	Undefined_Key    | 0		| 0
+ 53:	|	Undefined_Key    | 0		| 0
+ 54:	|	Kyle             | 54		| 1
+ 55:	|	Undefined_Key    | 0		| 0
+ 56:	|	Gurung           | 56		| 1
+ 57:	|	Undefined_Key    | 0		| 0
+ 58:	|	Undefined_Key    | 0		| 0
+ 59:	|	Undefined_Key    | 0		| 0
+ 60:	|	Undefined_Key    | 0		| 0
+ 61:	|	Undefined_Key    | 0		| 0
+ 62:	|	Zulfiqar         | 62		| 1
+ 63:	|	Syncopate        | 62		| 2
+ 64:	|	Akhila           | 64		| 1
+ 65:	|	Paschal          | 65		| 1
+ 66:	|	Undefined_Key    | 0		| 0
+ 67:	|	Daniels          | 67		| 1
+ 68:	|	Undefined_Key    | 0		| 0
+ 69:	|	Undefined_Key    | 0		| 0
+ 70:	|	Undefined_Key    | 0		| 0
+ 71:	|	Michael          | 71		| 1
+ 72:	|	Joel             | 72		| 1
+ 73:	|	Undefined_Key    | 0		| 0
+ 74:	|	Undefined_Key    | 0		| 0
+ 75:	|	Undefined_Key    | 0		| 0
+ 76:	|	Judy             | 76		| 1
+ 77:	|	James            | 77		| 1
+ 78:	|	Fernando         | 78		| 1
+ 79:	|	Undefined_Key    | 0		| 0
+ 80:	|	Undefined_Key    | 0		| 0
+ 81:	|	Clayton          | 81		| 1
+ 82:	|	Charles          | 82		| 1
+ 83:	|	Alcantara        | 83		| 1
+ 84:	|	Undefined_Key    | 0		| 0
+ 85:	|	Bhandari         | 85		| 1
+ 86:	|	Undefined_Key    | 0		| 0
+ 87:	|	Ellington        | 87		| 1
+ 88:	|	Undefined_Key    | 0		| 0
+ 89:	|	Misogamist       | 89		| 1
+ 90:	|	Undefined_Key    | 0		| 0
+ 91:	|	Aguirrie         | 91		| 1
+ 92:	|	Undefined_Key    | 0		| 0
+ 93:	|	Undefined_Key    | 0		| 0
+ 94:	|	Maiden           | 81		| 6
+ 95:	|	Undefined_Key    | 0		| 0
+ 96:	|	Acevedo          | 96		| 1
+ 97:	|	Undefined_Key    | 0		| 0
+ 98:	|	Undefined_Key    | 0		| 0
+ 99:	|	Undefined_Key    | 0		| 0
+ 100:	|	Crouch           | 100		| 1
+ 101:	|	Undefined_Key    | 0		| 0
+ 102:	|	Casper           | 102		| 1
+ 103:	|	Undefined_Key    | 0		| 0
+ 104:	|	Arauza           | 104		| 1
+ 105:	|	Scott            | 105		| 1
+ 106:	|	Batbold          | 105		| 2
+ 107:	|	Dustin           | 107		| 1
+ 108:	|	Undefined_Key    | 0		| 0
+ 109:	|	Adam             | 109		| 1
+ 110:	|	Undefined_Key    | 0		| 0
+ 111:	|	Constriction     | 111		| 1
+ 112:	|	Chris            | 112		| 1
+ 113:	|	Undefined_Key    | 0		| 0
+ 114:	|	Undefined_Key    | 0		| 0
+ 115:	|	Corey            | 115		| 1
+ 116:	|	Joseph           | 116		| 1
+ 117:	|	Undefined_Key    | 0		| 0
+ 118:	|	Carmona          | 118		| 1
+ 119:	|	Christopher      | 119		| 1
+ 120:	|	Red              | 120		| 1
+ 121:	|	1234567890123456 | 121		| 1
+ 122:	|	Eye              | 121		| 2
+ 123:	|	Undefined_Key    | 0		| 0
+ 124:	|	Undefined_Key    | 0		| 0
+ 125:	|	Nienberg         | 125		| 1
+ 126:	|	Davies           | 126		| 1
+ 127:	|	Undefined_Key    | 0		| 0
 Stats for the first 30 entries
 Minimum Probes:  1
 Maximum Probes:  4
 Average Probes:  1.10000E+00
 Stats for the last 30 entries
 Minimum Probes:  1
-Maximum Probes:  28
-Average Probes:  4.69492E+00
+Maximum Probes:  6
+Average Probes:  6.44068E-01
 
 
 filling to 90%
+		Key 		Address		Probes
+ 0:	|	Undefined_Key    | 0		| 0
+ 1:	|	scat             | 115		| 6
+ 2:	|	Chris            | 67		| 11
+ 3:	|	cap              | 99		| 4
+ 4:	|	Adam             | 65		| 7
+ 5:	|	exhilarate       | 101		| 4
+ 6:	|	Crouch           | 67		| 7
+ 7:	|	Dustin           | 68		| 7
+ 8:	|	seal             | 115		| 13
+ 9:	|	James            | 74		| 11
+ 10:	|	magnetic         | 109		| 5
+ 11:	|	Honor            | 72		| 7
+ 12:	|	Maiden           | 77		| 11
+ 13:	|	Jeffrey          | 74		| 7
+ 14:	|	nosegay          | 110		| 4
+ 15:	|	Corey            | 67		| 8
+ 16:	|	Derek            | 68		| 8
+ 17:	|	quandary         | 113		| 4
+ 18:	|	Fabulous         | 70		| 8
+ 19:	|	Perfect          | 80		| 7
+ 20:	|	toluene          | 116		| 4
+ 21:	|	Undefined_Key    | 0		| 0
+ 22:	|	Jordon           | 74		| 8
+ 23:	|	wet              | 119		| 4
+ 24:	|	Undefined_Key    | 0		| 0
+ 25:	|	Michael          | 77		| 8
+ 26:	|	Undefined_Key    | 0		| 0
+ 27:	|	Afterwards       | 65		| 10
+ 28:	|	Undefined_Key    | 0		| 0
+ 29:	|	Charles          | 67		| 10
+ 30:	|	Undefined_Key    | 0		| 0
+ 31:	|	Screen           | 83		| 8
+ 32:	|	Finagle          | 70		| 10
+ 33:	|	ichthyosaur      | 105		| 12
+ 34:	|	prologue         | 112		| 18
+ 35:	|	dactyl           | 100		| 11
+ 36:	|	John             | 74		| 10
+ 37:	|	seat             | 115		| 18
+ 38:	|	cauldron         | 99		| 7
+ 39:	|	Misogamist       | 77		| 10
+ 40:	|	privilege        | 112		| 12
+ 41:	|	Constriction     | 67		| 14
+ 42:	|	guard            | 103		| 7
+ 43:	|	sponsor          | 115		| 12
+ 44:	|	inlet            | 105		| 7
+ 45:	|	Undefined_Key    | 0		| 0
+ 46:	|	Undefined_Key    | 0		| 0
+ 47:	|	constrain        | 99		| 8
+ 48:	|	Jutty            | 74		| 14
+ 49:	|	1234567890123456 | 49		| 1
+ 50:	|	forgetful        | 102		| 8
+ 51:	|	prepossess       | 112		| 7
+ 52:	|	Undefined_Key    | 0		| 0
+ 53:	|	rationalize      | 114		| 7
+ 54:	|	sparse           | 115		| 7
+ 55:	|	tiller           | 116		| 7
+ 56:	|	lazy             | 108		| 8
+ 57:	|	marsupial        | 109		| 8
+ 58:	|	Akhila           | 65		| 9
+ 59:	|	Undefined_Key    | 0		| 0
+ 60:	|	Clayton          | 67		| 9
+ 61:	|	Undefined_Key    | 0		| 0
+ 62:	|	Cook             | 67		| 15
+ 63:	|	Fabricate        | 70		| 9
+ 64:	|	Undefined_Key    | 0		| 0
+ 65:	|	Aguirrie         | 65		| 1
+ 66:	|	Alcantara        | 65		| 2
+ 67:	|	Bhandari         | 66		| 2
+ 68:	|	Carmona          | 67		| 2
+ 69:	|	Daniels          | 68		| 2
+ 70:	|	Egbe             | 69		| 2
+ 71:	|	Acevedo          | 65		| 3
+ 72:	|	Buck             | 66		| 3
+ 73:	|	Casper           | 67		| 3
+ 74:	|	Davies           | 68		| 3
+ 75:	|	Ellington        | 69		| 3
+ 76:	|	Farral           | 70		| 3
+ 77:	|	Garza            | 71		| 3
+ 78:	|	Nienberg         | 78		| 1
+ 79:	|	Octavio          | 79		| 1
+ 80:	|	Paschal          | 80		| 1
+ 81:	|	Qamruddin        | 81		| 1
+ 82:	|	Red              | 82		| 1
+ 83:	|	Salkowski        | 83		| 1
+ 84:	|	Scott            | 83		| 2
+ 85:	|	Todd             | 84		| 2
+ 86:	|	Vinnela          | 86		| 1
+ 87:	|	Judy             | 74		| 6
+ 88:	|	Robert           | 82		| 3
+ 89:	|	Syncopate        | 83		| 3
+ 90:	|	Zulfiqar         | 90		| 1
+ 91:	|	Northwest        | 78		| 6
+ 92:	|	Veronica         | 86		| 3
+ 93:	|	Arauza           | 65		| 5
+ 94:	|	Joel             | 74		| 13
+ 95:	|	Clark            | 67		| 5
+ 96:	|	Ajose            | 65		| 4
+ 97:	|	Batbold          | 66		| 4
+ 98:	|	Cook             | 67		| 4
+ 99:	|	Dugger           | 68		| 4
+ 100:	|	Eye              | 69		| 4
+ 101:	|	Fernando         | 70		| 4
+ 102:	|	Gurung           | 71		| 4
+ 103:	|	Kyle             | 75		| 5
+ 104:	|	Irreversible     | 73		| 4
+ 105:	|	Joseph           | 74		| 4
+ 106:	|	Kelly            | 75		| 4
+ 107:	|	Lisa             | 76		| 4
+ 108:	|	Matthew          | 77		| 4
+ 109:	|	Necromancer      | 78		| 4
+ 110:	|	mole             | 109		| 2
+ 111:	|	Person           | 80		| 4
+ 112:	|	parasympathetic  | 112		| 1
+ 113:	|	Rush             | 82		| 4
+ 114:	|	Staple           | 83		| 4
+ 115:	|	Wine             | 87		| 5
+ 116:	|	Under            | 85		| 4
+ 117:	|	orthodontist     | 111		| 3
+ 118:	|	Wade             | 87		| 4
+ 119:	|	wince            | 119		| 1
+ 120:	|	Yolk             | 89		| 4
+ 121:	|	live             | 108		| 6
+ 122:	|	Christopher      | 67		| 12
+ 123:	|	noggin           | 110		| 6
+ 124:	|	option           | 111		| 6
+ 125:	|	poison           | 112		| 6
+ 126:	|	brutalize        | 98		| 5
+ 127:	|	ratiocination    | 114		| 6
 Stats for the first 30 entries
 Minimum Probes:  1
 Maximum Probes:  4
@@ -94,4 +1124,4 @@ Average Probes:  1.10000E+00
 Stats for the last 30 entries
 Minimum Probes:  1
 Maximum Probes:  28
-Average Probes:  4.69492E+00
+Average Probes:  3.30508E+00
