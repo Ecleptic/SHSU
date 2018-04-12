@@ -1,7 +1,7 @@
 
 Linear Insertion
 filling to 50%
-		Key 		Address		Probes
+        Key 		Address		Probes
  0:	|	Undefined_Key    | 0		| 0
  1:	|	Undefined_Key    | 0		| 0
  2:	|	Undefined_Key    | 0		| 0
@@ -141,7 +141,7 @@ Average Probes:  1.88983E+01
 
 
 filling to 90%
-		Key 		Address		Probes
+        Key 		Address		Probes
  0:	|	Yolk             | 89		| 40
  1:	|	Afterwards       | 65		| 65
  2:	|	Person           | 80		| 51
@@ -283,7 +283,7 @@ Average Probes:  2.70678E+01
 
 Random Insertion
 filling to 50%
-		Key 		Address		Probes
+        Key 		Address		Probes
  0:	|	Undefined_Key    | 0		| 0
  1:	|	Undefined_Key    | 0		| 0
  2:	|	Chris            | 67		| 11
@@ -423,7 +423,7 @@ Average Probes:  3.35593E+00
 
 
 filling to 90%
-		Key 		Address		Probes
+        Key 		Address		Probes
  0:	|	Undefined_Key    | 0		| 0
  1:	|	scat             | 115		| 6
  2:	|	Chris            | 67		| 11
@@ -566,7 +566,7 @@ Average Probes:  3.76271E+00
 WITH MY HASH
 Linear Insertion
 filling to 50%
-		Key 		Address		Probes
+        Key 		Address		Probes
  0:	|	Undefined_Key    | 0		| 0
  1:	|	Undefined_Key    | 0		| 0
  2:	|	Undefined_Key    | 0		| 0
@@ -702,11 +702,11 @@ Average Probes:  1.06667E+00
 Stats for the last 30 entries
 Minimum Probes:  1
 Maximum Probes:  4
-Average Probes:  6.27119E-01
+Average Probes:  2.7119E+00
 
 
 filling to 90%
-		Key 		Address		Probes
+        Key 		Address		Probes
  0:	|	Yolk             | 89		| 40
  1:	|	Afterwards       | 65		| 65
  2:	|	Person           | 80		| 51
@@ -848,7 +848,7 @@ Average Probes:  2.25424E+00
 
 Random Insertion
 filling to 50%
-		Key 		Address		Probes
+        Key 		Address		Probes
  0:	|	Undefined_Key    | 0		| 0
  1:	|	Undefined_Key    | 0		| 0
  2:	|	Undefined_Key    | 0		| 0
@@ -859,123 +859,123 @@ filling to 50%
  7:	|	Necromancer      | 7		| 1
  8:	|	Robert           | 8		| 1
  9:	|	Todd             | 9		| 1
- 10:	|	Vinnela          | 10		| 1
+ 10:	|	Vinnela          | 10	| 1
  11:	|	Undefined_Key    | 0		| 0
  12:	|	Undefined_Key    | 0		| 0
  13:	|	Undefined_Key    | 0		| 0
  14:	|	Undefined_Key    | 0		| 0
  15:	|	Undefined_Key    | 0		| 0
- 16:	|	Jordon           | 16		| 1
+ 16:	|	Jordon           | 16	| 1
  17:	|	Undefined_Key    | 0		| 0
  18:	|	Undefined_Key    | 0		| 0
  19:	|	Undefined_Key    | 0		| 0
  20:	|	Undefined_Key    | 0		| 0
- 21:	|	Farral           | 21		| 1
+ 21:	|	Farral           | 21	| 1
  22:	|	Undefined_Key    | 0		| 0
- 23:	|	Matthew          | 23		| 1
- 24:	|	Dugger           | 120		| 4
- 25:	|	John             | 25		| 1
- 26:	|	Jeffrey          | 26		| 1
- 27:	|	Lisa             | 27		| 1
+ 23:	|	Matthew          | 23	| 1
+ 24:	|	Dugger           | 120	| 4
+ 25:	|	John             | 25	| 1
+ 26:	|	Jeffrey          | 26	| 1
+ 27:	|	Lisa             | 27	| 1
  28:	|	Undefined_Key    | 0		| 0
- 29:	|	Clark            | 29		| 1
+ 29:	|	Clark            | 29	| 1
  30:	|	Undefined_Key    | 0		| 0
- 31:	|	Buck             | 31		| 1
+ 31:	|	Buck             | 31	| 1
  32:	|	Undefined_Key    | 0		| 0
- 33:	|	Qamruddin        | 33		| 1
- 34:	|	Veronica         | 34		| 1
- 35:	|	Derek            | 35		| 1
- 36:	|	Octavio          | 36		| 1
+ 33:	|	Qamruddin        | 33	| 1
+ 34:	|	Veronica         | 34	| 1
+ 35:	|	Derek            | 35	| 1
+ 36:	|	Octavio          | 36	| 1
  37:	|	Undefined_Key    | 0		| 0
  38:	|	Undefined_Key    | 0		| 0
- 39:	|	Cook             | 39		| 1
+ 39:	|	Cook             | 39	| 1
  40:	|	Undefined_Key    | 0		| 0
  41:	|	Undefined_Key    | 0		| 0
  42:	|	Undefined_Key    | 0		| 0
  43:	|	Undefined_Key    | 0		| 0
- 44:	|	Ajose            | 44		| 1
+ 44:	|	Ajose            | 44	| 1
  45:	|	Undefined_Key    | 0		| 0
- 46:	|	Garza            | 46		| 1
- 47:	|	Egbe             | 47		| 1
+ 46:	|	Garza            | 46	| 1
+ 47:	|	Egbe             | 47	| 1
  48:	|	Undefined_Key    | 0		| 0
- 49:	|	Salkowski        | 49		| 1
- 50:	|	Wade             | 49		| 2
+ 49:	|	Salkowski        | 49	| 1
+ 50:	|	Wade             | 49	| 2
  51:	|	Undefined_Key    | 0		| 0
  52:	|	Undefined_Key    | 0		| 0
  53:	|	Undefined_Key    | 0		| 0
- 54:	|	Kyle             | 54		| 1
+ 54:	|	Kyle             | 54	| 1
  55:	|	Undefined_Key    | 0		| 0
- 56:	|	Gurung           | 56		| 1
+ 56:	|	Gurung           | 56	| 1
  57:	|	Undefined_Key    | 0		| 0
  58:	|	Undefined_Key    | 0		| 0
  59:	|	Undefined_Key    | 0		| 0
  60:	|	Undefined_Key    | 0		| 0
  61:	|	Undefined_Key    | 0		| 0
- 62:	|	Zulfiqar         | 62		| 1
- 63:	|	Syncopate        | 62		| 2
- 64:	|	Akhila           | 64		| 1
- 65:	|	Paschal          | 65		| 1
+ 62:	|	Zulfiqar         | 62	| 1
+ 63:	|	Syncopate        | 62	| 2
+ 64:	|	Akhila           | 64	| 1
+ 65:	|	Paschal          | 65	| 1
  66:	|	Undefined_Key    | 0		| 0
- 67:	|	Daniels          | 67		| 1
+ 67:	|	Daniels          | 67	| 1
  68:	|	Undefined_Key    | 0		| 0
  69:	|	Undefined_Key    | 0		| 0
  70:	|	Undefined_Key    | 0		| 0
- 71:	|	Michael          | 71		| 1
- 72:	|	Joel             | 72		| 1
+ 71:	|	Michael          | 71	| 1
+ 72:	|	Joel             | 72	| 1
  73:	|	Undefined_Key    | 0		| 0
  74:	|	Undefined_Key    | 0		| 0
  75:	|	Undefined_Key    | 0		| 0
- 76:	|	Judy             | 76		| 1
- 77:	|	James            | 77		| 1
- 78:	|	Fernando         | 78		| 1
+ 76:	|	Judy             | 76	| 1
+ 77:	|	James            | 77	| 1
+ 78:	|	Fernando         | 78	| 1
  79:	|	Undefined_Key    | 0		| 0
  80:	|	Undefined_Key    | 0		| 0
- 81:	|	Clayton          | 81		| 1
- 82:	|	Charles          | 82		| 1
- 83:	|	Alcantara        | 83		| 1
+ 81:	|	Clayton          | 81	| 1
+ 82:	|	Charles          | 82	| 1
+ 83:	|	Alcantara        | 83	| 1
  84:	|	Undefined_Key    | 0		| 0
- 85:	|	Bhandari         | 85		| 1
+ 85:	|	Bhandari         | 85	| 1
  86:	|	Undefined_Key    | 0		| 0
- 87:	|	Ellington        | 87		| 1
+ 87:	|	Ellington        | 87	| 1
  88:	|	Undefined_Key    | 0		| 0
- 89:	|	Misogamist       | 89		| 1
+ 89:	|	Misogamist       | 89	| 1
  90:	|	Undefined_Key    | 0		| 0
- 91:	|	Aguirrie         | 91		| 1
+ 91:	|	Aguirrie         | 91	| 1
  92:	|	Undefined_Key    | 0		| 0
  93:	|	Undefined_Key    | 0		| 0
- 94:	|	Maiden           | 81		| 6
+ 94:	|	Maiden           | 81	| 6
  95:	|	Undefined_Key    | 0		| 0
- 96:	|	Acevedo          | 96		| 1
+ 96:	|	Acevedo          | 96	| 1
  97:	|	Undefined_Key    | 0		| 0
  98:	|	Undefined_Key    | 0		| 0
  99:	|	Undefined_Key    | 0		| 0
- 100:	|	Crouch           | 100		| 1
+ 100:	|	Crouch           | 100	| 1
  101:	|	Undefined_Key    | 0		| 0
- 102:	|	Casper           | 102		| 1
+ 102:	|	Casper           | 102	| 1
  103:	|	Undefined_Key    | 0		| 0
- 104:	|	Arauza           | 104		| 1
- 105:	|	Scott            | 105		| 1
- 106:	|	Batbold          | 105		| 2
- 107:	|	Dustin           | 107		| 1
+ 104:	|	Arauza           | 104	| 1
+ 105:	|	Scott            | 105	| 1
+ 106:	|	Batbold          | 105	| 2
+ 107:	|	Dustin           | 107	| 1
  108:	|	Undefined_Key    | 0		| 0
- 109:	|	Adam             | 109		| 1
+ 109:	|	Adam             | 109	| 1
  110:	|	Undefined_Key    | 0		| 0
- 111:	|	Constriction     | 111		| 1
- 112:	|	Chris            | 112		| 1
+ 111:	|	Constriction     | 111	| 1
+ 112:	|	Chris            | 112	| 1
  113:	|	Undefined_Key    | 0		| 0
  114:	|	Undefined_Key    | 0		| 0
- 115:	|	Corey            | 115		| 1
- 116:	|	Joseph           | 116		| 1
+ 115:	|	Corey            | 115	| 1
+ 116:	|	Joseph           | 116	| 1
  117:	|	Undefined_Key    | 0		| 0
- 118:	|	Carmona          | 118		| 1
- 119:	|	Christopher      | 119		| 1
- 120:	|	Red              | 120		| 1
- 121:	|	1234567890123456 | 121		| 1
- 122:	|	Eye              | 121		| 2
+ 118:	|	Carmona          | 118	| 1
+ 119:	|	Christopher      | 119	| 1
+ 120:	|	Red              | 120	| 1
+ 121:	|	1234567890123456 | 121	| 1
+ 122:	|	Eye              | 121	| 2
  123:	|	Undefined_Key    | 0		| 0
  124:	|	Undefined_Key    | 0		| 0
- 125:	|	Nienberg         | 125		| 1
- 126:	|	Davies           | 126		| 1
+ 125:	|	Nienberg         | 125	| 1
+ 126:	|	Davies           | 126	| 1
  127:	|	Undefined_Key    | 0		| 0
 Stats for the first 30 entries
 Minimum Probes:  1
@@ -984,11 +984,11 @@ Average Probes:  1.10000E+00
 Stats for the last 30 entries
 Minimum Probes:  1
 Maximum Probes:  6
-Average Probes:  6.44068E-01
+Average Probes:  2.69068E+00
 
 
 filling to 90%
-		Key 		Address		Probes
+        Key 		Address		Probes
  0:	|	Undefined_Key    | 0		| 0
  1:	|	scat             | 115		| 6
  2:	|	Chris            | 67		| 11

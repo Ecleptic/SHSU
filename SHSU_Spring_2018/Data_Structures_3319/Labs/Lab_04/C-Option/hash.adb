@@ -25,8 +25,8 @@ procedure hash is
 			probes: integer;
 		end record;
 
-	table: array(0..127) of tableEntry; --because arrays should start at 0 dammit. (but I guess it's okay that strings won't)
-	statsTable: array(0..127) of tableEntry; --because arrays should start at 0 dammit. (but I guess it's okay that strings won't)
+	table: array(0..127) of tableEntry;
+	statsTable: array(0..127) of tableEntry;
 
 	procedure initTable is
 	begin
