@@ -1,0 +1,152 @@
+V "GNAT Lib v2015"
+P SS ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_IO
+RV NO_IMPLICIT_LOOPS
+RV NO_LOCAL_ALLOCATORS
+RV NO_RECURSION
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_ELABORATION_CODE
+RV SPARK_05
+
+U bst_template%b	bst_template.adb	1e610fde OO PK IL
+W ada%s			ada.ads			ada.ali
+W ada.strings%s		a-string.ads		a-string.ali
+W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W interfaces%s		interfac.ads		interfac.ali
+W system%s		system.ads		system.ali
+W system.compare_array_unsigned_8%s  s-carun8.adb  s-carun8.ali
+
+U bst_template%s	bst_template.ads	82fc9fc7 EE NE OO PK IL
+W gstack%s		gstack.adb		gstack.ali
+
+D ada.ads		20150506105328 3ffc8e18 ada%s
+D a-charac.ads		20150506105330 2d3ec45b ada.characters%s
+D a-chlat1.ads		20150506105329 66457d31 ada.characters.latin_1%s
+D a-except.ads		20150506105328 5250cb69 ada.exceptions%s
+D a-finali.ads		20150506105331 69f99942 ada.finalization%s
+D a-ioexce.ads		20150506105327 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20150506105329 119b8fb3 ada.streams%s
+D a-string.ads		20150506105330 90ac6797 ada.strings%s
+D a-strmap.ads		20150506105329 e8bb714a ada.strings.maps%s
+D a-strunb.ads		20150506105327 3f91d4c5 ada.strings.unbounded%s
+D a-tags.ads		20150506105332 dc4d0634 ada.tags%s
+D a-textio.ads		20150506105332 386df5d4 ada.text_io%s
+D a-unccon.ads		20150506105331 f9eb8f06 ada.unchecked_conversion%s
+D bst_template.ads	20180425045114 3294fa83 bst_template%s
+D bst_template.adb	20180425053040 2b09d44c bst_template%b
+D gstack.ads		20180423174848 b0686544 gstack%s
+D gstack.adb		20180425044427 8cb62d97 gstack%b
+D interfac.ads		20150506105327 6033a23f interfaces%s
+D i-cstrea.ads		20150506105327 e53d8b8e interfaces.c_streams%s
+D system.ads		20150506105331 100301f7 system%s
+D s-atocou.ads		20150506105332 cd7c94ca system.atomic_counters%s
+D s-carun8.ads		20150506105331 a903718d system.compare_array_unsigned_8%s
+D s-crtl.ads		20150506105326 0ebbdb71 system.crtl%s
+D s-exctab.ads		20150506105331 54135002 system.exception_table%s
+D s-ficobl.ads		20150506105333 078245e4 system.file_control_block%s
+D s-finmas.ads		20150506105330 814daec4 system.finalization_masters%s
+D s-finroo.ads		20150506105331 4ff27390 system.finalization_root%s
+D s-parame.ads		20150506105331 7e2a0d7f system.parameters%s
+D s-secsta.ads		20150506105331 86a2856d system.secondary_stack%s
+D s-soflin.ads		20150506105328 aa763b52 system.soft_links%s
+D s-stache.ads		20150506105332 a37c21ec system.stack_checking%s
+D s-stalib.ads		20150506105331 fa0a3617 system.standard_library%s
+D s-stoele.ads		20150506105332 2dc34a04 system.storage_elements%s
+D s-stopoo.ads		20150506105328 b16154c2 system.storage_pools%s
+D s-stposu.ads		20150506105327 97a6219c system.storage_pools.subpools%s
+D s-stratt.ads		20150506105327 aedef97e system.stream_attributes%s
+D s-traent.ads		20150506105327 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20150506105330 9d58a4c0 system.unsigned_types%s
+D s-wchcon.ads		20150506105330 1b7d22d2 system.wch_con%s
+X 1 ada.ads
+16K9*Ada 19e8 15|1r6 1r23 2r6 2r33
+X 8 a-string.ads
+16K13*Strings 35e16 15|2r10 2r37
+X 10 a-strunb.ads
+76K21*Unbounded 489e26 15|2w18 2r45
+X 12 a-textio.ads
+49K13*Text_IO 471e16 15|1w10 1r27
+242U14*Put 15|91s10 111s25
+263U14*Put_Line 15|16s17 32s25 80s17 103s17 165s17 182s17
+X 14 bst_template.ads
+15K9*BST_Template 77E12 93l5 93e17 15|5b14 185l5 185t17
+17A12*string10<string>(character)<integer> 23r86 23r107 28r85 31r85 66r70
+. 66r95 67r90 67r114 68r34 71r73 72r74 79r19 80r21 15|24r91 24r112 75r42
+. 100r91 140r75 140r99 152r95 152r119 163r39 169r76 174r77
+19P12*BinarySearchTreePoint 23r50 28r45 28r114 31r45 31r114 35r44 36r14 66r34
+. 67r28 67r54 71r43 72r44 83c12 86r20 87r20 15|8r15 9r32 24r55 25r20 26r20
+. 74r50 76r44 77r21 100r50 100r121 101r21 118r49 118r80 119r50 120r21 121r21
+. 140r39 152r33 152r59 169r46 174r47
+23U14*InsertBinarySearchTree 23=37 23>73 23>96 15|24b19 71l13 71t35
+23p37 Root{19P12} 15|24b42 30r10 33m38 34r15 37r30
+23a73 custName{17A12} 15|24b78 33r43 39r36 46r64 47r64 51r39 58r64 59r64
+. 64r56 65r56
+23a96 custPhone{17A12} 15|24b101 33r53 46r73 47r73 58r73 59r73 64r65 65r65
+28U14*FindCustomerIterative 28>36 28>68 28<95 15|74b19 98l13 98t34
+28p36 Root{19P12} 15|74b41 79r22
+28a68 CustomerName{17A12} 15|75b25 82r36 84r39 93r34
+28p95 CustomerPoint{19P12} 15|76b25 87m41 94m25
+31U14*FindCustomerRecursive 31>36 31>68 31<95 15|100b19 107s10 109s10 116l13
+. 116t34
+31p36 Root{19P12} 15|100b41 101r46
+31a68 CustomerName{17A12} 15|100b73 104r20 106r23 107r41 108r13 109r41
+31p95 CustomerPoint{19P12} 15|100b101 105m25 107m55 109m55 112m25
+35V13*InOrderSuccessor{19P12} 35>30 15|118b18 137l13 137t29
+35p30 TreePoint{19P12} 15|118b35 120r46
+62U19*createRoot 15|13b19 22l13 22t23
+63U14*main 15|180b19 183l13 183t17
+66U14*allocateNode 66<27 66>57 66>81 15|33s25 46s49 58s49 64s41 140b19 149l13
+. 149t25
+66p27 T{19P12} 15|140b32 142m7 143r17 144r17 145r17 146r17 147r17 148r17
+66a57 custname{17A12} 15|140b62 143r32
+66a81 custphone{17A12} 15|140b85 144r34
+67U14*insertNode 67>25 67>51 67>77 67>100 15|47s49 59s49 65s41 152b19 160l13
+. 160t23
+67p25 P{19P12} 15|152b30 155r31 156r25 158r25
+67p51 T{19P12} 15|152b56 156r36 158r36
+67a77 custname{17A12} 15|152b82 155r20
+67a100 custphone{17A12} 15|152b105
+68U14*pushRecord 68>25 15|163b19 166l13 166t23
+68a25 Info{17A12} 15|163b30
+71V16*CustomerName{17A12} 71>29 15|169b18 172l13 172t25
+71p29 TreePoint{19P12} 15|169b31 171r24
+72V16*CustomerPhone{17A12} 72>30 15|174b18 177l13 177t26
+72p30 TreePoint{19P12} 15|174b32 176r24
+77R12 Customer 81e17 90r19 15|14r28
+79a13*Name{17A12} 15|39r54 51r57 82r58 84r61 93r27 104r42 106r45 108r35 143m24
+. 155r38 171r39
+80a13*Number{17A12} 15|144m24 176r39
+82R12 Node 83r44 84c12 91e17 15|8r44 142r16
+86p13*Llink{19P12} 15|21m22 43r56 83r56 109r34 125r40 128r48 145m19 156m27
+87p13*Rlink{19P12} 15|20m22 55r56 85r56 107r34 131r40 146m19 158m27
+88b13*Ltag{boolean} 15|19m22 41r46 82r69 108r46 124r30 126r41 148m19
+89b13*Rtag{boolean} 15|18m22 53r46 84r72 106r56 147m19
+90r13*Info{77R12} 15|17m22 39r49 51r52 82r53 84r56 93r22 104r37 106r40 108r30
+. 143m19 144m19 155r33 171r34 176r34
+X 15 bst_template.adb
+8p9 Root{14|19P12} 17r17 18r17 19r17 20r17 20r31 21r17 21r31
+9a9 Stack(14|19P12)
+10i9 count{integer}
+14r17 newRecord{14|77R12} 17r30
+25p17 P{14|19P12} 37m25 39r47 41r44 43m49 43r54 47r60 51r50 53r44 55m49 55r54
+. 59r60 65r52
+26p17 T{14|19P12} 34m10 46m62 46r62 47r62 58m62 58r62 59r62 64m54 64r54 65r54
+77p17 T{14|19P12} 79m17 82r51 82r67 83m49 83r54 84r54 84r70 85m49 85r54 87r58
+. 93r20 94r42
+101p17 T{14|19P12} 104r35 105r42 106r38 106r54 107r32 108r28 108r44 109r32
+. 112r42
+119K25 stacks[16|4] 127r41
+120p17 T{14|19P12} 123r20 124r28 125m33 125r38 126r39 127r53 128m41 128r46
+. 131m33 131r38 134r14
+121p17 R{14|19P12}
+X 16 gstack.ads
+4k9*gstack 14|1w6 15|119r39 16|8e11
+5U19 push 15|127s48[119]
+

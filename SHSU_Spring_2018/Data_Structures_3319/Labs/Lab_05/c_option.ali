@@ -1,0 +1,99 @@
+V "GNAT Lib v2015"
+M P W=b
+A -mmacosx-version-min=10.13.4
+A -mtune=core2
+A -fPIC
+P SS ZX
+
+RN
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTIONS
+RV NO_IO
+RV NO_UNCHECKED_CONVERSION
+RV NO_DEFAULT_INITIALIZATION
+RV SPARK_05
+
+U c_option%b		c_option.adb		ba79cbf6 NE OO SU
+W ada%s			ada.ads			ada.ali
+W ada.strings%s		a-string.ads		a-string.ali
+W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W bst_template%s	bst_template.adb	bst_template.ali
+W unchecked_conversion%s
+
+D ada.ads		20150506105328 3ffc8e18 ada%s
+D a-charac.ads		20150506105330 2d3ec45b ada.characters%s
+D a-chlat1.ads		20150506105329 66457d31 ada.characters.latin_1%s
+D a-except.ads		20150506105328 5250cb69 ada.exceptions%s
+D a-finali.ads		20150506105331 69f99942 ada.finalization%s
+D a-ioexce.ads		20150506105327 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20150506105329 119b8fb3 ada.streams%s
+D a-string.ads		20150506105330 90ac6797 ada.strings%s
+D a-strmap.ads		20150506105329 e8bb714a ada.strings.maps%s
+D a-strunb.ads		20150506105327 3f91d4c5 ada.strings.unbounded%s
+D a-tags.ads		20150506105332 dc4d0634 ada.tags%s
+D a-textio.ads		20150506105332 386df5d4 ada.text_io%s
+D a-unccon.ads		20150506105331 f9eb8f06 ada.unchecked_conversion%s
+D bst_template.ads	20180425045114 3294fa83 bst_template%s
+D c_option.adb		20180425052803 453e8e7c c_option%b
+D gstack.ads		20180423174848 b0686544 gstack%s
+D interfac.ads		20150506105327 6033a23f interfaces%s
+D i-cstrea.ads		20150506105327 e53d8b8e interfaces.c_streams%s
+D system.ads		20150506105331 100301f7 system%s
+D s-atocou.ads		20150506105332 cd7c94ca system.atomic_counters%s
+D s-crtl.ads		20150506105326 0ebbdb71 system.crtl%s
+D s-exctab.ads		20150506105331 54135002 system.exception_table%s
+D s-ficobl.ads		20150506105333 078245e4 system.file_control_block%s
+D s-finmas.ads		20150506105330 814daec4 system.finalization_masters%s
+D s-finroo.ads		20150506105331 4ff27390 system.finalization_root%s
+D s-parame.ads		20150506105331 7e2a0d7f system.parameters%s
+D s-secsta.ads		20150506105331 86a2856d system.secondary_stack%s
+D s-soflin.ads		20150506105328 aa763b52 system.soft_links%s
+D s-stache.ads		20150506105332 a37c21ec system.stack_checking%s
+D s-stalib.ads		20150506105331 fa0a3617 system.standard_library%s
+D s-stoele.ads		20150506105332 2dc34a04 system.storage_elements%s
+D s-stopoo.ads		20150506105328 b16154c2 system.storage_pools%s
+D s-stposu.ads		20150506105327 97a6219c system.storage_pools.subpools%s
+D s-stratt.ads		20150506105327 aedef97e system.stream_attributes%s
+D s-traent.ads		20150506105327 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20150506105330 9d58a4c0 system.unsigned_types%s
+D s-wchcon.ads		20150506105330 1b7d22d2 system.wch_con%s
+D unchconv.ads		20150506105326 ca2f9e18 unchecked_conversion%s
+X 1 ada.ads
+16K9*Ada 19e8 15|6r6 6r23 9r6 9r33
+X 8 a-string.ads
+16K13*Strings 35e16 15|9r10 9r37
+X 10 a-strunb.ads
+76K21*Unbounded 489e26 15|9w18 9r45
+X 12 a-textio.ads
+49K13*Text_IO 471e16 15|6w10 6r27
+166U14*New_Line 15|63s5 65s5
+263U14*Put_Line 15|45s5 47s5 50s5 52s5 58s9 64s5 77s9 83s7
+X 14 bst_template.ads
+15K9*BST_Template 93e17 15|7w6 7r24
+17A12*string10<string>(character)<integer> 15|22r20
+19P12*BinarySearchTreePoint 15|19r13 20r13 21r13
+23U14*InsertBinarySearchTree 15|26s5 28s5 30s5 32s5 34s5 36s5 38s5 40s5 67s5
+. 69s5 71s5
+28U14*FindCustomerIterative 15|44s5 49s5
+31U14*FindCustomerRecursive 15|46s5 51s5 55s5
+35V13*InOrderSuccessor{19P12} 15|57s17 76s17
+71V16*CustomerName{17A12} 15|58s25 77s25
+72V16*CustomerPhone{17A12} 15|45s21 47s21 50s21 52s21
+X 15 c_option.adb
+13U11*C_Option 13b11 85l5 85t13
+18i5 treeKnt{integer} 27m5 27r16 29m5 29r16 31m5 31r16 33m5 33r16 35m5 35r16
+. 37m5 37r16 39m5 39r16 41m5 41r16 68m5 68r16 70m5 70r16 72m5 72r16 75r14
+19p5 Root{14|19P12} 26m28 26r28 28m28 28r28 30m28 30r28 32m28 32r28 34m28
+. 34r28 36m28 36r28 38m28 38r28 40m28 40r28 44r27 46r27 49r27 51r27 55r27
+. 67m28 67r28 69m28 69r28 71m28 71r28 74r8
+20p5 tmp{14|19P12} 44m48 44r48 45r35 46m48 46r48 47r35 49m48 49r48 50r35
+. 51m48 51r48 52r35 55m48 55r48 57r34 58r38 59m9 74m1 76r34 77r38 78m9
+21p5 node{14|19P12} 57m9 59r16 76m9 78r16
+22a5 name{14|17A12}
+22a11 number{14|17A12}
+56i9 i{integer}
+75i6 i{integer}
+X 38 unchconv.ads
+20v10*Unchecked_Conversion 15|8w6
+
