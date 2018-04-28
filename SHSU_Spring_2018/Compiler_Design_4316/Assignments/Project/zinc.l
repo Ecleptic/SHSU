@@ -7,35 +7,7 @@
 
 
 #include <stdio.h>
-
-
-#define NUM 1
-#define IDENT 2 // All Identifiers are Uppercase
-
-#define LP 3
-#define RP 4
-#define ASGN 5
-#define SC 6
-#define COLON 7
-#define POWER 8
-#define MULTIPLICATIVE 9
-#define ADDITIVE 10
-#define COMPARE 11
-#define IF 12
-#define THEN 13
-#define ELSE 14
-#define T_BEGIN 15
-#define END 16
-#define ENDIF 17
-#define ENDWHILE 18
-#define WHILE 19
-#define LOOP 20
-#define PROGRAM 21
-#define VAR 22
-#define INT 23
-#define WRITEINT 24
-#define READINT 25
-#define COMMENT 26
+#include <y.tab.h>
 
 char *textTemp;
 char tokenTemp[15];
@@ -82,9 +54,21 @@ ASGN ":="
 SC ";"
 COLON ":"
 POWER "**"
-MULTIPLICATIVE "*"|"div"|"mod"
-ADDITIVE "+"|"-"
-COMPARE "="|"<>"|"<"|">"|"<="|">="
+/* MULTIPLICATIVE "*"|"div"|"mod"*/
+MULTIPLY "*"
+DIVIDE "div"
+MOD "mod"
+/* ADDITIVE "+"|"-"*/
+ADD "+"
+SUB "-"
+/* COMPARE "="|"<>"|"<"|">"|"<="|">="*/
+EQUAL "="
+NOTEQUAL "<>"
+LESSTHAN "<"
+GREATERTHAN ">"
+LESSEQUAL "<="
+GREATEREQUAL ">="
+
 IF "if"
 THEN "then"
 ELSE "else"
@@ -115,9 +99,17 @@ COMMENT "--".*?
 {SC}				{ textTemp = yytext; sprintf(tokenTemp, "SC"); return SC; }
 {COLON}				{ textTemp = yytext; sprintf(tokenTemp, "COLON"); return COLON; }
 {POWER}				{ textTemp = yytext; sprintf(tokenTemp, "POWER"); return POWER; }
-{MULTIPLICATIVE}	{ textTemp = yytext; sprintf(tokenTemp, "MULTIPLICATIVE"); return MULTIPLICATIVE; }
-{ADDITIVE}			{ textTemp = yytext; sprintf(tokenTemp, "ADDITIVE"); return ADDITIVE; }
-{COMPARE}			{ textTemp = yytext; sprintf(tokenTemp, "COMPARE"); return COMPARE; }
+{MULTIPLY}			{textTemp = yytext; sprintf(tokenTemp, "MULTIPLY"); return MULTIPLY}
+{DIVIDE}			{textTemp = yytext; sprintf(tokenTemp, "DIVIDE"); return DIVIDE}
+{MOD}				{textTemp = yytext; sprintf(tokenTemp, "MOD"); return MOD}
+{ADD}				{textTemp = yytext; sprintf(tokenTemp, "ADD"); return ADD}
+{SUB}				{textTemp = yytext; sprintf(tokenTemp, "SUB"); return SUB}
+{EQUAL}				{textTemp = yytext; sprintf(tokenTemp, "EQUAL"); return EQUAL}
+{NOTEQUAL}			{textTemp = yytext; sprintf(tokenTemp, "NOTEQUAL"); return NOTEQUAL}
+{LESSTHAN}			{textTemp = yytext; sprintf(tokenTemp, "LESSTHAN"); return LESSTHAN}
+{GREATERTHAN}		{textTemp = yytext; sprintf(tokenTemp, "GREATERTHAN"); return GREATERTHAN}
+{LESSEQUAL}			{textTemp = yytext; sprintf(tokenTemp, "LESSEQUAL"); return LESSEQUAL}
+{GREATEREQUAL}		{textTemp = yytext; sprintf(tokenTemp, "GREATEREQUAL"); return GREATEREQUAL}
 {IF}				{ textTemp = yytext; sprintf(tokenTemp, "IF"); return IF; }
 {THEN}				{ textTemp = yytext; sprintf(tokenTemp, "THEN"); return THEN; }
 {ELSE}				{ textTemp = yytext; sprintf(tokenTemp, "ELSE"); return ELSE; }
@@ -152,12 +144,12 @@ int main(int argc, char** argv)
 	int token;
 	printf("\nStarting scan\n");
 	while((token = yylex()) != 0)
-    {
-        printf("<\"%s\", %s>\n", textTemp, tokenTemp);
+	{
+		printf("<\"%s\", %s>\n", textTemp, tokenTemp);
 		if(token == 2){
 			pushSymTab(token, textTemp);
 		}
-    }
+	}
 	printf("\nEnding scan\n");
 	int a;
 
@@ -165,9 +157,9 @@ int main(int argc, char** argv)
 	printf("\nPrinting Symbol Table\n");
 	printf("Lexeme\tType\tAddress\n");
 	for( a = 0; a < tablePlace; a ++ ){
-      printf("%s\t", symbolTable[a].Lexeme);
-      printf("%s\t", symbolTable[a].Type);
-      printf("%d\t", symbolTable[a].Address);
+	  printf("%s\t", symbolTable[a].Lexeme);
+	  printf("%s\t", symbolTable[a].Type);
+	  printf("%d\t", symbolTable[a].Address);
 	  printf("\n");
 
 	return 0;

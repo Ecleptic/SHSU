@@ -1,10 +1,13 @@
 all:
 	flex zinc.l
-	gcc lex.yy.c -ll -o zinc
-	./zinc < test.znc
+	bison -y -d zinc.y
+	gcc y.tab.c lex.yy.c -ly -ll -o zinc
 
-# all:
-# 	bison -vdy zinc.y
-# 	flex zinc.l
-# 	gcc y.tab.c -ll
-# 	./a.out < test.znc
+run: all
+	./zinc < input.txt
+
+test: all
+	./zinc < test.txt
+
+if: all
+	./zinc < if.txt

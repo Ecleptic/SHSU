@@ -21,9 +21,20 @@ char * gen_label();
 %token SC
 %token COLON
 %token POWER
-%token MULTIPLICATIVE
-%token ADDITIVE
-%token COMPARE
+// %token MULTIPLICATIVE  // compare stuffs
+%token MULTIPLY
+%token DIVIDE
+%token MOD
+// %token ADDITIVE // compare stuffs
+%token ADD
+%token SUB
+// %token COMPARE
+%token EQUAL
+%token NOTEQUAL
+%token LESSTHAN
+%token GREATERTHAN
+%token LESSEQUAL
+%token GREATEREQUAL
 %token IF
 %token THEN
 %token ELSE
@@ -42,23 +53,34 @@ char * gen_label();
 
 
 
-%%
 
 %%
-#include "lex.yy.c"
-char *gen_label()
-{
-    static int i = 1000;
-    char *temp = malloc(5);
-    sprintf(temp,"%04d",i++);
-    return temp;
-}
+
+program			: PROGRAM beginDeclarations BEGIN beginStatements END
+				// | //Error
+declarations	:
+// type := INT
+// statementSequence
+// statement
+// assignment
+// ifStatement
+// elseClause
+// whileStatement
+// writeInt
+// expression
+// simpleExpression
+// term
+// factor
+// primary
+
+
+%%
 
 yyerror(char *s)
 {
-    printf("%s\n", s);
+	printf("%s\n", s);
 }
 
 main()
 {
-    yyparse();
+	yyparse();
