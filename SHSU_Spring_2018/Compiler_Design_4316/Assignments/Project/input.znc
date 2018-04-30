@@ -1,0 +1,15 @@
+program
+    var N : integer;
+    var SQRT : integer;
+begin
+    SQRT := 0;
+    N := readInt;
+
+    while SQRT * SQRT <= N loop
+        SQRT := SQRT + 1;
+    endwhile;
+
+    SQRT := SQRT - 1;
+
+    writeInt(SQRT);
+end

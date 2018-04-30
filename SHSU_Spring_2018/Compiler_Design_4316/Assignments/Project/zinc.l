@@ -7,7 +7,7 @@
 
 
 #include <stdio.h>
-#include <y.tab.h>
+#include "y.tab.h"
 
 char *textTemp;
 char tokenTemp[15];
@@ -42,6 +42,7 @@ void pushSymTab(int token, char* textTemp){
 
 
 %option noyywrap
+%option yylineno
 
 
 
@@ -90,77 +91,42 @@ COMMENT "--".*?
 
 %%
 
-[ \t\n]		// ignore all whitespace
+[ \t]		// ignore all whitespace
 {COMMENT} 	// ignore comments
 [\n]				{currentLineNum++;}
-{LP}				{ textTemp = yytext; sprintf(tokenTemp, "LP"); return LP; }
-{RP}				{ textTemp = yytext; sprintf(tokenTemp, "RP"); return RP; }
-{ASGN}				{ textTemp = yytext; sprintf(tokenTemp, "ASGN"); return ASGN; }
-{SC}				{ textTemp = yytext; sprintf(tokenTemp, "SC"); return SC; }
-{COLON}				{ textTemp = yytext; sprintf(tokenTemp, "COLON"); return COLON; }
-{POWER}				{ textTemp = yytext; sprintf(tokenTemp, "POWER"); return POWER; }
-{MULTIPLY}			{textTemp = yytext; sprintf(tokenTemp, "MULTIPLY"); return MULTIPLY}
-{DIVIDE}			{textTemp = yytext; sprintf(tokenTemp, "DIVIDE"); return DIVIDE}
-{MOD}				{textTemp = yytext; sprintf(tokenTemp, "MOD"); return MOD}
-{ADD}				{textTemp = yytext; sprintf(tokenTemp, "ADD"); return ADD}
-{SUB}				{textTemp = yytext; sprintf(tokenTemp, "SUB"); return SUB}
-{EQUAL}				{textTemp = yytext; sprintf(tokenTemp, "EQUAL"); return EQUAL}
-{NOTEQUAL}			{textTemp = yytext; sprintf(tokenTemp, "NOTEQUAL"); return NOTEQUAL}
-{LESSTHAN}			{textTemp = yytext; sprintf(tokenTemp, "LESSTHAN"); return LESSTHAN}
-{GREATERTHAN}		{textTemp = yytext; sprintf(tokenTemp, "GREATERTHAN"); return GREATERTHAN}
-{LESSEQUAL}			{textTemp = yytext; sprintf(tokenTemp, "LESSEQUAL"); return LESSEQUAL}
-{GREATEREQUAL}		{textTemp = yytext; sprintf(tokenTemp, "GREATEREQUAL"); return GREATEREQUAL}
-{IF}				{ textTemp = yytext; sprintf(tokenTemp, "IF"); return IF; }
-{THEN}				{ textTemp = yytext; sprintf(tokenTemp, "THEN"); return THEN; }
-{ELSE}				{ textTemp = yytext; sprintf(tokenTemp, "ELSE"); return ELSE; }
-{BEGIN}				{ textTemp = yytext; sprintf(tokenTemp, "T_BEGIN"); return T_BEGIN; }
-{END}				{ textTemp = yytext; sprintf(tokenTemp, "END"); return END; }
-{ENDIF}				{ textTemp = yytext; sprintf(tokenTemp, "ENDIF"); return ENDIF; }
-{ENDWHILE}			{ textTemp = yytext; sprintf(tokenTemp, "ENDWHILE"); return ENDWHILE; }
-{WHILE}				{ textTemp = yytext; sprintf(tokenTemp, "WHILE"); return WHILE; }
-{LOOP}				{ textTemp = yytext; sprintf(tokenTemp, "LOOP"); return LOOP; }
-{PROGRAM}			{ textTemp = yytext; sprintf(tokenTemp, "PROGRAM"); return PROGRAM; }
-{VAR}				{ textTemp = yytext; sprintf(tokenTemp, "VAR"); return VAR; }
-{INT}				{ textTemp = yytext; sprintf(tokenTemp, "INT"); return INT; }
-{WRITEINT}			{ textTemp = yytext; sprintf(tokenTemp, "WRITEINT"); return WRITEINT; }
-{READINT}			{ textTemp = yytext; sprintf(tokenTemp, "READINT"); return READINT; }
-{NUM}				{ textTemp = yytext; sprintf(tokenTemp, "NUM"); return NUM; }
-{IDENT}				{ textTemp = yytext; sprintf(tokenTemp, "IDENT"); return IDENT; }
+{LP}				{ printf("Text: %s \n",yytext); return Token_LP; }
+{RP}				{ printf("Text: %s \n",yytext); return Token_RP; }
+{ASGN}				{ printf("Text: %s \n",yytext); return Token_ASGN; }
+{SC}				{ printf("Text: %s \n",yytext); return Token_SC; }
+{COLON}				{ printf("Text: %s \n",yytext); return Token_COLON; }
+{POWER}				{ printf("Text: %s \n",yytext); return Token_POWER; }
+{MULTIPLY}			{ printf("Text: %s \n",yytext); return Token_MULTIPLY; }
+{DIVIDE}			{ printf("Text: %s \n",yytext); return Token_DIVIDE; }
+{MOD}				{ printf("Text: %s \n",yytext); return Token_MOD; }
+{ADD}				{ printf("Text: %s \n",yytext); return Token_ADD; }
+{SUB}				{ printf("Text: %s \n",yytext); return Token_SUB; }
+{EQUAL}				{ printf("Text: %s \n",yytext); return Token_EQUAL; }
+{NOTEQUAL}			{ printf("Text: %s \n",yytext); return Token_NOTEQUAL; }
+{LESSTHAN}			{ printf("Text: %s \n",yytext); return Token_LESSTHAN; }
+{GREATERTHAN}		{ printf("Text: %s \n",yytext); return Token_GREATERTHAN; }
+{LESSEQUAL}			{ printf("Text: %s \n",yytext); return Token_LESSEQUAL; }
+{GREATEREQUAL}		{ printf("Text: %s \n",yytext); return Token_GREATEREQUAL; }
+{IF}				{ printf("Text: %s \n",yytext); return Token_IF; }
+{THEN}				{ printf("Text: %s \n",yytext); return Token_THEN; }
+{ELSE}				{ printf("Text: %s \n",yytext); return Token_ELSE; }
+{BEGIN}				{ printf("Text: %s \n",yytext); return Token_BEGIN; }
+{END}				{ printf("Text: %s \n",yytext); return Token_END; }
+{ENDIF}				{ printf("Text: %s \n",yytext); return Token_ENDIF; }
+{ENDWHILE}			{ printf("Text: %s \n",yytext); return Token_ENDWHILE; }
+{WHILE}				{ printf("Text: %s \n",yytext); return Token_WHILE; }
+{LOOP}				{ printf("Text: %s \n",yytext); return Token_LOOP; }
+{PROGRAM}			{ printf("Text: %s \n",yytext); return Token_PROGRAM; }
+{VAR}				{ printf("Text: %s \n",yytext); return Token_VAR; }
+{INT}				{ printf("Text: %s \n",yytext); return Token_INT; }
+{WRITEINT}			{ printf("Text: %s \n",yytext); return Token_WRITEINT; }
+{READINT}			{ printf("Text: %s \n",yytext);  return Token_READINT; }
+{NUM}				{ printf("Text: %s \n",yytext); return Token_NUM; }
+{IDENT}				{ printf("Text: %s \n",yytext); return Token_IDENT; }
+{NUM}               { yylval.num = atoi(yytext); return T_NUM; }
+{IDENT}             { strcpy(yylval.str, yytext); return T_IDENT; }
 .					printf("unexpected token %s\n",yytext); /* Ignore any non defined occurance */
-%%
-
-/*** C Code section ***/
-int main(int argc, char** argv)
-{
-
-
-	/* Call the lexer, then quit. */
-	if(argc > 0){
-		yyin = fopen(argv[1],"r");
-	}else{
-		yyin = stdin;
-	}
-
-	int token;
-	printf("\nStarting scan\n");
-	while((token = yylex()) != 0)
-	{
-		printf("<\"%s\", %s>\n", textTemp, tokenTemp);
-		if(token == 2){
-			pushSymTab(token, textTemp);
-		}
-	}
-	printf("\nEnding scan\n");
-	int a;
-
-	// dump symbol table
-	printf("\nPrinting Symbol Table\n");
-	printf("Lexeme\tType\tAddress\n");
-	for( a = 0; a < tablePlace; a ++ ){
-	  printf("%s\t", symbolTable[a].Lexeme);
-	  printf("%s\t", symbolTable[a].Type);
-	  printf("%d\t", symbolTable[a].Address);
-	  printf("\n");
-
-	return 0;
-}

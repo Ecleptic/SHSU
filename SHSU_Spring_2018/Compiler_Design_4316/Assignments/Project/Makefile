@@ -4,10 +4,10 @@ all:
 	gcc y.tab.c lex.yy.c -ly -ll -o zinc
 
 run: all
-	./zinc < input.txt
+	./zinc < input.znc
 
 test: all
-	./zinc < test.txt
+	./zinc < test.znc
 
 if: all
-	./zinc < if.txt
+	./zinc < if.znc

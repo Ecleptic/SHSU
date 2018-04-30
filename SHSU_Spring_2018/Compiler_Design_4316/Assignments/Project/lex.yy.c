@@ -166,7 +166,20 @@ extern FILE *yyin, *yyout;
 #define EOB_ACT_END_OF_FILE 1
 #define EOB_ACT_LAST_MATCH 2
 
-    #define YY_LESS_LINENO(n)
+    /* Note: We specifically omit the test for yy_rule_can_match_eol because it requires
+     *       access to the local variable yy_act. Since yyless() is a macro, it would break
+     *       existing scanners that call yyless() from OUTSIDE yylex. 
+     *       One obvious solution it to make yy_act a global. I tried that, and saw
+     *       a 5% performance hit in a non-yylineno scanner, because yy_act is
+     *       normally declared as a register variable-- so it is not worth it.
+     */
+    #define  YY_LESS_LINENO(n) \
+            do { \
+                yy_size_t yyl;\
+                for ( yyl = n; yyl < yyleng; ++yyl )\
+                    if ( yytext[yyl] == '\n' )\
+                        --yylineno;\
+            }while(0)
     
 /* Return all but the first "n" matched characters back to the input stream. */
 #define yyless(n) \
@@ -330,8 +343,6 @@ void yyfree (void *  );
 
 #define YY_AT_BOL() (YY_CURRENT_BUFFER_LVALUE->yy_at_bol)
 
-/* Begin user sect3 */
-
 #define yywrap(n) 1
 #define YY_SKIP_YYWRAP
 
@@ -374,7 +385,7 @@ struct yy_trans_info
 	};
 static yyconst flex_int16_t yy_accept[100] =
     {   0,
-        0,    0,   39,   37,    1,    1,    4,    5,   10,   13,
+        0,    0,   39,   37,    1,    3,    4,    5,   10,   13,
        14,   35,   35,    8,    7,   17,   15,   18,   36,   37,
        37,   37,   37,   37,   37,   37,   37,   37,   37,   37,
         9,   35,    2,   35,    6,   19,   16,   20,   36,    0,
@@ -499,6 +510,12 @@ static yyconst flex_int16_t yy_chk[158] =
        99,   99,   99,   99,   99,   99,   99
     } ;
 
+/* Table of booleans, true if rule could match eol. */
+static yyconst flex_int32_t yy_rule_can_match_eol[39] =
+    {   0,
+0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,     };
+
 static yy_state_type yy_last_accepting_state;
 static char *yy_last_accepting_cpos;
 
@@ -523,7 +540,7 @@ char *yytext;
 
 
 #include <stdio.h>
-#include <y.tab.h>
+#include "y.tab.h"
 
 char *textTemp;
 char tokenTemp[15];
@@ -556,7 +573,7 @@ void pushSymTab(int token, char* textTemp){
 /* MULTIPLICATIVE "*"|"div"|"mod"*/
 /* ADDITIVE "+"|"-"*/
 /* COMPARE "="|"<>"|"<"|">"|"<="|">="*/
-#line 560 "lex.yy.c"
+#line 577 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -738,10 +755,10 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
     
-#line 91 "zinc.l"
+#line 92 "zinc.l"
 
 
-#line 745 "lex.yy.c"
+#line 762 "lex.yy.c"
 
 	if ( !(yy_init) )
 		{
@@ -813,6 +830,16 @@ yy_find_action:
 
 		YY_DO_BEFORE_ACTION;
 
+		if ( yy_act != YY_END_OF_BUFFER && yy_rule_can_match_eol[yy_act] )
+			{
+			yy_size_t yyl;
+			for ( yyl = 0; yyl < yyleng; ++yyl )
+				if ( yytext[yyl] == '\n' )
+					   
+    yylineno++;
+;
+			}
+
 do_action:	/* This label is used only to access EOF actions. */
 
 		switch ( yy_act )
@@ -825,198 +852,197 @@ do_action:	/* This label is used only to access EOF actions. */
 			goto yy_find_action;
 
 case 1:
-/* rule 1 can match eol */
 YY_RULE_SETUP
-#line 93 "zinc.l"
+#line 94 "zinc.l"
 // ignore all whitespace
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 94 "zinc.l"
+#line 95 "zinc.l"
 // ignore comments
 	YY_BREAK
 case 3:
 /* rule 3 can match eol */
 YY_RULE_SETUP
-#line 95 "zinc.l"
+#line 96 "zinc.l"
 {currentLineNum++;}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 96 "zinc.l"
-{ textTemp = yytext; sprintf(tokenTemp, "LP"); return LP; }
+#line 97 "zinc.l"
+{ printf("Text: %s \n",yytext); return Token_LP; }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 97 "zinc.l"
-{ textTemp = yytext; sprintf(tokenTemp, "RP"); return RP; }
+#line 98 "zinc.l"
+{ printf("Text: %s \n",yytext); return Token_RP; }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 98 "zinc.l"
-{ textTemp = yytext; sprintf(tokenTemp, "ASGN"); return ASGN; }
+#line 99 "zinc.l"
+{ printf("Text: %s \n",yytext); return Token_ASGN; }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 99 "zinc.l"
-{ textTemp = yytext; sprintf(tokenTemp, "SC"); return SC; }
+#line 100 "zinc.l"
+{ printf("Text: %s \n",yytext); return Token_SC; }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 100 "zinc.l"
-{ textTemp = yytext; sprintf(tokenTemp, "COLON"); return COLON; }
+#line 101 "zinc.l"
+{ printf("Text: %s \n",yytext); return Token_COLON; }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 101 "zinc.l"
-{ textTemp = yytext; sprintf(tokenTemp, "POWER"); return POWER; }
+#line 102 "zinc.l"
+{ printf("Text: %s \n",yytext); return Token_POWER; }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 102 "zinc.l"
-{textTemp = yytext; sprintf(tokenTemp, "MULTIPLY"); return MULTIPLY}
+#line 103 "zinc.l"
+{ printf("Text: %s \n",yytext); return Token_MULTIPLY; }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 103 "zinc.l"
-{textTemp = yytext; sprintf(tokenTemp, "DIVIDE"); return DIVIDE}
+#line 104 "zinc.l"
+{ printf("Text: %s \n",yytext); return Token_DIVIDE; }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 104 "zinc.l"
-{textTemp = yytext; sprintf(tokenTemp, "MOD"); return MOD}
+#line 105 "zinc.l"
+{ printf("Text: %s \n",yytext); return Token_MOD; }
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 105 "zinc.l"
-{textTemp = yytext; sprintf(tokenTemp, "ADD"); return ADD}
+#line 106 "zinc.l"
+{ printf("Text: %s \n",yytext); return Token_ADD; }
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 106 "zinc.l"
-{textTemp = yytext; sprintf(tokenTemp, "SUB"); return SUB}
+#line 107 "zinc.l"
+{ printf("Text: %s \n",yytext); return Token_SUB; }
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 107 "zinc.l"
-{textTemp = yytext; sprintf(tokenTemp, "EQUAL"); return EQUAL}
+#line 108 "zinc.l"
+{ printf("Text: %s \n",yytext); return Token_EQUAL; }
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 108 "zinc.l"
-{textTemp = yytext; sprintf(tokenTemp, "NOTEQUAL"); return NOTEQUAL}
+#line 109 "zinc.l"
+{ printf("Text: %s \n",yytext); return Token_NOTEQUAL; }
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 109 "zinc.l"
-{textTemp = yytext; sprintf(tokenTemp, "LESSTHAN"); return LESSTHAN}
+#line 110 "zinc.l"
+{ printf("Text: %s \n",yytext); return Token_LESSTHAN; }
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 110 "zinc.l"
-{textTemp = yytext; sprintf(tokenTemp, "GREATERTHAN"); return GREATERTHAN}
+#line 111 "zinc.l"
+{ printf("Text: %s \n",yytext); return Token_GREATERTHAN; }
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 111 "zinc.l"
-{textTemp = yytext; sprintf(tokenTemp, "LESSEQUAL"); return LESSEQUAL}
+#line 112 "zinc.l"
+{ printf("Text: %s \n",yytext); return Token_LESSEQUAL; }
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 112 "zinc.l"
-{textTemp = yytext; sprintf(tokenTemp, "GREATEREQUAL"); return GREATEREQUAL}
+#line 113 "zinc.l"
+{ printf("Text: %s \n",yytext); return Token_GREATEREQUAL; }
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 113 "zinc.l"
-{ textTemp = yytext; sprintf(tokenTemp, "IF"); return IF; }
+#line 114 "zinc.l"
+{ printf("Text: %s \n",yytext); return Token_IF; }
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 114 "zinc.l"
-{ textTemp = yytext; sprintf(tokenTemp, "THEN"); return THEN; }
+#line 115 "zinc.l"
+{ printf("Text: %s \n",yytext); return Token_THEN; }
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 115 "zinc.l"
-{ textTemp = yytext; sprintf(tokenTemp, "ELSE"); return ELSE; }
+#line 116 "zinc.l"
+{ printf("Text: %s \n",yytext); return Token_ELSE; }
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 116 "zinc.l"
-{ textTemp = yytext; sprintf(tokenTemp, "T_BEGIN"); return T_BEGIN; }
+#line 117 "zinc.l"
+{ printf("Text: %s \n",yytext); return Token_BEGIN; }
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 117 "zinc.l"
-{ textTemp = yytext; sprintf(tokenTemp, "END"); return END; }
+#line 118 "zinc.l"
+{ printf("Text: %s \n",yytext); return Token_END; }
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 118 "zinc.l"
-{ textTemp = yytext; sprintf(tokenTemp, "ENDIF"); return ENDIF; }
+#line 119 "zinc.l"
+{ printf("Text: %s \n",yytext); return Token_ENDIF; }
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 119 "zinc.l"
-{ textTemp = yytext; sprintf(tokenTemp, "ENDWHILE"); return ENDWHILE; }
+#line 120 "zinc.l"
+{ printf("Text: %s \n",yytext); return Token_ENDWHILE; }
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 120 "zinc.l"
-{ textTemp = yytext; sprintf(tokenTemp, "WHILE"); return WHILE; }
+#line 121 "zinc.l"
+{ printf("Text: %s \n",yytext); return Token_WHILE; }
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 121 "zinc.l"
-{ textTemp = yytext; sprintf(tokenTemp, "LOOP"); return LOOP; }
+#line 122 "zinc.l"
+{ printf("Text: %s \n",yytext); return Token_LOOP; }
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 122 "zinc.l"
-{ textTemp = yytext; sprintf(tokenTemp, "PROGRAM"); return PROGRAM; }
+#line 123 "zinc.l"
+{ printf("Text: %s \n",yytext); return Token_PROGRAM; }
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 123 "zinc.l"
-{ textTemp = yytext; sprintf(tokenTemp, "VAR"); return VAR; }
+#line 124 "zinc.l"
+{ printf("Text: %s \n",yytext); return Token_VAR; }
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 124 "zinc.l"
-{ textTemp = yytext; sprintf(tokenTemp, "INT"); return INT; }
+#line 125 "zinc.l"
+{ printf("Text: %s \n",yytext); return Token_INT; }
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 125 "zinc.l"
-{ textTemp = yytext; sprintf(tokenTemp, "WRITEINT"); return WRITEINT; }
+#line 126 "zinc.l"
+{ printf("Text: %s \n",yytext); return Token_WRITEINT; }
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 126 "zinc.l"
-{ textTemp = yytext; sprintf(tokenTemp, "READINT"); return READINT; }
+#line 127 "zinc.l"
+{ printf("Text: %s \n",yytext);  return Token_READINT; }
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 127 "zinc.l"
-{ textTemp = yytext; sprintf(tokenTemp, "NUM"); return NUM; }
+#line 128 "zinc.l"
+{ printf("Text: %s \n",yytext); return Token_NUM; }
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 128 "zinc.l"
-{ textTemp = yytext; sprintf(tokenTemp, "IDENT"); return IDENT; }
+#line 129 "zinc.l"
+{ printf("Text: %s \n",yytext); return Token_IDENT; }
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 129 "zinc.l"
+#line 130 "zinc.l"
 printf("unexpected token %s\n",yytext); /* Ignore any non defined occurance */
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 130 "zinc.l"
+#line 131 "zinc.l"
 ECHO;
 	YY_BREAK
-#line 1020 "lex.yy.c"
+#line 1046 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1377,6 +1403,10 @@ static int yy_get_next_buffer (void)
 
 	*--yy_cp = (char) c;
 
+    if ( c == '\n' ){
+        --yylineno;
+    }
+
 	(yytext_ptr) = yy_bp;
 	(yy_hold_char) = *yy_cp;
 	(yy_c_buf_p) = yy_cp;
@@ -1451,6 +1481,11 @@ static int yy_get_next_buffer (void)
 	c = *(unsigned char *) (yy_c_buf_p);	/* cast for 8-bit char's */
 	*(yy_c_buf_p) = '\0';	/* preserve yytext */
 	(yy_hold_char) = *++(yy_c_buf_p);
+
+	if ( c == '\n' )
+		   
+    yylineno++;
+;
 
 	return c;
 }
@@ -1921,6 +1956,9 @@ static int yy_init_globals (void)
      * This function is called from yylex_destroy(), so don't allocate here.
      */
 
+    /* We do not touch yylineno unless the option is enabled. */
+    yylineno =  1;
+    
     (yy_buffer_stack) = 0;
     (yy_buffer_stack_top) = 0;
     (yy_buffer_stack_max) = 0;
@@ -2013,42 +2051,4 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 130 "zinc.l"
-
-
-
-/*** C Code section ***/
-int main(int argc, char** argv)
-{
-
-
-	/* Call the lexer, then quit. */
-	if(argc > 0){
-		yyin = fopen(argv[1],"r");
-	}else{
-		yyin = stdin;
-	}
-
-	int token;
-	printf("\nStarting scan\n");
-	while((token = yylex()) != 0)
-	{
-		printf("<\"%s\", %s>\n", textTemp, tokenTemp);
-		if(token == 2){
-			pushSymTab(token, textTemp);
-		}
-	}
-	printf("\nEnding scan\n");
-	int a;
-
-	// dump symbol table
-	printf("\nPrinting Symbol Table\n");
-	printf("Lexeme\tType\tAddress\n");
-	for( a = 0; a < tablePlace; a ++ ){
-	  printf("%s\t", symbolTable[a].Lexeme);
-	  printf("%s\t", symbolTable[a].Type);
-	  printf("%d\t", symbolTable[a].Address);
-	  printf("\n");
-
-	return 0;
-}
+#line 131 "zinc.l"
