@@ -94,39 +94,37 @@ COMMENT "--".*?
 [ \t]		// ignore all whitespace
 {COMMENT} 	// ignore comments
 [\n]				{currentLineNum++;}
-{LP}				{ printf("Text: %s \n",yytext); return Token_LP; }
-{RP}				{ printf("Text: %s \n",yytext); return Token_RP; }
-{ASGN}				{ printf("Text: %s \n",yytext); return Token_ASGN; }
-{SC}				{ printf("Text: %s \n",yytext); return Token_SC; }
-{COLON}				{ printf("Text: %s \n",yytext); return Token_COLON; }
-{POWER}				{ printf("Text: %s \n",yytext); return Token_POWER; }
-{MULTIPLY}			{ printf("Text: %s \n",yytext); return Token_MULTIPLY; }
-{DIVIDE}			{ printf("Text: %s \n",yytext); return Token_DIVIDE; }
-{MOD}				{ printf("Text: %s \n",yytext); return Token_MOD; }
-{ADD}				{ printf("Text: %s \n",yytext); return Token_ADD; }
-{SUB}				{ printf("Text: %s \n",yytext); return Token_SUB; }
-{EQUAL}				{ printf("Text: %s \n",yytext); return Token_EQUAL; }
-{NOTEQUAL}			{ printf("Text: %s \n",yytext); return Token_NOTEQUAL; }
-{LESSTHAN}			{ printf("Text: %s \n",yytext); return Token_LESSTHAN; }
-{GREATERTHAN}		{ printf("Text: %s \n",yytext); return Token_GREATERTHAN; }
-{LESSEQUAL}			{ printf("Text: %s \n",yytext); return Token_LESSEQUAL; }
-{GREATEREQUAL}		{ printf("Text: %s \n",yytext); return Token_GREATEREQUAL; }
-{IF}				{ printf("Text: %s \n",yytext); return Token_IF; }
-{THEN}				{ printf("Text: %s \n",yytext); return Token_THEN; }
-{ELSE}				{ printf("Text: %s \n",yytext); return Token_ELSE; }
-{BEGIN}				{ printf("Text: %s \n",yytext); return Token_BEGIN; }
-{END}				{ printf("Text: %s \n",yytext); return Token_END; }
-{ENDIF}				{ printf("Text: %s \n",yytext); return Token_ENDIF; }
-{ENDWHILE}			{ printf("Text: %s \n",yytext); return Token_ENDWHILE; }
-{WHILE}				{ printf("Text: %s \n",yytext); return Token_WHILE; }
-{LOOP}				{ printf("Text: %s \n",yytext); return Token_LOOP; }
-{PROGRAM}			{ printf("Text: %s \n",yytext); return Token_PROGRAM; }
-{VAR}				{ printf("Text: %s \n",yytext); return Token_VAR; }
-{INT}				{ printf("Text: %s \n",yytext); return Token_INT; }
-{WRITEINT}			{ printf("Text: %s \n",yytext); return Token_WRITEINT; }
-{READINT}			{ printf("Text: %s \n",yytext);  return Token_READINT; }
-{NUM}				{ printf("Text: %s \n",yytext); return Token_NUM; }
-{IDENT}				{ printf("Text: %s \n",yytext); return Token_IDENT; }
-{NUM}               { yylval.num = atoi(yytext); return T_NUM; }
-{IDENT}             { strcpy(yylval.str, yytext); return T_IDENT; }
+{LP}				{/* printf("Text: %s \n",yytext);*/  return Token_LP; }
+{RP}				{/* printf("Text: %s \n",yytext);*/  return Token_RP; }
+{ASGN}				{/* printf("Text: %s \n",yytext);*/  return Token_ASGN; }
+{SC}				{/* printf("Text: %s \n",yytext);*/  return Token_SC; }
+{COLON}				{/* printf("Text: %s \n",yytext);*/  return Token_COLON; }
+{POWER}				{/* printf("Text: %s \n",yytext);*/  return Token_POWER; }
+{MULTIPLY}			{/* printf("Text: %s \n",yytext);*/  return Token_MULTIPLY; }
+{DIVIDE}			{/* printf("Text: %s \n",yytext);*/  return Token_DIVIDE; }
+{MOD}				{/* printf("Text: %s \n",yytext);*/  return Token_MOD; }
+{ADD}				{/* printf("Text: %s \n",yytext);*/  return Token_ADD; }
+{SUB}				{/* printf("Text: %s \n",yytext);*/  return Token_SUB; }
+{EQUAL}				{/* printf("Text: %s \n",yytext);*/  return Token_EQUAL; }
+{NOTEQUAL}			{/* printf("Text: %s \n",yytext);*/  return Token_NOTEQUAL; }
+{LESSTHAN}			{/* printf("Text: %s \n",yytext);*/  return Token_LESSTHAN; }
+{GREATERTHAN}		{/* printf("Text: %s \n",yytext);*/  return Token_GREATERTHAN; }
+{LESSEQUAL}			{/* printf("Text: %s \n",yytext);*/  return Token_LESSEQUAL; }
+{GREATEREQUAL}		{/* printf("Text: %s \n",yytext);*/  return Token_GREATEREQUAL; }
+{IF}				{/* printf("Text: %s \n",yytext);*/  return Token_IF; }
+{THEN}				{/* printf("Text: %s \n",yytext);*/  return Token_THEN; }
+{ELSE}				{/* printf("Text: %s \n",yytext);*/  return Token_ELSE; }
+{BEGIN}				{/* printf("Text: %s \n",yytext);*/  return Token_BEGIN; }
+{END}				{/* printf("Text: %s \n",yytext);*/  return Token_END; }
+{ENDIF}				{/* printf("Text: %s \n",yytext);*/  return Token_ENDIF; }
+{ENDWHILE}			{/* printf("Text: %s \n",yytext);*/  return Token_ENDWHILE; }
+{WHILE}				{/* printf("Text: %s \n",yytext);*/  return Token_WHILE; }
+{LOOP}				{/* printf("Text: %s \n",yytext);*/  return Token_LOOP; }
+{PROGRAM}			{/* printf("Text: %s \n",yytext);*/  return Token_PROGRAM; }
+{VAR}				{/* printf("Text: %s \n",yytext);*/  return Token_VAR; }
+{INT}				{/* printf("Text: %s \n",yytext);*/  return Token_INT; }
+{WRITEINT}			{/* printf("Text: %s \n",yytext);*/  return Token_WRITEINT; }
+{READINT}			{/* printf("Text: %s \n",yytext);*/   return Token_READINT; }
+{NUM}				{/* printf("Text: %s \n",yytext);*/ yylval.num=atoi(yytext); return Token_NUM; }
+{IDENT}				{/* printf("Text: %s \n",yytext);*/ strcpy(yylval.str ,yytext); return Token_IDENT; }
 .					printf("unexpected token %s\n",yytext); /* Ignore any non defined occurance */

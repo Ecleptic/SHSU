@@ -870,167 +870,167 @@ YY_RULE_SETUP
 case 4:
 YY_RULE_SETUP
 #line 97 "zinc.l"
-{ printf("Text: %s \n",yytext); return Token_LP; }
+{/* printf("Text: %s \n",yytext);*/  return Token_LP; }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
 #line 98 "zinc.l"
-{ printf("Text: %s \n",yytext); return Token_RP; }
+{/* printf("Text: %s \n",yytext);*/  return Token_RP; }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
 #line 99 "zinc.l"
-{ printf("Text: %s \n",yytext); return Token_ASGN; }
+{/* printf("Text: %s \n",yytext);*/  return Token_ASGN; }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
 #line 100 "zinc.l"
-{ printf("Text: %s \n",yytext); return Token_SC; }
+{/* printf("Text: %s \n",yytext);*/  return Token_SC; }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
 #line 101 "zinc.l"
-{ printf("Text: %s \n",yytext); return Token_COLON; }
+{/* printf("Text: %s \n",yytext);*/  return Token_COLON; }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
 #line 102 "zinc.l"
-{ printf("Text: %s \n",yytext); return Token_POWER; }
+{/* printf("Text: %s \n",yytext);*/  return Token_POWER; }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
 #line 103 "zinc.l"
-{ printf("Text: %s \n",yytext); return Token_MULTIPLY; }
+{/* printf("Text: %s \n",yytext);*/  return Token_MULTIPLY; }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
 #line 104 "zinc.l"
-{ printf("Text: %s \n",yytext); return Token_DIVIDE; }
+{/* printf("Text: %s \n",yytext);*/  return Token_DIVIDE; }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
 #line 105 "zinc.l"
-{ printf("Text: %s \n",yytext); return Token_MOD; }
+{/* printf("Text: %s \n",yytext);*/  return Token_MOD; }
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
 #line 106 "zinc.l"
-{ printf("Text: %s \n",yytext); return Token_ADD; }
+{/* printf("Text: %s \n",yytext);*/  return Token_ADD; }
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
 #line 107 "zinc.l"
-{ printf("Text: %s \n",yytext); return Token_SUB; }
+{/* printf("Text: %s \n",yytext);*/  return Token_SUB; }
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
 #line 108 "zinc.l"
-{ printf("Text: %s \n",yytext); return Token_EQUAL; }
+{/* printf("Text: %s \n",yytext);*/  return Token_EQUAL; }
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
 #line 109 "zinc.l"
-{ printf("Text: %s \n",yytext); return Token_NOTEQUAL; }
+{/* printf("Text: %s \n",yytext);*/  return Token_NOTEQUAL; }
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
 #line 110 "zinc.l"
-{ printf("Text: %s \n",yytext); return Token_LESSTHAN; }
+{/* printf("Text: %s \n",yytext);*/  return Token_LESSTHAN; }
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
 #line 111 "zinc.l"
-{ printf("Text: %s \n",yytext); return Token_GREATERTHAN; }
+{/* printf("Text: %s \n",yytext);*/  return Token_GREATERTHAN; }
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
 #line 112 "zinc.l"
-{ printf("Text: %s \n",yytext); return Token_LESSEQUAL; }
+{/* printf("Text: %s \n",yytext);*/  return Token_LESSEQUAL; }
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
 #line 113 "zinc.l"
-{ printf("Text: %s \n",yytext); return Token_GREATEREQUAL; }
+{/* printf("Text: %s \n",yytext);*/  return Token_GREATEREQUAL; }
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
 #line 114 "zinc.l"
-{ printf("Text: %s \n",yytext); return Token_IF; }
+{/* printf("Text: %s \n",yytext);*/  return Token_IF; }
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
 #line 115 "zinc.l"
-{ printf("Text: %s \n",yytext); return Token_THEN; }
+{/* printf("Text: %s \n",yytext);*/  return Token_THEN; }
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
 #line 116 "zinc.l"
-{ printf("Text: %s \n",yytext); return Token_ELSE; }
+{/* printf("Text: %s \n",yytext);*/  return Token_ELSE; }
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
 #line 117 "zinc.l"
-{ printf("Text: %s \n",yytext); return Token_BEGIN; }
+{/* printf("Text: %s \n",yytext);*/  return Token_BEGIN; }
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
 #line 118 "zinc.l"
-{ printf("Text: %s \n",yytext); return Token_END; }
+{/* printf("Text: %s \n",yytext);*/  return Token_END; }
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
 #line 119 "zinc.l"
-{ printf("Text: %s \n",yytext); return Token_ENDIF; }
+{/* printf("Text: %s \n",yytext);*/  return Token_ENDIF; }
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
 #line 120 "zinc.l"
-{ printf("Text: %s \n",yytext); return Token_ENDWHILE; }
+{/* printf("Text: %s \n",yytext);*/  return Token_ENDWHILE; }
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
 #line 121 "zinc.l"
-{ printf("Text: %s \n",yytext); return Token_WHILE; }
+{/* printf("Text: %s \n",yytext);*/  return Token_WHILE; }
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
 #line 122 "zinc.l"
-{ printf("Text: %s \n",yytext); return Token_LOOP; }
+{/* printf("Text: %s \n",yytext);*/  return Token_LOOP; }
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
 #line 123 "zinc.l"
-{ printf("Text: %s \n",yytext); return Token_PROGRAM; }
+{/* printf("Text: %s \n",yytext);*/  return Token_PROGRAM; }
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
 #line 124 "zinc.l"
-{ printf("Text: %s \n",yytext); return Token_VAR; }
+{/* printf("Text: %s \n",yytext);*/  return Token_VAR; }
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
 #line 125 "zinc.l"
-{ printf("Text: %s \n",yytext); return Token_INT; }
+{/* printf("Text: %s \n",yytext);*/  return Token_INT; }
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
 #line 126 "zinc.l"
-{ printf("Text: %s \n",yytext); return Token_WRITEINT; }
+{/* printf("Text: %s \n",yytext);*/  return Token_WRITEINT; }
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
 #line 127 "zinc.l"
-{ printf("Text: %s \n",yytext);  return Token_READINT; }
+{/* printf("Text: %s \n",yytext);*/   return Token_READINT; }
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
 #line 128 "zinc.l"
-{ printf("Text: %s \n",yytext); return Token_NUM; }
+{/* printf("Text: %s \n",yytext);*/ yylval.num=atoi(yytext); return Token_NUM; }
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
 #line 129 "zinc.l"
-{ printf("Text: %s \n",yytext); return Token_IDENT; }
+{/* printf("Text: %s \n",yytext);*/ strcpy(yylval.str ,yytext); return Token_IDENT; }
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
