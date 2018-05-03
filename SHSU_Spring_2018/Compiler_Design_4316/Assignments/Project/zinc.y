@@ -58,24 +58,24 @@ extern int yylineno;
 
 %%
 /* productions */
-program				: Token_PROGRAM declarations Token_BEGIN statementSequence Token_END { printf("");}
+program				: Token_PROGRAM { printf("Section\t.data\n"); } declarations Token_BEGIN /*{ printf("Section\t.code\n"); }*/ statementSequence Token_END { printf("");}
 					;
 
-declarations		: Token_VAR Token_IDENT Token_COLON type Token_SC declarations { printf("");}
+declarations		:  Token_VAR Token_IDENT Token_COLON type Token_SC declarations { printf("");}
 					| /*empty*/
 					;
 
-type 				:  Token_INT
+type 				:  Token_INT { printf(""); }
 					;
 
 statementSequence 	: statement Token_SC statementSequence { printf("");}
 					| /*empty*/
 					;
 
-statement			: assignment { printf("");}
-					| ifStatement { printf("");}
-					| whileStatement { printf("");}
-					| writeInt { printf("");}
+statement			: assignment
+					| ifStatement { printf("GOTRUE\n");}
+					| whileStatement { printf("LOOP\n");}
+					| writeInt { printf("RVALUE\n");}
 					| /*empty*/
 					;
 
@@ -84,7 +84,7 @@ assignment			: Token_IDENT Token_ASGN {printf("LVALUE \t%s\n", $1);} expression 
 					;
 
 
-ifStatement			: Token_IF expression Token_THEN statementSequence elseClause Token_ENDIF { printf("");}
+ifStatement			: Token_IF expression Token_THEN {printf("GOFALSE \t%s\n", gen_label());} statementSequence elseClause Token_ENDIF {printf("LABEL \t%s\n", gen_label());}
 					|
 					;
 
@@ -95,18 +95,18 @@ elseClause			: Token_ELSE statementSequence { printf("");}
 whileStatement		: Token_WHILE expression Token_LOOP statementSequence Token_ENDWHILE { printf("");}
 					;
 
-writeInt 			: Token_WRITEINT expression { printf("");}
+writeInt 			: Token_WRITEINT expression {printf("PRINT\n");}
 					;
 
 
 
-expression			: simpleExpression { printf("");}
-					| simpleExpression Token_EQUAL expression { printf("");}
-					| simpleExpression Token_NOTEQUAL expression { printf("");}
-					| simpleExpression Token_LESSTHAN expression { printf("");}
-					| simpleExpression Token_GREATERTHAN expression { printf("");}
-					| simpleExpression Token_LESSEQUAL expression { printf("");}
-					| simpleExpression Token_GREATEREQUAL expression { printf("");}
+expression			: simpleExpression
+					| simpleExpression Token_EQUAL expression { printf("EQ\n");}
+					| simpleExpression Token_NOTEQUAL expression { printf("NE\n");}
+					| simpleExpression Token_LESSTHAN expression { printf("LT\n");}
+					| simpleExpression Token_GREATERTHAN expression { printf("GT\n");}
+					| simpleExpression Token_LESSEQUAL expression { printf("LE\n");}
+					| simpleExpression Token_GREATEREQUAL expression { printf("GE\n");}
 					;
 /*
 expr				: expr PLUS expr {yycode("ADD\n");}
@@ -116,23 +116,23 @@ expr				: expr PLUS expr {yycode("ADD\n");}
     				| ID  { yycode("LVALUE\t%s\n", $1);}
 					; */
 
-simpleExpression	: term Token_ADD simpleExpression { printf("");}
-					| term Token_SUB simpleExpression { printf("");}
+simpleExpression	: term Token_ADD simpleExpression { printf("ADD\n");}
+					| term Token_SUB simpleExpression { printf("ADD\n");}
 					| term
 					;
 
-term				: factor Token_MULTIPLY term { printf("");}
-					| factor Token_DIVIDE term { printf("");}
-					| factor Token_MOD term { printf("");}
-					| factor { printf("");}
+term				: factor Token_MULTIPLY term { printf("MPY\n");}
+					| factor Token_DIVIDE term { printf("DIV\n");}
+					| factor Token_MOD term { printf("MOD\n");}
+					| factor { printf("**\n");}
 					;
 
 factor				: primary Token_POWER factor { printf("");}
 					| primary { printf("");}
 					;
 
-primary				: Token_IDENT { printf("");}
-					| Token_NUM { printf("");}
+primary				: Token_IDENT  { printf("RVALUE %s\n", $1); } 
+					| Token_NUM { printf("PUSH %d\n", $1);}
 					| Token_LP expression Token_RP { printf("");}
 					;
 
@@ -150,9 +150,17 @@ yyerror(char *s)
 	// printf("%s at line %s\n", s,line);
 	fprintf(stderr, "ERROR: %s (line: %d)\n", s, yylineno);
 }
+char *gen_label()
+{
+    static int i = 1000;
+    char *temp = malloc(5);
+    sprintf(temp,"%04d",i++);
+    return temp;
+}
 
 void main()
 {
+	printf("---------------------------------------------------------------\n");
 	yyparse();
 
 }
