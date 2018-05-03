@@ -2,8 +2,8 @@ program
     var N : integer;
     var SQRT : integer;
 begin
-    SQRT := 0;
     N := readInt;
+    SQRT := 0;
 
     while SQRT * SQRT <= N loop
         SQRT := SQRT + 1;
@@ -11,5 +11,5 @@ begin
 
     SQRT := SQRT - 1;
 
-    writeInt(SQRT); 
+    writeInt(SQRT);
 end

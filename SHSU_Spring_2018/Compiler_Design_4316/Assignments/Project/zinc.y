@@ -3,8 +3,14 @@
 #include <string.h>
 #include <stdlib.h>
 
+void push();
+char* pop();
+char* gen_label();
+void yyerror();
+char temp1[20]; char temp2[20];
+char label_stack[20][90];
+int stackPointer = 0;
 
-char * gen_label();
 
 extern int yylineno;
 
@@ -58,47 +64,63 @@ extern int yylineno;
 
 %%
 /* productions */
-program				: Token_PROGRAM { printf("Section\t.data\n"); } declarations Token_BEGIN /*{ printf("Section\t.code\n"); }*/ statementSequence Token_END { printf("");}
+program				: Token_PROGRAM { printf("Section\t.data\n"); } declarations Token_BEGIN { printf("Section\t.code\n"); } statementSequence Token_END { printf("HALT\n");}
 					;
 
-declarations		:  Token_VAR Token_IDENT Token_COLON type Token_SC declarations { printf("");}
+declarations		:  Token_VAR Token_IDENT Token_COLON { printf("%s:\t",$2);} type Token_SC declarations
 					| /*empty*/
 					;
 
-type 				:  Token_INT { printf(""); }
+type 				:  Token_INT { printf("word\n"); }
 					;
 
-statementSequence 	: statement Token_SC statementSequence { printf("");}
+statementSequence 	: statement Token_SC statementSequence
 					| /*empty*/
 					;
 
 statement			: assignment
-					| ifStatement { printf("GOTRUE\n");}
-					| whileStatement { printf("LOOP\n");}
-					| writeInt { printf("RVALUE\n");}
-					| /*empty*/
+					| ifStatement
+					| whileStatement
+					| writeInt
 					;
 
-assignment			: Token_IDENT Token_ASGN {printf("LVALUE \t%s\n", $1);} expression {printf("STO\n"); }
-					| Token_IDENT Token_ASGN {printf("LVALUE \t%s\n", $1);} {printf("READINT\n");} Token_READINT { printf("STO\n");}
+assignment			: Token_IDENT Token_ASGN {printf("LVALUE \t%s\n", $1);}
+						expression {printf("STO\n"); }
+
+					| Token_IDENT Token_ASGN Token_READINT
+						{printf("LVALUE \t%s\nREADINT\nSTO\n", $1);}
 					;
 
+ifStatement			: Token_IF expression Token_THEN
+					{printf("GOFALSE \t%s\n", gen_label());}
+					statementSequence elseClause Token_ENDIF
+					{printf("LABEL \t%s\n", pop());}
+					;
 
-ifStatement			: Token_IF expression Token_THEN {printf("GOFALSE \t%s\n", gen_label());} statementSequence elseClause Token_ENDIF {printf("LABEL \t%s\n", gen_label());}
+elseClause			: Token_ELSE
+					{
+					strcpy(temp1, pop()); // goFalse (in ifStatement) Label
+					printf("GOTO \t%s\n", gen_label());
+					printf("LABEL \t%s\n", temp1);
+					}
+					statementSequence
 					|
 					;
 
-elseClause			: Token_ELSE statementSequence { printf("");}
-					|
-					;
-
-whileStatement		: Token_WHILE expression Token_LOOP statementSequence Token_ENDWHILE { printf("");}
+whileStatement		: Token_WHILE { printf("LABEL \t%s\n", gen_label()); }
+					expression Token_LOOP
+					{ printf("GOFALSE %s\n", gen_label()); }
+					statementSequence Token_ENDWHILE
+					{
+						strcpy(temp1, pop()); // goFalse Label
+						strcpy(temp2, pop()); // while Label
+						printf("GOTO \t%s\n", temp2); // goto while label
+						printf("LABEL \t%s\n", temp1); // get out
+					}
 					;
 
 writeInt 			: Token_WRITEINT expression {printf("PRINT\n");}
 					;
-
-
 
 expression			: simpleExpression
 					| simpleExpression Token_EQUAL expression { printf("EQ\n");}
@@ -108,58 +130,66 @@ expression			: simpleExpression
 					| simpleExpression Token_LESSEQUAL expression { printf("LE\n");}
 					| simpleExpression Token_GREATEREQUAL expression { printf("GE\n");}
 					;
-/*
-expr				: expr PLUS expr {yycode("ADD\n");}
-    				| expr STAR expr {yycode("MUL\n");}
-    				| LP expr RP
-    				| NUM { yycode("PUSH \t%s\n", $1);}
-    				| ID  { yycode("LVALUE\t%s\n", $1);}
-					; */
 
 simpleExpression	: term Token_ADD simpleExpression { printf("ADD\n");}
-					| term Token_SUB simpleExpression { printf("ADD\n");}
+					| term Token_SUB simpleExpression { printf("SUB\n");}
 					| term
 					;
 
 term				: factor Token_MULTIPLY term { printf("MPY\n");}
 					| factor Token_DIVIDE term { printf("DIV\n");}
 					| factor Token_MOD term { printf("MOD\n");}
-					| factor { printf("**\n");}
+					| factor
 					;
 
-factor				: primary Token_POWER factor { printf("");}
-					| primary { printf("");}
+factor				: primary Token_POWER factor { printf("POW\n");}
+					| primary
 					;
 
-primary				: Token_IDENT  { printf("RVALUE %s\n", $1); } 
+primary				: Token_IDENT  { printf("RVALUE %s\n", $1); }
 					| Token_NUM { printf("PUSH %d\n", $1);}
-					| Token_LP expression Token_RP { printf("");}
+					| Token_LP expression Token_RP
 					;
-
-// primary             : T_NUM     { printf("PUSH %d\n", $1); }
-//                     | T_LP expression T_RP
-//                     | T_IDENT   { printf("RVALUE %s\n", $1); }
-//                     ;
-
-
 
 %%
 
-yyerror(char *s)
+void yyerror(char *s)
 {
-	// printf("%s at line %s\n", s,line);
 	fprintf(stderr, "ERROR: %s (line: %d)\n", s, yylineno);
 }
-char *gen_label()
+
+char* gen_label()
 {
     static int i = 1000;
     char *temp = malloc(5);
     sprintf(temp,"%04d",i++);
+	push(temp);
     return temp;
 }
+void push(char* s)
+{
+    if(stackPointer < 30)
+    {
+        strcpy(label_stack[stackPointer], s);
+        stackPointer++;
+    }
+}
+
+char* pop()
+{
+    if(stackPointer > 0)
+    {
+        stackPointer--;
+		return label_stack[stackPointer];
+
+    }
+ 	return NULL;
+}
+
 
 void main()
 {
+	printf("-----------------------------------------------------------------");
 	printf("---------------------------------------------------------------\n");
 	yyparse();
 

@@ -5,9 +5,3 @@ all:
 
 run: all
 	./zinc < input.znc
-
-test: all
-	./zinc < test.znc
-
-if: all
-	./zinc < if.znc

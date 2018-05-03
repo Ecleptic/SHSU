@@ -1,7 +1,7 @@
 %{
 /**
 *	Cameron Green
-* 	Lab 03
+* 	Final Project
 * 	Dr. McGuire's Compiler Design
 */
 
