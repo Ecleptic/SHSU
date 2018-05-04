@@ -1,4 +1,10 @@
 %{
+/**
+*	Cameron Green
+* 	Final Project
+* 	Dr. McGuire's Compiler Design
+*/
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
